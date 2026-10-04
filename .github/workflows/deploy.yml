@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 2
+          fetch-depth: 0
 
       - uses: actions/setup-node@v4
         with:
@@ -35,9 +35,15 @@ jobs:
           elif [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             echo "slugs=$(ls sites | tr '\n' ' ')" >> "$GITHUB_OUTPUT"
           else
-            slugs=$(git diff --name-only HEAD~1 HEAD -- sites/ | cut -d/ -f2 | sort -u | tr '\n' ' ')
+            before="${{ github.event.before }}"
+            if [ -n "$before" ] && [ "$before" != "0000000000000000000000000000000000000000" ] && git cat-file -e "$before" 2>/dev/null; then
+              slugs=$(git diff --name-only "$before" HEAD -- sites/ | cut -d/ -f2 | sort -u | tr '\n' ' ')
+            else
+              slugs=$(ls sites | tr '\n' ' ')
+            fi
             echo "slugs=$slugs" >> "$GITHUB_OUTPUT"
           fi
+          echo "Clientes: $(grep slugs= "$GITHUB_OUTPUT" | tail -1)"
 
       - name: Publicar na Cloudflare
         env:
