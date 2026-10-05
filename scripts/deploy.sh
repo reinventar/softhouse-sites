@@ -81,7 +81,11 @@ upsert_cname () {
 if [ -n "$sub" ] && [ -n "${SOFTHOUSE_DOMAIN:-}" ]; then
   host="$sub.$SOFTHOUSE_DOMAIN"
   attach_domain "$host"
-  if [ -n "${CF_ZONE_ID:-}" ]; then upsert_cname "$CF_ZONE_ID" "$host"; else echo "::warning::CF_ZONE_ID vazio"; fi
+  if [ -n "${CF_ZONE_ID:-}" ]; then
+    r=$(cf GET "/zones/$CF_ZONE_ID")
+    if ok "$r"; then echo "::notice title=zona::$(echo "$r" | jq -r '"\(.result.name) · status \(.result.status)"')"; else echo "::warning title=zona::CF_ZONE_ID não encontrado: $(errs "$r")"; fi
+    upsert_cname "$CF_ZONE_ID" "$host"
+  else echo "::warning::CF_ZONE_ID vazio"; fi
   urls+=("https://$host")
 fi
 
