@@ -1,0 +1,33 @@
+name: Manutenção DNS
+
+on:
+  workflow_dispatch:
+    inputs:
+      zona:
+        description: "Domínio da zona (ex.: reiventar.com)"
+        required: true
+      contem:
+        description: "Apagar registros cujo nome contenha este texto"
+        required: true
+
+jobs:
+  limpar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Apagar registros
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          ZONA: ${{ github.event.inputs.zona }}
+          CONTEM: ${{ github.event.inputs.contem }}
+        run: |
+          api="https://api.cloudflare.com/client/v4"
+          H="Authorization: Bearer $CLOUDFLARE_API_TOKEN"
+          zone=$(curl -sS -H "$H" "$api/zones?name=$ZONA" | jq -r '.result[0].id // empty')
+          [ -n "$zone" ] || { echo "::error::Zona $ZONA não encontrada"; exit 1; }
+          curl -sS -H "$H" "$api/zones/$zone/dns_records?per_page=500" \
+            | jq -r --arg c "$CONTEM" '.result[] | select(.name | contains($c)) | "\(.id) \(.name)"' \
+            | while read -r id name; do
+                r=$(curl -sS -X DELETE -H "$H" "$api/zones/$zone/dns_records/$id")
+                echo "$r" | jq -e '.success' >/dev/null && echo "::notice::Apagado: $name" || echo "::warning::Falhou: $name"
+              done
+          echo "::notice::Manutenção concluída em $ZONA"
