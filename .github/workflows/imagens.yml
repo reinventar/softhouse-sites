@@ -1,0 +1,70 @@
+name: Imagens
+
+# buscar: procura fotos gratuitas no Unsplash para cada item de sites/_imagens/manifesto.json
+#         e grava miniaturas em sites/_imagens/candidatos/<site>/<item>/ (não é publicado).
+# baixar: lê sites/_imagens/escolhas.json ({"site": {"item": "<id da foto>"}}) e grava
+#         sites/<site>/img/<item>.webp (1800px) + CREDITOS.txt.
+on:
+  workflow_dispatch:
+    inputs:
+      modo:
+        description: "buscar ou baixar"
+        required: true
+        default: buscar
+
+permissions:
+  contents: write
+
+jobs:
+  imagens:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ferramentas
+        run: sudo apt-get install -y -qq webp >/dev/null
+      - name: Executar
+        env:
+          MODO: ${{ github.event.inputs.modo }}
+        run: |
+          set -uo pipefail
+          UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36"
+          M=sites/_imagens/manifesto.json
+          if [ "$MODO" = "buscar" ]; then
+            rm -rf sites/_imagens/candidatos; mkdir -p sites/_imagens/candidatos
+            for site in $(jq -r 'keys[]' $M); do
+              for item in $(jq -r --arg s "$site" '.[$s] | keys[]' $M); do
+                q=$(jq -r --arg s "$site" --arg i "$item" '.[$s][$i].busca' $M)
+                o=$(jq -r --arg s "$site" --arg i "$item" '.[$s][$i].orientacao' $M)
+                d=sites/_imagens/candidatos/$site/$item; mkdir -p $d
+                r=$(curl -sS -A "$UA" -G "https://unsplash.com/napi/search/photos" --data-urlencode "query=$q" --data-urlencode "orientation=$o" --data-urlencode "per_page=20")
+                echo "$r" | jq -e '.results' >/dev/null 2>&1 || { echo "::error title=$site/$item::busca falhou: $(echo "$r" | head -c 200)"; continue; }
+                echo "$r" | jq '[.results[] | select((.premium // false) == false and (.plus // false) == false) | {id, desc: (.alt_description // ""), autor: .user.name, perfil: .user.links.html, raw: .urls.raw, thumb: .urls.small}] | .[0:8]' > $d/ids.json
+                n=0
+                for row in $(jq -r '.[] | @base64' $d/ids.json); do
+                  id=$(echo $row | base64 -d | jq -r .id); t=$(echo $row | base64 -d | jq -r .thumb)
+                  n=$((n+1)); curl -sS -A "$UA" -L "$t" -o "$d/$n-$id.jpg"
+                done
+                echo "::notice title=$site/$item::$n candidatos"
+              done
+            done
+            git add sites/_imagens/candidatos
+          else
+            E=sites/_imagens/escolhas.json
+            for site in $(jq -r 'keys[]' $E); do
+              mkdir -p sites/$site/img; cred=sites/$site/img/CREDITOS.txt
+              echo "Fotos do Unsplash (licença Unsplash: uso comercial gratuito)" > $cred
+              for item in $(jq -r --arg s "$site" '.[$s] | keys[]' $E); do
+                id=$(jq -r --arg s "$site" --arg i "$item" '.[$s][$i]' $E)
+                info=$(jq -c --arg id "$id" '.[] | select(.id == $id)' sites/_imagens/candidatos/$site/*/ids.json | head -1)
+                [ -n "$info" ] || { echo "::error title=$site/$item::id $id não está nos candidatos"; continue; }
+                raw=$(echo "$info" | jq -r .raw)
+                curl -sS -A "$UA" -L "${raw}&w=1800&q=82&fm=jpg&fit=max" -o /tmp/a.jpg
+                cwebp -quiet -q 78 -resize 1800 0 /tmp/a.jpg -o sites/$site/img/$item.webp || cwebp -quiet -q 78 /tmp/a.jpg -o sites/$site/img/$item.webp
+                echo "$item: $(echo "$info" | jq -r '.autor + " · " + .perfil') · https://unsplash.com/photos/$id" >> $cred
+                echo "::notice title=$site/$item::$(du -k sites/$site/img/$item.webp | cut -f1) KB"
+              done
+              git add sites/$site/img
+            done
+          fi
+          git -c user.name="Reinventar Bot" -c user.email="noreply@reinventar.dev" commit -qm "Imagens ($MODO)" || echo "nada novo"
+          git push

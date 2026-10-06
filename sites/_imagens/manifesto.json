@@ -1,0 +1,25 @@
+{
+  "demo-corretor": {
+    "hero":     {"busca": "luxury modern house pool dusk", "orientacao": "landscape"},
+    "retrato":  {"busca": "elegant businesswoman portrait 40s", "orientacao": "portrait"},
+    "imovel1":  {"busca": "modern luxury house exterior architecture", "orientacao": "landscape"},
+    "imovel2":  {"busca": "luxury living room interior design", "orientacao": "landscape"},
+    "imovel3":  {"busca": "penthouse balcony city view", "orientacao": "landscape"},
+    "imovel4":  {"busca": "luxury kitchen marble island", "orientacao": "landscape"},
+    "detalhe":  {"busca": "luxury bedroom interior minimal", "orientacao": "portrait"}
+  },
+  "demo-dentista": {
+    "hero":       {"busca": "female dentist portrait smiling", "orientacao": "portrait"},
+    "clinica":    {"busca": "modern dental clinic interior", "orientacao": "landscape"},
+    "tecnologia": {"busca": "dental equipment technology", "orientacao": "landscape"},
+    "sorriso":    {"busca": "woman smiling natural teeth portrait", "orientacao": "portrait"},
+    "consulta":   {"busca": "dentist talking with patient", "orientacao": "landscape"}
+  },
+  "demo-personal": {
+    "hero":     {"busca": "personal trainer man gym dark portrait", "orientacao": "portrait"},
+    "treino":   {"busca": "coach training woman strength gym", "orientacao": "landscape"},
+    "corrida":  {"busca": "man running outdoor sunrise", "orientacao": "landscape"},
+    "academia": {"busca": "dark gym equipment moody", "orientacao": "landscape"},
+    "aluna":    {"busca": "woman lifting dumbbells gym", "orientacao": "portrait"}
+  }
+}
