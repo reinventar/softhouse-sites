@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lucas Ferraz · Personal trainer em Divinópolis · Força e longevidade</title>
+<meta name="description" content="Treinamento de força com avaliação, plano de 12 semanas e acompanhamento presencial ou online. Studio em Divinópolis, MG.">
+<!-- Site demonstrativo da Reinventar: profissional, alunos, números e registro fictícios -->
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://personal.reinventar.dev/">
+<meta property="og:title" content="Lucas Ferraz · Força e longevidade">
+<meta property="og:image" content="https://personal.reinventar.dev/img/lucas.webp">
+<meta name="theme-color" content="#2340E8">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%232340E8'/%3E%3Cpath d='M14 40h36M14 24h36' stroke='%23F1F2EE' stroke-width='6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap">
+<link rel="preload" as="image" href="img/lucas.webp" fetchpriority="high">
+<style>
+:root{
+  --cobalto:#2340E8; --cobalto-esc:#1A2FB0; --giz:#F1F2EE; --concreto:#DCDED7; --grafite:#1D2026; --sinal:#FFB020; --cinza:#5D6168; --linha:#C9CCC3;
+  --f:"Archivo",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--giz);color:var(--grafite);font:400 17px/1.6 var(--f);font-stretch:100%;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sinal);outline-offset:2px}
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+h1,h2,h3{margin:0;font-weight:800;font-stretch:125%;line-height:.92;letter-spacing:-.02em}
+h2{font-size:clamp(40px,6vw,84px)}
+h3{font-size:24px;font-stretch:112%;line-height:1.05}
+p{margin:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 26px;font:700 16px var(--f);font-stretch:110%;text-decoration:none;border:2px solid currentColor;transition:background .15s,color .15s,transform .15s}
+.btn:active{transform:translateY(1px)}
+.btn.claro{background:var(--giz);color:var(--cobalto);border-color:var(--giz)}
+.btn.claro:hover{background:#fff}
+.btn.vazado{color:var(--giz)}
+.btn.vazado:hover{background:var(--giz);color:var(--cobalto)}
+.btn.escuro{background:var(--grafite);color:var(--giz);border-color:var(--grafite)}
+.btn.escuro:hover{background:var(--cobalto);border-color:var(--cobalto)}
+
+.demo{background:var(--grafite);color:#c3c6cc;font-size:13.5px;text-align:center;padding:9px 16px}
+.demo a{color:var(--sinal);font-weight:700}
+
+/* hero */
+.hero{background:var(--cobalto);color:var(--giz);position:relative;overflow:hidden}
+.nav{display:flex;align-items:center;justify-content:space-between;height:84px;gap:20px;position:relative;z-index:2}
+.brand{text-decoration:none;font-weight:900;font-stretch:125%;font-size:22px;letter-spacing:-.01em}
+.brand span{font-weight:500;font-stretch:100%;font-size:13px;opacity:.75;margin-left:10px;letter-spacing:0}
+.nav nav{display:flex;gap:28px;font-size:15px;font-weight:600}
+.nav nav a{text-decoration:none;opacity:.85}
+.nav nav a:hover{opacity:1}
+@media (max-width:900px){.nav nav{display:none}}
+@media (max-width:560px){.brand span{display:none}.brand{font-size:18px;white-space:nowrap}.nav .btn{min-height:44px;padding:0 14px;font-size:14px;white-space:nowrap}}
+.hero .grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:40px;align-items:end;min-height:min(82vh,800px)}
+.hero .txt{padding:40px 0 84px;position:relative;z-index:2}
+.hero h1{font-size:clamp(56px,9.6vw,148px);font-weight:900}
+.hero h1 span{display:block;font-stretch:62%;font-weight:700;color:var(--sinal);font-size:.62em;letter-spacing:0;margin-top:10px}
+.hero .lead{font-size:20px;max-width:520px;margin-top:30px;color:#dfe3ff}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.hero figure{margin:0;align-self:stretch;position:relative}
+.hero figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:60% 30%;filter:grayscale(1) contrast(1.08);mix-blend-mode:luminosity}
+.hero figure::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,var(--cobalto) 0%,rgba(35,64,232,0) 35%)}
+.hero .cref{position:absolute;right:24px;bottom:22px;z-index:3;font-size:13px;font-weight:600;background:var(--giz);color:var(--grafite);padding:8px 12px}
+@media (max-width:900px){.hero .grid{grid-template-columns:1fr;min-height:0}.hero figure{height:420px;order:-1;margin:0 -24px}.hero figure::after{background:linear-gradient(0deg,var(--cobalto) 0%,rgba(35,64,232,0) 45%)}.hero .txt{padding:0 0 64px}}
+
+/* placar */
+.placar{background:var(--grafite);color:var(--giz)}
+.placar .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.placar div.i{padding:44px 24px 40px;border-left:1px solid #33373f}
+.placar div.i:first-child{border-left:0;padding-left:0}
+.placar b{display:block;font-weight:900;font-stretch:125%;font-size:clamp(46px,5.4vw,80px);line-height:.9;font-variant-numeric:tabular-nums}
+.placar b small{font-size:.45em;font-stretch:100%;font-weight:700;margin-left:4px;color:var(--sinal)}
+.placar span{display:block;margin-top:14px;color:#a9adb5;font-size:15px;max-width:24ch}
+@media (max-width:860px){.placar .wrap{grid-template-columns:1fr 1fr}.placar div.i{padding:30px 16px}.placar div.i:nth-child(3){border-left:0;padding-left:0}.placar div.i:nth-child(n+3){border-top:1px solid #33373f}}
+
+section{padding:120px 0}
+.cab{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:56px;align-items:end;margin-bottom:56px}
+.cab p{font-size:18px;color:var(--cinza)}
+@media (max-width:860px){section{padding:84px 0}.cab{grid-template-columns:1fr;gap:18px}}
+
+/* método 12 semanas */
+.semanas{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:2px solid var(--grafite)}
+.sem{padding:30px 26px 34px;border-left:2px solid var(--grafite);display:flex;flex-direction:column;gap:14px;position:relative;background:var(--giz)}
+.sem:first-child{border-left:0;background:var(--grafite);color:var(--giz)}
+.sem .q{font-weight:900;font-stretch:125%;font-size:15px;color:var(--cobalto)}
+.sem:first-child .q{color:var(--sinal)}
+.sem p{color:var(--cinza);font-size:15.5px}
+.sem:first-child p{color:#b4b8bf}
+.sem ul{margin:auto 0 0;padding:14px 0 0;list-style:none;border-top:1px solid var(--linha);font-size:14px;font-weight:600;display:flex;flex-direction:column;gap:6px}
+.sem:first-child ul{border-color:#3a3e46}
+.barra{height:6px;background:var(--concreto);margin-top:6px}
+.barra i{display:block;height:100%;background:var(--cobalto)}
+.sem:first-child .barra{background:#3a3e46}
+.sem:first-child .barra i{background:var(--sinal)}
+@media (max-width:900px){.semanas{grid-template-columns:1fr 1fr}.sem:nth-child(3){border-left:0}.sem:nth-child(n+3){border-top:2px solid var(--grafite)}}
+@media (max-width:520px){.semanas{grid-template-columns:1fr}.sem{border-left:0}.sem+.sem{border-top:2px solid var(--grafite)}}
+
+/* faixa de imagens */
+.faixa{display:grid;grid-template-columns:1.2fr 1fr 1fr;height:min(64vh,560px);gap:0}
+.faixa figure{margin:0;position:relative;overflow:hidden}
+.faixa img{width:100%;height:100%;object-fit:cover}
+.faixa figcaption{position:absolute;left:16px;bottom:16px;background:var(--giz);font-size:13px;font-weight:700;padding:6px 10px}
+@media (max-width:760px){.faixa{grid-template-columns:1fr 1fr;height:auto}.faixa figure{aspect-ratio:3/4}.faixa figure:first-child{grid-column:1/-1;aspect-ratio:16/10}}
+
+/* resultados */
+.resultados{background:var(--concreto)}
+.casos{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.caso{background:var(--giz);padding:32px 28px;display:flex;flex-direction:column;gap:16px;border-top:6px solid var(--cobalto)}
+.caso .antes{display:flex;align-items:baseline;gap:14px;font-variant-numeric:tabular-nums}
+.caso .antes b{font-weight:900;font-stretch:125%;font-size:56px;line-height:.9;color:var(--cobalto)}
+.caso .antes span{font-size:14px;color:var(--cinza);font-weight:600}
+.caso p{color:#3a3e45}
+.caso cite{font-style:normal;font-weight:700;font-size:15px;margin-top:auto}
+.caso cite small{display:block;font-weight:500;color:var(--cinza)}
+.nota{font-size:13px;color:var(--cinza);margin-top:20px}
+@media (max-width:860px){.casos{grid-template-columns:1fr}}
+
+/* planos + agenda */
+.planos .grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start}
+.tabs{display:flex;border:2px solid var(--grafite);width:max-content;margin-bottom:24px}
+.tabs button{font:700 15px var(--f);font-stretch:110%;padding:12px 22px;min-height:48px;border:0;background:transparent;color:var(--grafite);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--grafite);color:var(--giz)}
+.plano{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 24px;padding:24px 0;border-top:2px solid var(--grafite);align-items:baseline}
+.plano:last-of-type{border-bottom:2px solid var(--grafite)}
+.plano h3{font-size:26px}
+.plano .v{font-weight:900;font-stretch:125%;font-size:34px;font-variant-numeric:tabular-nums;white-space:nowrap}
+.plano .v small{font-size:14px;font-weight:600;font-stretch:100%;color:var(--cinza)}
+.plano p{grid-column:1/-1;color:var(--cinza);font-size:15.5px}
+.plano.top h3::after{content:"Mais procurado";font:700 12px var(--f);font-stretch:100%;background:var(--sinal);color:var(--grafite);padding:4px 8px;margin-left:12px;vertical-align:middle;letter-spacing:0}
+[role="tabpanel"][hidden]{display:none}
+.agenda{background:var(--grafite);color:var(--giz);padding:32px}
+.agenda h3{margin-bottom:6px}
+.agenda > p{color:#a9adb5;font-size:15px;margin-bottom:22px}
+.grade{display:grid;grid-template-columns:64px repeat(6,1fr);gap:4px;font-size:13px;font-variant-numeric:tabular-nums}
+.grade .h{color:#a9adb5;font-weight:700;text-align:center;padding:6px 0}
+.grade .hr{color:#a9adb5;font-weight:600;display:flex;align-items:center}
+.grade .s{height:34px;background:#2b2f37}
+.grade .s.l{background:var(--cobalto)}
+.grade .s.p{background:var(--sinal)}
+.leg{display:flex;gap:20px;margin-top:18px;font-size:13px;color:#c3c6cc}
+.leg i{display:inline-block;width:12px;height:12px;margin-right:8px;vertical-align:-1px}
+@media (max-width:900px){.planos .grid{grid-template-columns:1fr}.agenda{padding:22px}.grade{grid-template-columns:48px repeat(6,1fr)}}
+
+/* sobre */
+.sobre .grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:72px;align-items:center}
+.sobre figure{margin:0;position:relative}
+.sobre figure img{aspect-ratio:4/5;object-fit:cover;width:100%}
+.sobre figure figcaption{position:absolute;left:-14px;bottom:28px;background:var(--cobalto);color:var(--giz);font-weight:700;font-stretch:110%;padding:10px 14px;font-size:15px}
+.sobre .txt{display:flex;flex-direction:column;gap:20px}
+.sobre .txt p{font-size:18px;color:#3a3e45;max-width:58ch}
+.creds{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:2px solid var(--grafite);margin-top:8px}
+.creds div{padding:16px 0;border-bottom:1px solid var(--linha);font-size:15px}
+.creds b{display:block;font-weight:800;font-stretch:110%}
+@media (max-width:860px){.sobre .grid{grid-template-columns:1fr;gap:44px}}
+
+/* cta */
+.cta{background:var(--cobalto);color:var(--giz);padding:110px 0}
+.cta .wrap{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:end}
+.cta h2{font-size:clamp(44px,7vw,104px)}
+.cta p{font-size:19px;color:#dfe3ff;margin-top:20px;max-width:560px}
+@media (max-width:760px){.cta .wrap{grid-template-columns:1fr}}
+
+footer{background:var(--grafite);color:#a9adb5;padding:56px 0 34px;font-size:15px}
+footer .grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:36px}
+footer h4{margin:0 0 10px;color:var(--giz);font-weight:800;font-stretch:115%;font-size:18px}
+footer a{text-decoration:none}
+footer .legal{margin-top:44px;padding-top:22px;border-top:1px solid #33373f;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13px}
+footer .legal a{color:var(--sinal)}
+@media (max-width:760px){footer .grid{grid-template-columns:1fr}}
+
+.wa{position:fixed;right:20px;bottom:20px;z-index:20;display:flex;align-items:center;gap:10px;background:var(--sinal);color:var(--grafite);text-decoration:none;font-weight:800;font-stretch:110%;padding:14px 20px;box-shadow:0 10px 26px rgba(0,0,0,.25)}
+.wa svg{width:20px;height:20px}
+@media (max-width:520px){.wa span{display:none}.wa{padding:14px}}
+@media (prefers-reduced-motion:no-preference){
+  .hero h1{animation:entra .8s cubic-bezier(.2,.8,.2,1) both}
+  .hero h1 span{animation:entra .8s .15s cubic-bezier(.2,.8,.2,1) both}
+  @keyframes entra{from{opacity:0;transform:translateY(24px);font-stretch:62%}}
+}
+</style>
+</head>
+<body>
+
+<div class="demo">Site demonstrativo criado pela Reinventar. Profissional, alunos, números e CREF são fictícios. <a class="rv" href="#" data-msg="Vi o site demonstrativo do personal Lucas Ferraz e quero um site assim.">Quero um site assim</a></div>
+
+<header class="hero">
+  <div class="wrap nav">
+    <a class="brand" href="#">LUCAS FERRAZ<span>Personal trainer</span></a>
+    <nav aria-label="Seções"><a href="#metodo">Método</a><a href="#resultados">Resultados</a><a href="#planos">Planos e horários</a><a href="#sobre">Sobre</a></nav>
+    <a class="btn vazado wa-link" href="#" data-msg="Olá, Lucas! Quero agendar uma avaliação.">Agendar avaliação</a>
+  </div>
+  <div class="wrap grid">
+    <div class="txt">
+      <h1>Treine para os próximos 40 anos.<span>Não só para o próximo verão.</span></h1>
+      <p class="lead">Treinamento de força com avaliação completa, plano de 12 semanas e acompanhamento de perto. Para quem quer ficar forte, sem dor e com autonomia em qualquer idade.</p>
+      <div class="ctas">
+        <a class="btn claro wa-link" href="#" data-msg="Olá, Lucas! Quero agendar minha avaliação física.">Agendar avaliação física</a>
+        <a class="btn vazado" href="#planos">Ver planos e horários</a>
+      </div>
+    </div>
+    <figure><img src="img/lucas.webp" alt="Lucas Ferraz treinando com barra em academia" width="1800" height="1200" fetchpriority="high"></figure>
+  </div>
+  <span class="cref">CREF 000000-G/MG (fictício)</span>
+</header>
+
+<div class="placar">
+  <div class="wrap">
+    <div class="i"><b>9<small>anos</small></b><span>de prática com treinamento de força</span></div>
+    <div class="i"><b>320</b><span>alunos acompanhados, dos 18 aos 81 anos</span></div>
+    <div class="i"><b>92<small>%</small></b><span>renovam depois das primeiras 12 semanas</span></div>
+    <div class="i"><b>6</b><span>alunos por horário, no máximo</span></div>
+  </div>
+</div>
+
+<main>
+<section id="metodo">
+  <div class="wrap">
+    <div class="cab">
+      <h2>12 semanas, medidas do começo ao fim</h2>
+      <p>Você sabe onde está no dia 1 e o que mudou na semana 12. Cada fase tem objetivo, carga e teste próprios.</p>
+    </div>
+    <div class="semanas">
+      <div class="sem"><span class="q">Semana 0</span><h3>Avaliação</h3><p>Uma hora de testes para saber de onde partimos e o que precisa de cuidado.</p><div class="barra"><i style="width:8%"></i></div><ul><li>Bioimpedância</li><li>Testes de força e mobilidade</li><li>Histórico de dores e lesões</li></ul></div>
+      <div class="sem"><span class="q">Semanas 1 a 4</span><h3>Base</h3><p>Técnica dos movimentos principais e adaptação das articulações à carga.</p><div class="barra"><i style="width:33%"></i></div><ul><li>3 treinos por semana</li><li>Cargas moderadas</li><li>Ajuste de rotina e sono</li></ul></div>
+      <div class="sem"><span class="q">Semanas 5 a 8</span><h3>Progressão</h3><p>Aumento planejado de carga e volume, com registro de cada série.</p><div class="barra"><i style="width:66%"></i></div><ul><li>Progressão semanal</li><li>Condicionamento</li><li>Reteste na semana 8</li></ul></div>
+      <div class="sem"><span class="q">Semanas 9 a 12</span><h3>Performance</h3><p>Pico de força e reavaliação completa, com o plano do próximo ciclo.</p><div class="barra"><i style="width:100%"></i></div><ul><li>Testes de força máxima</li><li>Nova bioimpedância</li><li>Relatório comparativo</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<div class="faixa">
+  <figure><img src="img/acompanhamento.webp" alt="Personal trainer corrigindo a postura de um aluno durante flexão" loading="lazy" width="1800" height="1200"><figcaption>Correção em cada repetição</figcaption></figure>
+  <figure><img src="img/agachamento.webp" alt="Aluna posicionada para agachamento com barra" loading="lazy" width="1800" height="1200"><figcaption>Força com técnica</figcaption></figure>
+  <figure><img src="img/corrida.webp" alt="Três pessoas correndo contra o céu azul" loading="lazy" width="1800" height="1200"><figcaption>Grupo de corrida aos sábados</figcaption></figure>
+</div>
+
+<section class="resultados" id="resultados">
+  <div class="wrap">
+    <div class="cab">
+      <h2>O que muda na vida real</h2>
+      <p>Menos sobre o espelho, mais sobre subir escada sem cansar, carregar os filhos e voltar ao esporte.</p>
+    </div>
+    <div class="casos">
+      <article class="caso"><div class="antes"><b>0→12</b><span>flexões seguidas</span></div><p>"Comecei sem conseguir fazer uma flexão. Hoje faço doze e não tenho mais a dor lombar que me acompanhava há anos."</p><cite>Renata, 47 anos<small>Aluna há 8 meses</small></cite></article>
+      <article class="caso"><div class="antes"><b>62</b><span>anos, de volta ao tênis</span></div><p>"Depois da cirurgia no joelho achei que não jogaria mais. Em quatro meses voltei para a quadra duas vezes por semana."</p><cite>Carlos, 62 anos<small>Aluno há 1 ano e 3 meses</small></cite></article>
+      <article class="caso"><div class="antes"><b>−7,2</b><span>pontos de gordura corporal</span></div><p>"Em 12 semanas mudei a composição corporal sem dieta maluca. O relatório mostrando a evolução fez toda a diferença."</p><cite>Juliana, 34 anos<small>Aluna há 6 meses</small></cite></article>
+    </div>
+    <p class="nota">Depoimentos e números fictícios para demonstração. Resultados variam de pessoa para pessoa.</p>
+  </div>
+</section>
+
+<section class="planos" id="planos">
+  <div class="wrap">
+    <div class="cab">
+      <h2>Planos e horários</h2>
+      <p>Todos os planos começam com a avaliação física completa e incluem o relatório de 12 semanas.</p>
+    </div>
+    <div class="grid">
+      <div>
+        <div class="tabs" role="tablist" aria-label="Modalidade">
+          <button role="tab" id="t-pres" aria-controls="p-pres" aria-selected="true">Presencial</button>
+          <button role="tab" id="t-on" aria-controls="p-on" aria-selected="false" tabindex="-1">Online</button>
+        </div>
+        <div role="tabpanel" id="p-pres" aria-labelledby="t-pres">
+          <div class="plano top"><h3>3x por semana</h3><span class="v">R$ 890<small>/mês</small></span><p>Treinos em grupo de até 6 pessoas no studio, com plano individual e reavaliação a cada 12 semanas.</p></div>
+          <div class="plano"><h3>2x por semana</h3><span class="v">R$ 690<small>/mês</small></span><p>Para quem está começando ou combina com outro esporte.</p></div>
+          <div class="plano"><h3>Individual</h3><span class="v">R$ 1.480<small>/mês</small></span><p>Sessões só você e o Lucas, 3x por semana, no horário que você escolher.</p></div>
+        </div>
+        <div role="tabpanel" id="p-on" aria-labelledby="t-on" hidden>
+          <div class="plano top"><h3>Consultoria online</h3><span class="v">R$ 290<small>/mês</small></span><p>Plano no aplicativo com vídeos de cada exercício, revisão semanal dos seus registros e ajuste de carga.</p></div>
+          <div class="plano"><h3>Online + correção por vídeo</h3><span class="v">R$ 420<small>/mês</small></span><p>Você grava as séries principais e recebe correção de técnica em até 24 horas.</p></div>
+          <div class="plano"><h3>Avaliação física avulsa</h3><span class="v">R$ 180</span><p>Bioimpedância, testes de força e mobilidade, com relatório e recomendações.</p></div>
+        </div>
+      </div>
+      <div class="agenda" aria-label="Horários do studio">
+        <h3>Horários do studio</h3>
+        <p>Turmas de até 6 alunos. Vagas desta semana.</p>
+        <div class="grade" id="grade"></div>
+        <div class="leg"><span><i style="background:var(--cobalto)"></i>Vaga livre</span><span><i style="background:var(--sinal)"></i>Últimas vagas</span><span><i style="background:#2b2f37"></i>Lotado</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sobre" id="sobre">
+  <div class="wrap grid">
+    <figure><img src="img/forca.webp" alt="Atleta preparando levantamento terra com barra e anilhas" loading="lazy" width="1800" height="1200"><figcaption>Studio Ferraz · Divinópolis</figcaption></figure>
+    <div class="txt">
+      <h2>Sobre o Lucas</h2>
+      <p>Fui atleta de levantamento de peso na adolescência e aprendi cedo que força é a base de tudo: postura, disposição, independência. Na faculdade, estagiando com idosos, vi alunos de 75 anos voltarem a levantar da cadeira sem apoio. Ali decidi que ia treinar gente comum, não atletas.</p>
+      <p>Abri o studio em 2019 com uma regra que mantenho até hoje: no máximo seis alunos por horário, para conseguir corrigir cada repetição.</p>
+      <div class="creds">
+        <div><b>Educação Física</b>Bacharelado, 2016</div>
+        <div><b>Pós-graduação</b>Fisiologia do exercício</div>
+        <div><b>Certificação</b>Treinamento para idosos</div>
+        <div><b>CREF</b>000000-G/MG (fictício)</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <div><h2>Comece pela avaliação.</h2><p>Uma hora para medir força, mobilidade e composição corporal. Você sai com um plano claro, mesmo que decida não treinar comigo.</p></div>
+    <a class="btn claro wa-link" href="#" data-msg="Olá, Lucas! Quero agendar minha avaliação física.">Agendar avaliação pelo WhatsApp</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div><h4>Lucas Ferraz</h4><p>Treinamento de força e longevidade em Divinópolis, MG. Presencial e online.</p></div>
+      <div><h4>Studio Ferraz</h4><p>Rua Rio de Janeiro, 850<br>Centro, Divinópolis · MG (endereço fictício)<br>Seg a sex, 6h às 21h · Sáb, 7h às 12h</p></div>
+      <div><h4>Contato</h4><p><a class="wa-link" href="#" data-msg="Olá, Lucas!">WhatsApp</a><br><a href="#">@lucasferraz.treino</a></p></div>
+    </div>
+    <div class="legal"><span>CREF 000000-G/MG (fictício) · © <span class="ano">2026</span></span><span>Site demonstrativo por <a href="https://reinventar.dev">Reinventar</a></span></div>
+  </div>
+</footer>
+
+<a class="wa wa-link" href="#" data-msg="Olá, Lucas! Vim pelo site." aria-label="Conversar no WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-1-1.1-1.3-1.7-.1-.2 0-.4.1-.5l.4-.5.3-.4v-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3c-.3.3-1 .9-1 2.3s1 2.7 1.2 2.9c.1.2 2 3.1 4.9 4.3 1.8.8 2.5.8 3.4.7.6-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg><span>Falar com o Lucas</span></a>
+
+<script>
+// Demonstrativo: todos os contatos vão para o WhatsApp da Reinventar.
+var WA = "5537999181248", DEMO = "[Demo personal] ";
+document.querySelectorAll(".wa-link,.rv").forEach(function(a){
+  var msg = (a.classList.contains("rv") ? "" : DEMO) + (a.dataset.msg || "Olá!");
+  a.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg); a.target = "_blank"; a.rel = "noopener";
+});
+// abas
+var tabs = document.querySelectorAll('[role="tab"]');
+tabs.forEach(function(t, i){
+  t.addEventListener("click", function(){ sel(t); });
+  t.addEventListener("keydown", function(e){
+    if(e.key === "ArrowRight" || e.key === "ArrowLeft"){ var n = tabs[(i + (e.key === "ArrowRight" ? 1 : tabs.length - 1)) % tabs.length]; sel(n); n.focus(); }
+  });
+});
+function sel(t){
+  tabs.forEach(function(x){ var on = x === t; x.setAttribute("aria-selected", on); x.tabIndex = on ? 0 : -1; document.getElementById(x.getAttribute("aria-controls")).hidden = !on; });
+}
+// grade de horários (dados de demonstração)
+var dias = ["Seg","Ter","Qua","Qui","Sex","Sáb"], horas = ["06h","07h","08h","12h","18h","19h","20h"];
+// l = livre, p = poucas vagas, x = lotado, "" = sem turma
+var mapa = [
+  "pxpxpl","xxxxxl","llllll","lplpl ","xxxxx ","pxpxp ","llllp "
+];
+var g = document.getElementById("grade"), html = '<span></span>' + dias.map(function(d){ return '<span class="h">' + d + '</span>'; }).join("");
+horas.forEach(function(h, r){
+  html += '<span class="hr">' + h + '</span>';
+  for (var c = 0; c < 6; c++) {
+    var v = mapa[r][c], cls = v === "l" ? "s l" : v === "p" ? "s p" : v === "x" ? "s" : "";
+    var lab = v === "l" ? "vaga livre" : v === "p" ? "últimas vagas" : v === "x" ? "lotado" : "sem turma";
+    html += cls ? '<span class="' + cls + '" title="' + dias[c] + ' ' + h + ': ' + lab + '" aria-label="' + dias[c] + ' ' + h + ': ' + lab + '"></span>' : '<span aria-hidden="true"></span>';
+  }
+});
+g.innerHTML = html;
+document.querySelectorAll(".ano").forEach(function(s){ s.textContent = new Date().getFullYear(); });
+</script>
+</body>
+</html>

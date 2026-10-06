@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Helena Prado · Imóveis de alto padrão em Divinópolis</title>
+<meta name="description" content="Casas, coberturas e terrenos de alto padrão em Divinópolis e região, com curadoria, visitas privadas e negociação conduzida do primeiro contato à escritura.">
+<!-- Site demonstrativo da Reinventar: pessoa, imóveis, números e registro fictícios -->
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://corretor.reinventar.dev/">
+<meta property="og:title" content="Helena Prado · Imóveis de alto padrão">
+<meta property="og:description" content="Curadoria de imóveis de alto padrão em Divinópolis e região.">
+<meta property="og:image" content="https://corretor.reinventar.dev/img/hero.webp">
+<meta name="theme-color" content="#23272B">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2323272B'/%3E%3Ctext x='32' y='44' font-family='Georgia' font-size='34' fill='%23C9A877' text-anchor='middle'%3EHP%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Hanken+Grotesk:wght@400;500;600&display=swap">
+<link rel="preload" as="image" href="img/hero.webp" fetchpriority="high">
+<style>
+:root{
+  --ardosia:#23272B; --ardosia-2:#2E3338; --travertino:#E8E3DA; --linho:#F6F4F0; --bronze:#8C6A3F; --bronze-claro:#C9A877; --musgo:#4E5A47;
+  --tinta:#1E2124; --cinza:#5E625F; --linha:#D5CEC2;
+  --serif:"Bodoni Moda",Didot,"Times New Roman",serif; --sans:"Hanken Grotesk",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--linho);color:var(--tinta);font:17px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--bronze);outline-offset:3px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--serif);font-weight:400;margin:0;letter-spacing:-.01em;line-height:1.05;font-optical-sizing:auto}
+h2{font-size:clamp(36px,5vw,64px)}
+p{margin:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;font:600 15px var(--sans);letter-spacing:.02em;text-decoration:none;border:1px solid currentColor;transition:background .2s,color .2s}
+.btn.solid{background:var(--bronze);border-color:var(--bronze);color:#fff}
+.btn.solid:hover{background:#775930}
+.btn.ghost{color:#fff;border-color:rgba(255,255,255,.6)}
+.btn.ghost:hover{background:#fff;color:var(--ardosia)}
+
+/* demo */
+.demo{background:var(--ardosia);color:#d9d4cb;font-size:13.5px;text-align:center;padding:9px 16px}
+.demo a{color:var(--bronze-claro);font-weight:600}
+
+/* hero */
+.hero{position:relative;min-height:min(92vh,900px);display:flex;flex-direction:column;color:#fff;isolation:isolate}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(18,20,23,.78) 0%,rgba(18,20,23,.35) 45%,rgba(18,20,23,0) 70%),linear-gradient(180deg,rgba(18,20,23,.5) 0%,rgba(18,20,23,0) 25%,rgba(18,20,23,0) 60%,rgba(18,20,23,.7) 100%)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding-top:26px;padding-bottom:26px;gap:20px}
+.brand{text-decoration:none;display:flex;flex-direction:column;line-height:1}
+.brand b{font:400 27px var(--serif);letter-spacing:.01em}
+.brand span{font-size:12px;letter-spacing:.2em;opacity:.8;margin-top:6px}
+.nav nav{display:flex;gap:34px;font-size:15px}
+.nav nav a{text-decoration:none;opacity:.88}
+.nav nav a:hover{opacity:1}
+@media (max-width:900px){.nav nav{display:none}}
+@media (max-width:560px){.brand span{display:none}.nav .btn{min-height:44px;padding:0 16px;font-size:14px}.hero::after{background:linear-gradient(180deg,rgba(18,20,23,.55) 0%,rgba(18,20,23,.45) 40%,rgba(18,20,23,.85) 100%)}}
+.hero-body{margin-top:auto;padding-bottom:64px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:40px;align-items:end}
+.hero h1{font-size:clamp(48px,8.4vw,124px);line-height:.95;max-width:11ch}
+.hero h1 em{font-style:italic;color:var(--bronze-claro)}
+.hero .lead{font-size:19px;max-width:520px;margin-top:28px;color:#ece7df}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.hero-ficha{border-left:1px solid rgba(255,255,255,.45);padding-left:22px;font-size:14px;color:#e6e0d6;min-width:220px}
+.hero-ficha strong{display:block;font:400 22px var(--serif);color:#fff;margin-bottom:6px}
+@media (max-width:860px){.hero-body{grid-template-columns:1fr}.hero-ficha{display:none}}
+
+/* números */
+.numeros{background:var(--ardosia);color:#fff}
+.numeros .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.num{padding:44px 28px;border-left:1px solid rgba(255,255,255,.12)}
+.num:first-child{border-left:0;padding-left:0}
+.num b{display:block;font:400 clamp(40px,4.6vw,60px)/1 var(--serif);color:var(--bronze-claro);font-variant-numeric:lining-nums}
+.num span{display:block;margin-top:12px;font-size:15px;color:#c9c4bb;max-width:22ch}
+@media (max-width:860px){.numeros .wrap{grid-template-columns:1fr 1fr}.num{padding:30px 18px}.num:nth-child(3){border-left:0;padding-left:0}.num:nth-child(n+3){border-top:1px solid rgba(255,255,255,.12)}}
+
+section{padding:120px 0}
+.intro{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:64px;align-items:end;margin-bottom:64px}
+.intro p{font-size:19px;color:var(--cinza);max-width:560px}
+@media (max-width:860px){section{padding:80px 0}.intro{grid-template-columns:1fr;gap:20px}}
+
+/* carteira */
+.filtros{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:36px}
+.filtros button{font:500 15px var(--sans);background:transparent;border:1px solid var(--linha);color:var(--tinta);padding:10px 20px;min-height:44px;cursor:pointer;transition:all .2s}
+.filtros button[aria-pressed="true"]{background:var(--ardosia);border-color:var(--ardosia);color:#fff}
+.imoveis{display:grid;grid-template-columns:repeat(12,1fr);gap:28px}
+.imovel{grid-column:span 4;display:flex;flex-direction:column;background:transparent}
+.imovel.destaque{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:0;background:#fff}
+.imovel figure{margin:0;overflow:hidden;position:relative;aspect-ratio:4/3;background:var(--travertino)}
+.imovel.destaque figure{aspect-ratio:auto;min-height:520px}
+.imovel figure img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.imovel:hover figure img{transform:scale(1.03)}
+.selo{position:absolute;top:18px;left:18px;background:var(--linho);color:var(--tinta);font-size:13px;font-weight:600;padding:6px 12px}
+.ficha{padding:28px 0 0;display:flex;flex-direction:column;gap:14px}
+.imovel.destaque .ficha{padding:48px 44px;justify-content:center;gap:18px}
+.ficha .local{font-size:14px;color:var(--bronze);font-weight:600;letter-spacing:.02em}
+.ficha h3{font-size:clamp(30px,3vw,40px)}
+.ficha p{color:var(--cinza)}
+.specs{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid var(--linha);border-bottom:1px solid var(--linha)}
+.specs div{flex:1 1 0;min-width:84px;padding:14px 0;border-left:1px solid var(--linha);padding-left:16px}
+.specs div:first-child{border-left:0;padding-left:0}
+.specs b{display:block;font:400 26px/1 var(--serif);font-variant-numeric:lining-nums}
+.specs span{font-size:13px;color:var(--cinza)}
+.preco{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap}
+.preco b{font:400 30px var(--serif);font-variant-numeric:lining-nums}
+.preco a{font-weight:600;font-size:15px;color:var(--bronze);text-decoration:none;border-bottom:1px solid currentColor;padding-bottom:2px}
+.imovel[hidden]{display:none}
+@media (max-width:860px){.imovel,.imovel.destaque{grid-column:1/-1}.imovel.destaque{grid-template-columns:1fr}.imovel.destaque figure{min-height:300px}.imovel.destaque .ficha{padding:28px 22px}}
+
+/* por dentro */
+.dentro{background:var(--travertino)}
+.dentro .galeria{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:16px;height:min(70vh,620px)}
+.dentro figure{margin:0;position:relative;overflow:hidden}
+.dentro figure img{width:100%;height:100%;object-fit:cover}
+.dentro figcaption{position:absolute;left:0;bottom:0;right:0;padding:40px 20px 16px;color:#fff;font-size:14px;background:linear-gradient(0deg,rgba(0,0,0,.55),transparent)}
+.dentro .galeria figure:nth-child(2){margin-top:60px}
+@media (max-width:860px){.dentro .galeria{grid-template-columns:1fr 1fr;height:auto}.dentro .galeria figure:first-child{grid-column:1/-1;aspect-ratio:16/10}.dentro .galeria figure{aspect-ratio:3/4}.dentro .galeria figure:nth-child(2){margin-top:0}}
+
+/* helena */
+.helena .grid{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);gap:80px;align-items:center}
+.helena figure{margin:0;position:relative}
+.helena figure img{aspect-ratio:4/5;object-fit:cover;width:100%}
+.helena figure::before{content:"";position:absolute;inset:28px -28px -28px 28px;border:1px solid var(--bronze);z-index:-1}
+.helena .texto{display:flex;flex-direction:column;gap:22px}
+.helena .texto p{font-size:18px;color:#3d413f;max-width:58ch}
+.helena .assinatura{font:italic 400 34px var(--serif);color:var(--bronze)}
+.helena .creci{font-size:14px;color:var(--cinza)}
+@media (max-width:860px){.helena .grid{grid-template-columns:1fr;gap:56px}.helena figure{margin-right:28px}}
+
+/* método */
+.metodo{background:var(--ardosia);color:#fff}
+.metodo .intro p{color:#c9c4bb}
+.passos{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(255,255,255,.18)}
+.passos li{padding:34px 28px 0 0;display:flex;flex-direction:column;gap:12px}
+.passos .n{font:italic 400 52px/1 var(--serif);color:var(--bronze-claro)}
+.passos h3{font-size:26px}
+.passos p{color:#c9c4bb;font-size:16px}
+@media (max-width:860px){.passos{grid-template-columns:1fr 1fr;gap:28px}}
+@media (max-width:520px){.passos{grid-template-columns:1fr}}
+
+/* depoimento */
+.depo{text-align:center}
+.depo blockquote{margin:0 auto;max-width:900px;font:400 clamp(28px,3.6vw,46px)/1.25 var(--serif)}
+.depo blockquote::before{content:"“";display:block;font-size:110px;line-height:.6;color:var(--bronze);margin-bottom:10px}
+.depo cite{display:block;margin-top:30px;font:500 15px var(--sans);font-style:normal;color:var(--cinza)}
+
+/* vender */
+.vender{background:var(--travertino)}
+.vender .grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:72px;align-items:start}
+.vender .texto p{font-size:18px;color:#4a4e4b;margin-top:22px;max-width:48ch}
+.vender ul{margin:28px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px}
+.vender li{display:flex;gap:14px;align-items:baseline}
+.vender li::before{content:"";flex:0 0 18px;height:1px;background:var(--bronze);transform:translateY(-5px)}
+form{background:var(--linho);padding:40px;display:grid;gap:18px}
+label{display:flex;flex-direction:column;gap:6px;font-size:14px;font-weight:600}
+input,select{font:400 16px var(--sans);padding:14px;border:1px solid var(--linha);background:#fff;color:var(--tinta);min-height:50px;border-radius:0}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+form small{color:var(--cinza);font-size:13px}
+@media (max-width:860px){.vender .grid{grid-template-columns:1fr;gap:40px}form{padding:26px}.row2{grid-template-columns:1fr}}
+
+footer{background:var(--tinta);color:#bdb8af;padding:72px 0 40px;font-size:15px}
+footer .grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+footer h4{font:400 22px var(--serif);color:#fff;margin:0 0 12px}
+footer a{text-decoration:none}
+footer .legal{margin-top:56px;padding-top:24px;border-top:1px solid #34383c;display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;font-size:13px}
+footer .legal a{color:var(--bronze-claro)}
+@media (max-width:760px){footer .grid{grid-template-columns:1fr}}
+
+.wa{position:fixed;right:20px;bottom:20px;z-index:20;display:flex;align-items:center;gap:10px;background:var(--bronze);color:#fff;text-decoration:none;font-weight:600;font-size:15px;padding:14px 20px;box-shadow:0 10px 30px rgba(0,0,0,.25)}
+.wa svg{width:20px;height:20px}
+@media (max-width:520px){.wa span{display:none}.wa{padding:14px}}
+
+.reveal{opacity:0;transform:translateY(18px);transition:opacity 1s ease,transform 1s ease}
+.reveal.on{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}.imovel figure img{transition:none}}
+</style>
+</head>
+<body>
+
+<div class="demo">Site demonstrativo criado pela Reinventar. Pessoa, imóveis, números e CRECI são fictícios. <a class="rv" href="#" data-msg="Vi o site demonstrativo da corretora Helena Prado e quero um site assim.">Quero um site assim</a></div>
+
+<header class="hero">
+  <img src="img/hero.webp" alt="Casa contemporânea com piscina iluminada ao entardecer" width="1800" height="1200" fetchpriority="high">
+  <div class="wrap nav">
+    <a class="brand" href="#"><b>Helena Prado</b><span>IMÓVEIS DE ALTO PADRÃO</span></a>
+    <nav aria-label="Seções"><a href="#carteira">Imóveis</a><a href="#helena">Sobre</a><a href="#metodo">Como trabalho</a><a href="#vender">Vender</a></nav>
+    <a class="btn ghost wa-link" href="#" data-msg="Olá, Helena! Gostaria de agendar uma conversa.">Agendar conversa</a>
+  </div>
+  <div class="wrap hero-body">
+    <div>
+      <h1>Casas que não chegam aos <em>portais</em>.</h1>
+      <p class="lead">Sete em cada dez imóveis que vendo nunca foram anunciados. Eu apresento a casa certa a quem procura, com discrição, antes de todo mundo.</p>
+      <div class="ctas">
+        <a class="btn solid" href="#carteira">Ver imóveis em carteira</a>
+        <a class="btn ghost wa-link" href="#" data-msg="Olá, Helena! Estou procurando um imóvel e gostaria de entrar na sua lista privada.">Entrar na lista privada</a>
+      </div>
+    </div>
+    <div class="hero-ficha"><strong>Casa Alto do Ipê</strong>Vendida em 2025 sem anúncio<br>540 m² · 5 suítes · 34 dias</div>
+  </div>
+</header>
+
+<div class="numeros">
+  <div class="wrap">
+    <div class="num"><b>R$ 214 mi</b><span>em imóveis negociados desde 2017</span></div>
+    <div class="num"><b>128</b><span>famílias acompanhadas até a escritura</span></div>
+    <div class="num"><b>41 dias</b><span>em média entre a primeira visita e a proposta</span></div>
+    <div class="num"><b>72%</b><span>das vendas feitas sem anúncio público</span></div>
+  </div>
+</div>
+
+<main>
+<section id="carteira">
+  <div class="wrap">
+    <div class="intro">
+      <h2>Em carteira agora</h2>
+      <p>Uma seleção pequena, de propósito. Cada imóvel foi visitado, medido e fotografado por mim, e só entra aqui se eu moraria nele.</p>
+    </div>
+    <div class="filtros" role="group" aria-label="Filtrar imóveis">
+      <button type="button" data-f="todos" aria-pressed="true">Todos</button>
+      <button type="button" data-f="casa" aria-pressed="false">Casas</button>
+      <button type="button" data-f="cobertura" aria-pressed="false">Coberturas</button>
+    </div>
+    <div class="imoveis">
+      <article class="imovel destaque" data-tipo="casa">
+        <figure><img src="img/casa-mirante.webp" alt="Casa branca de dois pavimentos com piscina e varandas em madeira" loading="lazy" width="1800" height="1200"><span class="selo">Exclusividade</span></figure>
+        <div class="ficha">
+          <span class="local">Condomínio Mirante da Serra · Divinópolis</span>
+          <h3>Casa Mirante</h3>
+          <p>Projeto de 2022 com vista aberta para a serra, pé-direito duplo na sala e piscina de raia de 18 metros. Pronta para morar, com automação e energia solar.</p>
+          <div class="specs"><div><b>620</b><span>m² construídos</span></div><div><b>5</b><span>suítes</span></div><div><b>6</b><span>vagas</span></div><div><b>1.450</b><span>m² de terreno</span></div></div>
+          <div class="preco"><b>R$ 4.850.000</b><a class="wa-link" href="#" data-msg="Olá, Helena! Quero agendar uma visita à Casa Mirante.">Agendar visita</a></div>
+        </div>
+      </article>
+      <article class="imovel" data-tipo="casa">
+        <figure><img src="img/casa-ipes.webp" alt="Casa contemporânea escura com grandes janelas iluminadas e árvore no jardim" loading="lazy" width="1800" height="1200"></figure>
+        <div class="ficha">
+          <span class="local">Residencial Vale dos Ipês · Divinópolis</span>
+          <h3>Casa dos Ipês</h3>
+          <div class="specs"><div><b>480</b><span>m²</span></div><div><b>4</b><span>suítes</span></div><div><b>4</b><span>vagas</span></div></div>
+          <div class="preco"><b>R$ 3.290.000</b><a class="wa-link" href="#" data-msg="Olá, Helena! Quero saber mais sobre a Casa dos Ipês.">Saber mais</a></div>
+        </div>
+      </article>
+      <article class="imovel" data-tipo="cobertura">
+        <figure><img src="img/cobertura.webp" alt="Piscina de borda infinita em terraço ao pôr do sol" loading="lazy" width="1800" height="1200"><span class="selo">Lançamento</span></figure>
+        <div class="ficha">
+          <span class="local">Edifício Horizonte · Centro</span>
+          <h3>Cobertura Horizonte</h3>
+          <div class="specs"><div><b>310</b><span>m²</span></div><div><b>3</b><span>suítes</span></div><div><b>3</b><span>vagas</span></div></div>
+          <div class="preco"><b>R$ 2.750.000</b><a class="wa-link" href="#" data-msg="Olá, Helena! Quero saber mais sobre a Cobertura Horizonte.">Saber mais</a></div>
+        </div>
+      </article>
+      <article class="imovel" data-tipo="casa">
+        <figure><img src="img/casa-lago.webp" alt="Casa ampla com fachada de vidro e piscina iluminada ao anoitecer" loading="lazy" width="1800" height="1200"></figure>
+        <div class="ficha">
+          <span class="local">Condomínio Vale das Garças · Carmo do Cajuru</span>
+          <h3>Casa do Lago</h3>
+          <div class="specs"><div><b>890</b><span>m²</span></div><div><b>6</b><span>suítes</span></div><div><b>8</b><span>vagas</span></div></div>
+          <div class="preco"><b>R$ 6.400.000</b><a class="wa-link" href="#" data-msg="Olá, Helena! Quero saber mais sobre a Casa do Lago.">Saber mais</a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="dentro">
+  <div class="wrap">
+    <div class="intro">
+      <h2>Por dentro da Casa Mirante</h2>
+      <p>Visitas acontecem só com hora marcada e com a casa preparada para você. Antes, envio planta, memorial descritivo e um tour em vídeo.</p>
+    </div>
+    <div class="galeria">
+      <figure><img src="img/sala.webp" alt="Sala integrada com pé-direito alto" loading="lazy" width="1800" height="1200"><figcaption>Sala integrada ao jardim, 9 m de vão livre</figcaption></figure>
+      <figure><img src="img/cozinha.webp" alt="Cozinha com ilha em pedra e banquetas" loading="lazy" width="1800" height="1200"><figcaption>Cozinha gourmet com ilha em quartzito</figcaption></figure>
+      <figure><img src="img/quarto.webp" alt="Suíte principal com cabeceira estofada e luminária" loading="lazy" width="1800" height="1200"><figcaption>Suíte master com closet e banheira</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="helena" id="helena">
+  <div class="wrap grid">
+    <figure><img src="img/helena.webp" alt="Helena Prado, corretora, sentada junto a uma janela" loading="lazy" width="1200" height="1800"></figure>
+    <div class="texto">
+      <h2>Arquiteta de formação, corretora por escolha.</h2>
+      <p>Cresci no escritório de arquitetura do meu pai e passei os primeiros anos de carreira desenhando casas. Vendi a primeira em 2017, para um casal que procurava havia dois anos e nunca tinha visto a planta certa. Eu tinha: ela não estava à venda, mas eu conhecia o dono.</p>
+      <p>Desde então trabalho assim. Leio projeto, sei o que custa reformar e percebo quando um imóvel está caro ou barato pelo que ele é, não pelo que o anúncio diz. Atendo poucos clientes por vez para conseguir acompanhar cada um até a entrega das chaves.</p>
+      <span class="assinatura">Helena Prado</span>
+      <span class="creci">Corretora de imóveis · CRECI-MG 00.000-F (fictício)</span>
+    </div>
+  </div>
+</section>
+
+<section class="metodo" id="metodo">
+  <div class="wrap">
+    <div class="intro">
+      <h2>Como trabalho</h2>
+      <p>Do primeiro café à escritura, você fala com uma pessoa só. Sem rodízio de corretores e sem visitas a imóveis que não fazem sentido.</p>
+    </div>
+    <ol class="passos">
+      <li><span class="n">1</span><h3>Escuta</h3><p>Uma conversa de uma hora sobre rotina, família e planos. Saio dela com uma lista curta do que importa e do que não importa.</p></li>
+      <li><span class="n">2</span><h3>Curadoria</h3><p>Em até 7 dias envio de três a cinco opções, anunciadas ou não, com análise de preço por metro quadrado da região.</p></li>
+      <li><span class="n">3</span><h3>Visitas privadas</h3><p>Visitas em horário reservado, comigo presente. Levo laudo da estrutura e estimativa de reforma quando faz sentido.</p></li>
+      <li><span class="n">4</span><h3>Negociação e escritura</h3><p>Conduzo proposta, documentação e cartório com advogado parceiro. Você assina sabendo exatamente o que está comprando.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="depo">
+  <div class="wrap">
+    <blockquote>A Helena nos mostrou uma casa que nem estava à venda. Três semanas depois a gente estava assinando. Ela conhecia cada detalhe da obra melhor que o próprio dono.</blockquote>
+    <cite>Rodrigo e Camila Menezes (fictícios) · compraram a Casa do Vale em 2025</cite>
+  </div>
+</section>
+
+<section class="vender" id="vender">
+  <div class="wrap grid">
+    <div class="texto">
+      <h2>Vai vender um imóvel de alto padrão?</h2>
+      <p>Muitos proprietários preferem não ver a própria casa em portais. Eu apresento o imóvel só a compradores qualificados da minha lista, com fotos profissionais e visitas acompanhadas.</p>
+      <ul>
+        <li>Avaliação com estudo de mercado em até 5 dias úteis</li>
+        <li>Fotografia, vídeo e planta humanizada inclusos</li>
+        <li>Visitas só com compradores pré-aprovados</li>
+        <li>Relatório quinzenal de interesse e propostas</li>
+      </ul>
+    </div>
+    <form id="avaliacao" novalidate>
+      <label>Seu nome<input id="fNome" autocomplete="name" required></label>
+      <div class="row2">
+        <label>Tipo de imóvel<select id="fTipo"><option>Casa em condomínio</option><option>Cobertura</option><option>Apartamento</option><option>Terreno</option></select></label>
+        <label>Área construída (m²)<input id="fArea" inputmode="numeric"></label>
+      </div>
+      <label>Bairro ou condomínio<input id="fLocal"></label>
+      <button class="btn solid" type="submit">Pedir avaliação pelo WhatsApp</button>
+      <small>Você será levado ao WhatsApp com a mensagem pronta. Nada é enviado antes disso.</small>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div><h4>Helena Prado</h4><p>Imóveis de alto padrão em Divinópolis, Carmo do Cajuru e região. Atendimento com hora marcada.</p></div>
+      <div><h4>Escritório</h4><p>Rua Goiás, 1.200, sala 804<br>Centro, Divinópolis · MG<br>(endereço fictício)</p></div>
+      <div><h4>Contato</h4><p><a class="wa-link" href="#" data-msg="Olá, Helena!">WhatsApp</a><br><a href="#">@helenaprado.imoveis</a><br>Seg a sex, 9h às 19h</p></div>
+    </div>
+    <div class="legal"><span>CRECI-MG 00.000-F (fictício) · © <span class="ano">2026</span></span><span>Site demonstrativo por <a href="https://reinventar.dev">Reinventar</a></span></div>
+  </div>
+</footer>
+
+<a class="wa wa-link" href="#" data-msg="Olá, Helena! Vim pelo site." aria-label="Conversar no WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-1-1.1-1.3-1.7-.1-.2 0-.4.1-.5l.4-.5.3-.4v-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3c-.3.3-1 .9-1 2.3s1 2.7 1.2 2.9c.1.2 2 3.1 4.9 4.3 1.8.8 2.5.8 3.4.7.6-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg><span>Falar com a Helena</span></a>
+
+<script>
+// Demonstrativo: todos os contatos vão para o WhatsApp da Reinventar.
+var WA = "5537999181248", DEMO = "[Demo corretora] ";
+function abrir(msg){ window.open("https://wa.me/" + WA + "?text=" + encodeURIComponent(msg), "_blank", "noopener"); }
+document.querySelectorAll(".wa-link,.rv").forEach(function(a){
+  var msg = (a.classList.contains("rv") ? "" : DEMO) + (a.dataset.msg || "Olá!");
+  a.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg); a.target = "_blank"; a.rel = "noopener";
+});
+document.getElementById("avaliacao").addEventListener("submit", function(e){
+  e.preventDefault();
+  var n = document.getElementById("fNome");
+  if(!n.value.trim()){ n.focus(); n.setAttribute("aria-invalid","true"); return; }
+  abrir(DEMO + "Olá, Helena! Sou " + n.value.trim() + " e quero avaliar meu imóvel: " + document.getElementById("fTipo").value +
+    (document.getElementById("fArea").value ? ", " + document.getElementById("fArea").value + " m²" : "") +
+    (document.getElementById("fLocal").value ? ", em " + document.getElementById("fLocal").value : "") + ".");
+});
+document.querySelectorAll(".filtros button").forEach(function(b){
+  b.addEventListener("click", function(){
+    document.querySelectorAll(".filtros button").forEach(function(x){ x.setAttribute("aria-pressed", x===b ? "true" : "false"); });
+    document.querySelectorAll(".imovel").forEach(function(c){ c.hidden = !(b.dataset.f === "todos" || c.dataset.tipo === b.dataset.f); });
+  });
+});
+document.querySelectorAll(".ano").forEach(function(s){ s.textContent = new Date().getFullYear(); });
+if ("IntersectionObserver" in window) {
+  var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("on"); io.unobserve(e.target); } }); }, {threshold:.15});
+  document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+} else { document.querySelectorAll(".reveal").forEach(function(el){ el.classList.add("on"); }); }
+</script>
+</body>
+</html>
