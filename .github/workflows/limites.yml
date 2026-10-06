@@ -81,19 +81,13 @@ jobs:
 
           if [ "$n_proj" -ge "$MIGRAR_PROJETOS" ]; then
             alerta "🔴 Cloudflare: $n_proj de $LIM_PROJETOS sites — hora de migrar (Fase 2)" \
-"A conta tem **$n_proj projetos** na Cloudflare Pages ($clientes de clientes). O limite do plano gratuito é $LIM_PROJETOS e não costuma ser aumentado.
-
-**O que fazer:** abrir o chat geral da Reinventar e pedir: *\"vamos migrar para a plataforma única (Cloudflare for SaaS)\"*. Até migrar, novos clientes ainda cabem, mas a margem é pequena."
+              "$(printf 'A conta tem **%s projetos** na Cloudflare Pages (%s de clientes). O limite do plano gratuito é %s e não costuma ser aumentado.\n\n**O que fazer:** abrir o chat geral da Reinventar e pedir: *"vamos migrar para a plataforma única (Cloudflare for SaaS)"*. Até migrar, novos clientes ainda cabem, mas a margem é pequena.' "$n_proj" "$clientes" "$LIM_PROJETOS")"
           elif [ "$n_proj" -ge "$AVISO_PROJETOS" ]; then
             alerta "🟡 Cloudflare: $n_proj de $LIM_PROJETOS sites — planejar a Fase 2" \
-"A conta tem **$n_proj projetos** na Cloudflare Pages ($clientes de clientes). Com $MIGRAR_PROJETOS é hora de migrar para a plataforma única (Cloudflare for SaaS); o limite é $LIM_PROJETOS.
-
-**O que fazer agora:** nada urgente. Peça no chat geral da Reinventar para planejar a Fase 2 nas próximas semanas."
+              "$(printf 'A conta tem **%s projetos** na Cloudflare Pages (%s de clientes). Com %s é hora de migrar para a plataforma única (Cloudflare for SaaS); o limite é %s.\n\n**O que fazer agora:** nada urgente. Peça no chat geral da Reinventar para planejar a Fase 2 nas próximas semanas.' "$n_proj" "$clientes" "$MIGRAR_PROJETOS" "$LIM_PROJETOS")"
           fi
 
           if [ "$n_pub" -ge "$AVISO_PUBLICACOES" ]; then
             alerta "🟡 Cloudflare: $n_pub de $LIM_PUBLICACOES publicações em $(date -u +%m/%Y)" \
-"Este mês já foram **$n_pub publicações**. O plano gratuito permite $LIM_PUBLICACOES por mês; o contador zera no dia 1.
-
-**O que fazer:** juntar ajustes de um mesmo cliente num único envio até o fim do mês. Se acontecer de novo no mês seguinte, avaliar o plano pago da Cloudflare (Pages Pro) ou a Fase 2."
+              "$(printf 'Este mês já foram **%s publicações**. O plano gratuito permite %s por mês; o contador zera no dia 1.\n\n**O que fazer:** juntar ajustes de um mesmo cliente num único envio até o fim do mês. Se acontecer de novo no mês seguinte, avaliar o plano pago (Pages Pro) ou a Fase 2.' "$n_pub" "$LIM_PUBLICACOES")"
           fi
