@@ -1,0 +1,380 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reinventar · Sites de portfólio para profissionais liberais</title>
+<meta name="description" content="A Reinventar cria e mantém sites de portfólio one-page para personal trainers, dentistas e outros profissionais liberais. No ar em poucos dias, com domínio, hospedagem e ajustes inclusos.">
+<!-- PRÉVIA: remover a linha abaixo quando a Dayane aprovar -->
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0B0A0C">
+<meta property="og:title" content="Reinventar · Sites de portfólio para profissionais liberais">
+<meta property="og:description" content="Seu trabalho merece um endereço próprio. Site one-page no ar em poucos dias.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none'%3E%3Crect width='100' height='100' rx='22' fill='%230B0A0C'/%3E%3Cpath d='M22 44V22H44M56 78H78V56' stroke='%2322C58B' stroke-width='9'/%3E%3Crect x='38' y='38' width='24' height='24' rx='5' fill='%23D94F8A'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#0B0A0C; --bg2:#121014; --card:#17141A; --line:#2A242D; --ink:#F7F3F5; --muted:#A79DA6;
+  --vinho:#9E2260; --rosa:#D94F8A; --blush:#F4C9DA; --verde:#22C58B;
+  --sans:"Geist",system-ui,-apple-system,"Segoe UI",sans-serif; --mono:"Geist Mono",ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img,svg{display:block}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+.mono{font-family:var(--mono)}
+.eyebrow{font:500 13px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--verde)}
+h1,h2,h3{margin:0;font-weight:500;letter-spacing:-.035em;line-height:1.05;text-wrap:balance}
+h1{font-size:clamp(40px,7vw,84px)}
+h2{font-size:clamp(30px,4.4vw,52px)}
+h3{font-size:21px;letter-spacing:-.02em;line-height:1.25}
+p{margin:0}
+.muted{color:var(--muted)}
+.btn{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:0 22px;border-radius:10px;font-weight:500;text-decoration:none;border:1px solid var(--line);transition:transform .15s,border-color .15s,background .15s}
+.btn:hover{transform:translateY(-1px);border-color:var(--muted)}
+.btn.primary{background:var(--rosa);border-color:var(--rosa);color:#fff}
+.btn.primary:hover{background:#e3609a}
+:focus-visible{outline:2px solid var(--verde);outline-offset:3px}
+
+.preview{background:var(--blush);color:#3a0f24;font-size:14px;text-align:center;padding:8px 16px}
+
+/* topo */
+header{position:sticky;top:0;z-index:10;background:rgba(11,10,12,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo svg{width:34px;height:34px}
+.word{font-size:24px;letter-spacing:-.045em;line-height:1}
+.word .e{display:inline-block;transform:scaleX(-1);color:var(--rosa)}
+.word sup{font:400 11px var(--mono);color:var(--verde);letter-spacing:0;margin-left:3px;vertical-align:top;position:relative;top:2px}
+.links{display:flex;gap:28px;font-size:15px;color:var(--muted)}
+.links a{text-decoration:none}
+.links a:hover{color:var(--ink)}
+@media (max-width:820px){.links{display:none}}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:96px 0 88px}
+.hero .grid{display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:center}
+.hero h1 .r{color:var(--rosa)}
+.hero p.lead{font-size:20px;color:var(--muted);max-width:560px;margin-top:24px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+.hero .proof{display:flex;flex-wrap:wrap;gap:22px;margin-top:40px;font:400 13px var(--mono);color:var(--muted)}
+.hero .proof span::before{content:"▪";color:var(--verde);margin-right:8px}
+.mark{position:relative;aspect-ratio:1;max-width:400px;justify-self:center;width:100%}
+.mark svg{width:100%;height:100%}
+.mark .g{stroke-dasharray:120;stroke-dashoffset:120;animation:draw 1.1s .2s ease-out forwards}
+.mark .p{stroke-dasharray:110;stroke-dashoffset:110;animation:draw 1s .6s ease-out forwards}
+.mark .b{opacity:0;transform-origin:50% 50%;transform:scale(.6);animation:pop .5s 1.2s ease-out forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes pop{to{opacity:1;transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.mark .g,.mark .p,.mark .b{animation:none;stroke-dashoffset:0;opacity:1;transform:none}}
+.glow{position:absolute;inset:auto -20% -60% auto;width:720px;height:720px;background:radial-gradient(closest-side,rgba(158,34,96,.35),transparent);pointer-events:none}
+@media (max-width:860px){.hero{padding:64px 0}.hero .grid{grid-template-columns:1fr}.mark{max-width:220px;order:-1;justify-self:start}}
+
+section{padding:96px 0;border-top:1px solid var(--line)}
+.head{display:flex;flex-direction:column;gap:16px;max-width:720px;margin-bottom:48px}
+.head p{font-size:19px;color:var(--muted)}
+
+/* dor */
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:860px){.cols3{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:12px}
+.card .n{font:500 13px var(--mono);color:var(--rosa)}
+
+/* passos */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.step{padding:28px;border-left:1px solid var(--line);display:flex;flex-direction:column;gap:10px;background:var(--bg2)}
+.step:first-child{border-left:0}
+.step .d{font:400 13px var(--mono);color:var(--verde)}
+@media (max-width:900px){.steps{grid-template-columns:1fr 1fr}.step:nth-child(3){border-left:0}.step:nth-child(n+3){border-top:1px solid var(--line)}}
+@media (max-width:560px){.steps{grid-template-columns:1fr}.step{border-left:0}.step+.step{border-top:1px solid var(--line)}}
+
+/* layouts */
+.layouts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media (max-width:900px){.layouts{grid-template-columns:1fr}}
+.lay{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card)}
+.shot{aspect-ratio:4/3;padding:18px;display:flex;flex-direction:column;gap:8px}
+.shot i{display:block;border-radius:4px}
+.lay .meta{padding:20px 22px 24px;display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line)}
+.lay .meta .t{font:500 12px var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
+.a{background:#F6F1EA}.a i{background:#d8cdbf}
+.b{background:#140C0C}.b i{background:#3a2222}
+.c{background:#EEF4F7}.c i{background:#c9d8e0}
+
+/* nichos */
+.niches{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media (max-width:760px){.niches{grid-template-columns:1fr}}
+.niche ul{margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;color:var(--muted)}
+.niche li{padding-left:22px;position:relative}
+.niche li::before{content:"";position:absolute;left:0;top:10px;width:10px;height:10px;border:2px solid var(--verde);border-right:0;border-bottom:0}
+.tagline{font:400 13px var(--mono);color:var(--muted);margin-top:auto;padding-top:12px;border-top:1px dashed var(--line)}
+
+/* planos */
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch}
+@media (max-width:900px){.plans{grid-template-columns:1fr}}
+.plan{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:30px;display:flex;flex-direction:column;gap:18px}
+.plan.hl{border-color:var(--rosa);box-shadow:0 0 0 1px var(--rosa) inset}
+.plan .badge{align-self:flex-start;font:500 12px var(--mono);color:#fff;background:var(--vinho);padding:4px 10px;border-radius:99px}
+.price{display:flex;flex-direction:column;gap:2px}
+.price b{font-size:40px;font-weight:500;letter-spacing:-.03em}
+.price span{font:400 14px var(--mono);color:var(--muted)}
+.plan ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;font-size:15px}
+.plan li{display:flex;gap:10px}
+.plan li::before{content:"→";color:var(--verde);font-family:var(--mono)}
+.plan .btn{margin-top:auto;justify-content:center}
+.note{margin-top:24px;font-size:15px;color:var(--muted);display:flex;flex-direction:column;gap:6px}
+.note b{color:var(--blush);font-weight:500}
+
+/* faq */
+.faq{display:flex;flex-direction:column;border-top:1px solid var(--line);max-width:860px}
+details{border-bottom:1px solid var(--line);padding:22px 0}
+summary{cursor:pointer;list-style:none;font-size:19px;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:var(--mono);color:var(--rosa);font-size:22px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{color:var(--muted);margin-top:12px;max-width:720px}
+
+/* cta */
+.cta{background:linear-gradient(135deg,var(--vinho),#5a1238);border-radius:20px;padding:64px 48px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;position:relative;overflow:hidden}
+.cta p{color:var(--blush);font-size:19px;margin-top:14px;max-width:560px}
+.cta .btn.primary{background:var(--ink);border-color:var(--ink);color:var(--bg)}
+.cta svg.deco{position:absolute;right:-40px;bottom:-40px;width:260px;opacity:.18}
+@media (max-width:760px){.cta{grid-template-columns:1fr;padding:44px 26px}}
+
+footer{padding:40px 0 56px;color:var(--muted);font-size:14px}
+footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
+
+.wa{position:fixed;right:18px;bottom:18px;z-index:20;width:56px;height:56px;border-radius:50%;background:var(--verde);display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+.wa svg{width:28px;height:28px}
+</style>
+</head>
+<body>
+
+<div class="preview"><b>Prévia para aprovação</b> · o botão de WhatsApp ainda aponta para um número provisório</div>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#topo" aria-label="Reinventar, início">
+      <svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M14 38V14H38M62 86H86V62" stroke="#22C58B" stroke-opacity=".8" stroke-width="6"/><path d="M24 46V24H46M54 76H76V54" stroke="#D94F8A" stroke-width="6"/><rect x="40" y="40" width="20" height="20" rx="4" fill="#F4C9DA"/></svg>
+      <span class="word">r<span class="e">e</span>inventar<sup>.dev</sup></span>
+    </a>
+    <nav class="links" aria-label="Seções">
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#modelos">Modelos</a>
+      <a href="#planos">Planos</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+    <a class="btn primary wa-link" href="#" data-msg="Olá! Vi o site da Reinventar e quero um site de portfólio.">Falar no WhatsApp</a>
+  </div>
+</header>
+
+<main id="topo">
+  <div class="hero">
+    <div class="glow" aria-hidden="true"></div>
+    <div class="wrap grid">
+      <div>
+        <div class="eyebrow">Sites de portfólio · profissionais liberais</div>
+        <h1 style="margin-top:20px">Seu trabalho merece um <span class="r">endereço próprio</span>.</h1>
+        <p class="lead">A Reinventar cria e mantém o site one-page do seu consultório ou estúdio: bonito no celular, fácil de achar no Google e com um botão direto para o seu WhatsApp. Você aprova, a gente põe no ar.</p>
+        <div class="ctas">
+          <a class="btn primary wa-link" href="#" data-msg="Olá! Quero ver uma prévia do meu site.">Quero uma prévia grátis</a>
+          <a class="btn" href="#planos">Ver planos</a>
+        </div>
+        <div class="proof"><span>no ar em até 7 dias</span><span>domínio e hospedagem inclusos</span><span>ajustes todo mês</span></div>
+      </div>
+      <div class="mark" aria-hidden="true">
+        <svg viewBox="0 0 100 100" fill="none"><path class="g" d="M14 38V14H38M62 86H86V62" stroke="#22C58B" stroke-opacity=".8" stroke-width="3"/><path class="p" d="M24 46V24H46M54 76H76V54" stroke="#D94F8A" stroke-width="3"/><rect class="b" x="40" y="40" width="20" height="20" rx="4" fill="#F4C9DA"/></svg>
+      </div>
+    </div>
+  </div>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">Por que um site</div>
+        <h2>O Instagram mostra. O site convence.</h2>
+        <p>Quem chega por indicação procura seu nome antes de chamar. Um site próprio responde as dúvidas e transforma a visita em conversa.</p>
+      </div>
+      <div class="cols3">
+        <div class="card"><span class="n">01</span><h3>Profissional desde o primeiro clique</h3><p class="muted">Formação, especialidades, fotos e depoimentos num lugar só, com a sua cara e o seu registro profissional visível.</p></div>
+        <div class="card"><span class="n">02</span><h3>Aparece no Google da sua cidade</h3><p class="muted">Endereço, horários e mapa organizados para quem busca "personal em Divinópolis" ou "dentista perto de mim".</p></div>
+        <div class="card"><span class="n">03</span><h3>Um toque até o seu WhatsApp</h3><p class="muted">Sem formulário perdido: o paciente ou aluno abre a conversa com uma mensagem pronta.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="como-funciona">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">Como funciona</div>
+        <h2>Do briefing ao ar em quatro passos.</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="d">dia 1</span><h3>Conversa</h3><p class="muted">15 minutos no WhatsApp para entender seu público, serviços e estilo.</p></div>
+        <div class="step"><span class="d">dia 2–3</span><h3>Prévia</h3><p class="muted">Você recebe o site montado num link para ver no celular antes de pagar a mensalidade.</p></div>
+        <div class="step"><span class="d">dia 4–6</span><h3>Ajustes</h3><p class="muted">Textos, fotos e cores ajustados até ficar do seu jeito.</p></div>
+        <div class="step"><span class="d">dia 7</span><h3>No ar</h3><p class="muted">Publicado no seu endereço, com segurança (https) e manutenção contínua.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="modelos">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">Modelos</div>
+        <h2>Três pontos de partida, adaptados a você.</h2>
+        <p>Cada site começa de um modelo testado e ganha suas cores, fotos e textos. Nada de página genérica.</p>
+      </div>
+      <div class="layouts">
+        <article class="lay">
+          <div class="shot a" aria-hidden="true"><i style="width:40%;height:10px"></i><i style="width:85%;height:26px;margin-top:10px"></i><i style="width:60%;height:26px"></i><div style="display:flex;gap:8px;margin-top:auto"><i style="flex:1;height:60px"></i><i style="flex:1;height:60px"></i><i style="flex:1;height:60px"></i></div></div>
+          <div class="meta"><span class="t">Modelo A</span><h3>Clássico</h3><p class="muted">Claro e acolhedor. Ideal para consultórios e quem quer transmitir confiança.</p></div>
+        </article>
+        <article class="lay">
+          <div class="shot b" aria-hidden="true"><i style="width:30%;height:10px;background:#c0392b"></i><i style="width:90%;height:34px;margin-top:10px"></i><i style="width:70%;height:34px"></i><i style="width:36%;height:22px;margin-top:auto;background:#c0392b"></i></div>
+          <div class="meta"><span class="t">Modelo B</span><h3>Impacto</h3><p class="muted">Escuro, foto grande e chamada forte. Feito para personal trainers e estúdios.</p></div>
+        </article>
+        <article class="lay">
+          <div class="shot c" aria-hidden="true"><i style="width:45%;height:10px"></i><div style="display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:14px;flex:1"><i></i><i></i><i style="background:#2b7a9e"></i><i></i><i></i><i></i><i style="background:#2b7a9e"></i><i></i><i></i><i></i></div><i style="width:40%;height:22px;margin-top:10px;background:#2b7a9e"></i></div>
+          <div class="meta"><span class="t">Modelo C</span><h3>Agenda</h3><p class="muted">Horários e serviços em destaque, para quem quer agenda cheia.</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">Para quem</div>
+        <h2>Feito para quem atende gente.</h2>
+      </div>
+      <div class="niches">
+        <div class="card niche">
+          <h3>Personal trainers e estúdios</h3>
+          <ul>
+            <li>Planos e modalidades (presencial, online, consultoria)</li>
+            <li>Antes e depois e depoimentos de alunos</li>
+            <li>CREF visível e botão para aula experimental</li>
+          </ul>
+          <p class="tagline">"Treino que cabe na sua rotina." · exemplo de chamada</p>
+        </div>
+        <div class="card niche">
+          <h3>Dentistas e clínicas</h3>
+          <ul>
+            <li>Tratamentos explicados em linguagem simples</li>
+            <li>Dentro das regras do CFO: CRO visível, sem preços</li>
+            <li>Mapa, horários e agendamento pelo WhatsApp</li>
+          </ul>
+          <p class="tagline">"Seu sorriso em boas mãos." · exemplo de chamada</p>
+        </div>
+      </div>
+      <p class="muted" style="margin-top:20px;font-size:15px">Nutricionistas, fisioterapeutas, psicólogos e advogados também. Pergunte pelo seu nicho.</p>
+    </div>
+  </section>
+
+  <section id="planos">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">Planos</div>
+        <h2>Implantação única + mensalidade.</h2>
+        <p>A mensalidade cobre hospedagem, segurança, domínio e ajustes. Contrato de 12 meses.</p>
+      </div>
+      <div class="plans">
+        <div class="plan">
+          <h3>Essencial</h3>
+          <div class="price"><b>R$ 79<small style="font-size:18px">/mês</small></b><span>+ R$ 497 de implantação</span></div>
+          <ul>
+            <li>Site one-page em um dos 3 modelos</li>
+            <li>Endereço seunome.reinventar.dev</li>
+            <li>Botão de WhatsApp e mapa</li>
+            <li>1 ajuste por mês</li>
+          </ul>
+          <a class="btn wa-link" href="#" data-msg="Olá! Tenho interesse no plano Essencial.">Quero o Essencial</a>
+        </div>
+        <div class="plan hl">
+          <span class="badge">mais escolhido</span>
+          <h3>Profissional</h3>
+          <div class="price"><b>R$ 149<small style="font-size:18px">/mês</small></b><span>+ R$ 997 de implantação</span></div>
+          <ul>
+            <li>Tudo do Essencial</li>
+            <li>Domínio próprio no seu nome (seunome.com.br)</li>
+            <li>Galeria, depoimentos e perguntas frequentes</li>
+            <li>Google Meu Negócio configurado</li>
+            <li>3 ajustes por mês</li>
+          </ul>
+          <a class="btn primary wa-link" href="#" data-msg="Olá! Tenho interesse no plano Profissional.">Quero o Profissional</a>
+        </div>
+        <div class="plan">
+          <h3>Premium</h3>
+          <div class="price"><b>R$ 297<small style="font-size:18px">/mês</small></b><span>+ R$ 1.997 de implantação</span></div>
+          <ul>
+            <li>Tudo do Profissional</li>
+            <li>Layout exclusivo e seções sob medida</li>
+            <li>Relatório mensal de visitas</li>
+            <li>Ajustes sem limite e prioridade</li>
+          </ul>
+          <a class="btn wa-link" href="#" data-msg="Olá! Tenho interesse no plano Premium.">Quero o Premium</a>
+        </div>
+      </div>
+      <div class="note">
+        <p><b>Lançamento:</b> os 5 primeiros clientes de cada nicho pagam metade da implantação.</p>
+        <p>O domínio próprio fica registrado no seu nome: o endereço é sempre seu.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="duvidas">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">Dúvidas</div>
+        <h2>Perguntas frequentes.</h2>
+      </div>
+      <div class="faq">
+        <details><summary>Preciso entender de tecnologia?</summary><p>Não. Você manda fotos e informações pelo WhatsApp e aprova a prévia. Domínio, hospedagem e segurança ficam com a gente.</p></details>
+        <details><summary>Posso ver o site antes de pagar?</summary><p>Sim. Montamos uma prévia com seus dados reais e enviamos o link. Você só fecha se gostar.</p></details>
+        <details><summary>E se eu quiser mudar algo depois?</summary><p>Os ajustes mensais estão no plano: troca de foto, horário, texto ou serviço. É só mandar mensagem.</p></details>
+        <details><summary>O domínio fica no meu nome?</summary><p>Nos planos Profissional e Premium, sim: o domínio é registrado em seu nome no Registro.br. No Essencial, você usa um endereço reinventar.dev.</p></details>
+        <details><summary>O site segue as regras do meu conselho?</summary><p>Sim. Para dentistas seguimos as normas do CFO (CRO visível, sem preços, antes e depois só com autorização). Para personal, o CREF fica sempre à vista.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="cta">
+        <svg class="deco" viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M14 38V14H38M62 86H86V62" stroke="#22C58B" stroke-width="5"/><path d="M24 46V24H46M54 76H76V54" stroke="#F4C9DA" stroke-width="5"/><rect x="40" y="40" width="20" height="20" rx="4" fill="#F4C9DA"/></svg>
+        <div>
+          <h2>Bora reinventar sua presença online?</h2>
+          <p>Mande "quero meu site" e receba uma prévia gratuita em até 3 dias.</p>
+        </div>
+        <a class="btn primary wa-link" href="#" data-msg="Quero meu site!">Chamar no WhatsApp</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap row">
+    <span class="word" style="font-size:20px">r<span class="e">e</span>inventar<sup>.dev</sup></span>
+    <span>Divinópolis · MG · © <span id="ano">2026</span> Reinventar</span>
+  </div>
+</footer>
+
+<a class="wa wa-link" href="#" data-msg="Olá! Vim pelo site da Reinventar." aria-label="Conversar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#0B0A0C" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-1-1.1-1.3-1.7-.1-.2 0-.4.1-.5l.4-.5.3-.4v-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3c-.3.3-1 .9-1 2.3s1 2.7 1.2 2.9c.1.2 2 3.1 4.9 4.3 1.8.8 2.5.8 3.4.7.6-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+</a>
+
+<script>
+  // Número do WhatsApp da Reinventar (só dígitos, com 55 + DDD). PROVISÓRIO até a Dayane confirmar.
+  var WHATSAPP = "5537900000000";
+  document.querySelectorAll(".wa-link").forEach(function (a) {
+    a.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(a.dataset.msg || "Olá!");
+    a.target = "_blank"; a.rel = "noopener";
+  });
+  document.getElementById("ano").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
