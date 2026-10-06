@@ -1,0 +1,30 @@
+{
+  "demo-corretor": {
+    "hero": "photo-1707189856923-46dd41ea2bdc",
+    "casa-mirante": "photo-1613490493576-7fde63acd811",
+    "casa-ipes": "photo-1600585154340-be6161a56a0c",
+    "cobertura": "photo-1757924330358-a48d65664dac",
+    "casa-lago": "photo-1757356657991-c3fd6e2e812e",
+    "sala": "photo-1600607687939-ce8a6c25118c",
+    "cozinha": "photo-1556912172-45b7abe8b7e1",
+    "quarto": "photo-1616594039964-ae9021a400a0",
+    "helena": "photo-1573496359142-b8d87734a5a2"
+  },
+  "demo-dentista": {
+    "marina": "photo-1651008376811-b90baee60c1f",
+    "clinica": "photo-1629909615184-74f495363b67",
+    "sala": "photo-1629909613654-28e377c37b09",
+    "diagnostico": "photo-1606811841689-23dfddce3e95",
+    "sorriso": "photo-1494790108377-be9c29b29330",
+    "sorriso2": "photo-1508214751196-bcfd4ca60f91"
+  },
+  "demo-personal": {
+    "lucas": "photo-1581009146145-b5ef050c2e1e",
+    "acompanhamento": "photo-1571019614242-c5c5dee9f50b",
+    "forca": "photo-1517836357463-d25dfeac3438",
+    "aluna": "photo-1574680096145-d05b474e2155",
+    "corrida": "photo-1552674605-db6ffd4facb5",
+    "agachamento": "photo-1541534741688-6078c6bfb5c5",
+    "estudio": "photo-1534438327276-14e5300c3a48"
+  }
+}
