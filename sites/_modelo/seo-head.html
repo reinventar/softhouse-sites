@@ -1,0 +1,40 @@
+<!--
+  Bloco de SEO para o <head> de todo site de cliente. Copie, troque os [colchetes] e apague o que não usar.
+  robots.txt, sitemap.xml e o noindex do endereço *.pages.dev são gerados pela automação.
+-->
+<title>[Nome] · [Profissão] em [Cidade]</title>
+<meta name="description" content="[Serviço principal] em [Bairro], [Cidade]. [Diferencial em uma frase]. Agende pelo WhatsApp."><!-- até 155 caracteres -->
+<link rel="canonical" href="https://[endereço final]/">
+<!-- Enquanto for prévia: --><meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:title" content="[Nome] · [Profissão] em [Cidade]">
+<meta property="og:description" content="[mesma ideia da description]">
+<meta property="og:url" content="https://[endereço final]/">
+<meta property="og:image" content="https://[endereço final]/og.jpg"><!-- 1200x630, foto do profissional -->
+<meta name="theme-color" content="[cor principal]">
+
+<!-- Dentista: "@type": "Dentist" · Personal/estúdio: "@type": "SportsActivityLocation" (ou "HealthClub" para estúdio com espaço) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Dentist",
+  "name": "[Nome do consultório ou profissional]",
+  "description": "[description]",
+  "url": "https://[endereço final]/",
+  "image": "https://[endereço final]/og.jpg",
+  "telephone": "+55[DDD][número]",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "[Rua, número]",
+    "addressLocality": "[Cidade]",
+    "addressRegion": "MG",
+    "postalCode": "[CEP]",
+    "addressCountry": "BR"
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "18:00" }
+  ],
+  "sameAs": ["https://instagram.com/[perfil]", "[link do Perfil da Empresa no Google]"]
+}
+</script>
+<!-- Atendimento sem endereço aberto ao público (personal a domicílio/online): troque "address" por "areaServed": "[Cidade] e região". -->

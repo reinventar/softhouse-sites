@@ -7,7 +7,15 @@
 <meta name="description" content="A Reinventar cria e mantém sites de portfólio one-page para personal trainers, dentistas e outros profissionais liberais. No ar em poucos dias, com domínio, hospedagem e ajustes inclusos.">
 <!-- PRÉVIA: remover a linha abaixo quando a Dayane aprovar -->
 <meta name="robots" content="noindex">
+<link rel="canonical" href="https://reinventar.dev/">
 <meta name="theme-color" content="#0B0A0C">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://reinventar.dev/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Reinventar","url":"https://reinventar.dev/",
+ "description":"Sites de portfólio one-page e fotos profissionais para personal trainers, dentistas e outros profissionais.",
+ "areaServed":"Divinópolis e região, MG","telephone":"+5537999181248","address":{"@type":"PostalAddress","addressLocality":"Divinópolis","addressRegion":"MG","addressCountry":"BR"}}
+</script>
 <meta property="og:title" content="Reinventar · Sua marca, seu endereço">
 <meta property="og:description" content="Seu trabalho merece um endereço próprio. Site one-page no ar em poucos dias.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none'%3E%3Crect width='100' height='100' rx='22' fill='%230B0A0C'/%3E%3Cpath d='M22 44V22H44M56 78H78V56' stroke='%2322C58B' stroke-width='9'/%3E%3Crect x='38' y='38' width='24' height='24' rx='5' fill='%23D94F8A'/%3E%3C/svg%3E">
@@ -164,7 +172,7 @@ footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;a
 </head>
 <body>
 
-<div class="preview"><b>Prévia para aprovação</b> · o botão de WhatsApp ainda aponta para um número provisório</div>
+<div class="preview"><b>Prévia para aprovação</b></div>
 
 <header>
   <div class="wrap nav">
@@ -212,7 +220,7 @@ footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;a
       </div>
       <div class="cols3">
         <div class="card"><span class="n">01</span><h3>Profissional desde o primeiro clique</h3><p class="muted">Formação, especialidades, fotos e depoimentos num lugar só, com a sua cara e o seu registro profissional visível.</p></div>
-        <div class="card"><span class="n">02</span><h3>Aparece no Google da sua cidade</h3><p class="muted">Endereço, horários e mapa organizados para quem busca "personal em Divinópolis" ou "dentista perto de mim".</p></div>
+        <div class="card"><span class="n">02</span><h3>Pronto para o Google</h3><p class="muted">Seu site cadastrado no Google e seu perfil da empresa configurado, com endereço, horários e mapa.</p></div>
         <div class="card"><span class="n">03</span><h3>Um toque até o seu WhatsApp</h3><p class="muted">Sem formulário perdido: o paciente ou aluno abre a conversa com uma mensagem pronta.</p></div>
       </div>
     </div>
@@ -338,7 +346,7 @@ footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;a
             <li>Tudo do Essencial</li>
             <li>Domínio próprio no seu nome (seunome.com.br)</li>
             <li>Galeria, depoimentos e perguntas frequentes</li>
-            <li>Google Meu Negócio configurado</li>
+            <li>Perfil da Empresa no Google configurado</li>
             <li>3 ajustes por mês</li>
           </ul>
           <a class="btn primary wa-link" href="#" data-msg="Olá! Tenho interesse no plano Profissional.">Quero o Profissional</a>
@@ -395,7 +403,7 @@ footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;a
 <footer>
   <div class="wrap row">
     <span class="word" style="font-size:20px">r<span class="e">e</span>inventar<sup>.dev</sup></span>
-    <span>Divinópolis · MG · © <span id="ano">2026</span> Reinventar</span>
+    <span>Divinópolis · MG · <a href="https://wa.me/5537999181248" style="text-decoration:none">(37) 99918-1248</a> · © <span id="ano">2026</span> Reinventar</span>
   </div>
 </footer>
 
@@ -404,8 +412,8 @@ footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;a
 </a>
 
 <script>
-  // Número do WhatsApp da Reinventar (só dígitos, com 55 + DDD). PROVISÓRIO até a Dayane confirmar.
-  var WHATSAPP = "5537900000000";
+  // WhatsApp comercial da Reinventar (só dígitos, com 55 + DDD).
+  var WHATSAPP = "5537999181248";
   document.querySelectorAll(".wa-link").forEach(function (a) {
     a.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(a.dataset.msg || "Olá!");
     a.target = "_blank"; a.rel = "noopener";

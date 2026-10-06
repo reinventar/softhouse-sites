@@ -50,6 +50,23 @@ fi
 # 2. Publicar os arquivos (site.json não vai para o ar)
 out=$(mktemp -d)
 rsync -a --exclude site.json "$dir/" "$out/"
+
+# 2b. SEO automático: endereço principal, robots.txt, sitemap.xml e noindex no *.pages.dev
+if [ -n "$own" ]; then main_url="https://$own"
+elif [ -n "$sub" ] && [ -n "${SOFTHOUSE_DOMAIN:-}" ]; then main_url="https://$sub.$SOFTHOUSE_DOMAIN"
+else main_url="https://$pages_host"; fi
+if grep -qi 'name="robots"[^>]*noindex' "$dir/index.html"; then
+  echo "prévia (noindex): sem sitemap"
+  [ -f "$out/robots.txt" ] || printf 'User-agent: *\nAllow: /\n' > "$out/robots.txt"
+else
+  [ -f "$out/sitemap.xml" ] || printf '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n  <url><loc>%s/</loc><lastmod>%s</lastmod></url>\n</urlset>\n' "$main_url" "$(date -u +%F)" > "$out/sitemap.xml"
+  [ -f "$out/robots.txt" ] || printf 'User-agent: *\nAllow: /\n\nSitemap: %s/sitemap.xml\n' "$main_url" > "$out/robots.txt"
+fi
+if [ "$main_url" != "https://$pages_host" ] && [ ! -f "$out/_headers" ]; then
+  # o endereço reserva *.pages.dev não deve aparecer no Google (conteúdo duplicado)
+  printf 'https://%s/*\n  X-Robots-Tag: noindex\n' "$pages_host" > "$out/_headers"
+fi
+grep -q 'rel="canonical"' "$dir/index.html" || echo "::warning title=$slug::Sem <link rel=\"canonical\" href=\"$main_url/\"> no index.html"
 log=$(mktemp)
 if ! npx --yes wrangler@3 pages deploy "$out" --project-name "$project" --branch main --commit-dirty=true >"$log" 2>&1; then
   cat "$log"

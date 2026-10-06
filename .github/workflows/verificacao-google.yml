@@ -1,0 +1,36 @@
+name: Verificação Google
+
+# Cria o registro TXT que o Google Search Console pede para verificar um domínio.
+# Ex.: zona = reinventar.dev, valor = google-site-verification=abc123
+on:
+  workflow_dispatch:
+    inputs:
+      zona:
+        description: "Domínio (ex.: reinventar.dev ou igoraugusto.com.br)"
+        required: true
+      valor:
+        description: "Texto completo que o Google mostrou (google-site-verification=...)"
+        required: true
+
+jobs:
+  txt:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Criar registro TXT
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          ZONA: ${{ github.event.inputs.zona }}
+          VALOR: ${{ github.event.inputs.valor }}
+        run: |
+          api="https://api.cloudflare.com/client/v4"
+          H="Authorization: Bearer $CLOUDFLARE_API_TOKEN"
+          case "$VALOR" in google-site-verification=*) ;; *) echo "::error::O valor precisa começar com google-site-verification="; exit 1 ;; esac
+          zone=$(curl -sS -H "$H" "$api/zones?name=$ZONA" | jq -r '.result[0].id // empty')
+          [ -n "$zone" ] || { echo "::error::Zona $ZONA não encontrada na Cloudflare"; exit 1; }
+          if curl -sS -H "$H" "$api/zones/$zone/dns_records?type=TXT&name=$ZONA" | jq -e --arg v "$VALOR" '.result[] | select(.content == $v or .content == ("\"" + $v + "\""))' >/dev/null; then
+            echo "::notice::TXT já existia em $ZONA"; exit 0
+          fi
+          body=$(jq -nc --arg n "$ZONA" --arg c "$VALOR" '{type:"TXT",name:$n,content:$c,ttl:3600}')
+          r=$(curl -sS -X POST -H "$H" -H "Content-Type: application/json" "$api/zones/$zone/dns_records" --data "$body")
+          echo "$r" | jq -e '.success' >/dev/null && echo "::notice::TXT do Google criado em $ZONA. Volte ao Search Console e clique em Verificar." \
+            || { echo "::error::Falhou: $(echo "$r" | jq -c '.errors')"; exit 1; }
