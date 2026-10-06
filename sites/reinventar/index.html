@@ -128,6 +128,17 @@ section{padding:96px 0;border-top:1px solid var(--line)}
 .note{margin-top:24px;font-size:15px;color:var(--muted);display:flex;flex-direction:column;gap:6px}
 .note b{color:var(--blush);font-weight:500}
 
+
+/* fotos */
+.photo{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:760px){.photo{grid-template-columns:1fr}}
+.photo .card.big{background:linear-gradient(160deg,#1d1520,var(--card));border-color:#3a2a35}
+.frame{aspect-ratio:21/8;border-radius:10px;border:1px solid var(--line);position:relative;display:grid;place-items:center;background:repeating-linear-gradient(135deg,#1b171d 0 12px,#17141a 12px 24px)}
+.frame::before,.frame::after{content:"";position:absolute;width:28px;height:28px;border:2px solid var(--verde)}
+.frame::before{top:12px;left:12px;border-right:0;border-bottom:0}
+.frame::after{bottom:12px;right:12px;border-left:0;border-top:0}
+.frame svg{width:44px;height:44px;opacity:.7}
+
 /* faq */
 .faq{display:flex;flex-direction:column;border-top:1px solid var(--line);max-width:860px}
 details{border-bottom:1px solid var(--line);padding:22px 0}
@@ -164,6 +175,7 @@ footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;a
     <nav class="links" aria-label="Seções">
       <a href="#como-funciona">Como funciona</a>
       <a href="#modelos">Modelos</a>
+      <a href="#fotos">Fotos</a>
       <a href="#planos">Planos</a>
       <a href="#duvidas">Dúvidas</a>
     </nav>
@@ -183,7 +195,7 @@ footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;a
           <a class="btn primary wa-link" href="#" data-msg="Olá! Quero ver uma prévia do meu site.">Quero uma prévia grátis</a>
           <a class="btn" href="#planos">Ver planos</a>
         </div>
-        <div class="proof"><span>no ar em até 7 dias</span><span>domínio e hospedagem inclusos</span><span>ajustes todo mês</span></div>
+        <div class="proof"><span>no ar em até 7 dias</span><span>domínio e hospedagem inclusos</span><span>ajustes todo mês</span><span>fotos profissionais</span></div>
       </div>
       <div class="mark" aria-hidden="true">
         <svg viewBox="0 0 100 100" fill="none"><path class="g" d="M14 38V14H38M62 86H86V62" stroke="#22C58B" stroke-opacity=".8" stroke-width="3"/><path class="p" d="M24 46V24H46M54 76H76V54" stroke="#D94F8A" stroke-width="3"/><rect class="b" x="40" y="40" width="20" height="20" rx="4" fill="#F4C9DA"/></svg>
@@ -275,6 +287,30 @@ footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;a
     </div>
   </section>
 
+  <section id="fotos">
+    <div class="wrap">
+      <div class="head">
+        <div class="eyebrow">Fotos profissionais</div>
+        <h2>Sem fotos boas? A gente resolve.</h2>
+        <p>Foto é o que faz o visitante confiar. Por isso a Reinventar também cuida das imagens do seu site.</p>
+      </div>
+      <div class="photo">
+        <div class="card big">
+          <div class="frame" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#F4C9DA" stroke-width="1.5"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg></div>
+          <h3>Ensaio fotográfico profissional</h3>
+          <p class="muted">Vamos até o seu consultório ou estúdio e fotografamos você, a equipe e o espaço. As fotos chegam tratadas, prontas para o site e para o Instagram.</p>
+          <p class="tagline">Divinópolis e região · agende pelo WhatsApp</p>
+        </div>
+        <div class="card">
+          <div class="frame" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="#F4C9DA" stroke-width="1.5"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 16 5-5 4 4 3-3 6 6"/><circle cx="16" cy="9" r="1.5"/></svg></div>
+          <h3>Imagens de apoio licenciadas</h3>
+          <p class="muted">Enquanto o ensaio não acontece, usamos imagens de banco com licença comercial para ambientes, equipamentos e detalhes. Seu site não fica esperando.</p>
+          <p class="tagline">incluso em todos os planos</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="planos">
     <div class="wrap">
       <div class="head">
@@ -322,6 +358,7 @@ footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;a
       <div class="note">
         <p><b>Lançamento:</b> os 5 primeiros clientes de cada nicho pagam metade da implantação.</p>
         <p>O domínio próprio fica registrado no seu nome: o endereço é sempre seu.</p>
+        <p><b>Ensaio fotográfico:</b> pode ser contratado junto com qualquer plano. Valor sob consulta.</p>
       </div>
     </div>
   </section>
@@ -335,6 +372,7 @@ footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;a
       <div class="faq">
         <details><summary>Preciso entender de tecnologia?</summary><p>Não. Você manda fotos e informações pelo WhatsApp e aprova a prévia. Domínio, hospedagem e segurança ficam com a gente.</p></details>
         <details><summary>Posso ver o site antes de pagar?</summary><p>Sim. Montamos uma prévia com seus dados reais e enviamos o link. Você só fecha se gostar.</p></details>
+        <details><summary>E se eu não tiver fotos boas?</summary><p>Fazemos um ensaio profissional no seu espaço, em Divinópolis e região. Até lá, o site usa imagens de apoio licenciadas. Fotos de pessoas, antes e depois e resultados são sempre reais, nunca de banco de imagens.</p></details>
         <details><summary>E se eu quiser mudar algo depois?</summary><p>Os ajustes mensais estão no plano: troca de foto, horário, texto ou serviço. É só mandar mensagem.</p></details>
         <details><summary>O domínio fica no meu nome?</summary><p>Nos planos Profissional e Premium, sim: o domínio é registrado em seu nome no Registro.br. No Essencial, você usa um endereço reinventar.dev.</p></details>
         <details><summary>O site segue as regras do meu conselho?</summary><p>Sim. Para dentistas seguimos as normas do CFO (CRO visível, sem preços, antes e depois só com autorização). Para personal, o CREF fica sempre à vista.</p></details>
