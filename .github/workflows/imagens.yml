@@ -1,16 +1,16 @@
 name: Imagens
 
-# buscar: procura fotos gratuitas no Unsplash para cada item de sites/_imagens/manifesto.json
-#         e grava miniaturas em sites/_imagens/candidatos/<site>/<item>/ (não é publicado).
-# baixar: lê sites/_imagens/escolhas.json ({"site": {"item": "<id da foto>"}}) e grava
-#         sites/<site>/img/<item>.webp (1800px) + CREDITOS.txt.
+# miniaturas: baixa miniaturas de cada id de sites/_imagens/candidatos.json para
+#             sites/_imagens/candidatos/<site>/<item>/<n>-<id>.jpg (pasta com "_" não é publicada).
+# baixar:     lê sites/_imagens/escolhas.json ({"site": {"nome": "<id>"}}) e grava
+#             sites/<site>/img/<nome>.webp (até 1800px) + CREDITOS.txt.
 on:
   workflow_dispatch:
     inputs:
       modo:
-        description: "buscar ou baixar"
+        description: "miniaturas ou baixar"
         required: true
-        default: buscar
+        default: miniaturas
 
 permissions:
   contents: write
@@ -27,43 +27,34 @@ jobs:
           MODO: ${{ github.event.inputs.modo }}
         run: |
           set -u
-          UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36"
-          M=sites/_imagens/manifesto.json
-          if [ "$MODO" = "buscar" ]; then
-            rm -rf sites/_imagens/candidatos; mkdir -p sites/_imagens/candidatos
-            for site in $(jq -r 'keys[]' $M); do
-              for item in $(jq -r --arg s "$site" '.[$s] | keys[]' $M); do
-                q=$(jq -r --arg s "$site" --arg i "$item" '.[$s][$i].busca' $M)
-                o=$(jq -r --arg s "$site" --arg i "$item" '.[$s][$i].orientacao' $M)
-                d=sites/_imagens/candidatos/$site/$item; mkdir -p $d
-                slugq=$(echo "$q" | tr ' ' '-')
-                html=$(curl -sS -A "$UA" -H "Accept-Language: en-US" "https://unsplash.com/s/photos/$slugq?orientation=$o")
-                echo "::notice title=debug $site/$item::html $(echo "$html" | wc -c) bytes, photo refs $(echo "$html" | grep -oE 'photo-[0-9]{10,}-[0-9a-f]{6,}' | sort -u | wc -l), plus refs $(echo "$html" | grep -o 'plus.unsplash' | wc -l)"
-                ids=$(echo "$html" | grep -oE 'https://images\.unsplash\.com/photo-[0-9]+-[0-9a-f]+' | sed 's#https://images.unsplash.com/##' | awk '!seen[$0]++' | head -8)
-                if [ -z "$ids" ]; then echo "::error title=$site/$item::sem resultados (HTTP bloqueado?) $(echo "$html" | head -c 150 | tr '\n' ' ')"; continue; fi
-                echo "[]" > $d/ids.json; n=0
-                for id in $ids; do
-                  n=$((n+1)); curl -sS -A "$UA" -L "https://images.unsplash.com/$id?w=420&q=60&fm=jpg" -o "$d/$n-$id.jpg"
-                  jq --arg id "$id" '. + [{id: $id, raw: ("https://images.unsplash.com/" + $id + "?ixlib=rb-4.0.3"), autor: "Unsplash", perfil: ("https://images.unsplash.com/" + $id)}]' $d/ids.json > /tmp/i && mv /tmp/i $d/ids.json
+          cdn="https://images.unsplash.com"
+          if [ "$MODO" = "miniaturas" ]; then
+            C=sites/_imagens/candidatos.json
+            rm -rf sites/_imagens/candidatos
+            for site in $(jq -r 'keys[]' $C); do
+              for item in $(jq -r --arg s "$site" '.[$s] | keys[]' $C); do
+                d=sites/_imagens/candidatos/$site/$item; mkdir -p $d; n=0; ok=0
+                for id in $(jq -r --arg s "$site" --arg i "$item" '.[$s][$i][]' $C); do
+                  n=$((n+1))
+                  code=$(curl -sS -L -o "$d/$n-$id.jpg" -w '%{http_code}' "$cdn/$id?w=360&q=60&fm=jpg")
+                  if [ "$code" = "200" ]; then ok=$((ok+1)); else rm -f "$d/$n-$id.jpg"; echo "::warning title=$site/$item::$id HTTP $code"; fi
                 done
-                echo "::notice title=$site/$item::$n candidatos"
+                echo "::notice title=$site/$item::$ok de $n baixadas"
               done
             done
-            git add sites/_imagens/candidatos
+            git add -A sites/_imagens/candidatos
           else
             E=sites/_imagens/escolhas.json
             for site in $(jq -r 'keys[]' $E); do
               mkdir -p sites/$site/img; cred=sites/$site/img/CREDITOS.txt
               echo "Fotos do Unsplash (licença Unsplash: uso comercial gratuito)" > $cred
-              for item in $(jq -r --arg s "$site" '.[$s] | keys[]' $E); do
-                id=$(jq -r --arg s "$site" --arg i "$item" '.[$s][$i]' $E)
-                info=$(jq -c --arg id "$id" '.[] | select(.id == $id)' sites/_imagens/candidatos/$site/*/ids.json | head -1)
-                [ -n "$info" ] || { echo "::error title=$site/$item::id $id não está nos candidatos"; continue; }
-                raw=$(echo "$info" | jq -r .raw)
-                curl -sS -A "$UA" -L "${raw}&w=1800&q=82&fm=jpg&fit=max" -o /tmp/a.jpg
-                cwebp -quiet -q 78 -resize 1800 0 /tmp/a.jpg -o sites/$site/img/$item.webp || cwebp -quiet -q 78 /tmp/a.jpg -o sites/$site/img/$item.webp
-                echo "$item: https://images.unsplash.com/$id" >> $cred
-                echo "::notice title=$site/$item::$(du -k sites/$site/img/$item.webp | cut -f1) KB"
+              for nome in $(jq -r --arg s "$site" '.[$s] | keys[]' $E); do
+                id=$(jq -r --arg s "$site" --arg n "$nome" '.[$s][$n]' $E)
+                code=$(curl -sS -L -o /tmp/a.jpg -w '%{http_code}' "$cdn/$id?w=1800&q=85&fm=jpg&fit=max")
+                [ "$code" = "200" ] || { echo "::error title=$site/$nome::$id HTTP $code"; continue; }
+                cwebp -quiet -q 76 /tmp/a.jpg -o sites/$site/img/$nome.webp
+                echo "$nome: $cdn/$id" >> $cred
+                echo "::notice title=$site/$nome::$(du -k sites/$site/img/$nome.webp | cut -f1) KB"
               done
               git add sites/$site/img
             done
