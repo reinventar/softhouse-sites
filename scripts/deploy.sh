@@ -104,6 +104,10 @@ if [ -n "$own" ]; then
   attach_domain "$own"
   upsert_cname "$zone" "$own"
   urls+=("https://$own")
+  case "$own" in
+    www.*) ;;
+    *) attach_domain "www.$own"; upsert_cname "$zone" "www.$own"; urls+=("https://www.$own") ;;
+  esac
   [ "$status" != "active" ] && echo "::notice title=$slug::No Registro.br, troque os DNS de $own para: $ns"
 fi
 
