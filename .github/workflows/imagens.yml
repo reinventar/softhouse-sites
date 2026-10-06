@@ -26,7 +26,7 @@ jobs:
         env:
           MODO: ${{ github.event.inputs.modo }}
         run: |
-          set -uo pipefail
+          set -u
           UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126 Safari/537.36"
           M=sites/_imagens/manifesto.json
           if [ "$MODO" = "buscar" ]; then
@@ -38,6 +38,7 @@ jobs:
                 d=sites/_imagens/candidatos/$site/$item; mkdir -p $d
                 slugq=$(echo "$q" | tr ' ' '-')
                 html=$(curl -sS -A "$UA" -H "Accept-Language: en-US" "https://unsplash.com/s/photos/$slugq?orientation=$o")
+                echo "::notice title=debug $site/$item::html $(echo "$html" | wc -c) bytes, photo refs $(echo "$html" | grep -oE 'photo-[0-9]{10,}-[0-9a-f]{6,}' | sort -u | wc -l), plus refs $(echo "$html" | grep -o 'plus.unsplash' | wc -l)"
                 ids=$(echo "$html" | grep -oE 'https://images\.unsplash\.com/photo-[0-9]+-[0-9a-f]+' | sed 's#https://images.unsplash.com/##' | awk '!seen[$0]++' | head -8)
                 if [ -z "$ids" ]; then echo "::error title=$site/$item::sem resultados (HTTP bloqueado?) $(echo "$html" | head -c 150 | tr '\n' ' ')"; continue; fi
                 echo "[]" > $d/ids.json; n=0
