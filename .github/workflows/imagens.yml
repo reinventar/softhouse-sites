@@ -36,13 +36,14 @@ jobs:
                 q=$(jq -r --arg s "$site" --arg i "$item" '.[$s][$i].busca' $M)
                 o=$(jq -r --arg s "$site" --arg i "$item" '.[$s][$i].orientacao' $M)
                 d=sites/_imagens/candidatos/$site/$item; mkdir -p $d
-                r=$(curl -sS -A "$UA" -G "https://unsplash.com/napi/search/photos" --data-urlencode "query=$q" --data-urlencode "orientation=$o" --data-urlencode "per_page=20")
-                echo "$r" | jq -e '.results' >/dev/null 2>&1 || { echo "::error title=$site/$item::busca falhou: $(echo "$r" | head -c 200)"; continue; }
-                echo "$r" | jq '[.results[] | select((.premium // false) == false and (.plus // false) == false) | {id, desc: (.alt_description // ""), autor: .user.name, perfil: .user.links.html, raw: .urls.raw, thumb: .urls.small}] | .[0:8]' > $d/ids.json
-                n=0
-                for row in $(jq -r '.[] | @base64' $d/ids.json); do
-                  id=$(echo $row | base64 -d | jq -r .id); t=$(echo $row | base64 -d | jq -r .thumb)
-                  n=$((n+1)); curl -sS -A "$UA" -L "$t" -o "$d/$n-$id.jpg"
+                slugq=$(echo "$q" | tr ' ' '-')
+                html=$(curl -sS -A "$UA" -H "Accept-Language: en-US" "https://unsplash.com/s/photos/$slugq?orientation=$o")
+                ids=$(echo "$html" | grep -oE 'https://images\.unsplash\.com/photo-[0-9]+-[0-9a-f]+' | sed 's#https://images.unsplash.com/##' | awk '!seen[$0]++' | head -8)
+                if [ -z "$ids" ]; then echo "::error title=$site/$item::sem resultados (HTTP bloqueado?) $(echo "$html" | head -c 150 | tr '\n' ' ')"; continue; fi
+                echo "[]" > $d/ids.json; n=0
+                for id in $ids; do
+                  n=$((n+1)); curl -sS -A "$UA" -L "https://images.unsplash.com/$id?w=420&q=60&fm=jpg" -o "$d/$n-$id.jpg"
+                  jq --arg id "$id" '. + [{id: $id, raw: ("https://images.unsplash.com/" + $id + "?ixlib=rb-4.0.3"), autor: "Unsplash", perfil: ("https://images.unsplash.com/" + $id)}]' $d/ids.json > /tmp/i && mv /tmp/i $d/ids.json
                 done
                 echo "::notice title=$site/$item::$n candidatos"
               done
@@ -60,7 +61,7 @@ jobs:
                 raw=$(echo "$info" | jq -r .raw)
                 curl -sS -A "$UA" -L "${raw}&w=1800&q=82&fm=jpg&fit=max" -o /tmp/a.jpg
                 cwebp -quiet -q 78 -resize 1800 0 /tmp/a.jpg -o sites/$site/img/$item.webp || cwebp -quiet -q 78 /tmp/a.jpg -o sites/$site/img/$item.webp
-                echo "$item: $(echo "$info" | jq -r '.autor + " · " + .perfil') · https://unsplash.com/photos/$id" >> $cred
+                echo "$item: https://images.unsplash.com/$id" >> $cred
                 echo "::notice title=$site/$item::$(du -k sites/$site/img/$item.webp | cut -f1) KB"
               done
               git add sites/$site/img
