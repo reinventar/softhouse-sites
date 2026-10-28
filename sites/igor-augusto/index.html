@@ -116,12 +116,15 @@ section.tight{padding-top:0}
 @media (max-width:860px){.services{grid-template-columns:1fr}.svc img{aspect-ratio:4/3;object-position:50% 25%}}
 
 /* como funciona */
-.steps{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);border-top:2px solid var(--fg)}
-.steps li{padding:26px 26px 6px 0;display:flex;flex-direction:column;gap:10px;min-width:0}
-.steps li+li{padding-left:26px;border-left:1px solid var(--line)}
-.steps .n{font-family:var(--display);font-style:italic;font-weight:900;font-size:4rem;line-height:.8;color:var(--red-text)}
+.how{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;border-top:2px solid var(--fg);min-width:0}
+.steps li{display:grid;grid-template-columns:64px 1fr;gap:4px 18px;padding-block:22px;border-bottom:1px solid var(--line)}
+.steps .n{grid-row:span 2;font-family:var(--display);font-style:italic;font-weight:900;font-size:4rem;line-height:.8;color:var(--red-text)}
 .steps p{color:var(--muted)}
-@media (max-width:860px){.steps{grid-template-columns:1fr}.steps li+li{padding-left:0;border-left:0;border-top:1px solid var(--line)}}
+.how figure{margin:0;position:relative;min-width:0}
+.how figure img{width:100%;aspect-ratio:4/5;object-fit:cover;clip-path:polygon(6% 0,100% 0,94% 100%,0 100%)}
+.how figcaption{position:absolute;left:0;bottom:6%;background:var(--bg);font-family:var(--display);font-style:italic;font-weight:800;text-transform:uppercase;font-size:1.1rem;padding:6px 14px}
+@media (max-width:860px){.how{grid-template-columns:1fr;gap:32px}}
 
 /* resultados */
 .results{background:var(--surface);border-block:1px solid var(--line)}
@@ -276,11 +279,17 @@ footer a{color:var(--muted)}
       <span class="eyebrow">Como funciona</span>
       <h2>Do primeiro papo ao treino no celular</h2>
     </div>
+    <div class="how">
     <ol class="steps">
       <li><span class="n">1</span><h3>Avaliação</h3><p>A gente conversa sobre seu objetivo, rotina e histórico, e eu avalio seu ponto de partida.</p></li>
       <li><span class="n">2</span><h3>Treino no app</h3><p>Seu plano fica no celular, com séries, cargas e vídeos explicativos de cada exercício.</p></li>
       <li><span class="n">3</span><h3>Acompanhamento</h3><p>Ajustes contínuos e aulas de personal para você evoluir com segurança.</p></li>
     </ol>
+    <figure>
+      <img src="img/acompanhamento.webp?v=20261028d" alt="Igor ajustando a cadeira extensora para um aluno durante o treino" width="800" height="987" loading="lazy">
+      <figcaption>Ajuste em cada aparelho</figcaption>
+    </figure>
+    </div>
   </div>
 </section>
 
