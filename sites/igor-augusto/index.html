@@ -66,6 +66,7 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;gap:1
 .brand{display:flex;flex-direction:column;line-height:1;text-decoration:none}
 .brand strong{font-family:var(--display);font-style:italic;font-weight:900;font-size:1.5rem;text-transform:uppercase}
 .brand strong span{color:var(--red-text)}
+.brand small .nb{white-space:nowrap}
 .brand small{color:var(--muted);font-size:.78rem;letter-spacing:.06em;margin-top:3px}
 nav{display:flex;gap:22px;font-weight:500;font-size:.95rem}
 nav a{text-decoration:none;color:var(--muted);padding-block:10px}
@@ -215,7 +216,7 @@ footer a{color:var(--muted)}
   <div class="wrap">
     <a class="brand" href="#">
       <strong>Igor <span>Augusto</span></strong>
-      <small>PERSONAL TRAINER · CREF 055859-G/MG</small>
+      <small>PERSONAL TRAINER <span class="nb">· CREF 055859-G/MG</span></small>
     </a>
     <nav aria-label="Seções">
       <a href="#servicos">Serviços</a>
