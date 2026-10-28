@@ -128,25 +128,16 @@ section.tight{padding-top:0}
 
 /* resultados */
 .results{background:var(--surface);border-block:1px solid var(--line)}
-.case{display:grid;grid-template-columns:1.25fr .75fr;gap:28px;align-items:start}
-.compare{position:relative;margin:0;aspect-ratio:4/5;overflow:hidden;background:var(--bg);user-select:none;touch-action:pan-y;max-width:100%}
-.compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.compare .after{clip-path:inset(0 0 0 var(--pos,50%))}
-.compare .handle{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:3px;margin-left:-1.5px;background:var(--fg);pointer-events:none}
-.compare .handle::after{content:"◀ ▶";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%) skewX(-10deg);background:var(--red);color:var(--on-red);font-size:.8rem;letter-spacing:.1em;padding:10px 12px;white-space:nowrap}
-.compare .lbl{position:absolute;top:14px;font-family:var(--display);font-style:italic;font-weight:900;text-transform:uppercase;font-size:1.2rem;background:var(--bg);padding:4px 12px;pointer-events:none}
-.compare .lbl.b{left:14px}.compare .lbl.a{right:14px;background:var(--red);color:var(--on-red)}
-.compare input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
-.side{display:flex;flex-direction:column;gap:18px;min-width:0}
-.pair{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:0}
-.pair div{position:relative}
-.pair img{width:100%;aspect-ratio:4/5;object-fit:cover}
-.pair span{position:absolute;left:8px;top:8px;font-family:var(--display);font-style:italic;font-weight:800;text-transform:uppercase;font-size:.95rem;background:var(--bg);padding:2px 8px}
-.pair div:last-child span{background:var(--red);color:var(--on-red)}
-.case-info{display:flex;flex-direction:column;gap:8px}
-.case-info p{color:var(--muted)}
-.legal-note{font-size:.85rem;color:var(--muted);border-left:3px solid var(--red);padding-left:12px}
-@media (max-width:860px){.case{grid-template-columns:1fr}}
+.cases{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.case{margin:0;display:flex;flex-direction:column;gap:10px;min-width:0}
+.case .pair{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.case .pair div{position:relative;min-width:0}
+.case img{width:100%;aspect-ratio:3/5;object-fit:cover;background:var(--bg)}
+.case .pair span{position:absolute;left:8px;bottom:8px;font-family:var(--display);font-style:italic;font-weight:800;text-transform:uppercase;font-size:.95rem;background:var(--bg);padding:2px 8px}
+.case .pair div:last-child span{background:var(--red);color:var(--on-red)}
+.case figcaption{font-family:var(--display);font-style:italic;font-weight:800;text-transform:uppercase;font-size:1.1rem;color:var(--muted)}
+.legal-note{font-size:.85rem;color:var(--muted);border-left:3px solid var(--red);padding-left:12px;margin-top:28px;max-width:70ch}
+@media (max-width:860px){.cases{grid-template-columns:1fr;gap:28px}}
 
 /* faixa vermelha */
 .band{background:var(--red);color:var(--on-red)}
@@ -297,28 +288,32 @@ footer a{color:var(--muted)}
     <div class="sec-head">
       <span class="eyebrow">Resultados</span>
       <h2>Constância que aparece no espelho</h2>
-      <p>Arraste a barra para comparar o antes e o depois.</p>
+      <p>Alunos reais, acompanhados pelo Igor.</p>
     </div>
-    <div class="case">
-      <figure class="compare" id="compare">
-        <img src="img/aluno-antes-1.webp?v=20261028c" alt="Aluno antes do acompanhamento, de regata cinza em frente ao espelho" width="640" height="800" loading="lazy">
-        <img class="after" src="img/aluno-depois-1.webp?v=20261028c" alt="O mesmo aluno depois do acompanhamento, no mesmo ambiente" width="640" height="800" loading="lazy">
-        <span class="handle" aria-hidden="true"></span>
-        <span class="lbl b">Antes</span><span class="lbl a">Depois</span>
-        <input type="range" id="cmp" min="0" max="100" value="50" aria-label="Comparar antes e depois">
-      </figure>
-      <div class="side">
-        <div class="case-info">
-          <h3><span class="ph">[Nome do aluno]</span></h3>
-          <p><span class="ph">[Tempo de acompanhamento e objetivo, ex.: 8 meses de treino presencial, foco em emagrecimento]</span></p>
+    <div class="cases">
+      <figure class="case">
+        <div class="pair">
+          <div><img src="img/caso1-antes.webp?v=20261028f" alt="Aluno antes, de regata cinza em frente ao espelho" width="540" height="900" loading="lazy"><span>Antes</span></div>
+          <div><img src="img/caso1-depois.webp?v=20261028f" alt="O mesmo aluno depois, no mesmo ambiente" width="540" height="900" loading="lazy"><span>Depois</span></div>
         </div>
-        <figure class="pair">
-          <div><img src="img/aluno-antes-2.webp?v=20261028c" alt="Aluno antes, ao ar livre, de camiseta preta" width="440" height="550" loading="lazy"><span>Antes</span></div>
-          <div><img src="img/aluno-depois-2.webp?v=20261028c" alt="O mesmo aluno depois, de camiseta preta em frente ao espelho" width="440" height="550" loading="lazy"><span>Depois</span></div>
-        </figure>
-        <p class="legal-note">Imagens publicadas com autorização do aluno. Resultados variam de pessoa para pessoa e dependem de treino, alimentação e rotina.</p>
-      </div>
+        <figcaption>Aluno 01</figcaption>
+      </figure>
+      <figure class="case">
+        <div class="pair">
+          <div><img src="img/caso2-antes.webp?v=20261028f" alt="Aluno antes, sem camisa e de chapéu de palha" width="540" height="900" loading="lazy"><span>Antes</span></div>
+          <div><img src="img/caso2-depois.webp?v=20261028f" alt="O mesmo aluno depois, sem camisa em frente ao espelho" width="540" height="900" loading="lazy"><span>Depois</span></div>
+        </div>
+        <figcaption>Aluno 02</figcaption>
+      </figure>
+      <figure class="case">
+        <div class="pair">
+          <div><img src="img/caso3-antes.webp?v=20261028f" alt="Aluna antes, de top preto, vista de lado" width="540" height="900" loading="lazy"><span>Antes</span></div>
+          <div><img src="img/caso3-depois.webp?v=20261028f" alt="A mesma aluna depois, de top preto, vista de lado" width="540" height="900" loading="lazy"><span>Depois</span></div>
+        </div>
+        <figcaption>Aluna 03</figcaption>
+      </figure>
     </div>
+    <p class="legal-note">Imagens publicadas com autorização dos alunos. Resultados variam de pessoa para pessoa e dependem de treino, alimentação e rotina.</p>
   </div>
 </section>
 
@@ -447,9 +442,6 @@ footer a{color:var(--muted)}
     function sel(){var r=document.createRange();r.selectNodeContents(document.getElementById('tel'));var x=getSelection();x.removeAllRanges();x.addRange(r);c.textContent='Selecionado';}
     try{navigator.clipboard.writeText('+55 32 99967-0777').then(function(){c.textContent='Copiado';},sel);}catch(e){sel();}
   });
-  var cmp=document.getElementById('compare'), r=document.getElementById('cmp');
-  function upd(){cmp.style.setProperty('--pos',r.value+'%');}
-  r.addEventListener('input',upd); upd();
 })();
 </script>
 </body>
