@@ -92,6 +92,11 @@ nav a:hover{color:var(--fg)}
 .hero .actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
 .tags{display:flex;flex-wrap:wrap;gap:8px}
 .tags span{border:1px solid var(--line);padding:4px 12px;font-size:.85rem;color:var(--muted);background:var(--bg)}
+.tags{align-items:stretch}
+.tags span{display:inline-flex;align-items:center;gap:8px;min-height:36px}
+.tags .rf{background:#fff;border-color:#fff;padding:4px 10px}
+.tags .pf img{height:22px;width:22px}
+.tags .rf img{height:24px;width:auto}
 .portrait{justify-self:center;position:relative;width:min(100%,400px);margin:0}
 .portrait img{width:100%;aspect-ratio:4/5;object-fit:cover;clip-path:polygon(8% 0,100% 0,92% 100%,0 100%);background:var(--surface)}
 .portrait figcaption{position:absolute;left:-6px;bottom:8%;background:var(--bg);font-family:var(--display);font-style:italic;font-weight:900;text-transform:uppercase;font-size:1.4rem;padding:8px 16px;line-height:1}
@@ -174,6 +179,12 @@ section.tight{padding-top:0}
 .place a.map{margin-top:auto;font-weight:600;color:var(--red-text);text-decoration:none;padding-block:10px}
 .place a.map:hover{text-decoration:underline}
 .place .type{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.place-logo{height:84px;display:flex;align-items:center;justify-content:center;margin:-24px -24px 6px;border-bottom:1px solid var(--line);background:#000}
+.place-logo img{height:60px;width:auto}
+.place-logo.rf{background:#fff}
+.place-logo.rf img{height:54px}
+.place-logo.on{background:var(--surface)}
+.place-logo.on svg{width:44px;height:44px;fill:none;stroke:var(--red-text);stroke-width:2}
 @media (max-width:860px){.places{grid-template-columns:1fr}}
 
 /* sobre */
@@ -266,7 +277,7 @@ footer a{color:var(--muted)}
         <a class="btn wa" href="https://wa.me/5532999670777" data-msg="Olá Igor! Vim pelo site e quero começar." target="_blank" rel="noopener">Quero começar</a>
         <a class="btn ghost" href="#como-funciona">Como funciona</a>
       </div>
-      <div class="tags"><span>Power Fitness</span><span>Rocha Fit</span><span>Online</span></div>
+      <div class="tags"><span class="pf"><img src="img/powerfitness-logo.png" alt="" width="240" height="240">Power Fitness</span><span class="rf"><img src="img/rochafit-logo.png" alt="Rocha Fit Academia" width="509" height="166"></span><span>Online</span></div>
     </div>
     <figure class="portrait">
       <img src="img/igor-hero.webp?v=20261028e" alt="Igor Augusto, personal trainer, sorrindo de braços cruzados na academia" width="782" height="977" fetchpriority="high">
@@ -376,18 +387,21 @@ footer a{color:var(--muted)}
     </div>
     <div class="places">
       <div class="place">
+        <div class="place-logo"><img src="img/powerfitness-logo.png" alt="Logo da Power Fitness Academia" width="240" height="240" loading="lazy"></div>
         <span class="type">Presencial</span>
         <h3>Power Fitness Academia</h3>
         <address>Av. Trinta e Um de Março, 1840 · São Francisco (Colônia do Marçal) · São João del Rei – MG</address>
         <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Power%20Fitness%20Academia%20Av.%20Trinta%20e%20Um%20de%20Mar%C3%A7o%201840%20S%C3%A3o%20Jo%C3%A3o%20del%20Rei" target="_blank" rel="noopener">Ver no mapa →</a>
       </div>
       <div class="place">
+        <div class="place-logo rf"><img src="img/rochafit-logo.png" alt="Logo da Rocha Fit Academia" width="509" height="166" loading="lazy"></div>
         <span class="type">Presencial</span>
         <h3>Rocha Fit Academia</h3>
         <address>BR-494, 1230 · Fábricas · São João del Rei – MG</address>
         <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Rocha%20Fit%20Academia%20BR-494%201230%20S%C3%A3o%20Jo%C3%A3o%20del%20Rei" target="_blank" rel="noopener">Ver no mapa →</a>
       </div>
       <div class="place">
+        <div class="place-logo on" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M10 18.5h4"/></svg></div>
         <span class="type">Online</span>
         <h3>Onde você estiver</h3>
         <address>Treino no app com vídeos e acompanhamento à distância.</address>
