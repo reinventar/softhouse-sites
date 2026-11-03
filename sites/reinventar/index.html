@@ -98,18 +98,6 @@ section{padding:96px 0;border-top:1px solid var(--line)}
 @media (max-width:900px){.steps{grid-template-columns:1fr 1fr}.step:nth-child(3){border-left:0}.step:nth-child(n+3){border-top:1px solid var(--line)}}
 @media (max-width:560px){.steps{grid-template-columns:1fr}.step{border-left:0}.step+.step{border-top:1px solid var(--line)}}
 
-/* layouts */
-.layouts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-@media (max-width:900px){.layouts{grid-template-columns:1fr}}
-.lay{border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--card)}
-.shot{aspect-ratio:4/3;padding:18px;display:flex;flex-direction:column;gap:8px}
-.shot i{display:block;border-radius:4px}
-.lay .meta{padding:20px 22px 24px;display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--line)}
-.lay .meta .t{font:500 12px var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em}
-.a{background:#F6F1EA}.a i{background:#d8cdbf}
-.b{background:#140C0C}.b i{background:#3a2222}
-.c{background:#EEF4F7}.c i{background:#c9d8e0}
-
 /* nichos */
 .niches{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 @media (max-width:760px){.niches{grid-template-columns:1fr}}
@@ -179,7 +167,6 @@ footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;a
     </a>
     <nav class="links" aria-label="Seções">
       <a href="#como-funciona">Como funciona</a>
-      <a href="#modelos">Modelos</a>
       <a href="#fotos">Fotos</a>
       <a href="#planos">Planos</a>
       <a href="#duvidas">Dúvidas</a>
@@ -238,29 +225,6 @@ footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;a
     </div>
   </section>
 
-  <section id="modelos">
-    <div class="wrap">
-      <div class="head">
-        <div class="eyebrow">Modelos</div>
-        <h2>Três pontos de partida, adaptados a você.</h2>
-        <p>Cada site começa de um modelo testado e ganha suas cores, fotos e textos. Nada de página genérica.</p>
-      </div>
-      <div class="layouts">
-        <article class="lay">
-          <div class="shot a" aria-hidden="true"><i style="width:40%;height:10px"></i><i style="width:85%;height:26px;margin-top:10px"></i><i style="width:60%;height:26px"></i><div style="display:flex;gap:8px;margin-top:auto"><i style="flex:1;height:60px"></i><i style="flex:1;height:60px"></i><i style="flex:1;height:60px"></i></div></div>
-          <div class="meta"><span class="t">Modelo A</span><h3>Clássico</h3><p class="muted">Claro e acolhedor. Ideal para consultórios e quem quer transmitir confiança.</p></div>
-        </article>
-        <article class="lay">
-          <div class="shot b" aria-hidden="true"><i style="width:30%;height:10px;background:#c0392b"></i><i style="width:90%;height:34px;margin-top:10px"></i><i style="width:70%;height:34px"></i><i style="width:36%;height:22px;margin-top:auto;background:#c0392b"></i></div>
-          <div class="meta"><span class="t">Modelo B</span><h3>Impacto</h3><p class="muted">Escuro, foto grande e chamada forte. Feito para personal trainers e estúdios.</p></div>
-        </article>
-        <article class="lay">
-          <div class="shot c" aria-hidden="true"><i style="width:45%;height:10px"></i><div style="display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:14px;flex:1"><i></i><i></i><i style="background:#2b7a9e"></i><i></i><i></i><i></i><i style="background:#2b7a9e"></i><i></i><i></i><i></i></div><i style="width:40%;height:22px;margin-top:10px;background:#2b7a9e"></i></div>
-          <div class="meta"><span class="t">Modelo C</span><h3>Agenda</h3><p class="muted">Horários e serviços em destaque, para quem quer agenda cheia.</p></div>
-        </article>
-      </div>
-    </div>
-  </section>
 
   <section>
     <div class="wrap">
@@ -328,7 +292,7 @@ footer .row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;a
           <h3>Essencial</h3>
           <div class="price"><b>R$ 79<small style="font-size:18px">/mês</small></b><span>+ R$ 497 de implantação</span></div>
           <ul>
-            <li>Site one-page em um dos 3 modelos</li>
+            <li>Site one-page com a sua identidade</li>
             <li>Endereço seunome.reinventar.dev</li>
             <li>Botão de WhatsApp e mapa</li>
             <li>1 ajuste por mês</li>
