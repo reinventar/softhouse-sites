@@ -9,7 +9,8 @@
 <link rel="canonical" href="https://toninhosaga.reinventar.dev/">
 <meta property="og:title" content="Toninho Saga · Música ao vivo">
 <meta property="og:description" content="Voz, violão, guitarra e teclado para bares, casamentos e eventos em São João del-Rei e região.">
-<meta property="og:image" content="https://toninhosaga.reinventar.dev/img/hero.webp">
+<meta property="og:image" content="https://toninhosaga.reinventar.dev/img/pro-sorriso.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20222%20222%22%3E%3Ccircle%20cx%3D%22111.0%22%20cy%3D%22111.0%22%20r%3D%22111.0%22%20fill%3D%22%23141110%22/%3E%3Cg%20transform%3D%22translate%280.0%2C6.0%29%22%20fill%3D%22%23F3ECE2%22%3E%3Ccircle%20cx%3D%22111.0%22%20cy%3D%22105.0%22%20r%3D%2286.0%22%20fill%3D%22none%22%20stroke%3D%22%23EE9441%22%20stroke-width%3D%2210%22/%3E%3Cpath%20d%3D%22M71.91%20138.25V86.66499999999999H51.485V71.75H111.05V86.66499999999999H90.72V138.25ZM139.45000000000002%20139.58Q131.28%20139.58%20123.7275%20137.53750000000002Q116.17500000000001%20135.495%20111.42500000000001%20132.265L117.60000000000001%20118.395Q122.06500000000001%20121.245%20127.9075%20123.0975Q133.75%20124.95%20139.54500000000002%20124.95Q143.44%20124.95%20145.815%20124.23750000000001Q148.19%20123.525%20149.2825%20122.3375Q150.375%20121.15%20150.375%20119.535Q150.375%20117.255%20148.285%20115.925Q146.195%20114.595%20142.87%20113.74Q139.54500000000002%20112.88499999999999%20135.5075%20112.03Q131.47%20111.175%20127.4325%20109.845Q123.39500000000001%20108.515%20120.07000000000001%20106.3775Q116.745%20104.24000000000001%20114.655%20100.77250000000001Q112.56500000000001%2097.305%20112.56500000000001%2091.985Q112.56500000000001%2086.0%20115.8425%2081.155Q119.12%2076.31%20125.67500000000001%2073.36500000000001Q132.23000000000002%2070.42%20142.01500000000001%2070.42Q148.57%2070.42%20154.8875%2071.8925Q161.205%2073.365%20166.145%2076.215L160.35000000000002%2090.18Q155.60000000000002%2087.61500000000001%20150.94500000000002%2086.33250000000001Q146.29000000000002%2085.05%20141.92000000000002%2085.05Q138.025%2085.05%20135.65%2085.85749999999999Q133.275%2086.66499999999999%20132.23000000000002%2087.995Q131.185%2089.325%20131.185%2091.035Q131.185%2093.22%20133.22750000000002%2094.5025Q135.27%2095.785%20138.6425%2096.5925Q142.01500000000001%2097.4%20146.0525%2098.255Q150.09%2099.11%20154.1275%20100.3925Q158.16500000000002%20101.675%20161.49%20103.8125Q164.815%20105.95%20166.85750000000002%20109.41749999999999Q168.9%20112.88499999999999%20168.9%20118.11Q168.9%20123.905%20165.6225%20128.7975Q162.345%20133.69%20155.8375%20136.635Q149.33%20139.58%20139.45000000000002%20139.58Z%22/%3E%3C/g%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Figtree:wght@400;500;600&display=swap">
@@ -51,12 +52,15 @@ section{padding-block:clamp(64px,10vw,112px)}
 .previa{background:var(--ambar);color:var(--ambar-escuro);font-size:.82rem;font-weight:600;text-align:center;padding-block:8px}
 header{border-bottom:1px solid var(--linha)}
 .top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:16px}
-.marca{font-family:var(--display);font-weight:800;font-size:1.9rem;text-transform:uppercase;letter-spacing:.03em;text-decoration:none;line-height:1}
-.marca small{display:block;font-family:var(--texto);font-size:.68rem;font-weight:500;letter-spacing:.18em;color:var(--cinza);margin-top:4px}
+.marca{display:flex;align-items:center;gap:14px;text-decoration:none;line-height:1;color:var(--marfim)}
+.logo{height:44px;width:auto;flex:none}
+
+.marca small{display:block;font-family:var(--texto);font-size:.68rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--cinza);max-width:12em;line-height:1.5;border-left:1px solid var(--linha);padding-left:14px}
 nav{display:flex;gap:24px;font-size:.92rem;color:var(--cinza)}
 nav a{text-decoration:none}
 nav a:hover{color:var(--marfim)}
 @media (max-width:900px){nav{display:none}}
+@media (max-width:620px){.marca small{display:none}.logo{height:38px}.top .btn{padding-inline:1.1em}}
 
 
 .carrossel{position:relative;min-width:0}
@@ -124,6 +128,41 @@ nav a:hover{color:var(--marfim)}
   .hs-sub{font-size:1rem}
   .hero-ctrl{margin-top:-70px;padding-bottom:22px}
 }
+
+
+/* banners artísticos */
+.hs-foto{filter:grayscale(1) contrast(1.12) brightness(.92)}
+.hs-tinta{position:absolute;top:0;right:0;width:58%;height:100%;mix-blend-mode:color;background:linear-gradient(160deg,#EE9441,#7a2e12)}
+.arte-b .hs-tinta{background:linear-gradient(200deg,#EE9441 0%,#3a1c10 70%);mix-blend-mode:multiply;opacity:.55}
+.arte-c .hs-foto{filter:grayscale(1) contrast(1.35) brightness(.85)}
+.arte-c .hs-tinta{background:none}
+.hs-num{position:absolute;z-index:1;right:-.04em;bottom:-.16em;font-family:var(--display);font-weight:800;font-size:clamp(14rem,34vw,30rem);line-height:.8;color:transparent;-webkit-text-stroke:2px rgba(238,148,65,.85);letter-spacing:-.02em;pointer-events:none;mix-blend-mode:screen}
+.arte-b .hs-num{left:38%;right:auto;bottom:auto;top:-.12em;-webkit-text-stroke:2px rgba(243,236,226,.55)}
+.arte-c .hs-num{color:rgba(238,148,65,.9);-webkit-text-stroke:0;mix-blend-mode:multiply;right:2%;bottom:-.1em}
+.hs-anel{position:absolute;z-index:1;width:min(64vh,520px);aspect-ratio:1;border:2px solid var(--ambar);border-radius:50%;right:12%;top:50%;transform:translateY(-50%) scale(.92);opacity:0;transition:transform 1.6s ease,opacity 1.2s ease;pointer-events:none}
+.hs.ativo .hs-anel{opacity:.9;transform:translateY(-50%) scale(1)}
+.arte-b .hs-anel{right:auto;left:46%;width:min(40vh,320px);border-style:dashed;border-color:rgba(243,236,226,.5)}
+.arte-c .hs-anel{border-width:10px;opacity:.0}
+.arte-c.ativo .hs-anel{opacity:.35}
+.hero-palco::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");opacity:.09;mix-blend-mode:overlay}
+.hs-txt{z-index:3}
+@media (max-width:760px){
+  .hs-tinta{width:100%;height:62%}
+  .hs-num{font-size:clamp(8rem,42vw,12rem);bottom:auto;top:2%;right:-.02em}
+  .arte-c .hs-num{bottom:auto;top:2%}
+  .arte-b .hs-num{left:auto;right:-.02em;top:2%}
+  .hs-anel{width:72vw;right:14vw;top:31%}
+  .arte-b .hs-anel{left:auto;right:6vw;width:48vw}
+}
+/* fotos com o mesmo tratamento */
+.painel .foto,.duo .foto{position:relative;overflow:visible}
+.painel .foto img,.duo .foto img{border-radius:12px;filter:grayscale(1) contrast(1.08);transition:filter .6s ease}
+.painel .foto:hover img,.duo .foto:hover img{filter:none}
+.painel .foto::after,.duo .foto::after{content:"";position:absolute;inset:0;border-radius:12px;background:linear-gradient(160deg,#EE9441,#7a2e12);mix-blend-mode:color;opacity:.85;transition:opacity .6s ease;pointer-events:none}
+.painel .foto:hover::after,.duo .foto:hover::after{opacity:0}
+.duo .foto::before{content:"";position:absolute;inset:18px -18px -18px 18px;border:2px solid var(--ambar);border-radius:14px;z-index:-1}
+.duo .foto{z-index:0;margin-right:18px}
+@media (prefers-reduced-motion:reduce){.hs-anel{transition:none}}
 
 /* miniaturas de vídeo (abrem o player só ao clicar) */
 .vthumb{position:relative;display:block;width:100%;padding:0;border:0;border-radius:12px;overflow:hidden;background:var(--palco2);cursor:pointer;aspect-ratio:3/4;max-width:100%;color:var(--marfim);text-align:left;font:inherit}
@@ -201,11 +240,14 @@ nav a:hover{color:var(--marfim)}
 .aula-box ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
 .aula-box li{display:flex;gap:12px;align-items:baseline;color:var(--cinza)}
 .aula-box li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ambar);flex:none;transform:translateY(-1px)}
-.aula-card{border:1px solid var(--linha);border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:14px;background:var(--noite)}
+.aula-card{border:1px solid var(--linha);border-radius:14px;padding:16px 16px 24px;display:flex;flex-direction:column;gap:14px;background:var(--noite)}
+.aula-foto{border-radius:10px;overflow:hidden;aspect-ratio:4/3;max-width:100%;margin-bottom:6px}
+.aula-foto img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.aula-card > :not(.aula-foto){margin-inline:8px}
 @media (max-width:820px){.aula-box{grid-template-columns:1fr}}
 
 .duo{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(32px,6vw,80px);align-items:center}
-.duo .foto{border-radius:14px;overflow:hidden;aspect-ratio:2/3;max-width:100%;background:#6b6563}
+.duo .foto{border-radius:14px;aspect-ratio:2/3;max-width:100%;background:#6b6563}
 .duo .foto img{width:100%;height:100%;object-fit:cover}
 .duo-txt{display:flex;flex-direction:column;gap:18px;min-width:0}
 @media (max-width:820px){.duo{grid-template-columns:1fr}}
@@ -226,7 +268,11 @@ details p{color:var(--cinza);margin-top:10px;max-width:65ch}
 
 footer{border-top:1px solid var(--linha);padding-block:28px;font-size:.85rem;color:var(--cinza)}
 .rodape{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+.rodape{align-items:center}
 .rodape a{text-decoration:none}
+.rodape-marca{display:flex;align-items:center;gap:14px;color:var(--marfim)}
+.rodape-marca > span{color:var(--cinza)}
+.logo-p{height:34px}
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -236,7 +282,7 @@ footer{border-top:1px solid var(--linha);padding-block:28px;font-size:.85rem;col
 
 <header>
   <div class="wrap top">
-    <a class="marca" href="#inicio">Toninho Saga<small>Músico · São João del-Rei</small></a>
+    <a class="marca" href="#inicio" aria-label="Toninho Saga, início"><svg class="logo" viewBox="0 0 804 210" role="img" aria-label="Toninho Saga"><g fill="currentColor"><circle cx="111.0" cy="105.0" r="86.0" fill="none" stroke="currentColor" stroke-width="10"/><rect x="228.0" y="20.0" width="9" height="170.0" fill="var(--ambar)"/><path d="M71.91 138.25V86.66499999999999H51.485V71.75H111.05V86.66499999999999H90.72V138.25ZM139.45000000000002 139.58Q131.28 139.58 123.7275 137.53750000000002Q116.17500000000001 135.495 111.42500000000001 132.265L117.60000000000001 118.395Q122.06500000000001 121.245 127.9075 123.0975Q133.75 124.95 139.54500000000002 124.95Q143.44 124.95 145.815 124.23750000000001Q148.19 123.525 149.2825 122.3375Q150.375 121.15 150.375 119.535Q150.375 117.255 148.285 115.925Q146.195 114.595 142.87 113.74Q139.54500000000002 112.88499999999999 135.5075 112.03Q131.47 111.175 127.4325 109.845Q123.39500000000001 108.515 120.07000000000001 106.3775Q116.745 104.24000000000001 114.655 100.77250000000001Q112.56500000000001 97.305 112.56500000000001 91.985Q112.56500000000001 86.0 115.8425 81.155Q119.12 76.31 125.67500000000001 73.36500000000001Q132.23000000000002 70.42 142.01500000000001 70.42Q148.57 70.42 154.8875 71.8925Q161.205 73.365 166.145 76.215L160.35000000000002 90.18Q155.60000000000002 87.61500000000001 150.94500000000002 86.33250000000001Q146.29000000000002 85.05 141.92000000000002 85.05Q138.025 85.05 135.65 85.85749999999999Q133.275 86.66499999999999 132.23000000000002 87.995Q131.185 89.325 131.185 91.035Q131.185 93.22 133.22750000000002 94.5025Q135.27 95.785 138.6425 96.5925Q142.01500000000001 97.4 146.0525 98.255Q150.09 99.11 154.1275 100.3925Q158.16500000000002 101.675 161.49 103.8125Q164.815 105.95 166.85750000000002 109.41749999999999Q168.9 112.88499999999999 168.9 118.11Q168.9 123.905 165.6225 128.7975Q162.345 133.69 155.8375 136.635Q149.33 139.58 139.45000000000002 139.58Z"/><path d="M279.9 90.0V35.699999999999996H258.4V20.0H321.1V35.699999999999996H299.7V90.0ZM366.8 91.4Q358.4 91.4 351.29999999999995 88.7Q344.2 86.0 338.95 81.05Q333.7 76.1 330.79999999999995 69.5Q327.9 62.9 327.9 55.0Q327.9 47.099999999999994 330.79999999999995 40.5Q333.7 33.9 338.95 28.95Q344.2 24.0 351.29999999999995 21.299999999999997Q358.4 18.599999999999994 366.8 18.599999999999994Q375.3 18.599999999999994 382.35 21.299999999999997Q389.4 24.0 394.6 28.95Q399.8 33.9 402.75 40.5Q405.7 47.099999999999994 405.7 55.0Q405.7 62.9 402.75 69.55Q399.8 76.2 394.6 81.1Q389.4 86.0 382.35 88.7Q375.3 91.4 366.8 91.4ZM366.8 75.0Q370.8 75.0 374.25 73.6Q377.7 72.2 380.25 69.55000000000001Q382.8 66.9 384.25 63.2Q385.7 59.5 385.7 55.0Q385.7 50.4 384.25 46.75Q382.8 43.099999999999994 380.25 40.449999999999996Q377.7 37.8 374.25 36.4Q370.8 35.0 366.8 35.0Q362.8 35.0 359.35 36.4Q355.9 37.8 353.35 40.449999999999996Q350.8 43.099999999999994 349.35 46.75Q347.9 50.4 347.9 55.0Q347.9 59.5 349.35 63.2Q350.8 66.9 353.35 69.55000000000001Q355.9 72.2 359.35 73.6Q362.8 75.0 366.8 75.0ZM419.1 90.0V20.0H435.40000000000003L474.0 66.6H466.3V20.0H485.70000000000005V90.0H469.40000000000003L430.8 43.4H438.5V90.0ZM502.70000000000005 90.0V20.0H522.5V90.0ZM539.6 90.0V20.0H555.9L594.5 66.6H586.8000000000001V20.0H606.2V90.0H589.9L551.3000000000001 43.4H559.0V90.0ZM670.0 20.0H689.8000000000001V90.0H670.0ZM643.0 90.0H623.2V20.0H643.0ZM671.4000000000001 62.7H641.6V46.3H671.4000000000001ZM742.1 91.4Q733.7 91.4 726.6000000000001 88.7Q719.5000000000001 86.0 714.2500000000001 81.05Q709.0000000000001 76.1 706.1000000000001 69.5Q703.2 62.9 703.2 55.0Q703.2 47.099999999999994 706.1000000000001 40.5Q709.0000000000001 33.9 714.2500000000001 28.95Q719.5000000000001 24.0 726.6000000000001 21.299999999999997Q733.7 18.599999999999994 742.1 18.599999999999994Q750.6 18.599999999999994 757.6500000000001 21.299999999999997Q764.7 24.0 769.9000000000001 28.95Q775.1 33.9 778.0500000000001 40.5Q781.0000000000001 47.099999999999994 781.0000000000001 55.0Q781.0000000000001 62.9 778.0500000000001 69.55Q775.1 76.2 769.9000000000001 81.1Q764.7 86.0 757.6500000000001 88.7Q750.6 91.4 742.1 91.4ZM742.1 75.0Q746.1 75.0 749.5500000000001 73.6Q753.0000000000001 72.2 755.5500000000001 69.55000000000001Q758.1 66.9 759.5500000000001 63.2Q761.0000000000001 59.5 761.0000000000001 55.0Q761.0000000000001 50.4 759.5500000000001 46.75Q758.1 43.099999999999994 755.5500000000001 40.449999999999996Q753.0000000000001 37.8 749.5500000000001 36.4Q746.1 35.0 742.1 35.0Q738.1 35.0 734.6500000000001 36.4Q731.2 37.8 728.6500000000001 40.449999999999996Q726.1 43.099999999999994 724.6500000000001 46.75Q723.2 50.4 723.2 55.0Q723.2 59.5 724.6500000000001 63.2Q726.1 66.9 728.6500000000001 69.55000000000001Q731.2 72.2 734.6500000000001 73.6Q738.1 75.0 742.1 75.0Z"/><path d="M289.6 191.4Q281.0 191.4 273.05 189.25Q265.1 187.1 260.1 183.7L266.6 169.1Q271.3 172.1 277.45000000000005 174.05Q283.6 176.0 289.7 176.0Q293.8 176.0 296.3 175.25Q298.8 174.5 299.95000000000005 173.25Q301.1 172.0 301.1 170.3Q301.1 167.9 298.9 166.5Q296.7 165.1 293.2 164.2Q289.7 163.3 285.45 162.4Q281.2 161.5 276.95 160.1Q272.7 158.7 269.2 156.45Q265.7 154.2 263.5 150.55Q261.3 146.9 261.3 141.3Q261.3 135.0 264.75 129.9Q268.2 124.8 275.1 121.69999999999999Q282.0 118.6 292.3 118.6Q299.2 118.6 305.85 120.15Q312.5 121.7 317.7 124.7L311.6 139.4Q306.6 136.7 301.70000000000005 135.35Q296.8 134.0 292.2 134.0Q288.1 134.0 285.6 134.85Q283.1 135.7 282.0 137.1Q280.9 138.5 280.9 140.3Q280.9 142.6 283.04999999999995 143.95Q285.2 145.3 288.75 146.15Q292.3 147.0 296.55 147.9Q300.8 148.8 305.05 150.15Q309.3 151.5 312.8 153.75Q316.3 156.0 318.45000000000005 159.65Q320.6 163.3 320.6 168.8Q320.6 174.9 317.15 180.05Q313.7 185.2 306.85 188.3Q300.0 191.4 289.6 191.4ZM324.3 190.0 355.2 120.0H374.7L405.7 190.0H385.1L360.9 129.7H368.7L344.5 190.0ZM341.2 176.4 346.3 161.8H380.5L385.6 176.4ZM449.3 191.4Q441.0 191.4 433.9 188.75Q426.8 186.1 421.65 181.2Q416.5 176.3 413.6 169.65Q410.7 163.0 410.7 155.0Q410.7 147.0 413.6 140.35Q416.5 133.7 421.70000000000005 128.79999999999998Q426.90000000000003 123.89999999999999 434.05 121.25Q441.2 118.6 449.70000000000005 118.6Q459.6 118.6 467.40000000000003 121.9Q475.20000000000005 125.2 480.3 131.4L467.70000000000005 142.8Q464.1 138.9 459.95000000000005 136.95Q455.8 135.0 450.70000000000005 135.0Q446.20000000000005 135.0 442.5 136.4Q438.8 137.8 436.20000000000005 140.45Q433.6 143.1 432.15 146.75Q430.7 150.4 430.7 155.0Q430.7 159.4 432.15 163.10000000000002Q433.6 166.8 436.20000000000005 169.45Q438.8 172.1 442.45000000000005 173.55Q446.1 175.0 450.5 175.0Q454.90000000000003 175.0 459.1 173.55Q463.3 172.1 467.6 168.6L478.70000000000005 182.5Q472.70000000000005 186.8 464.80000000000007 189.10000000000002Q456.90000000000003 191.4 449.3 191.4ZM461.20000000000005 179.9V153.5H478.70000000000005V182.5ZM485.90000000000003 190.0 516.8 120.0H536.3L567.3 190.0H546.7L522.5 129.7H530.3L506.1 190.0ZM502.8 176.4 507.90000000000003 161.8H542.1L547.2 176.4Z"/></g></svg><small>Músico · São João del-Rei</small></a>
     <nav aria-label="Seções">
       <a href="#trabalho">Meu trabalho</a><a href="#ao-vivo">Vídeos</a><a href="#agenda">Agenda</a><a href="#aulas">Aulas</a><a href="#sobre">Sobre</a>
     </nav>
@@ -248,35 +294,71 @@ footer{border-top:1px solid var(--linha);padding-block:28px;font-size:.85rem;col
   <section class="hero" aria-roledescription="carrossel" aria-label="Destaques">
     <h1 class="sr">Toninho Saga · Músico em São João del-Rei · agenda de shows e aulas de violão</h1>
     <div class="hero-palco" id="hero">
-      <div class="hs" data-data="2026-11-20">
-        <img class="hs-foto" src="img/voz.webp" alt="" style="object-position:center 20%">
+      <div class="hs arte-a" data-data="2026-11-13">
+        <img class="hs-foto" src="img/pro-teclado2.webp" alt="" style="object-position:center 30%">
+        <span class="hs-tinta" aria-hidden="true"></span>
+        <span class="hs-anel" aria-hidden="true"></span>
+        <span class="hs-num" aria-hidden="true">13</span>
         <div class="wrap hs-txt">
-          <span class="eyebrow">Agenda · show aberto ao público</span>
+          <span class="eyebrow">Agenda · evento fechado</span>
+          <p class="hs-titulo">13/11 · Sex <em>20h</em></p>
+          <p class="hs-sub"><b class="hs-local">Evento particular</b>Associação Médica</p>
+          <div class="acoes"><a class="btn btn-ambar" href="https://wa.me/5532999915947?text=Ol%C3%A1%2C%20Toninho!%20Quero%20contratar%20um%20show." target="_blank" rel="noopener">Contratar para o seu evento</a><a class="btn btn-linha" href="#agenda">Ver agenda completa</a></div>
+        </div>
+      </div>
+      <div class="hs arte-b" data-data="2026-11-14">
+        <img class="hs-foto" src="img/pro-olhar.webp" alt="" style="object-position:center 30%">
+        <span class="hs-tinta" aria-hidden="true"></span>
+        <span class="hs-anel" aria-hidden="true"></span>
+        <span class="hs-num" aria-hidden="true">14</span>
+        <div class="wrap hs-txt">
+          <span class="eyebrow">Agenda · evento fechado</span>
+          <p class="hs-titulo">14/11 · Sáb <em>11h</em></p>
+          <p class="hs-sub"><b class="hs-local">Casamento</b>Cerimônia às 11h e recepção às 15h</p>
+          <div class="acoes"><a class="btn btn-ambar" href="https://wa.me/5532999915947?text=Ol%C3%A1%2C%20Toninho!%20Quero%20contratar%20um%20show." target="_blank" rel="noopener">Contratar para o seu evento</a><a class="btn btn-linha" href="#agenda">Ver agenda completa</a></div>
+        </div>
+      </div>
+      <div class="hs arte-c" data-data="2026-11-20">
+        <img class="hs-foto" src="img/pro-sorriso.webp" alt="" style="object-position:center 30%">
+        <span class="hs-tinta" aria-hidden="true"></span>
+        <span class="hs-anel" aria-hidden="true"></span>
+        <span class="hs-num" aria-hidden="true">20</span>
+        <div class="wrap hs-txt">
+          <span class="eyebrow">Agenda · aberto ao público</span>
           <p class="hs-titulo">20/11 · Sex <em>19h</em></p>
           <p class="hs-sub"><b class="hs-local">Pátio Matosinhos</b>Av. Josué de Queirós, 332 · Matozinhos, São João del-Rei</p>
           <div class="acoes"><a class="btn btn-ambar" href="https://maps.app.goo.gl/5v6cM2hdJpHQ4nTk8" target="_blank" rel="noopener">Como chegar</a><a class="btn btn-linha" href="#agenda">Ver agenda completa</a></div>
         </div>
       </div>
-      <div class="hs" data-data="2026-11-26">
-        <img class="hs-foto" src="img/guitarra.webp" alt="" style="object-position:center 20%">
+      <div class="hs arte-a" data-data="2026-11-26">
+        <img class="hs-foto" src="img/pro-blazer.webp" alt="" style="object-position:center 25%">
+        <span class="hs-tinta" aria-hidden="true"></span>
+        <span class="hs-anel" aria-hidden="true"></span>
+        <span class="hs-num" aria-hidden="true">26</span>
         <div class="wrap hs-txt">
-          <span class="eyebrow">Agenda · show aberto ao público</span>
+          <span class="eyebrow">Agenda · aberto ao público</span>
           <p class="hs-titulo">26/11 · Qui <em>19h</em></p>
           <p class="hs-sub"><b class="hs-local">Pátio Matosinhos</b>Av. Josué de Queirós, 332 · Matozinhos, São João del-Rei</p>
           <div class="acoes"><a class="btn btn-ambar" href="https://maps.app.goo.gl/5v6cM2hdJpHQ4nTk8" target="_blank" rel="noopener">Como chegar</a><a class="btn btn-linha" href="#agenda">Ver agenda completa</a></div>
         </div>
       </div>
-      <div class="hs" data-data="2026-11-28">
-        <img class="hs-foto" src="img/hero.webp" alt="" style="object-position:center 25%">
+      <div class="hs arte-b" data-data="2026-11-28">
+        <img class="hs-foto" src="img/pro-ombro.webp" alt="" style="object-position:center 35%">
+        <span class="hs-tinta" aria-hidden="true"></span>
+        <span class="hs-anel" aria-hidden="true"></span>
+        <span class="hs-num" aria-hidden="true">28</span>
         <div class="wrap hs-txt">
-          <span class="eyebrow">Agenda · show aberto ao público</span>
+          <span class="eyebrow">Agenda · aberto ao público</span>
           <p class="hs-titulo">28/11 · Sáb <em>14h</em></p>
           <p class="hs-sub"><b class="hs-local">Pátio Matosinhos</b>Av. Josué de Queirós, 332 · Matozinhos, São João del-Rei</p>
           <div class="acoes"><a class="btn btn-ambar" href="https://maps.app.goo.gl/5v6cM2hdJpHQ4nTk8" target="_blank" rel="noopener">Como chegar</a><a class="btn btn-linha" href="#agenda">Ver agenda completa</a></div>
         </div>
       </div>
-      <div class="hs" data-reserva hidden>
-        <img class="hs-foto" src="img/voz.webp" alt="" style="object-position:center 20%">
+      <div class="hs arte-c" data-reserva hidden>
+        <img class="hs-foto" src="img/pro-sentado.webp" alt="" style="object-position:center 30%">
+        <span class="hs-tinta" aria-hidden="true"></span>
+        <span class="hs-anel" aria-hidden="true"></span>
+        <span class="hs-num" aria-hidden="true">TS</span>
         <div class="wrap hs-txt">
           <span class="eyebrow">Agenda</span>
           <p class="hs-titulo">Reserve a <em>sua data</em></p>
@@ -284,8 +366,11 @@ footer{border-top:1px solid var(--linha);padding-block:28px;font-size:.85rem;col
           <div class="acoes"><a class="btn btn-ambar" href="https://wa.me/5532999915947?text=Ol%C3%A1%2C%20Toninho!%20Quero%20contratar%20um%20show." target="_blank" rel="noopener">Contratar pelo WhatsApp</a><a class="btn btn-linha" href="#agenda">Ver agenda</a></div>
         </div>
       </div>
-      <div class="hs">
-        <img class="hs-foto" src="img/g2.webp" alt="" style="object-position:center 25%">
+      <div class="hs arte-a">
+        <img class="hs-foto" src="img/pro-ergue.webp" alt="" style="object-position:center 35%">
+        <span class="hs-tinta" aria-hidden="true"></span>
+        <span class="hs-anel" aria-hidden="true"></span>
+        <span class="hs-num" aria-hidden="true">TS</span>
         <div class="wrap hs-txt">
           <span class="eyebrow">Aulas particulares de violão</span>
           <p class="hs-titulo">Aprenda <em>violão</em> com quem vive de música.</p>
@@ -328,7 +413,7 @@ footer{border-top:1px solid var(--linha);padding-block:28px;font-size:.85rem;col
           <p>Voz e violão para almoços, happy hours, aniversários e cerimônias.</p>
           <ul><li>Formato leve, ideal para bares e restaurantes</li><li>Base das aulas particulares</li></ul>
         </div>
-        <div class="foto"><img src="img/violao.webp" alt="Toninho Saga sorrindo com o violão" loading="lazy"></div>
+        <div class="foto"><img src="img/pro-abraco.webp" alt="Toninho Saga abraçado ao violão" loading="lazy"></div>
         <button type="button" class="vthumb vthumb-alto" data-video="violao" data-titulo="Violão ao vivo"><img src="vid/violao.webp" alt="" loading="lazy"><i aria-hidden="true"></i><span class="vt-txt"><b>Violão ao vivo</b><small>Toque para assistir</small></span></button>
       </div>
       <div class="painel" role="tabpanel" id="p-guitarra" aria-labelledby="t-guitarra" hidden>
@@ -346,7 +431,7 @@ footer{border-top:1px solid var(--linha);padding-block:28px;font-size:.85rem;col
           <p>Teclado e voz para bailes, eventos grandes e cerimônias religiosas.</p>
           <ul><li>Bailes e festas para todas as idades</li><li>Missas e casamentos na igreja</li></ul>
         </div>
-        <div class="foto"><img src="img/teclado.webp" alt="Toninho Saga apoiado no teclado" loading="lazy"></div>
+        <div class="foto"><img src="img/pro-teclado.webp" alt="Toninho Saga com as mãos no teclado" loading="lazy"></div>
         <button type="button" class="vthumb vthumb-alto" data-video="teclado" data-titulo="Teclado ao vivo"><img src="vid/teclado.webp" alt="" loading="lazy"><i aria-hidden="true"></i><span class="vt-txt"><b>Teclado ao vivo</b><small>Toque para assistir</small></span></button>
       </div>
     </div>
@@ -464,6 +549,7 @@ footer{border-top:1px solid var(--linha);padding-block:28px;font-size:.85rem;col
         </ul>
       </div>
       <div class="aula-card">
+        <div class="aula-foto"><img src="img/pro-tocando.webp" alt="Toninho Saga tocando violão" loading="lazy"></div>
         <span class="eyebrow">Valores</span>
         <p class="ph">[mensalidade ou aula avulsa · a confirmar]</p>
         <a class="btn btn-ambar" href="https://wa.me/5532999915947?text=Ol%C3%A1%2C%20Toninho!%20Quero%20saber%20sobre%20as%20aulas%20de%20viol%C3%A3o." target="_blank" rel="noopener">Agendar aula experimental</a>
@@ -518,7 +604,7 @@ footer{border-top:1px solid var(--linha);padding-block:28px;font-size:.85rem;col
 </main>
 
 <footer>
-  <div class="wrap rodape"><span>© Toninho Saga · Música ao vivo</span><a href="https://reinventar.dev" target="_blank" rel="noopener">Site por Reinventar</a></div>
+  <div class="wrap rodape"><span class="rodape-marca"><svg class="logo logo-p" viewBox="0 0 804 210" role="img" aria-label="Toninho Saga"><g fill="currentColor"><circle cx="111.0" cy="105.0" r="86.0" fill="none" stroke="currentColor" stroke-width="10"/><rect x="228.0" y="20.0" width="9" height="170.0" fill="var(--ambar)"/><path d="M71.91 138.25V86.66499999999999H51.485V71.75H111.05V86.66499999999999H90.72V138.25ZM139.45000000000002 139.58Q131.28 139.58 123.7275 137.53750000000002Q116.17500000000001 135.495 111.42500000000001 132.265L117.60000000000001 118.395Q122.06500000000001 121.245 127.9075 123.0975Q133.75 124.95 139.54500000000002 124.95Q143.44 124.95 145.815 124.23750000000001Q148.19 123.525 149.2825 122.3375Q150.375 121.15 150.375 119.535Q150.375 117.255 148.285 115.925Q146.195 114.595 142.87 113.74Q139.54500000000002 112.88499999999999 135.5075 112.03Q131.47 111.175 127.4325 109.845Q123.39500000000001 108.515 120.07000000000001 106.3775Q116.745 104.24000000000001 114.655 100.77250000000001Q112.56500000000001 97.305 112.56500000000001 91.985Q112.56500000000001 86.0 115.8425 81.155Q119.12 76.31 125.67500000000001 73.36500000000001Q132.23000000000002 70.42 142.01500000000001 70.42Q148.57 70.42 154.8875 71.8925Q161.205 73.365 166.145 76.215L160.35000000000002 90.18Q155.60000000000002 87.61500000000001 150.94500000000002 86.33250000000001Q146.29000000000002 85.05 141.92000000000002 85.05Q138.025 85.05 135.65 85.85749999999999Q133.275 86.66499999999999 132.23000000000002 87.995Q131.185 89.325 131.185 91.035Q131.185 93.22 133.22750000000002 94.5025Q135.27 95.785 138.6425 96.5925Q142.01500000000001 97.4 146.0525 98.255Q150.09 99.11 154.1275 100.3925Q158.16500000000002 101.675 161.49 103.8125Q164.815 105.95 166.85750000000002 109.41749999999999Q168.9 112.88499999999999 168.9 118.11Q168.9 123.905 165.6225 128.7975Q162.345 133.69 155.8375 136.635Q149.33 139.58 139.45000000000002 139.58Z"/><path d="M279.9 90.0V35.699999999999996H258.4V20.0H321.1V35.699999999999996H299.7V90.0ZM366.8 91.4Q358.4 91.4 351.29999999999995 88.7Q344.2 86.0 338.95 81.05Q333.7 76.1 330.79999999999995 69.5Q327.9 62.9 327.9 55.0Q327.9 47.099999999999994 330.79999999999995 40.5Q333.7 33.9 338.95 28.95Q344.2 24.0 351.29999999999995 21.299999999999997Q358.4 18.599999999999994 366.8 18.599999999999994Q375.3 18.599999999999994 382.35 21.299999999999997Q389.4 24.0 394.6 28.95Q399.8 33.9 402.75 40.5Q405.7 47.099999999999994 405.7 55.0Q405.7 62.9 402.75 69.55Q399.8 76.2 394.6 81.1Q389.4 86.0 382.35 88.7Q375.3 91.4 366.8 91.4ZM366.8 75.0Q370.8 75.0 374.25 73.6Q377.7 72.2 380.25 69.55000000000001Q382.8 66.9 384.25 63.2Q385.7 59.5 385.7 55.0Q385.7 50.4 384.25 46.75Q382.8 43.099999999999994 380.25 40.449999999999996Q377.7 37.8 374.25 36.4Q370.8 35.0 366.8 35.0Q362.8 35.0 359.35 36.4Q355.9 37.8 353.35 40.449999999999996Q350.8 43.099999999999994 349.35 46.75Q347.9 50.4 347.9 55.0Q347.9 59.5 349.35 63.2Q350.8 66.9 353.35 69.55000000000001Q355.9 72.2 359.35 73.6Q362.8 75.0 366.8 75.0ZM419.1 90.0V20.0H435.40000000000003L474.0 66.6H466.3V20.0H485.70000000000005V90.0H469.40000000000003L430.8 43.4H438.5V90.0ZM502.70000000000005 90.0V20.0H522.5V90.0ZM539.6 90.0V20.0H555.9L594.5 66.6H586.8000000000001V20.0H606.2V90.0H589.9L551.3000000000001 43.4H559.0V90.0ZM670.0 20.0H689.8000000000001V90.0H670.0ZM643.0 90.0H623.2V20.0H643.0ZM671.4000000000001 62.7H641.6V46.3H671.4000000000001ZM742.1 91.4Q733.7 91.4 726.6000000000001 88.7Q719.5000000000001 86.0 714.2500000000001 81.05Q709.0000000000001 76.1 706.1000000000001 69.5Q703.2 62.9 703.2 55.0Q703.2 47.099999999999994 706.1000000000001 40.5Q709.0000000000001 33.9 714.2500000000001 28.95Q719.5000000000001 24.0 726.6000000000001 21.299999999999997Q733.7 18.599999999999994 742.1 18.599999999999994Q750.6 18.599999999999994 757.6500000000001 21.299999999999997Q764.7 24.0 769.9000000000001 28.95Q775.1 33.9 778.0500000000001 40.5Q781.0000000000001 47.099999999999994 781.0000000000001 55.0Q781.0000000000001 62.9 778.0500000000001 69.55Q775.1 76.2 769.9000000000001 81.1Q764.7 86.0 757.6500000000001 88.7Q750.6 91.4 742.1 91.4ZM742.1 75.0Q746.1 75.0 749.5500000000001 73.6Q753.0000000000001 72.2 755.5500000000001 69.55000000000001Q758.1 66.9 759.5500000000001 63.2Q761.0000000000001 59.5 761.0000000000001 55.0Q761.0000000000001 50.4 759.5500000000001 46.75Q758.1 43.099999999999994 755.5500000000001 40.449999999999996Q753.0000000000001 37.8 749.5500000000001 36.4Q746.1 35.0 742.1 35.0Q738.1 35.0 734.6500000000001 36.4Q731.2 37.8 728.6500000000001 40.449999999999996Q726.1 43.099999999999994 724.6500000000001 46.75Q723.2 50.4 723.2 55.0Q723.2 59.5 724.6500000000001 63.2Q726.1 66.9 728.6500000000001 69.55000000000001Q731.2 72.2 734.6500000000001 73.6Q738.1 75.0 742.1 75.0Z"/><path d="M289.6 191.4Q281.0 191.4 273.05 189.25Q265.1 187.1 260.1 183.7L266.6 169.1Q271.3 172.1 277.45000000000005 174.05Q283.6 176.0 289.7 176.0Q293.8 176.0 296.3 175.25Q298.8 174.5 299.95000000000005 173.25Q301.1 172.0 301.1 170.3Q301.1 167.9 298.9 166.5Q296.7 165.1 293.2 164.2Q289.7 163.3 285.45 162.4Q281.2 161.5 276.95 160.1Q272.7 158.7 269.2 156.45Q265.7 154.2 263.5 150.55Q261.3 146.9 261.3 141.3Q261.3 135.0 264.75 129.9Q268.2 124.8 275.1 121.69999999999999Q282.0 118.6 292.3 118.6Q299.2 118.6 305.85 120.15Q312.5 121.7 317.7 124.7L311.6 139.4Q306.6 136.7 301.70000000000005 135.35Q296.8 134.0 292.2 134.0Q288.1 134.0 285.6 134.85Q283.1 135.7 282.0 137.1Q280.9 138.5 280.9 140.3Q280.9 142.6 283.04999999999995 143.95Q285.2 145.3 288.75 146.15Q292.3 147.0 296.55 147.9Q300.8 148.8 305.05 150.15Q309.3 151.5 312.8 153.75Q316.3 156.0 318.45000000000005 159.65Q320.6 163.3 320.6 168.8Q320.6 174.9 317.15 180.05Q313.7 185.2 306.85 188.3Q300.0 191.4 289.6 191.4ZM324.3 190.0 355.2 120.0H374.7L405.7 190.0H385.1L360.9 129.7H368.7L344.5 190.0ZM341.2 176.4 346.3 161.8H380.5L385.6 176.4ZM449.3 191.4Q441.0 191.4 433.9 188.75Q426.8 186.1 421.65 181.2Q416.5 176.3 413.6 169.65Q410.7 163.0 410.7 155.0Q410.7 147.0 413.6 140.35Q416.5 133.7 421.70000000000005 128.79999999999998Q426.90000000000003 123.89999999999999 434.05 121.25Q441.2 118.6 449.70000000000005 118.6Q459.6 118.6 467.40000000000003 121.9Q475.20000000000005 125.2 480.3 131.4L467.70000000000005 142.8Q464.1 138.9 459.95000000000005 136.95Q455.8 135.0 450.70000000000005 135.0Q446.20000000000005 135.0 442.5 136.4Q438.8 137.8 436.20000000000005 140.45Q433.6 143.1 432.15 146.75Q430.7 150.4 430.7 155.0Q430.7 159.4 432.15 163.10000000000002Q433.6 166.8 436.20000000000005 169.45Q438.8 172.1 442.45000000000005 173.55Q446.1 175.0 450.5 175.0Q454.90000000000003 175.0 459.1 173.55Q463.3 172.1 467.6 168.6L478.70000000000005 182.5Q472.70000000000005 186.8 464.80000000000007 189.10000000000002Q456.90000000000003 191.4 449.3 191.4ZM461.20000000000005 179.9V153.5H478.70000000000005V182.5ZM485.90000000000003 190.0 516.8 120.0H536.3L567.3 190.0H546.7L522.5 129.7H530.3L506.1 190.0ZM502.8 176.4 507.90000000000003 161.8H542.1L547.2 176.4Z"/></g></svg><span>© Toninho Saga · Música ao vivo</span></span><a href="https://reinventar.dev" target="_blank" rel="noopener">Site por Reinventar</a></div>
 </footer>
 
 <dialog class="player" id="player" aria-label="Vídeo">
