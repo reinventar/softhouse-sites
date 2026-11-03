@@ -1,0 +1,406 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Toninho Saga · Músico em São João del-Rei</title>
+<meta name="description" content="Música ao vivo com Toninho Saga em São João del-Rei e região: bares, restaurantes, casamentos, confraternizações e aulas de violão.">
+<link rel="canonical" href="https://toninhosaga.reinventar.dev/">
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: palco à noite — faixa de cartazes da agenda logo no topo, seções em blocos largos, luz âmbar como única cor forte */
+:root{
+  --noite:#141110;      /* fundo */
+  --palco:#1E1A18;      /* superfícies */
+  --linha:#3A322D;      /* bordas */
+  --marfim:#F3ECE2;     /* texto */
+  --cinza:#B5AA9C;      /* texto secundário */
+  --ambar:#EE9441;      /* destaque (luz de palco) */
+  --ambar-escuro:#1A1210;
+  --display:"Big Shoulders Display","Oswald","Arial Narrow",sans-serif;
+  --texto:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--noite);color:var(--marfim);font-family:var(--texto);font-size:17px;line-height:1.6}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:800;text-transform:uppercase;line-height:.95;letter-spacing:.01em;text-wrap:balance;margin:0}
+h2{font-size:clamp(2.4rem,6vw,3.8rem)}
+h3{font-size:1.6rem;font-weight:600}
+p{margin:0}
+.eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--ambar)}
+.lead{color:var(--cinza);max-width:60ch}
+.ph{color:var(--ambar);font-style:italic}
+section{padding-block:clamp(64px,10vw,112px)}
+.btn{display:inline-flex;align-items:center;gap:.6em;padding:.9em 1.4em;border-radius:999px;font-weight:600;text-decoration:none;font-size:1rem;transition:transform .2s,background .2s}
+.btn-ambar{background:var(--ambar);color:var(--ambar-escuro)}
+.btn-ambar:hover{transform:translateY(-2px)}
+.btn-linha{border:1px solid var(--linha);color:var(--marfim)}
+.btn-linha:hover{border-color:var(--ambar)}
+:focus-visible{outline:2px solid var(--ambar);outline-offset:3px}
+
+/* faixa de prévia */
+.previa{background:var(--ambar);color:var(--ambar-escuro);font-size:.82rem;font-weight:600;text-align:center;padding-block:8px}
+/* cabeçalho */
+header{border-bottom:1px solid var(--linha)}
+.top{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:18px}
+.marca{font-family:var(--display);font-weight:800;font-size:1.9rem;text-transform:uppercase;letter-spacing:.03em;text-decoration:none;line-height:1}
+.marca small{display:block;font-family:var(--texto);font-size:.68rem;font-weight:500;letter-spacing:.18em;color:var(--cinza)}
+nav{display:flex;gap:24px;font-size:.92rem;color:var(--cinza)}
+nav a{text-decoration:none}
+nav a:hover{color:var(--marfim)}
+@media (max-width:820px){nav{display:none}}
+
+/* hero */
+.hero{padding-block:clamp(40px,7vw,80px)}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,72px);align-items:center}
+.hero-txt{display:flex;flex-direction:column;gap:22px;min-width:0}
+.hero h1{font-size:clamp(3.2rem,8.5vw,6.4rem)}
+.hero h1 em{font-style:normal;color:var(--ambar)}
+.acoes{display:flex;flex-wrap:wrap;gap:12px}
+.instr{display:flex;flex-wrap:wrap;gap:8px;font-size:.85rem;color:var(--cinza)}
+.instr span{border:1px solid var(--linha);border-radius:999px;padding:.25em .8em}
+@media (max-width:860px){.hero-grid{grid-template-columns:1fr}.carrossel{order:-1}}
+
+/* carrossel de banners */
+.carrossel{position:relative;min-width:0}
+.cartaz-rotulo{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;font-size:.8rem;color:var(--cinza)}
+.palco-banner{position:relative;aspect-ratio:4/5;max-width:100%;border-radius:14px;overflow:hidden;background:var(--palco);box-shadow:0 30px 80px -30px rgba(238,148,65,.35)}
+.slide{position:absolute;inset:0;opacity:0;transition:opacity .7s ease}
+.slide.ativo{opacity:1}
+.slide .fundo{position:absolute;inset:-20px;width:calc(100% + 40px);height:calc(100% + 40px);object-fit:cover;filter:blur(18px) brightness(.45)}
+.slide .frente{position:relative;width:100%;height:100%;object-fit:contain}
+.controles{display:flex;align-items:center;justify-content:space-between;margin-top:14px}
+.pontos{display:flex;gap:8px}
+.pontos button{width:28px;height:4px;border:0;border-radius:2px;background:var(--linha);cursor:pointer;padding:0}
+.pontos button[aria-current="true"]{background:var(--ambar)}
+.setas{display:flex;gap:8px}
+.setas button{width:42px;height:42px;border-radius:50%;border:1px solid var(--linha);background:transparent;color:var(--marfim);font-size:1.1rem;cursor:pointer}
+.setas button:hover{border-color:var(--ambar)}
+
+/* agenda */
+.cab{display:flex;flex-direction:column;gap:14px;margin-bottom:40px}
+.agenda{display:flex;flex-direction:column;border-top:1px solid var(--linha)}
+.show{display:grid;grid-template-columns:110px 1fr auto;gap:24px;align-items:center;padding-block:22px;border-bottom:1px solid var(--linha)}
+.data{font-family:var(--display);text-transform:uppercase;line-height:.9;font-variant-numeric:tabular-nums}
+.data b{display:block;font-size:3rem;font-weight:800;color:var(--ambar)}
+.data span{font-size:1rem;font-weight:600;letter-spacing:.08em;color:var(--cinza)}
+.show-info{min-width:0}
+.show-info p{color:var(--cinza);font-size:.95rem}
+.tag{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--cinza);border:1px dashed var(--linha);border-radius:4px;padding:.2em .6em;white-space:nowrap}
+.nota{margin-top:16px;font-size:.85rem;color:var(--cinza)}
+@media (max-width:620px){.show{grid-template-columns:80px 1fr}.show .tag{grid-column:2;justify-self:start}.data b{font-size:2.4rem}}
+
+/* eventos */
+.eventos{background:var(--palco)}
+.ev-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--linha);border:1px solid var(--linha);border-radius:14px;overflow:hidden}
+.ev{background:var(--palco);padding:28px 24px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.ev p{color:var(--cinza);font-size:.95rem}
+.ev .ic{width:34px;height:34px;color:var(--ambar)}
+@media (max-width:900px){.ev-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.ev-grid{grid-template-columns:1fr}}
+
+/* faixa de palco */
+.faixa{position:relative;padding:0;min-height:420px;display:flex;align-items:flex-end;overflow:hidden}
+.faixa img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.faixa::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,17,16,.92) 0%,rgba(20,17,16,.55) 55%,rgba(20,17,16,.1) 100%)}
+.faixa .wrap{position:relative;z-index:1;width:100%;padding-block:56px}
+.faixa h2{max-width:13ch}
+.faixa p{max-width:42ch;margin-top:16px;color:var(--marfim)}
+
+/* como contratar */
+.passos{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:p}
+.passo{border-top:2px solid var(--ambar);padding-top:20px;display:flex;flex-direction:column;gap:8px;min-width:0}
+.passo::before{counter-increment:p;content:"0" counter(p);font-family:var(--display);font-size:1.1rem;font-weight:600;color:var(--ambar);letter-spacing:.1em}
+.passo p{color:var(--cinza)}
+@media (max-width:760px){.passos{grid-template-columns:1fr}}
+
+/* galeria */
+.galeria{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.galeria figure{margin:0;aspect-ratio:244/280;max-width:100%;border-radius:10px;overflow:hidden;background:var(--palco)}
+.galeria img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.galeria figure:hover img{transform:scale(1.04)}
+.galeria .vazio{display:flex;align-items:center;justify-content:center;text-align:center;padding:16px;border:1px dashed var(--linha);background:transparent;font-size:.9rem}
+@media (max-width:760px){.galeria{grid-template-columns:repeat(2,1fr)}}
+
+/* aulas + sobre */
+.duo{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(32px,6vw,80px);align-items:center}
+.duo .foto{border-radius:14px;overflow:hidden;aspect-ratio:4/5;max-width:100%}
+.duo .foto img{width:100%;height:100%;object-fit:cover}
+.duo-txt{display:flex;flex-direction:column;gap:18px;min-width:0}
+@media (max-width:820px){.duo{grid-template-columns:1fr}}
+.aulas{background:var(--palco)}
+.aula-box{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center}
+.aula-box ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.aula-box li{display:flex;gap:12px;align-items:baseline;color:var(--cinza)}
+.aula-box li::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--ambar);flex:none;transform:translateY(-1px)}
+.aula-card{border:1px solid var(--linha);border-radius:14px;padding:28px;display:flex;flex-direction:column;gap:14px}
+@media (max-width:820px){.aula-box{grid-template-columns:1fr}}
+
+/* faq */
+.faq{display:flex;flex-direction:column;border-top:1px solid var(--linha);max-width:820px}
+details{border-bottom:1px solid var(--linha);padding-block:20px}
+summary{cursor:pointer;font-weight:600;font-size:1.08rem;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--ambar);font-size:1.4rem;line-height:1}
+details[open] summary::after{content:"–"}
+details p{color:var(--cinza);margin-top:10px;max-width:65ch}
+
+/* contato */
+.contato{text-align:left}
+.contato-box{border:1px solid var(--linha);border-radius:18px;padding:clamp(28px,5vw,56px);display:grid;grid-template-columns:1.2fr .8fr;gap:32px;align-items:end;background:radial-gradient(120% 140% at 100% 0%,rgba(238,148,65,.16),transparent 60%),var(--palco)}
+.contato-box h2{font-size:clamp(2.6rem,7vw,4.6rem)}
+.dados{display:flex;flex-direction:column;gap:10px;font-size:.98rem}
+.dados span{color:var(--cinza);font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;display:block}
+.dados div{user-select:all}
+@media (max-width:820px){.contato-box{grid-template-columns:1fr}}
+
+footer{border-top:1px solid var(--linha);padding-block:28px;font-size:.85rem;color:var(--cinza)}
+.rodape{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="previa">Prévia para aprovação · os textos entre [colchetes] e as fotos serão trocados pelo material do Toninho</div>
+
+<header>
+  <div class="wrap top">
+    <a class="marca" href="#inicio">Toninho Saga<small>Músico · São João del-Rei</small></a>
+    <nav aria-label="Seções">
+      <a href="#agenda">Agenda</a><a href="#eventos">Eventos</a><a href="#aulas">Aulas de violão</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a>
+    </nav>
+    <a class="btn btn-ambar" href="https://wa.me/5532999915947?text=Ol%C3%A1%2C%20Toninho!%20Vi%20seu%20site%20e%20quero%20um%20or%C3%A7amento." target="_blank" rel="noopener">WhatsApp</a>
+  </div>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-txt">
+        <span class="eyebrow">Música ao vivo · São João del-Rei e região</span>
+        <h1>Todos os estilos. <em>Uma noite</em> pra lembrar.</h1>
+        <p class="lead">Músico eclético para bares, restaurantes, casamentos e confraternizações. Repertório montado para o seu público, do almoço de domingo ao happy hour.</p>
+        <div class="acoes">
+          <a class="btn btn-ambar" href="https://wa.me/5532999915947?text=Ol%C3%A1%2C%20Toninho!%20Quero%20contratar%20um%20show." target="_blank" rel="noopener">Contratar pelo WhatsApp</a>
+          <a class="btn btn-linha" href="#agenda">Ver a agenda</a>
+        </div>
+        <div class="instr" aria-label="Instrumentos"><span>Voz</span><span>Violão</span><span>Teclado</span><span>Baixo</span></div>
+      </div>
+
+      <div class="carrossel" aria-roledescription="carrossel" aria-label="Cartazes da agenda">
+        <div class="cartaz-rotulo"><span class="eyebrow">Na agenda</span><span id="legenda">Contrate para shows</span></div>
+        <div class="palco-banner" id="palco">
+          <div class="slide ativo" data-legenda="Contrate para shows"><img class="fundo" src="img/b1.webp" alt=""><img class="frente" src="img/b1.webp" alt="Cartaz: contrate Toninho Saga para shows em bares, eventos, casamentos e confraternizações"></div>
+          <div class="slide" data-legenda="Happy hour · Athletic Lounge"><img class="fundo" src="img/b2.webp" alt=""><img class="frente" src="img/b2.webp" alt="Cartaz: Sextou Happy Hour do Athletic Lounge com Toninho Saga às 17h30"></div>
+          <div class="slide" data-legenda="Almoço · Restaurante Tud'Roça"><img class="fundo" src="img/b3.webp" alt=""><img class="frente" src="img/b3.webp" alt="Cartaz: música ao vivo com Toninho Saga no Restaurante Tud'Roça, domingo ao meio-dia"></div>
+        </div>
+        <div class="controles">
+          <div class="pontos" id="pontos"></div>
+          <div class="setas">
+            <button type="button" id="ant" aria-label="Cartaz anterior">←</button>
+            <button type="button" id="prox" aria-label="Próximo cartaz">→</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="agenda">
+    <div class="wrap">
+      <div class="cab">
+        <span class="eyebrow">Agenda</span>
+        <h2>Onde ouvir ao vivo</h2>
+      </div>
+      <div class="agenda">
+        <div class="show">
+          <div class="data"><b>26</b><span>Dom · 12h</span></div>
+          <div class="show-info"><h3>Restaurante Tud'Roça</h3><p>Música ao vivo no almoço de domingo · <span class="ph">[cidade]</span></p></div>
+          <span class="tag">Exemplo</span>
+        </div>
+        <div class="show">
+          <div class="data"><b>20</b><span>Sex · 17h30</span></div>
+          <div class="show-info"><h3>Athletic Lounge</h3><p>#Sextou Happy Hour · exclusivo para sócios</p></div>
+          <span class="tag">Exemplo</span>
+        </div>
+        <div class="show">
+          <div class="data"><b>[dd]</b><span>[dia · hora]</span></div>
+          <div class="show-info"><h3><span class="ph">[Próximo show]</span></h3><p>Local, cidade e tipo de evento</p></div>
+          <span class="tag">A confirmar</span>
+        </div>
+      </div>
+      <p class="nota">Datas de exemplo tiradas dos cartazes já publicados. A cada mês, a agenda e os cartazes do topo são atualizados.</p>
+    </div>
+  </section>
+
+  <section class="eventos" id="eventos">
+    <div class="wrap">
+      <div class="cab">
+        <span class="eyebrow">Para quem eu toco</span>
+        <h2>Música certa para cada ocasião</h2>
+      </div>
+      <div class="ev-grid">
+        <div class="ev">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 3h8l-1 7a3 3 0 0 1-6 0L8 3Z"/><path d="M12 13v7M8 21h8"/></svg>
+          <h3>Bares e restaurantes</h3><p>Voz e violão para almoço, happy hour e noites de fim de semana.</p>
+        </div>
+        <div class="ev">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="9" cy="14" r="5"/><circle cx="15" cy="14" r="5"/><path d="M10 4l2 3 2-3"/></svg>
+          <h3>Casamentos</h3><p>Entrada, cerimônia e festa, com repertório escolhido com os noivos.</p>
+        </div>
+        <div class="ev">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 21V9l8-5 8 5v12"/><path d="M9 21v-6h6v6"/></svg>
+          <h3>Eventos e confraternizações</h3><p>Aniversários, festas de empresa e encontros de família.</p>
+        </div>
+        <div class="ev">
+          <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M15 3l4 4-6 6"/><circle cx="8.5" cy="15.5" r="5"/><circle cx="8.5" cy="15.5" r="1.5"/></svg>
+          <h3>Aulas de violão</h3><p>Do primeiro acorde às músicas que você sempre quis tocar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faixa" aria-label="No palco">
+    <img src="img/palco.webp" alt="Toninho Saga tocando baixo no palco, sob luz azul">
+    <div class="wrap">
+      <span class="eyebrow">No palco</span>
+      <h2>Do voz e violão à banda completa</h2>
+      <p>Repertório de todos os estilos, ajustado ao clima de cada lugar. <span class="ph">[formatos: solo, duo, banda]</span></p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="cab">
+        <span class="eyebrow">Como contratar</span>
+        <h2>Três passos até o show</h2>
+      </div>
+      <div class="passos">
+        <div class="passo"><h3>Chame no WhatsApp</h3><p>Conte a data, o local e o tipo de evento.</p></div>
+        <div class="passo"><h3>Formato e repertório</h3><p>Combinamos a duração, o estilo das músicas e o equipamento.</p></div>
+        <div class="passo"><h3>Show confirmado</h3><p>Data reservada na agenda. No dia, é só aproveitar.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="cab">
+        <span class="eyebrow">Fotos e vídeos</span>
+        <h2>Ao vivo</h2>
+      </div>
+      <div class="galeria">
+        <figure><img src="img/g2.webp" alt="Toninho Saga com violão ao ar livre"></figure>
+        <figure><img src="img/g4.webp" alt="Toninho Saga ao teclado"></figure>
+        <figure><img src="img/g6.webp" alt="Bar com público durante show"></figure>
+        <figure><img src="img/g5.webp" alt="Retrato em preto e branco com o braço da guitarra"></figure>
+        <figure><img src="img/g3.webp" alt="Toninho Saga tocando violão"></figure>
+        <figure><img src="img/g9.webp" alt="Toninho Saga cantando sob luzes coloridas"></figure>
+        <figure><img src="img/g1.webp" alt="Toninho Saga tocando teclado e cantando"></figure>
+        <figure class="vazio"><span class="ph">[vídeos dos shows que o Toninho vai enviar]</span></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="aulas" id="aulas">
+    <div class="wrap aula-box">
+      <div class="duo-txt">
+        <span class="eyebrow">Aulas de violão</span>
+        <h2>Aprenda a tocar com quem vive de música</h2>
+        <p class="lead">Aulas para iniciantes e para quem quer evoluir, com as músicas que você gosta.</p>
+        <ul>
+          <li><span class="ph">[presencial e/ou online]</span></li>
+          <li><span class="ph">[dias e horários]</span></li>
+          <li><span class="ph">[idade mínima / níveis]</span></li>
+        </ul>
+      </div>
+      <div class="aula-card">
+        <span class="eyebrow">Valores</span>
+        <p class="ph">[mensalidade ou aula avulsa · a confirmar]</p>
+        <a class="btn btn-ambar" href="https://wa.me/5532999915947?text=Ol%C3%A1%2C%20Toninho!%20Quero%20saber%20sobre%20as%20aulas%20de%20viol%C3%A3o." target="_blank" rel="noopener">Agendar aula experimental</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <div class="wrap duo">
+      <div class="foto"><img src="img/retrato.webp" alt="Retrato de Toninho Saga"></div>
+      <div class="duo-txt">
+        <span class="eyebrow">Sobre</span>
+        <h2>Toninho Saga</h2>
+        <p class="lead">Músico eclético de São João del-Rei, toca todos os estilos e passa pela voz, violão, teclado e baixo. Leva música ao vivo para bares, restaurantes, casamentos e festas em toda a região.</p>
+        <p class="lead"><span class="ph">[história: há quantos anos toca, bandas, palcos marcantes]</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <div class="cab">
+        <span class="eyebrow">Perguntas frequentes</span>
+        <h2>Antes de contratar</h2>
+      </div>
+      <div class="faq">
+        <details><summary>Quais estilos você toca?</summary><p>Todos os estilos. O repertório é montado conforme o público e o clima do evento. <span class="ph">[exemplos: MPB, sertanejo, rock nacional, pop…]</span></p></details>
+        <details><summary>Atende fora de São João del-Rei?</summary><p>Sim, atendo São João del-Rei e região. <span class="ph">[cidades atendidas]</span></p></details>
+        <details><summary>Precisa levar som?</summary><p><span class="ph">[equipamento próprio incluso? até quantas pessoas?]</span></p></details>
+        <details><summary>Quanto custa um show?</summary><p>O valor depende da data, da duração e do local. Peça um orçamento pelo WhatsApp e receba a proposta no mesmo dia.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="contato" id="contato" style="padding-top:0">
+    <div class="wrap">
+      <div class="contato-box">
+        <div class="duo-txt">
+          <span class="eyebrow">Contato</span>
+          <h2>Bora marcar a sua data?</h2>
+          <div class="acoes"><a class="btn btn-ambar" href="https://wa.me/5532999915947?text=Ol%C3%A1%2C%20Toninho!%20Quero%20um%20or%C3%A7amento%20para%20o%20meu%20evento." target="_blank" rel="noopener">Pedir orçamento</a></div>
+        </div>
+        <div class="dados">
+          <div><span>WhatsApp</span>(32) 99991-5947</div>
+          <div><span>Instagram</span><a href="https://www.instagram.com/musicotoninhosg/" target="_blank" rel="noopener">@musicotoninhosg</a></div>
+          <div><span>Região</span>São João del-Rei e região</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap rodape"><span>© Toninho Saga · Música ao vivo</span><a href="https://reinventar.dev" target="_blank" rel="noopener" style="text-decoration:none">Site por Reinventar</a></div>
+</footer>
+
+<script>
+(function(){
+  var slides=[].slice.call(document.querySelectorAll('#palco .slide'));
+  var pontos=document.getElementById('pontos'), legenda=document.getElementById('legenda');
+  var i=0, timer=null, reduz=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  slides.forEach(function(s,k){
+    var b=document.createElement('button'); b.type='button'; b.setAttribute('aria-label','Cartaz '+(k+1));
+    b.addEventListener('click',function(){ir(k);reinicia();}); pontos.appendChild(b);
+  });
+  function ir(k){
+    i=(k+slides.length)%slides.length;
+    slides.forEach(function(s,n){s.classList.toggle('ativo',n===i);s.setAttribute('aria-hidden',n===i?'false':'true');});
+    [].forEach.call(pontos.children,function(b,n){b.setAttribute('aria-current',n===i?'true':'false');});
+    legenda.textContent=slides[i].getAttribute('data-legenda');
+  }
+  function reinicia(){ if(reduz) return; clearInterval(timer); timer=setInterval(function(){ir(i+1);},5000); }
+  document.getElementById('ant').onclick=function(){ir(i-1);reinicia();};
+  document.getElementById('prox').onclick=function(){ir(i+1);reinicia();};
+  var x0=null, palco=document.getElementById('palco');
+  palco.addEventListener('touchstart',function(e){x0=e.touches[0].clientX;},{passive:true});
+  palco.addEventListener('touchend',function(e){ if(x0===null) return; var d=e.changedTouches[0].clientX-x0; if(Math.abs(d)>40){ir(i+(d<0?1:-1));reinicia();} x0=null;});
+  ir(0); reinicia();
+})();
+</script>
+
+</body>
+</html>
