@@ -107,16 +107,17 @@ nav a:hover{color:var(--marfim)}
 .hs.ativo .hs-foto{transform:scale(1)}
 .hs::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,var(--noite) 44%,rgba(20,17,16,.72) 56%,rgba(20,17,16,0) 80%),linear-gradient(0deg,var(--noite),rgba(20,17,16,0) 22%)}
 .hs-txt{position:relative;z-index:2;width:100%;display:flex;flex-direction:column;gap:20px}
-.hs-txt > *{max-width:560px}
-.hs-titulo{font-family:var(--display);font-weight:800;text-transform:uppercase;line-height:.92;font-size:clamp(3rem,7.6vw,6rem);text-wrap:balance}
+.hs-txt > *{max-width:600px}
+.hs-titulo{font-family:var(--display);font-weight:800;text-transform:uppercase;line-height:.92;font-size:clamp(3rem,6.4vw,5.2rem);text-wrap:balance}
 .hs-titulo em{font-style:normal;color:var(--ambar)}
 .hs-sub{color:var(--cinza);font-size:1.08rem;max-width:44ch}
+.hs-local{display:block;font-family:var(--display);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:600;text-transform:uppercase;color:var(--marfim);line-height:1.1;margin-bottom:4px}
 .hero-ctrl{display:flex;align-items:center;justify-content:space-between;gap:16px;position:relative;z-index:3;margin-top:-76px;padding-bottom:28px}
 @media (max-width:760px){
   .hero-palco{height:auto;min-height:0;aspect-ratio:auto}
   .hs{position:absolute;align-items:flex-end}
   .hs-foto{width:100%;height:62%;object-position:center 20%}
-  .hs::before{background:linear-gradient(0deg,var(--noite) 40%,rgba(20,17,16,.6) 55%,rgba(20,17,16,0) 72%)}
+  .hs::before{background:linear-gradient(0deg,var(--noite) 48%,rgba(20,17,16,.7) 60%,rgba(20,17,16,0) 76%)}
   .hero-palco{height:min(820px,max(640px,155vw))}
   .hs-txt{padding-bottom:84px;gap:14px}
   .hs-titulo{font-size:clamp(2.6rem,11vw,3.6rem)}
@@ -245,51 +246,51 @@ footer{border-top:1px solid var(--linha);padding-block:28px;font-size:.85rem;col
 
 <main id="inicio">
   <section class="hero" aria-roledescription="carrossel" aria-label="Destaques">
-    <h1 class="sr">Toninho Saga · Músico em São João del-Rei</h1>
+    <h1 class="sr">Toninho Saga · Músico em São João del-Rei · agenda de shows e aulas de violão</h1>
     <div class="hero-palco" id="hero">
-      <div class="hs" >
-        <img class="hs-foto" src="img/hero.webp" alt="" style="object-position:center 25%">
-        <div class="wrap hs-txt">
-          <span class="eyebrow">Música ao vivo · São João del-Rei e região</span>
-          <p class="hs-titulo">Todos os estilos. <em>Uma noite</em> pra lembrar.</p>
-          <p class="hs-sub">Voz, violão, guitarra e teclado para casamentos, confraternizações, bares e restaurantes.</p>
-          <div class="acoes"><a class="btn btn-ambar" href="https://wa.me/5532999915947?text=Ol%C3%A1%2C%20Toninho!%20Quero%20contratar%20um%20show." target="_blank" rel="noopener">Contratar pelo WhatsApp</a><a class="btn btn-linha" href="#trabalho">Conheça meu trabalho</a></div>
-        </div>
-      </div>
-      <div class="hs" >
-        <img class="hs-foto" src="img/g1.webp" alt="" style="object-position:center 30%">
-        <div class="wrap hs-txt">
-          <span class="eyebrow">Casamentos e recepções</span>
-          <p class="hs-titulo">Música para o <em>sim</em> e para a festa.</p>
-          <p class="hs-sub">Cerimônia, celebração e recepção, com repertório escolhido com os noivos.</p>
-          <div class="acoes"><a class="btn btn-ambar" href="https://wa.me/5532999915947?text=Ol%C3%A1%2C%20Toninho!%20Quero%20contratar%20um%20show." target="_blank" rel="noopener">Contratar pelo WhatsApp</a><a class="btn btn-linha" href="#ao-vivo">Ver vídeos</a></div>
-        </div>
-      </div>
-      <div class="hs" >
-        <img class="hs-foto" src="img/guitarra.webp" alt="" style="object-position:center 20%">
-        <div class="wrap hs-txt">
-          <span class="eyebrow">Quatro instrumentos</span>
-          <p class="hs-titulo">Do voz e violão à <em>banda completa</em>.</p>
-          <p class="hs-sub">Voz, violão, guitarra e teclado, no formato que o seu evento pede.</p>
-          <div class="acoes"><a class="btn btn-ambar" href="https://wa.me/5532999915947?text=Ol%C3%A1%2C%20Toninho!%20Quero%20contratar%20um%20show." target="_blank" rel="noopener">Contratar pelo WhatsApp</a><a class="btn btn-linha" href="#trabalho">Conheça meu trabalho</a></div>
-        </div>
-      </div>
-      <div class="hs" data-prox>
+      <div class="hs" data-data="2026-11-20">
         <img class="hs-foto" src="img/voz.webp" alt="" style="object-position:center 20%">
         <div class="wrap hs-txt">
-          <span class="eyebrow">Próximo show aberto</span>
-          <p class="hs-titulo"><span data-prox-titulo>Pátio Matosinhos</span></p>
-          <p class="hs-sub"><span data-prox-sub>Confira as datas de novembro na agenda.</span></p>
+          <span class="eyebrow">Agenda · show aberto ao público</span>
+          <p class="hs-titulo">20/11 · Sex <em>19h</em></p>
+          <p class="hs-sub"><b class="hs-local">Pátio Matosinhos</b>Av. Josué de Queirós, 332 · Matozinhos, São João del-Rei</p>
+          <div class="acoes"><a class="btn btn-ambar" href="https://maps.app.goo.gl/5v6cM2hdJpHQ4nTk8" target="_blank" rel="noopener">Como chegar</a><a class="btn btn-linha" href="#agenda">Ver agenda completa</a></div>
+        </div>
+      </div>
+      <div class="hs" data-data="2026-11-26">
+        <img class="hs-foto" src="img/guitarra.webp" alt="" style="object-position:center 20%">
+        <div class="wrap hs-txt">
+          <span class="eyebrow">Agenda · show aberto ao público</span>
+          <p class="hs-titulo">26/11 · Qui <em>19h</em></p>
+          <p class="hs-sub"><b class="hs-local">Pátio Matosinhos</b>Av. Josué de Queirós, 332 · Matozinhos, São João del-Rei</p>
+          <div class="acoes"><a class="btn btn-ambar" href="https://maps.app.goo.gl/5v6cM2hdJpHQ4nTk8" target="_blank" rel="noopener">Como chegar</a><a class="btn btn-linha" href="#agenda">Ver agenda completa</a></div>
+        </div>
+      </div>
+      <div class="hs" data-data="2026-11-28">
+        <img class="hs-foto" src="img/hero.webp" alt="" style="object-position:center 25%">
+        <div class="wrap hs-txt">
+          <span class="eyebrow">Agenda · show aberto ao público</span>
+          <p class="hs-titulo">28/11 · Sáb <em>14h</em></p>
+          <p class="hs-sub"><b class="hs-local">Pátio Matosinhos</b>Av. Josué de Queirós, 332 · Matozinhos, São João del-Rei</p>
+          <div class="acoes"><a class="btn btn-ambar" href="https://maps.app.goo.gl/5v6cM2hdJpHQ4nTk8" target="_blank" rel="noopener">Como chegar</a><a class="btn btn-linha" href="#agenda">Ver agenda completa</a></div>
+        </div>
+      </div>
+      <div class="hs" data-reserva hidden>
+        <img class="hs-foto" src="img/voz.webp" alt="" style="object-position:center 20%">
+        <div class="wrap hs-txt">
+          <span class="eyebrow">Agenda</span>
+          <p class="hs-titulo">Reserve a <em>sua data</em></p>
+          <p class="hs-sub">Novas datas em breve. Casamentos, confraternizações e eventos em São João del-Rei e região.</p>
           <div class="acoes"><a class="btn btn-ambar" href="https://wa.me/5532999915947?text=Ol%C3%A1%2C%20Toninho!%20Quero%20contratar%20um%20show." target="_blank" rel="noopener">Contratar pelo WhatsApp</a><a class="btn btn-linha" href="#agenda">Ver agenda</a></div>
         </div>
       </div>
-      <div class="hs" >
+      <div class="hs">
         <img class="hs-foto" src="img/g2.webp" alt="" style="object-position:center 25%">
         <div class="wrap hs-txt">
-          <span class="eyebrow">Aulas particulares</span>
+          <span class="eyebrow">Aulas particulares de violão</span>
           <p class="hs-titulo">Aprenda <em>violão</em> com quem vive de música.</p>
-          <p class="hs-sub">Aulas individuais para iniciantes e para quem quer evoluir.</p>
-          <div class="acoes"><a class="btn btn-ambar" href="https://wa.me/5532999915947?text=Ol%C3%A1%2C%20Toninho!%20Quero%20contratar%20um%20show." target="_blank" rel="noopener">Contratar pelo WhatsApp</a><a class="btn btn-linha" href="#aulas">Saber mais</a></div>
+          <p class="hs-sub">Aulas individuais para iniciantes e para quem quer evoluir, com as músicas que você gosta.</p>
+          <div class="acoes"><a class="btn btn-ambar" href="https://wa.me/5532999915947?text=Ol%C3%A1%2C%20Toninho!%20Quero%20saber%20sobre%20as%20aulas%20de%20viol%C3%A3o." target="_blank" rel="noopener">Agendar aula experimental</a><a class="btn btn-linha" href="#aulas">Saber mais</a></div>
         </div>
       </div>
     </div>
@@ -584,14 +585,10 @@ footer{border-top:1px solid var(--linha);padding-block:28px;font-size:.85rem;col
     if(!proximo && el.querySelector('.tag-aberto')) proximo=el;
   });
   if(!restam) document.getElementById('agenda-vazia').hidden=false;
-  var sProx=document.querySelector('[data-prox]');
-  if(sProx){
-    if(proximo){
-      var dia=proximo.querySelector('.data b').textContent, quando=proximo.querySelector('.data span').textContent;
-      sProx.querySelector('[data-prox-titulo]').innerHTML=dia+'/11 · <em>'+proximo.querySelector('h3').textContent+'</em>';
-      sProx.querySelector('[data-prox-sub]').textContent=quando+' · '+proximo.querySelector('.show-info p').textContent.replace(' · Como chegar','');
-    } else { sProx.parentNode.removeChild(sProx); }
-  }
+  var hsShows=[].slice.call(document.querySelectorAll('#hero .hs[data-data]')), hsVivos=0;
+  hsShows.forEach(function(el){ var d=new Date(el.getAttribute('data-data')+'T23:59:00'); if(d<hoje){ el.parentNode.removeChild(el); } else hsVivos++; });
+  var hsReserva=document.querySelector('#hero [data-reserva]');
+  if(hsVivos){ hsReserva.parentNode.removeChild(hsReserva); } else { hsReserva.hidden=false; }
 
   carrossel({raiz:document.getElementById('hero'),item:'.hs',pontos:document.getElementById('hpontos'),ant:document.getElementById('hant'),prox:document.getElementById('hprox'),rotulo:'Banner',tempo:6500});
   var legenda=document.getElementById('legenda');
