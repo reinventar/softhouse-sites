@@ -444,7 +444,7 @@ footer{border-top:1px solid var(--linha);padding-block:28px;font-size:.85rem;col
   </section>
 
   <section id="agenda">
-    <div class="wrap ag-grid">
+    <div class="wrap">
       <div class="ag-lista">
         <div class="cab">
           <span class="eyebrow">Agenda</span>
@@ -479,18 +479,6 @@ footer{border-top:1px solid var(--linha);padding-block:28px;font-size:.85rem;col
       </div>
         <p class="vazio-agenda" id="agenda-vazia" hidden>Novas datas em breve. Chame no WhatsApp para reservar a sua.</p>
         <p class="nota">Novembro de 2026. A agenda e os cartazes são atualizados todo mês.</p>
-      </div>
-      <div class="carrossel" aria-roledescription="carrossel" aria-label="Cartazes da agenda">
-        <div class="cartaz-rotulo"><span class="eyebrow">Cartazes</span><span id="legenda">Contrate para shows</span></div>
-        <div class="palco-banner" id="palco">
-          <div class="slide ativo" data-legenda="Contrate para shows"><img class="fundo" src="img/b1.webp" alt="" loading="lazy"><img class="frente" src="img/b1.webp" alt="Cartaz: contrate Toninho Saga para shows em bares, eventos, casamentos e confraternizações" loading="lazy"></div>
-          <div class="slide" data-legenda="Happy hour · Athletic Lounge"><img class="fundo" src="img/b2.webp" alt="" loading="lazy"><img class="frente" src="img/b2.webp" alt="Cartaz: Sextou Happy Hour do Athletic Lounge com Toninho Saga" loading="lazy"></div>
-          <div class="slide" data-legenda="Almoço · Restaurante Tud'Roça"><img class="fundo" src="img/b3.webp" alt="" loading="lazy"><img class="frente" src="img/b3.webp" alt="Cartaz: música ao vivo com Toninho Saga no Restaurante Tud'Roça" loading="lazy"></div>
-        </div>
-        <div class="controles">
-          <div class="pontos" id="pontos"></div>
-          <div class="setas"><button type="button" id="ant" aria-label="Cartaz anterior">←</button><button type="button" id="prox" aria-label="Próximo cartaz">→</button></div>
-        </div>
       </div>
     </div>
   </section>
@@ -669,8 +657,6 @@ footer{border-top:1px solid var(--linha);padding-block:28px;font-size:.85rem;col
     hero.addEventListener('mouseleave',function(){ hero.classList.remove('pausado'); ir(i); });
     ir(0);
   })();
-  var legenda=document.getElementById('legenda');
-  carrossel({raiz:document.getElementById('palco'),item:'.slide',pontos:document.getElementById('pontos'),ant:document.getElementById('ant'),prox:document.getElementById('prox'),rotulo:'Cartaz',tempo:5000,aoMudar:function(s){legenda.textContent=s.getAttribute('data-legenda');}});
 
   /* player: o vídeo só existe enquanto a janela está aberta */
   var dlg=document.getElementById('player'), area=document.getElementById('player-area'), tit=document.getElementById('player-titulo'), origem=null;
