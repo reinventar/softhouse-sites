@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../fonts.css">
+<style>
+:root{--preto:#0B0A0C;--grafite:#151317;--card:#1C191F;--linha:#2E2931;--ink:#F7F3F5;--muted:#A99DA6;--vinho:#9E2260;--rosa:#D94F8A;--blush:#F4C9DA;--verde:#22C58B;--off:#FAF8F9;--sans:"Geist",system-ui,sans-serif;--mono:"Geist Mono",monospace}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#333;font-family:var(--sans);color:var(--ink);display:flex;flex-wrap:wrap;gap:40px;padding:40px}
+.art{position:relative;overflow:hidden;background:var(--preto);flex:none}
+.sq{width:1080px;height:1080px}.post{width:1080px;height:1350px;padding:90px 84px;display:flex;flex-direction:column}.hl{width:1080px;height:1920px}
+.claro{background:var(--off);color:#0B0A0C}
+h1,h2{font-weight:500;letter-spacing:-.04em;line-height:1}
+.k{font:500 30px var(--mono);color:var(--verde);letter-spacing:.02em}
+.claro .k{color:#0E8F62}
+.m{color:var(--muted)}
+.claro .m{color:#6B5F66}
+.word{letter-spacing:-.045em;line-height:1;white-space:nowrap}
+.word .e{display:inline-block;transform:scaleX(-1);color:var(--rosa)}
+.claro .word .e{color:var(--vinho)}
+.word sup{font:400 .26em var(--mono);color:var(--verde);letter-spacing:0;margin-left:.12em;vertical-align:top;position:relative;top:.5em}
+.pe{position:absolute;left:84px;right:84px;bottom:70px;display:flex;justify-content:space-between;align-items:center;font:400 26px var(--mono);color:var(--muted)}
+.pe .word{font:400 40px var(--sans);color:var(--ink);letter-spacing:-.045em}
+.claro .pe .word{color:#0B0A0C}
+.cantos::before,.cantos::after{content:"";position:absolute;width:120px;height:120px;border:7px solid var(--verde);opacity:.85}
+.cantos::before{top:46px;left:46px;border-right:0;border-bottom:0}
+.cantos::after{bottom:46px;right:46px;border-left:0;border-top:0}
+.glow{position:absolute;width:1200px;height:1200px;background:radial-gradient(closest-side,rgba(158,34,96,.42),transparent);pointer-events:none}
+.tela{border-radius:22px;overflow:hidden;border:2px solid var(--linha);box-shadow:0 40px 80px rgba(0,0,0,.5)}
+.tela img{display:block;width:100%}
+.fone{position:absolute;width:300px;border-radius:44px;padding:12px;background:#26222A;box-shadow:0 40px 80px rgba(0,0,0,.6)}
+.fone img{display:block;width:100%;height:560px;object-fit:cover;object-position:top;border-radius:34px}
+.tag{align-self:flex-start;font:500 26px var(--mono);padding:10px 20px;border-radius:99px;background:#2A1520;color:var(--blush)}
+.tag.real{background:#10301F;color:var(--verde)}
+.lista{list-style:none;display:flex;flex-direction:column;gap:26px;font-size:40px}
+.lista li{display:flex;gap:22px;align-items:baseline}
+.lista li b{font:500 34px var(--mono);color:var(--rosa);min-width:56px}
+</style></head><body>
+
+<!-- avatar -->
+<div class="art sq" id="avatar" style="display:grid;place-items:center">
+  <svg viewBox="0 0 100 100" fill="none" style="width:620px;height:620px"><path d="M14 38V14H38M62 86H86V62" stroke="#22C58B" stroke-opacity=".85" stroke-width="5.5"/><path d="M24 46V24H46M54 76H76V54" stroke="#D94F8A" stroke-width="5.5"/><rect x="40" y="40" width="20" height="20" rx="4" fill="#F4C9DA"/></svg>
+</div>
+
+<!-- destaques -->
+<div class="art hl" id="hl-modelos" style="display:grid;place-items:center"><svg viewBox="0 0 100 100" fill="none" stroke="#F4C9DA" stroke-width="4" style="width:420px"><rect x="14" y="14" width="30" height="30" rx="4"/><rect x="56" y="14" width="30" height="30" rx="4" stroke="#D94F8A"/><rect x="14" y="56" width="30" height="30" rx="4" stroke="#22C58B"/><rect x="56" y="56" width="30" height="30" rx="4"/></svg></div>
+<div class="art hl" id="hl-clientes" style="display:grid;place-items:center"><svg viewBox="0 0 100 100" fill="none" stroke-width="4" style="width:420px"><path d="M14 38V14H38M62 86H86V62" stroke="#22C58B"/><path d="M34 52l12 12 22-26" stroke="#F4C9DA" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div class="art hl" id="hl-como" style="display:grid;place-items:center"><svg viewBox="0 0 100 100" fill="none" stroke-width="4" style="width:420px"><circle cx="20" cy="50" r="8" stroke="#22C58B"/><circle cx="50" cy="50" r="8" stroke="#D94F8A"/><circle cx="80" cy="50" r="8" fill="#F4C9DA" stroke="#F4C9DA"/><path d="M28 50h14M58 50h14" stroke="#A99DA6"/></svg></div>
+<div class="art hl" id="hl-planos" style="display:grid;place-items:center"><svg viewBox="0 0 100 100" fill="none" stroke-width="4" style="width:420px"><path d="M18 20h34l30 30-32 32-32-30z" stroke="#F4C9DA" stroke-linejoin="round"/><circle cx="36" cy="38" r="6" stroke="#22C58B"/></svg></div>
+<div class="art hl" id="hl-contato" style="display:grid;place-items:center"><svg viewBox="0 0 100 100" fill="none" stroke-width="4" style="width:420px"><path d="M18 82l5-16A34 34 0 1 1 36 79z" stroke="#F4C9DA" stroke-linejoin="round"/><path d="M38 40c2 9 8 16 18 20l5-5 9 4c-1 6-6 9-11 8-14-3-25-14-27-28-1-5 2-10 8-11l4 9z" fill="#22C58B"/></svg></div>
+
+<!-- P1 manifesto -->
+<div class="art post cantos" id="p1">
+  <div class="glow" style="right:-420px;top:-380px"></div>
+  <span class="k" style="margin-top:110px">Nova fase</span>
+  <h1 style="font-size:132px;margin-top:40px">A <span class="word" style="font-size:132px">r<span class="e">e</span>inventar</span> está de volta.</h1>
+  <p class="m" style="font-size:42px;margin-top:56px;max-width:820px;line-height:1.35">Agora criando sites de portfólio para quem atende gente: personal trainers, dentistas, corretores e outros profissionais.</p>
+  <div class="pe"><span>reinventar.dev</span><span>01</span></div>
+</div>
+
+<!-- P2 por que -->
+<div class="art post claro" id="p2">
+  <span class="k">Por que um site</span>
+  <h1 style="font-size:116px;margin-top:34px">O Instagram mostra.<br>O site convence.</h1>
+  <ul class="lista" style="margin-top:auto;margin-bottom:150px;color:#2A2228">
+    <li><b>→</b>Profissional desde o primeiro clique</li>
+    <li><b>→</b>Pronto para o Google</li>
+    <li><b>→</b>Um toque até o seu WhatsApp</li>
+  </ul>
+  <div class="pe"><span class="word">r<span class="e">e</span>inventar</span><span>reinventar.dev</span></div>
+</div>
+
+<!-- P3 como funciona -->
+<div class="art post" id="p3">
+  <span class="k">Como funciona</span>
+  <h1 style="font-size:116px;margin-top:34px">Do briefing ao ar em até <span style="color:var(--rosa)">7 dias</span>.</h1>
+  <ul class="lista" style="margin-top:auto;margin-bottom:150px">
+    <li><b>01</b><span>Conversa no WhatsApp <span class="m">· dia 1</span></span></li>
+    <li><b>02</b><span>Prévia gratuita <span class="m">· dias 2 e 3</span></span></li>
+    <li><b>03</b><span>Ajustes do seu jeito <span class="m">· dias 4 a 6</span></span></li>
+    <li><b>04</b><span>No ar <span class="m">· dia 7</span></span></li>
+  </ul>
+  <div class="pe"><span class="word">r<span class="e">e</span>inventar</span><span>reinventar.dev</span></div>
+</div>
+
+<!-- P4-P6 modelos -->
+<div class="art post" id="p4">
+  <span class="tag">Modelo · personal trainer</span>
+  <h2 style="font-size:84px;margin-top:30px">Força, resultados<br>e agenda.</h2>
+  <div class="tela" style="margin-top:56px;width:760px"><img src="../shots/personal-d.jpg"></div>
+  <div class="fone" style="right:70px;bottom:140px"><img src="../shots/personal-m.jpg"></div>
+  <div class="pe"><span class="word">r<span class="e">e</span>inventar</span><span>personal.reinventar.dev</span></div>
+</div>
+<div class="art post" id="p5">
+  <span class="tag">Modelo · dentista</span>
+  <h2 style="font-size:84px;margin-top:30px">Acolhedor e dentro<br>das regras do CFO.</h2>
+  <div class="tela" style="margin-top:56px;width:760px"><img src="../shots/dentista-d.jpg"></div>
+  <div class="fone" style="right:70px;bottom:140px"><img src="../shots/dentista-m.jpg"></div>
+  <div class="pe"><span class="word">r<span class="e">e</span>inventar</span><span>dentista.reinventar.dev</span></div>
+</div>
+<div class="art post" id="p6">
+  <span class="tag">Modelo · corretor de imóveis</span>
+  <h2 style="font-size:84px;margin-top:30px">Alto padrão, com<br>fichas técnicas.</h2>
+  <div class="tela" style="margin-top:56px;width:760px"><img src="../shots/corretor-d.jpg"></div>
+  <div class="fone" style="right:70px;bottom:140px"><img src="../shots/corretor-m.jpg"></div>
+  <div class="pe"><span class="word">r<span class="e">e</span>inventar</span><span>corretor.reinventar.dev</span></div>
+</div>
+
+<!-- P7 case Igor -->
+<div class="art post" id="p7">
+  <span class="tag real">Cliente no ar</span>
+  <h2 style="font-size:84px;margin-top:30px">Igor Augusto<br><span class="m" style="font-size:56px">Personal trainer · São João del Rei</span></h2>
+  <div class="tela" style="margin-top:50px;width:760px"><img src="../shots/igor-d.jpg"></div>
+  <div class="fone" style="right:70px;bottom:140px"><img src="../shots/igor-m.jpg"></div>
+  <div class="pe"><span class="word">r<span class="e">e</span>inventar</span><span>igoraugusto.reinventar.dev</span></div>
+</div>
+
+<!-- P8 planos -->
+<div class="art post claro" id="p8">
+  <span class="k">Planos</span>
+  <h1 style="font-size:108px;margin-top:34px">Seu site a partir de<br><span style="color:var(--vinho)">R$ 79/mês.</span></h1>
+  <div style="margin-top:auto;margin-bottom:150px;display:flex;flex-direction:column;gap:0;border-top:2px solid #E6DDE1">
+    <div style="display:flex;justify-content:space-between;padding:28px 0;border-bottom:2px solid #E6DDE1;font-size:42px"><span>Essencial</span><b style="font-weight:500">R$ 79/mês</b></div>
+    <div style="display:flex;justify-content:space-between;padding:28px 0;border-bottom:2px solid #E6DDE1;font-size:42px"><span>Profissional <span class="m" style="font-size:30px">· domínio próprio</span></span><b style="font-weight:500">R$ 149/mês</b></div>
+    <div style="display:flex;justify-content:space-between;padding:28px 0;border-bottom:2px solid #E6DDE1;font-size:42px"><span>Premium</span><b style="font-weight:500">R$ 297/mês</b></div>
+    <p class="m" style="font-size:28px;margin-top:20px">+ implantação única. Hospedagem, segurança e ajustes mensais inclusos.</p>
+  </div>
+  <div class="pe"><span class="word">r<span class="e">e</span>inventar</span><span>reinventar.dev</span></div>
+</div>
+
+<!-- P9 CTA -->
+<div class="art post cantos" id="p9">
+  <div class="glow" style="left:-500px;bottom:-500px"></div>
+  <span class="k" style="margin-top:110px">Próximo passo</span>
+  <h1 style="font-size:132px;margin-top:40px">Comece pela prévia gratuita.</h1>
+  <p class="m" style="font-size:42px;margin-top:50px;max-width:820px;line-height:1.35">Mande "quero meu site" no WhatsApp. Em até 3 dias você vê o seu site pronto, sem compromisso.</p>
+  <p style="font-size:62px;margin-top:70px;letter-spacing:-.02em">(37) 99918-1248</p>
+  <div class="pe"><span>reinventar.dev</span><span>Divinópolis e região</span></div>
+</div>
+</body></html>
