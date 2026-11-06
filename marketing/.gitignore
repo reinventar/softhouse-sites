@@ -1,0 +1,4 @@
+# saídas geradas pelo render.py (o vídeo final é enviado ao usuário, não fica no repositório)
+videos/**/*.mp4
+videos/**/*-print-site.png
+videos/**/*-previa/

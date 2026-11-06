@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<!--
+  Vídeo de entrega do site (Reels 9:16, 1080x1920, ~30 s).
+  Não use direto: o render.py injeta window.CFG (config do cliente) e chama window.seek(t) a cada quadro.
+  Cenas: 1 intro · 2 quem é · 3 serviços · 4 como funciona · 5 resultados (opcional) · 6 tá tudo no site · 7 chamada.
+-->
+<style id="fontes"></style>
+<style>
+:root{ --fundo:#0E0E10; --destaque:#E3262E; --texto:#FFFFFF; --suave:rgba(255,255,255,.72);
+       --titulo:"Barlow Condensed",Impact,sans-serif; --corpo:"Barlow",system-ui,sans-serif; }
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:var(--fundo)}
+body{font-family:var(--corpo);color:var(--texto)}
+.cena{position:absolute;inset:0;overflow:hidden;opacity:0}
+.t{white-space:pre-line;font-family:var(--titulo);font-weight:800;font-style:italic;text-transform:uppercase;line-height:.92;letter-spacing:-.005em}
+.d{color:var(--destaque)}
+.foto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform}
+.veu{position:absolute;inset:0}
+.faixa{position:absolute;background:var(--destaque);transform:skewX(-14deg)}
+.pontos{position:absolute;width:150px;height:110px;background-image:radial-gradient(var(--destaque) 3px,transparent 3.5px);background-size:22px 22px;opacity:.55}
+.chip{display:inline-block;background:var(--destaque);color:#fff;font-family:var(--titulo);font-weight:800;font-style:italic;text-transform:uppercase;padding:8px 18px;font-size:40px;transform:skewX(-8deg)}
+.chip.branco{background:#fff;color:#111}
+.wipe{position:absolute;top:-10%;height:120%;width:70%;background:var(--destaque);transform:skewX(-14deg);z-index:50;left:-90%}
+.creditos{position:absolute;left:70px;bottom:60px;font:500 24px var(--corpo);color:rgba(255,255,255,.55);z-index:60}
+
+/* 1 intro */
+#c1 .l{position:absolute;left:110px;font-size:150px}
+/* 2 quem é */
+#c2 .bloco{position:absolute;left:80px;right:80px;bottom:300px}
+#c2 .l{font-size:170px}
+#c2 .chip{margin-top:26px;font-size:44px}
+#c2 .reg{margin-top:18px;font:600 34px var(--corpo);color:var(--suave);letter-spacing:.06em}
+/* 3 serviços */
+#c3 .barras{position:absolute;top:70px;left:70px;right:70px;display:flex;gap:14px;z-index:5}
+#c3 .barras i{flex:1;height:8px;background:rgba(255,255,255,.3);border-radius:4px;overflow:hidden}
+#c3 .barras b{display:block;height:100%;width:0;background:var(--destaque)}
+#c3 .rot{position:absolute;top:110px;left:70px;font:700 30px var(--corpo);letter-spacing:.12em;text-transform:uppercase;z-index:5}
+.serv{position:absolute;inset:0;opacity:0}
+.serv .txt{position:absolute;left:80px;right:80px;bottom:330px}
+.serv .n{font-size:90px}
+.serv .l{font-size:150px}
+.serv p{margin-top:22px;font:500 42px var(--corpo);color:var(--suave)}
+/* 4 como funciona */
+#c4 .titulo{position:absolute;left:80px;top:420px;font-size:170px}
+#c4 ol{position:absolute;left:90px;top:900px;list-style:none;display:flex;flex-direction:column;gap:46px}
+#c4 li{display:flex;align-items:baseline;gap:34px;font-size:86px;opacity:0}
+#c4 li .n{color:var(--destaque);font-size:130px;width:80px}
+/* 5 resultados */
+#c5 .titulo{position:absolute;left:80px;top:230px;font-size:150px}
+#c5 .comp{position:absolute;left:80px;right:80px;top:470px;height:1020px;border-radius:18px;overflow:hidden;background:#222}
+#c5 .comp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#c5 .comp .depois{clip-path:inset(0 0 0 50%)}
+#c5 .linha{position:absolute;top:0;bottom:0;width:6px;background:#fff;left:50%;margin-left:-3px}
+#c5 .alca{position:absolute;top:50%;width:84px;height:84px;margin:-42px 0 0 -42px;border-radius:50%;background:var(--destaque);left:50%}
+#c5 .ra{position:absolute;bottom:28px;left:28px}
+#c5 .rd{position:absolute;bottom:28px;right:28px}
+#c5 .leg{position:absolute;left:80px;top:1530px;font:500 40px var(--corpo);color:var(--suave)}
+/* 6 site */
+#c6 .titulo{position:absolute;left:80px;top:150px;font-size:140px;z-index:3}
+#c6 .fone{position:absolute;left:50%;top:470px;width:640px;height:1220px;margin-left:-320px;border-radius:64px;background:#1b1b1f;padding:18px;box-shadow:0 40px 90px rgba(0,0,0,.6),0 0 0 3px rgba(255,255,255,.08);z-index:3}
+#c6 .tela{position:relative;width:100%;height:100%;border-radius:48px;overflow:hidden;background:#000}
+#c6 .tela img{position:absolute;left:0;top:0;width:100%;will-change:transform}
+#c6 .rotulo{position:absolute;left:50%;top:1730px;transform:translateX(-50%) skewX(-8deg);z-index:4;white-space:nowrap}
+/* 7 chamada */
+#c7 .bloco{position:absolute;left:80px;right:80px;top:560px}
+#c7 .l{font-size:150px}
+#c7 .sub{margin-top:70px;font:500 44px var(--corpo)}
+#c7 .url{margin-top:18px;font-size:68px;text-transform:none}
+#c7 .bio{margin-top:26px;font-size:40px}
+#c7 .wa{margin-top:70px;font:500 40px var(--corpo);color:var(--suave);max-width:820px}
+</style>
+</head>
+<body>
+<div id="c1" class="cena"></div>
+<div id="c2" class="cena"></div>
+<div id="c3" class="cena"></div>
+<div id="c4" class="cena"></div>
+<div id="c5" class="cena"></div>
+<div id="c6" class="cena"></div>
+<div id="c7" class="cena"></div>
+<div class="wipe" id="wipe"></div>
+<div class="creditos" id="creditos"></div>
+
+<script>
+(function(){
+const C = window.CFG;
+const $ = s => document.querySelector(s);
+const esc = s => String(s == null ? "" : s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const root = document.documentElement.style;
+if (C.cores) { root.setProperty("--fundo", C.cores.fundo); root.setProperty("--destaque", C.cores.destaque); root.setProperty("--texto", C.cores.texto || "#fff"); }
+if (C.fonte_titulo) root.setProperty("--titulo", `"${C.fonte_titulo}",Impact,sans-serif`);
+if (C.fonte_texto) root.setProperty("--corpo", `"${C.fonte_texto}",system-ui,sans-serif`);
+
+// ---------- duração das cenas ----------
+const temRes = !!(C.resultado && C.resultado.antes && C.resultado.depois);
+const D = { c1: 3, c2: 3.2, c3: 5.2, c4: 3.4, c5: temRes ? 4 : 0, c6: temRes ? 6.4 : 8.6, c7: 4.8 };
+const ordem = ["c1","c2","c3","c4","c5","c6","c7"].filter(k => D[k] > 0);
+const ini = {}; let acc = 0; ordem.forEach(k => { ini[k] = acc; acc += D[k]; });
+window.DURACAO = acc;
+
+// ---------- helpers de animação ----------
+const clamp = (x,a=0,b=1) => Math.max(a, Math.min(b, x));
+const p = (t, a, d) => clamp((t - a) / d);                    // progresso 0..1
+const eo = x => 1 - Math.pow(1 - x, 3);                         // ease-out
+const eio = x => x < .5 ? 4*x*x*x : 1 - Math.pow(-2*x + 2, 3)/2;
+const mix = (a, b, x) => a + (b - a) * x;
+function entra(el, t, a, d=.45, dy=60){ const k = eo(p(t,a,d)); el.style.opacity = k; el.style.transform = `translateY(${(1-k)*dy}px)`; }
+function letreiro(txt){ // destaca trecho entre [colchetes]
+  return esc(txt).replace(/\[(.+?)\]/g, '<span class="d">$1</span>');
+}
+
+// ---------- montar cenas ----------
+$("#c1").innerHTML = `<div class="faixa" style="left:520px;top:-200px;width:300px;height:2400px"></div>
+  <div class="faixa" style="left:900px;top:-200px;width:120px;height:2400px"></div>
+  <div class="pontos" style="left:90px;top:230px"></div>
+  <div class="t l" id="c1a" style="top:700px">Eu sou</div>
+  <div class="t l" id="c1b" style="top:850px">${letreiro(C.intro || ("o " + C.nome_curto + "."))}</div>`;
+
+$("#c2").innerHTML = `<img class="foto" id="c2f" src="${esc(C.foto_principal)}">
+  <div class="veu" style="background:linear-gradient(180deg,rgba(0,0,0,0) 35%,rgba(0,0,0,.85) 85%)"></div>
+  <div class="bloco"><div class="t l" id="c2a">${letreiro(C.profissao_linha1)}</div><div class="t l d" id="c2b">${letreiro(C.profissao_linha2 || "")}</div>
+  <div class="chip" id="c2c">${esc(C.cidade)}</div><div class="reg" id="c2d">${esc(C.registro || "")}</div></div>`;
+
+const S = C.servicos || [];
+$("#c3").innerHTML = `<div class="barras">${S.map(() => "<i><b></b></i>").join("")}</div><div class="rot">${esc(C.rotulo_servicos || "Serviços")}</div>` +
+  S.map((s,i) => `<div class="serv" id="sv${i}"><img class="foto" src="${esc(s.foto)}"><div class="veu" style="background:linear-gradient(180deg,rgba(0,0,0,.35) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,.85) 80%)"></div>
+  <div class="txt"><div class="t n d">${String(i+1).padStart(2,"0")}</div><div class="t l">${letreiro(s.titulo)}</div><p>${esc(s.texto || "")}</p></div></div>`).join("");
+
+const P = C.passos || [];
+$("#c4").innerHTML = `<img class="foto" id="c4f" src="${esc(C.foto_passos || C.foto_principal)}"><div class="veu" style="background:rgba(10,10,12,.78)"></div>
+  <div class="t titulo" id="c4t">${letreiro(C.titulo_passos || "Como\n[funciona]").replace(/\n/g,"<br>")}</div>
+  <ol>${P.map((x,i) => `<li class="t"><span class="n">${i+1}</span><span>${esc(x)}</span></li>`).join("")}</ol>`;
+
+if (temRes) {
+  $("#c5").innerHTML = `<div class="t titulo">${letreiro(C.resultado.titulo || "Resultados")}</div>
+  <div class="comp"><img src="${esc(C.resultado.antes)}"><img class="depois" src="${esc(C.resultado.depois)}">
+  <div class="linha"></div><div class="alca"></div><span class="chip branco ra" style="font-size:34px">Antes</span><span class="chip rd" style="font-size:34px">Depois</span></div>
+  <div class="leg">${esc(C.resultado.legenda || "")}</div>`;
+}
+
+const PA = C.paradas || [];
+$("#c6").innerHTML = `<div class="faixa" style="left:760px;top:-200px;width:420px;height:2400px"></div><div class="pontos" style="left:70px;top:1450px"></div>
+  <div class="t titulo">${letreiro(C.titulo_site || "Tá tudo no\n[meu site]").replace(/\n/g,"<br>")}</div>
+  <div class="fone"><div class="tela"><img id="c6i" src="${esc(C.print_site)}"></div></div>
+  ${PA.map((x,i) => `<span class="chip rotulo" id="rt${i}" style="opacity:0">${esc(x.rotulo)}</span>`).join("")}`;
+
+$("#c7").innerHTML = `<div class="faixa" style="left:880px;top:-200px;width:300px;height:2400px"></div>
+  <div class="bloco"><div class="t l" id="c7a">${letreiro(C.cta_linha1 || "Bora")}</div><div class="t l" id="c7b">${letreiro(C.cta_linha2 || "começar essa")}</div><div class="t l d" id="c7c">${letreiro(C.cta_linha3 || "semana?")}</div>
+  <div class="sub" id="c7d">${esc(C.cta_sub || "Entra no meu site:")}</div><div class="chip url" id="c7e">${esc(C.url)}</div><br><div class="chip branco bio" id="c7f">Link na bio</div>
+  <div class="wa" id="c7g">${esc(C.cta_whatsapp || "")}</div></div>`;
+$("#creditos").textContent = "site por reinventar.dev";
+if (C.titulo_italico === false) document.querySelectorAll(".t,.chip").forEach(e => e.style.fontStyle = "normal");
+
+// ---------- linha do tempo ----------
+window.seek = function(t){
+  // visibilidade das cenas + cortina de transição
+  ordem.forEach((k,i) => { const a = ini[k], b = a + D[k]; $("#"+k).style.opacity = (t >= a && t < b) ? 1 : 0; });
+  const w = $("#wipe"); w.style.left = "-90%";
+  ordem.slice(1).forEach(k => { const x = p(t, ini[k] - .22, .44); if (x > 0 && x < 1) w.style.left = mix(-90, 130, eio(x)) + "%"; });
+  $("#creditos").style.opacity = t >= ini.c7 + 1.6 ? clamp((t - ini.c7 - 1.6) / .4) : 0;
+
+  // 1 intro
+  let l = t - ini.c1;
+  document.querySelectorAll("#c1 .faixa").forEach((f,i) => { const k = eo(p(l, .05*i, .6)); f.style.transform = `skewX(-14deg) translateY(${(1-k)*-2200}px)`; });
+  entra($("#c1a"), l, .55); entra($("#c1b"), l, 1.15);
+
+  // 2 quem é
+  l = t - ini.c2;
+  $("#c2f").style.transform = `scale(${mix(1.14, 1.02, eo(p(l,0,D.c2)))})`;
+  entra($("#c2a"), l, .15); entra($("#c2b"), l, .55); entra($("#c2c"), l, 1.0, .35, 30); entra($("#c2d"), l, 1.35, .35, 20);
+
+  // 3 serviços
+  l = t - ini.c3; const ds = D.c3 / Math.max(1, S.length);
+  S.forEach((s,i) => {
+    const el = $("#sv"+i), a = i*ds, on = l >= a && l < a + ds;
+    el.style.opacity = on ? 1 : 0;
+    el.querySelector(".foto").style.transform = `scale(${mix(1.12, 1, eo(p(l, a, ds)))})`;
+    const tx = el.querySelector(".txt"); entra(tx, l, a + .1, .4, 50);
+    document.querySelectorAll("#c3 .barras b")[i].style.width = (p(l, a, ds) * 100) + "%";
+  });
+
+  // 4 como funciona
+  l = t - ini.c4;
+  $("#c4f").style.transform = `scale(${mix(1.1, 1, p(l,0,D.c4))})`;
+  entra($("#c4t"), l, .1);
+  document.querySelectorAll("#c4 li").forEach((li,i) => entra(li, l, .6 + i*.55, .4, 40));
+
+  // 5 resultados: a linha passeia para mostrar antes e depois
+  if (temRes) {
+    l = t - ini.c5;
+    const x = 50 + 32*Math.sin(Math.min(1, p(l, .5, 3)) * Math.PI * 2 * 0.75 + Math.PI);
+    $("#c5 .depois").style.clipPath = `inset(0 0 0 ${x}%)`;
+    $("#c5 .linha").style.left = x + "%"; $("#c5 .alca").style.left = x + "%";
+    entra($("#c5 .titulo"), l, .05); entra($("#c5 .comp"), l, .2, .5, 80); entra($("#c5 .leg"), l, .7, .4, 20);
+  }
+
+  // 6 site: celular entra e a tela rola até cada parada
+  l = t - ini.c6;
+  const fone = $("#c6 .fone"), k = eo(p(l, .1, .7));
+  fone.style.transform = `translateY(${(1-k)*900}px) rotate(${(1-k)*-6}deg)`;
+  entra($("#c6 .titulo"), l, 0);
+  if (PA.length) {
+    const di = (D.c6 - 1) / PA.length;
+    let y = PA[0].y;
+    PA.forEach((pa,i) => {
+      const a = .9 + i*di;
+      if (i > 0) { const m = eio(p(l, a - .1, .7)); if (m > 0) y = mix(PA[i-1].y, pa.y, m); }
+      const r = $("#rt"+i), vis = l >= a && l < a + di;
+      r.style.opacity = vis ? eo(p(l, a + .25, .3)) : 0;
+    });
+    $("#c6i").style.transform = `translateY(${-y}px)`;
+  }
+
+  // 7 chamada
+  l = t - ini.c7;
+  ["#c7a","#c7b","#c7c"].forEach((s,i) => entra($(s), l, .1 + i*.3));
+  entra($("#c7d"), l, 1.2, .35, 20); entra($("#c7e"), l, 1.45, .35, 20); entra($("#c7f"), l, 1.7, .35, 20); entra($("#c7g"), l, 2.0, .35, 20);
+  const fim = p(t, acc - .7, .7); document.body.style.filter = `brightness(${1 - fim})`;
+};
+window.seek(0);
+})();
+</script>
+</body>
+</html>

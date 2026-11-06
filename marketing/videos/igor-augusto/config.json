@@ -1,0 +1,38 @@
+{
+  "nome": "Igor Augusto",
+  "nome_curto": "Igor",
+  "intro": "o [Igor.]",
+  "profissao_linha1": "Personal",
+  "profissao_linha2": "trainer",
+  "cidade": "São João del Rei · MG",
+  "registro": "CREF 055859-G/MG",
+  "cores": {"fundo": "#0D0E11", "destaque": "#E0242C", "texto": "#F3F2EF"},
+  "fonte_titulo": "Barlow Condensed",
+  "fonte_texto": "Barlow",
+  "foto_principal": "sites/igor-augusto/img/igor-hero.webp",
+  "rotulo_servicos": "Serviços",
+  "servicos": [
+    {"titulo": "Personal\npresencial", "texto": "Na academia, foco total em você.", "foto": "sites/igor-augusto/img/presencial.webp"},
+    {"titulo": "Treino\nonline", "texto": "De onde você estiver, pelo app.", "foto": "sites/igor-augusto/img/online.webp"},
+    {"titulo": "Consultoria", "texto": "Um plano para seguir no seu ritmo.", "foto": "sites/igor-augusto/img/consultoria.webp"}
+  ],
+  "titulo_passos": "Como\n[funciona]",
+  "passos": ["Avaliação", "Treino no app", "Acompanhamento"],
+  "foto_passos": "sites/igor-augusto/img/acompanhamento.webp",
+  "resultado": {"titulo": "Resultados", "antes": "sites/igor-augusto/img/caso1-antes.webp", "depois": "sites/igor-augusto/img/caso1-depois.webp", "legenda": "Alunos acompanhados pelo Igor."},
+  "titulo_site": "Tá tudo no\n[meu site]",
+  "site": "sites/igor-augusto/index.html",
+  "paradas": [
+    {"seletor": "body", "rotulo": "Feito para o celular"},
+    {"seletor": "#servicos", "rotulo": "Seus serviços"},
+    {"seletor": "#resultados", "rotulo": "Resultados reais"},
+    {"seletor": "#onde", "rotulo": "Onde atendo"},
+    {"seletor": "#contato", "rotulo": "Orçamento no WhatsApp"}
+  ],
+  "cta_linha1": "Meu site",
+  "cta_linha2": "novo está",
+  "cta_linha3": "no ar!",
+  "cta_sub": "Confere lá:",
+  "url": "igoraugusto.reinventar.dev",
+  "cta_whatsapp": "e me chama no WhatsApp pra marcar sua avaliação."
+}
