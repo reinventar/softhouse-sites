@@ -27,9 +27,11 @@ Categoria: Web designer (ou "Serviço de marketing")
   Modelos      → hl-modelos.png   (prints dos 3 sites demonstrativos)
   Clientes     → hl-clientes.png  (site do Igor + vídeo de entrega)
   Como funciona→ hl-como.png      (os 4 passos)
-  Planos       → hl-planos.png    (post de planos)
+  Serviço      → hl-servico.png   (o que está incluso: post p8)
   Contato      → hl-contato.png   (WhatsApp e reinventar.dev)
 Dica: antigos destaques da Reinventar antiga podem ser arquivados.
+
+REGRA: nenhum post, legenda ou destaque com preço. O Instagram mostra modelos, clientes e o serviço; valores só na conversa.
 
 3) GRADE INICIAL — publicar nesta ordem (p1 primeiro). Assim a grade fica
    com a chamada (p9) no canto de cima à esquerda.
@@ -79,12 +81,12 @@ p7 · Cliente no ar: Igor Augusto
   #cliente #personaltrainer #saojoaodelrei
   (Antes de postar: confirme com o Igor e marque o perfil dele. Dá para postar junto o vídeo de entrega como Reels.)
 
-p8 · Planos
-  Seu site a partir de R$ 79/mês. 💡
-  Hospedagem, segurança e ajustes todo mês inclusos, mais uma implantação única.
-  Essencial · Profissional (com domínio próprio) · Premium
-  Detalhes em reinventar.dev ou no WhatsApp.
-  #planos #site #profissionalliberal
+p8 · Nosso serviço
+  Você cuida dos clientes. A gente cuida do site. 🤝
+  Criamos o site com a sua identidade, colocamos no ar, cuidamos da hospedagem e da segurança e fazemos os ajustes todo mês.
+  Também fazemos as fotos profissionais do seu espaço, e o site já sai pronto para o Google e com seu WhatsApp a um toque.
+  Quer saber como ficaria o seu? Chama no WhatsApp ou acesse reinventar.dev 👇
+  #sitesprofissionais #profissionalliberal #divinopolis
 
 p9 · Comece pela prévia gratuita
   Quer ver como ficaria o seu site? 👀
