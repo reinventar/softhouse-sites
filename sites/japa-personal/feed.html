@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Japa Personal · Modelo 2 Feed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#F2EFF0;--card:#FFFFFF;--ink:#1B1518;--muted:#6B6064;--pink:#D63C74;--pink-s:#FBE3EC;--green:#5E9E6A;--green-s:#E2F1E4;--glass:rgba(20,15,18,.78);--r:28px}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;font-size:16px;line-height:1.55}
+  a{color:inherit;text-decoration:none} img{display:block;max-width:100%}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 16px}
+  h1,h2,h3{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;letter-spacing:-.025em;line-height:.98}
+  .ph{background:var(--pink-s);color:var(--pink);border-radius:4px;padding:0 5px;font-style:normal}
+  .bar{background:var(--ink);color:#F2EFF0;font-size:13px;text-align:center;padding:8px}
+  nav{position:sticky;top:12px;z-index:9;margin:12px auto 0;max-width:1148px;background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);color:#fff;border-radius:999px;display:flex;align-items:center;justify-content:space-between;padding:8px 8px 8px 20px}
+  .logo{font-family:"Bricolage Grotesque";font-weight:800;font-size:20px;display:flex;align-items:center;gap:8px}
+  .logo span{width:10px;height:10px;border-radius:50%;background:var(--green)}
+  nav ul{display:flex;gap:22px;list-style:none;font-size:14px;color:#D9D0D4}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--pink);color:#fff;border-radius:999px;padding:12px 22px;font-weight:600;font-size:15px}
+  .btn.dark{background:var(--ink)}
+
+  .bento{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:110px;gap:14px;margin-top:22px}
+  .t{border-radius:var(--r);overflow:hidden;position:relative;background:var(--card)}
+  .t img{width:100%;height:100%;object-fit:cover}
+  .hero{grid-column:span 7;grid-row:span 5;background:var(--card);padding:38px;display:flex;flex-direction:column;justify-content:space-between}
+  .hero h1{font-size:clamp(50px,6.6vw,92px)}
+  .hero h1 em{font-style:normal;color:var(--pink)}
+  .hero h1 u{text-decoration:none;background:linear-gradient(transparent 62%,var(--green-s) 62%)}
+  .hero p{color:var(--muted);max-width:460px;font-size:17px;margin:18px 0 24px}
+  .tag{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;background:var(--green-s);color:#3D6B47;border-radius:999px;padding:6px 14px;margin-bottom:18px}
+  .me{grid-column:span 5;grid-row:span 5}
+  .me img{object-position:center 15%}
+  .glass{position:absolute;left:16px;right:16px;bottom:16px;background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#fff;border-radius:20px;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;font-size:14px}
+  .glass b{font-family:"Bricolage Grotesque";font-size:18px;display:block}
+  .stat{grid-column:span 3;grid-row:span 2;padding:24px;display:flex;flex-direction:column;justify-content:space-between}
+  .stat b{font-family:"Bricolage Grotesque";font-size:44px;line-height:1}
+  .stat.pink{background:var(--pink);color:#fff}
+  .stat.dark{background:var(--ink);color:#fff}
+  .stat small{font-size:14px;opacity:.85}
+  .stat.green{background:var(--green-s);color:#2F5838}
+  .stat.photo{padding:0}
+  .stat.photo img{position:absolute;inset:0}
+  .cari{grid-column:span 3;grid-row:span 4;background:var(--pink-s)}
+  .cari img{object-position:center 20%}
+  .sticker{position:absolute;top:14px;left:14px;background:#fff;border-radius:999px;padding:5px 12px;font-size:12.5px;font-weight:600}
+  .motto{grid-column:span 6;grid-row:span 2;background:var(--glass);color:#fff;padding:26px 30px;display:flex;align-items:center}
+  .motto p{font-family:"Bricolage Grotesque";font-weight:700;font-size:clamp(22px,2.6vw,32px);line-height:1.1}
+  .motto p em{font-style:normal;color:#F59BBC}
+
+  h2{font-size:clamp(40px,5.5vw,64px);margin-bottom:12px}
+  section{padding:84px 0 20px}
+  .sub{color:var(--muted);max-width:560px}
+  .reels{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:32px}
+  .reel{aspect-ratio:9/14;border-radius:22px;overflow:hidden;position:relative}
+  .reel img{width:100%;height:100%;object-fit:cover}
+  .reel span{position:absolute;left:10px;right:10px;bottom:16px;text-align:center;color:#fff;font-family:"Bricolage Grotesque";font-weight:800;font-size:19px;line-height:1.1;text-shadow:0 2px 0 #000,0 0 8px rgba(0,0,0,.6)}
+  .reel::after{content:"▶";position:absolute;top:10px;right:12px;color:#fff;font-size:14px;background:rgba(0,0,0,.35);width:28px;height:28px;border-radius:8px;display:grid;place-items:center}
+  .chips{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:32px}
+  .chip{background:var(--card);border-radius:var(--r);padding:24px;border:1px solid #E6E0E2}
+  .chip i{display:grid;place-items:center;width:44px;height:44px;border-radius:14px;background:var(--pink-s);color:var(--pink);font-style:normal;font-weight:800;margin-bottom:16px}
+  .chip:nth-child(even) i{background:var(--green-s);color:#3D6B47}
+  .chip h3{font-size:22px;margin-bottom:6px}
+  .chip p{color:var(--muted);font-size:15px}
+  .end{margin:84px 0 20px;background:var(--ink);color:#fff;border-radius:36px;padding:clamp(30px,6vw,64px);display:grid;grid-template-columns:1.3fr 1fr;gap:30px;align-items:center}
+  .end h2 em{font-style:normal;color:#F59BBC}
+  .end p{color:#CFC4C8;margin:8px 0 22px}
+  .end .info{display:grid;gap:10px;font-size:14.5px;color:#CFC4C8}
+  .end .info b{color:#fff}
+  footer{color:var(--muted);font-size:13.5px;padding:20px 0 40px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  @media(max-width:900px){
+    nav ul{display:none}
+    .bento{grid-template-columns:repeat(6,1fr);grid-auto-rows:96px}
+    .hero{grid-column:span 6;grid-row:span 5;padding:26px}
+    .me{grid-column:span 6;grid-row:span 5}
+    .stat{grid-column:span 3}
+    .cari{grid-column:span 3;grid-row:span 2}
+    .motto{grid-column:span 6}
+    .reels,.chips{grid-template-columns:1fr 1fr}
+    .end{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="bar">Exemplo de como seu site pode ficar · <b>Modelo 2 · Feed (bento)</b> · <a href="/" style="text-decoration:underline">ver todas as opções</a></div>
+<div class="wrap">
+<nav><a class="logo" href="#"><span></span>japa.personal</a><ul><li><a href="#reels">No Instagram</a></li><li><a href="#servicos">Serviços</a></li><li><a href="#contato">Contato</a></li></ul><a class="btn" href="#contato">Agendar aula</a></nav>
+
+<div class="bento">
+  <div class="t hero">
+    <div>
+      <span class="tag">● Personal trainer · Divinópolis</span>
+      <h1>Fica forte quem faz <em>força</em>, <u>do modo certo.</u></h1>
+      <p>Treino de força para mulheres 35+, com atenção especial à pré e à menopausa. No Corpus Studio ou online.</p>
+    </div>
+    <div><a class="btn" href="#contato">Quero começar →</a></div>
+  </div>
+  <div class="t me"><img src="img/eliane.jpg" alt="Eliane, a Japa"><div class="glass"><span><b>Eliane Gonçalves</b>a Japa · CREF <i class="ph">[número]</i></span><span>@japsli</span></div></div>
+  <div class="t stat pink"><small>Especialidade</small><b>35+</b><small>pré e menopausa</small></div>
+  <div class="t cari"><img src="img/caricatura.jpg" alt="Caricatura da Japa"><span class="sticker">Do jeito da Japa ✌</span></div>
+  <div class="t motto"><p>Você é forte e capaz. <em>O esforço devolve,</em> o resultado vem.</p></div>
+  <div class="t stat dark"><small>Formação</small><b style="font-size:30px">Ed. Física</b><small>Bacharel</small></div>
+  <div class="t stat green"><small>Onde</small><b style="font-size:28px">Corpus Studio</b><small>Divinópolis - MG</small></div>
+  <div class="t stat photo"><img src="img/r-sorriso.jpg" alt=""><div class="glass" style="padding:10px 14px"><span><b style="font-size:16px">Online</b>app MFit</span></div></div>
+</div>
+
+<section id="reels">
+  <h2>Direto do meu <span style="color:var(--pink)">Instagram</span></h2>
+  <p class="sub">Dicas de treino, rotina real e muito bom humor. Siga @japsli.personaltrainer.</p>
+  <div class="reels">
+    <a class="reel" href="https://www.instagram.com/japsli.personaltrainer"><img src="img/r-forca.jpg" alt=""><span>Fica forte fazendo força 💪</span></a>
+    <a class="reel" href="https://www.instagram.com/japsli.personaltrainer"><img src="img/r-sorriso.jpg" alt=""><span>Quer reduzir seu pace?</span></a>
+    <a class="reel" href="https://www.instagram.com/japsli.personaltrainer"><img src="img/r-cerebro.jpg" alt=""><span>Meu cérebro não dorme 😂</span></a>
+    <a class="reel" href="https://www.instagram.com/japsli.personaltrainer"><img src="img/r-japa.jpg" alt=""><span>Eh japa ou num é?</span></a>
+  </div>
+</section>
+
+<section id="servicos">
+  <h2>O que eu <span style="color:var(--green)">ofereço</span></h2>
+  <div class="chips">
+    <div class="chip"><i>01</i><h3>Personal presencial</h3><p>No Corpus Studio, com correção de cada movimento.</p></div>
+    <div class="chip"><i>02</i><h3>Consultoria online</h3><p>Treino no app MFit, com ajustes a distância. <i class="ph" style="display:inline;width:auto;height:auto;margin:0;background:var(--pink-s)">[confirmar]</i></p></div>
+    <div class="chip"><i>03</i><h3>Força e calistenia</h3><p>Musculação e peso do corpo, com técnica.</p></div>
+    <div class="chip"><i>04</i><h3>Avaliação física</h3><p>Ponto de partida claro para medir sua evolução.</p></div>
+  </div>
+</section>
+
+<div class="end" id="contato">
+  <div><h2>Bora <em>começar?</em></h2><p>Me chama no WhatsApp e conta seu objetivo. Valores e horários eu te passo por lá.</p><a class="btn" href="https://wa.me/5537000000000">Falar no WhatsApp</a></div>
+  <div class="info"><span><b>Onde</b> · Corpus Studio, Divinópolis - MG</span><span><b>Horários</b> · <i class="ph">[dias e horários]</i></span><span><b>CREF</b> · <i class="ph">[000000-G/MG]</i></span><span><b>Instagram</b> · @japsli.personaltrainer</span></div>
+</div>
+<footer><span>© 2026 Japa Personal Trainer · Eliane Gonçalves</span><a href="https://reinventar.dev">Site por Reinventar</a></footer>
+</div>
+</body></html>

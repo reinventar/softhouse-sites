@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Japa Personal Trainer · Divinópolis</title>
+<meta name="description" content="Eliane Gonçalves, a Japa: personal trainer em Divinópolis, especialista em mulheres 35+ na pré e menopausa.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root,[data-theme="clean"]{
+    --bg:#FBF9F8; --bg2:#F3EFEE; --surface:#FFFFFF; --line:#E8E1E0;
+    --text:#2A2326; --muted:#6F6468;
+    --rose:#B23A64; --rose-soft:#F8E6EC; --on-rose:#FFFFFF;
+    --green:#4F7D5A; --green-soft:#E5EFE7;
+    --shadow:0 18px 40px -22px rgba(90,40,60,.35);
+    --glass:rgba(18,14,16,.84); --glass-line:rgba(255,255,255,.1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:"Plus Jakarta Sans",system-ui,sans-serif;font-size:17px;line-height:1.6;transition:background .3s,color .3s}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+  h1,h2,h3{font-family:Fraunces,Georgia,serif;font-weight:600;line-height:1.08;letter-spacing:-.01em}
+  h1 em,h2 em{font-style:italic;font-weight:400;color:var(--rose)}
+  h2{font-size:clamp(34px,5vw,50px);margin-bottom:14px}
+  .kicker{display:inline-flex;align-items:center;gap:8px;color:var(--green);font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:12.5px;margin-bottom:14px}
+  .kicker::before{content:"";width:18px;height:2px;background:var(--green);border-radius:2px}
+  .lead{color:var(--muted);max-width:640px;font-size:18px}
+  section{padding:96px 0}
+  .alt{background:var(--bg2)}
+  .ph{color:var(--rose);background:var(--rose-soft);border-radius:4px;padding:0 5px;font-style:normal;font-size:.95em}
+
+  .preview-bar{background:#120E10;color:#F6EFF1;font-size:13.5px;padding:8px 16px;display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap}
+  .preview-bar b{font-weight:600}
+
+  header{position:sticky;top:0;z-index:10;background:var(--glass);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid var(--glass-line);color:#F6EFF1}
+  header .brand small{color:#B9AAB0}
+  header .mark::after{border-color:#1a1416}
+  header .ph{background:rgba(229,138,168,.15);color:#F2A9C0}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .mark{width:40px;height:40px;border-radius:50%;background:var(--rose);color:var(--on-rose);display:grid;place-items:center;font-family:Fraunces;font-style:italic;font-size:22px;position:relative}
+  .mark::after{content:"";position:absolute;right:-2px;top:-2px;width:12px;height:12px;border-radius:50%;background:var(--green);border:2px solid var(--bg)}
+  .brand b{font-family:Fraunces;font-size:22px;font-weight:600;display:block;line-height:1}
+  .brand small{color:var(--muted);font-size:12px}
+  .nav ul{display:flex;gap:26px;list-style:none;font-size:15px;color:#CFC3C8}
+  .nav ul a:hover{color:#F2A9C0}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--rose);color:var(--on-rose);font-weight:600;padding:14px 26px;border-radius:999px;font-size:15.5px;border:0;cursor:pointer;transition:transform .15s,box-shadow .15s;box-shadow:var(--shadow)}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.ghost{background:transparent;color:var(--text);border:1px solid var(--line);box-shadow:none}
+  .nav .btn{padding:10px 18px;font-size:14px}
+
+  .hero{padding:64px 0 96px;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;width:560px;height:560px;border-radius:50%;background:var(--rose-soft);right:-140px;top:-120px;z-index:-1}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+  .hero h1{font-size:clamp(44px,7vw,78px)}
+  .hero p.lead{margin:22px 0 32px}
+  .cta-row{display:flex;gap:12px;flex-wrap:wrap}
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:30px}
+  .chip{background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 14px;font-size:13.5px;color:var(--muted)}
+  .chip::before{content:"● ";color:var(--green);font-size:10px;vertical-align:2px}
+  .arch{position:relative}
+  .arch img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 15%;border-radius:999px 999px 28px 28px;box-shadow:var(--shadow)}
+  .arch::before{content:"";position:absolute;inset:-14px -14px auto auto;width:100%;height:100%;border:1.5px solid var(--rose);border-radius:999px 999px 28px 28px;z-index:-1;opacity:.5}
+  .float{position:absolute;left:-28px;bottom:36px;background:var(--glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:#F6EFF1;border:1px solid var(--glass-line);border-radius:18px;padding:14px 18px;box-shadow:var(--shadow);font-size:14px}
+  .float b{display:block;font-family:Fraunces;font-size:18px}
+  .float span{color:#A8D8B2;font-weight:600}
+
+  .values{background:#18131599;background:rgba(18,14,16,.92);color:#F6EFF1}
+  .values .wrap{display:flex;justify-content:center;gap:clamp(20px,6vw,80px);padding-block:22px;flex-wrap:wrap;font-family:Fraunces;font-style:italic;font-size:clamp(20px,3vw,28px)}
+  .values i{color:#A8D8B2;font-style:normal}
+
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:44px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:transform .2s,box-shadow .2s}
+  .card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+  .card img{width:100%;height:190px;object-fit:cover;object-position:center 20%}
+  .card div{padding:22px}
+  .card h3{font-size:23px;margin-bottom:8px}
+  .card p{color:var(--muted);font-size:15px}
+
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+  .split img{width:100%;aspect-ratio:5/6;object-fit:cover;border-radius:28px;box-shadow:var(--shadow)}
+  .ticks{list-style:none;margin-top:24px;display:grid;gap:14px}
+  .ticks li{display:flex;gap:14px;align-items:flex-start;color:var(--muted)}
+  .ticks li::before{content:"";flex:none;width:22px;height:22px;margin-top:2px;border-radius:50%;background:var(--green-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234F7D5A' stroke-width='3'%3E%3Cpath d='M6 12l4 4 8-8'/%3E%3C/svg%3E") center/14px no-repeat}
+  .ticks b{color:var(--text);font-weight:600}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;counter-reset:s}
+  .step{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:30px}
+  .step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:42px;height:42px;border-radius:50%;background:var(--glass);color:#F2A9C0;font-family:Fraunces;font-size:20px;margin-bottom:18px}
+  .step h3{font-size:24px;margin-bottom:6px}
+  .step p{color:var(--muted)}
+
+  .band{position:relative;min-height:380px;display:flex;align-items:center;overflow:hidden}
+  .band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%}
+  .band::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(40,18,28,.88),rgba(120,40,70,.35))}
+  .band .wrap{position:relative;z-index:1;color:#fff}
+  .band blockquote{font-family:Fraunces;font-size:clamp(32px,5vw,54px);line-height:1.1;max-width:720px}
+  .band blockquote em{color:#F4B6CA}
+  .band cite{display:block;margin-top:18px;font-style:normal;font-size:15px;opacity:.85}
+
+  .results{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+  .result{background:var(--surface);border:1px solid var(--line);border-radius:22px;overflow:hidden}
+  .result img{width:100%;aspect-ratio:1;object-fit:cover}
+  .result blockquote{padding:20px 22px;color:var(--muted);font-size:15px}
+  .result strong{display:block;color:var(--text);margin-top:8px;font-weight:600}
+  .note{font-size:13px;color:var(--muted);margin-top:22px}
+
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px}
+  .plan{background:var(--surface);border:1px solid var(--line);border-radius:24px;padding:32px;display:flex;flex-direction:column}
+  .plan.hot{border:2px solid var(--rose);box-shadow:var(--shadow)}
+  .tag{align-self:flex-start;background:var(--green-soft);color:var(--green);font-size:12px;font-weight:700;padding:5px 12px;border-radius:999px;margin-bottom:14px;text-transform:uppercase;letter-spacing:.06em}
+  .plan h3{font-size:28px}
+  .price-note{color:var(--green);font-weight:600;font-size:14px;margin:6px 0 18px}
+  .plan ul{list-style:none;color:var(--muted);font-size:15px;flex:1;margin-bottom:24px}
+  .plan li{padding:9px 0;border-bottom:1px solid var(--line)}
+  .plan li::before{content:"✓  ";color:var(--green);font-weight:700}
+
+  .about{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:center}
+  .stack{position:relative;padding:0 40px 60px 0}
+  .stack .main{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center 20%;border-radius:28px;box-shadow:var(--shadow)}
+  .stack .sticker{position:absolute;right:0;bottom:0;width:46%;aspect-ratio:3/4;object-fit:cover;object-position:center 15%;border-radius:22px;border:6px solid var(--surface);box-shadow:var(--shadow);transform:rotate(4deg)}
+  .about h2{margin-bottom:8px}
+  .facts{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:26px 0}
+  .fact{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;font-size:14.5px;color:var(--muted)}
+  .fact b{display:block;color:var(--text);font-size:15.5px;margin-bottom:2px}
+  .motto{font-family:Fraunces;font-style:italic;font-size:22px;color:var(--rose);border-left:3px solid var(--green);padding-left:16px}
+
+  details{border-bottom:1px solid var(--line);padding:22px 0}
+  summary{cursor:pointer;font-weight:600;font-size:17.5px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";color:var(--rose);font-size:24px;line-height:1}
+  details[open] summary::after{content:"–"}
+  details p{color:var(--muted);margin-top:10px;max-width:740px}
+  .faq{margin-top:30px;max-width:840px}
+
+  .contact{display:grid;grid-template-columns:1fr 1fr;gap:48px;background:var(--surface);border:1px solid var(--line);border-radius:32px;padding:clamp(28px,5vw,56px);box-shadow:var(--shadow)}
+  form{display:grid;gap:12px}
+  input,select,textarea{width:100%;background:var(--bg);border:1px solid var(--line);color:var(--text);border-radius:14px;padding:14px;font:inherit;font-size:16px}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--rose);outline-offset:1px}
+  .info{display:grid;gap:16px;margin-top:24px;color:var(--muted)}
+  .info b{color:var(--text);font-weight:600;display:block;font-size:14px}
+
+  footer{padding:36px 0;color:#B9AAB0;font-size:14px;background:#120E10}
+  footer .ph{background:rgba(229,138,168,.15);color:#F2A9C0}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  footer a:hover{color:#F2A9C0}
+  .wa{position:fixed;right:18px;bottom:18px;width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 10px 26px rgba(0,0,0,.25);z-index:20}
+
+  @media (max-width:920px){
+    .hero-grid,.split,.about,.contact{grid-template-columns:1fr}
+    .grid4{grid-template-columns:1fr 1fr}
+    .steps,.results,.plans{grid-template-columns:1fr}
+    .nav ul{display:none}
+    .arch{max-width:420px;margin:0 auto}
+    .float{left:0}
+    .split .img{order:-1}
+  }
+  @media (max-width:540px){
+    .grid4,.facts{grid-template-columns:1fr}
+    section{padding:68px 0}
+    .nav .btn{display:none}
+  }
+</style>
+</head>
+<body>
+
+<div class="preview-bar">
+  <span><b>Exemplo de como seu site pode ficar</b> · prévia para aprovação</span>
+ · <a href="/" style="text-decoration:underline">ver todas as opções</a></div>
+
+<header>
+  <div class="wrap nav">
+    <a href="#" class="brand"><span class="mark">J</span><span><b>Japa Personal</b><small>Eliane Gonçalves · CREF <i class="ph">[000000-G/MG]</i></small></span></a>
+    <ul>
+      <li><a href="#servicos">Serviços</a></li>
+      <li><a href="#mulheres">Mulheres 35+</a></li>
+      <li><a href="#planos">Planos</a></li>
+      <li><a href="#sobre">Quem sou eu</a></li>
+      <li><a href="#faq">Dúvidas</a></li>
+    </ul>
+    <a class="btn" href="#contato">Agendar aula</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="kicker">Personal trainer · Divinópolis - MG</span>
+        <h1>Fica forte quem faz força, <em>do modo certo.</em></h1>
+        <p class="lead">Treino de força para mulheres, com atenção especial à pré e à menopausa. Disciplina, constância e alguém do seu lado em cada série.</p>
+        <div class="cta-row">
+          <a class="btn" href="#contato">Quero começar</a>
+          <a class="btn ghost" href="#sobre">Conheça a Japa</a>
+        </div>
+        <div class="chips">
+          <span class="chip">Bacharel em Educação Física</span>
+          <span class="chip">Especialista em mulheres 35+</span>
+          <span class="chip">Corpus Studio</span>
+        </div>
+      </div>
+      <div class="arch">
+        <img src="img/eliane.jpg" alt="Eliane Gonçalves, a Japa, sorrindo na academia">
+        <div class="float"><b>Eliane Gonçalves</b>a Japa · <span>personal trainer</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="values"><div class="wrap"><span>Disciplina</span><i>·</i><span>Constância</span><i>·</i><span>Dedicação</span></div></div>
+
+  <section id="servicos">
+    <div class="wrap">
+      <span class="kicker">Serviços</span>
+      <h2>Do seu jeito, <em>no seu ritmo</em></h2>
+      <p class="lead">Presencial ou a distância, o treino é pensado para a sua fase, a sua rotina e o seu objetivo.</p>
+      <div class="grid4">
+        <div class="card"><img src="img/car-presencial.jpg" alt=""><div><h3>Personal presencial</h3><p>Aulas individuais no Corpus Studio, com correção de cada movimento e evolução acompanhada.</p></div></div>
+        <div class="card"><img src="img/car-online.jpg" alt=""><div><h3>Consultoria online</h3><p>Treino montado para você no app MFit, com ajustes e suporte a distância. <i class="ph">[confirmar]</i></p></div></div>
+        <div class="card"><img src="img/car-forca.jpg" alt=""><div><h3>Força e calistenia</h3><p>Musculação e exercícios com o peso do corpo para ganhar força de verdade, com técnica.</p></div></div>
+        <div class="card"><img src="img/car-avaliacao.jpg" alt=""><div><h3>Avaliação física</h3><p>Ponto de partida claro para acompanhar sua evolução mês a mês.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="mulheres" class="alt">
+    <div class="wrap split">
+      <div>
+        <span class="kicker">Mulheres 35+</span>
+        <h2>Força em <em>toda fase</em> da vida</h2>
+        <p class="lead">Pré-menopausa e menopausa mudam o corpo, e o treino precisa acompanhar. Quanto antes você começa a se preparar, mais leve fica essa fase.</p>
+        <ul class="ticks">
+          <li><span><b>Massa muscular e ossos</b><br>Treino de força para preservar músculo e saúde óssea com o passar dos anos.</span></li>
+          <li><span><b>Energia e disposição</b><br>Uma rotina que cabe no seu dia e te deixa mais forte para tudo o que vem fora da academia.</span></li>
+          <li><span><b>Acompanhamento de perto</b><br>Cada fase pede ajustes. O treino evolui junto com você.</span></li>
+        </ul>
+      </div>
+      <div class="img"><img src="img/u-sobre.jpg" alt="Mulher treinando com halteres"></div>
+    </div>
+  </section>
+
+  <section id="como">
+    <div class="wrap">
+      <span class="kicker">Como funciona</span>
+      <h2>Três passos <em>pra começar</em></h2>
+      <div class="steps">
+        <div class="step"><h3>Conversa</h3><p>Você me conta seu objetivo, sua rotina e seu histórico pelo WhatsApp.</p></div>
+        <div class="step"><h3>Avaliação</h3><p>Fazemos uma avaliação e definimos juntas o seu ponto de partida.</p></div>
+        <div class="step"><h3>Treino</h3><p>Seu plano começa, com ajustes conforme você evolui.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="band">
+    <img src="img/u-faixa.jpg" alt="">
+    <div class="wrap">
+      <blockquote>Você é forte e capaz. <em>O esforço devolve,</em> o resultado vem.</blockquote>
+      <cite>Japa, no Instagram</cite>
+    </div>
+  </div>
+
+  <section id="resultados">
+    <div class="wrap">
+      <span class="kicker">Alunas</span>
+      <h2>Quem treina <em>comigo</em></h2>
+      <div class="results">
+        <div class="result"><img src="img/u-aluno1.jpg" alt=""><blockquote>“[Depoimento real de aluna]”<strong>[Nome], [tempo de treino]</strong></blockquote></div>
+        <div class="result"><img src="img/u-aluno2.jpg" alt=""><blockquote>“[Depoimento real de aluna]”<strong>[Nome], [tempo de treino]</strong></blockquote></div>
+        <div class="result"><img src="img/u-aluno3.jpg" alt=""><blockquote>“[Depoimento real de aluna]”<strong>[Nome], [tempo de treino]</strong></blockquote></div>
+      </div>
+      <p class="note">Fotos desta seção são ilustrativas e serão trocadas por fotos reais. No site final, fotos e depoimentos só com autorização das alunas. Resultados variam de pessoa para pessoa.</p>
+    </div>
+  </section>
+
+  <section id="planos" class="alt">
+    <div class="wrap">
+      <span class="kicker">Planos</span>
+      <h2>Escolha <em>seu ritmo</em></h2>
+      <div class="plans">
+        <div class="plan"><h3>2x por semana</h3><div class="price-note">Valores pelo WhatsApp</div><ul><li>8 aulas por mês</li><li>Avaliação inicial</li><li>Suporte pelo WhatsApp</li></ul><a class="btn ghost" href="#contato">Quero saber mais</a></div>
+        <div class="plan hot"><span class="tag">Mais escolhido</span><h3>3x por semana</h3><div class="price-note">Valores pelo WhatsApp</div><ul><li>12 aulas por mês</li><li>Reavaliação mensal</li><li>Suporte pelo WhatsApp</li></ul><a class="btn" href="#contato">Quero saber mais</a></div>
+        <div class="plan"><h3>Online</h3><div class="price-note">Valores pelo WhatsApp</div><ul><li>Treino no app MFit</li><li>Ajustes periódicos</li><li>Vídeos de execução</li></ul><a class="btn ghost" href="#contato">Quero saber mais</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <div class="wrap about">
+      <div class="stack">
+        <img class="main" src="img/glow.jpg" alt="Eliane Gonçalves em evento">
+        <img class="sticker" src="img/caricatura.jpg" alt="Caricatura da Japa treinando">
+      </div>
+      <div>
+        <span class="kicker">Quem sou eu</span>
+        <h2>Prazer, <em>sou a Japa</em></h2>
+        <p class="lead">Eu sou a Eliane Gonçalves, personal trainer no Corpus Studio, em Divinópolis. Amo ver mulheres ficando mais fortes, em qualquer idade.</p>
+        <div class="facts">
+          <div class="fact"><b>Formação</b>Bacharel em Educação Física</div>
+          <div class="fact"><b>Especialidade</b>Mulheres na pré e menopausa, 35+</div>
+          <div class="fact"><b>Na prática</b>Musculação, calistenia e bike</div>
+          <div class="fact"><b>Paixão</b>Estudo e saúde humana</div>
+        </div>
+        <p class="motto">“Fica forte quem faz força, do modo certo.”</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" class="alt">
+    <div class="wrap">
+      <span class="kicker">Dúvidas</span>
+      <h2>Perguntas <em>frequentes</em></h2>
+      <div class="faq">
+        <details><summary>Nunca treinei. Posso começar?</summary><p>Pode e deve. O treino começa no seu nível e evolui no seu ritmo, com cada exercício ensinado de perto.</p></details>
+        <details><summary>Estou na menopausa. Treino de força é para mim?</summary><p>É uma das fases em que ele mais faz diferença. O treino é adaptado a você, e é sempre bom ter a liberação do seu médico antes de começar.</p></details>
+        <details><summary>Onde acontecem as aulas?</summary><p>No Corpus Studio, em Divinópolis. <i class="ph">[endereço]</i> Também atendo online pelo app MFit.</p></details>
+        <details><summary>Como funciona o pagamento?</summary><p><i class="ph">[Mensal, Pix, cartão: Eliane confirma]</i></p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato">
+    <div class="wrap">
+      <div class="contact">
+        <div>
+          <span class="kicker">Contato</span>
+          <h2>Bora <em>começar?</em></h2>
+          <p class="lead">Me chama no WhatsApp ou deixe seus dados que eu te respondo.</p>
+          <div class="info">
+            <div><b>WhatsApp</b><i class="ph">[(37) 9 0000-0000]</i></div>
+            <div><b>Instagram</b><a href="https://www.instagram.com/japsli.personaltrainer">@japsli.personaltrainer</a></div>
+            <div><b>Onde</b>Corpus Studio · Divinópolis - MG · <i class="ph">[horários]</i></div>
+          </div>
+        </div>
+        <form id="f">
+          <input name="nome" placeholder="Seu nome" required>
+          <select name="obj"><option>Ganhar força</option><option>Emagrecimento</option><option>Treinar na pré/menopausa</option><option>Saúde e disposição</option></select>
+          <textarea name="msg" rows="4" placeholder="Conte um pouco da sua rotina"></textarea>
+          <button class="btn">Enviar pelo WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Japa Personal Trainer · Eliane Gonçalves · CREF <i class="ph">[000000-G/MG]</i></span>
+    <a href="https://reinventar.dev">Site por Reinventar</a>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/5537000000000" aria-label="Falar no WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.3-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.2 2.2 2.2 0 0 0 .1-1.3c0-.1-.2-.2-.4-.3z"/></svg>
+</a>
+
+<script>
+  document.getElementById('f').addEventListener('submit',function(e){
+    e.preventDefault();var d=new FormData(this);
+    window.open('https://wa.me/5537000000000?text='+encodeURIComponent('Oi, Japa! Sou '+d.get('nome')+'. Objetivo: '+d.get('obj')+'. '+d.get('msg')),'_blank');
+  });
+</script>
+</body>
+</html>

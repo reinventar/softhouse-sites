@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Japa Personal · Modelo 3 Glow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#241C20;--muted:#6E6267;--rose:#C2416E;--blush:#FBEAF0;--sage:#7FA487;--sage-d:#4E7757;--white:rgba(255,255,255,.62);--glass:rgba(22,16,19,.74)}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Manrope,system-ui,sans-serif;color:var(--ink);font-size:16.5px;line-height:1.65;background:#F7F4F3;overflow-x:hidden}
+  body::before,body::after{content:"";position:fixed;z-index:-1;border-radius:50%;filter:blur(90px);opacity:.65}
+  body::before{width:520px;height:520px;background:#F6C3D4;top:-140px;right:-120px}
+  body::after{width:440px;height:440px;background:#CFE3D2;bottom:-160px;left:-140px}
+  a{color:inherit;text-decoration:none} img{display:block;max-width:100%}
+  .wrap{max-width:1140px;margin:0 auto;padding:0 20px}
+  h1,h2,h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;line-height:1}
+  h1 em,h2 em{font-style:italic;font-weight:500;color:var(--rose)}
+  .ph{background:var(--blush);color:var(--rose);border-radius:4px;padding:0 5px;font-style:normal}
+  .bar{background:var(--ink);color:#F7F4F3;font-size:13px;text-align:center;padding:8px}
+  nav{position:sticky;top:14px;z-index:9;display:flex;justify-content:center;margin-top:14px}
+  .pillnav{display:flex;align-items:center;gap:22px;background:var(--glass);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);color:#F3E8EC;border-radius:999px;padding:8px 8px 8px 22px;font-size:14px}
+  .pillnav b{font-family:"Cormorant Garamond";font-size:22px;font-style:italic;font-weight:600;color:#fff}
+  .pillnav .links{display:flex;gap:20px}
+  .btn{display:inline-flex;align-items:center;gap:8px;background:var(--rose);color:#fff;border-radius:999px;padding:13px 24px;font-weight:600;font-size:14.5px;box-shadow:0 14px 30px -14px rgba(194,65,110,.7)}
+  .btn.glass{background:var(--white);color:var(--ink);box-shadow:none;border:1px solid rgba(255,255,255,.9);backdrop-filter:blur(10px)}
+  .pillnav .btn{padding:9px 18px}
+
+  .hero{padding:70px 20px 90px;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+  .eyebrow{display:inline-flex;gap:8px;align-items:center;background:var(--white);border:1px solid #fff;border-radius:999px;padding:6px 14px;font-size:13px;font-weight:600;color:var(--sage-d);backdrop-filter:blur(8px)}
+  .eyebrow::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sage)}
+  .hero h1{font-size:clamp(56px,8vw,98px);margin:22px 0}
+  .hero p{color:var(--muted);font-size:18px;max-width:470px;margin-bottom:30px}
+  .cta{display:flex;gap:12px;flex-wrap:wrap}
+  .portal{position:relative;justify-self:center;width:min(440px,100%)}
+  .ring{position:absolute;inset:-22px;border-radius:999px 999px 40px 40px;background:linear-gradient(160deg,#fff,#F3E1E6);box-shadow:0 30px 60px -30px rgba(120,50,80,.45)}
+  .portal img{position:relative;width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 12%;border-radius:999px 999px 30px 30px}
+  .chipf{position:absolute;background:var(--white);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid #fff;border-radius:18px;padding:12px 16px;font-size:13.5px;box-shadow:0 14px 30px -18px rgba(0,0,0,.35)}
+  .chipf b{display:block;font-size:15px}
+  .c1{left:-50px;top:22%} .c2{right:-40px;bottom:16%}
+  .c3{left:-24px;bottom:-10px;background:var(--glass);color:#fff;border-color:transparent}
+
+  .marquee{background:var(--glass);color:#F3E8EC;overflow:hidden;white-space:nowrap;padding:16px 0;font-family:"Cormorant Garamond";font-style:italic;font-size:26px}
+  .marquee div{display:inline-block;animation:m 26s linear infinite}
+  .marquee span{margin:0 26px} .marquee i{color:#F59BBC;font-style:normal}
+  @keyframes m{to{transform:translateX(-50%)}}
+
+  section{padding:96px 0}
+  h2{font-size:clamp(42px,6vw,68px)}
+  .center{text-align:center;max-width:680px;margin:0 auto}
+  .center p{color:var(--muted);margin-top:14px}
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:48px}
+  .card{background:var(--white);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid #fff;border-radius:30px;padding:26px;text-align:center;transition:transform .25s}
+  .card:hover{transform:translateY(-6px)}
+  .card img{width:110px;height:110px;border-radius:50%;object-fit:cover;object-position:center 20%;margin:0 auto 18px;border:4px solid #fff;box-shadow:0 10px 24px -12px rgba(194,65,110,.5)}
+  .card h3{font-size:28px;margin-bottom:6px}
+  .card p{color:var(--muted);font-size:14.5px}
+  .phase{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+  .phase .pic{position:relative}
+  .phase .pic img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:30px}
+  .phase .pic .chipf{right:-20px;top:30px}
+  .steps{display:grid;gap:14px;margin-top:26px}
+  .step{display:flex;gap:16px;background:var(--white);border:1px solid #fff;border-radius:22px;padding:18px 20px;backdrop-filter:blur(10px)}
+  .step b{font-family:"Cormorant Garamond";font-size:30px;color:var(--rose);line-height:1}
+  .step span{color:var(--muted);font-size:15px} .step strong{color:var(--ink);display:block}
+  .final{background:var(--glass);color:#fff;border-radius:40px;padding:clamp(34px,6vw,70px);text-align:center;backdrop-filter:blur(16px)}
+  .final h2 em{color:#F59BBC}
+  .final p{color:#D8CCD1;max-width:520px;margin:14px auto 28px}
+  .final .meta{display:flex;justify-content:center;gap:24px;flex-wrap:wrap;margin-top:26px;color:#D8CCD1;font-size:14px}
+  .final .ph{background:rgba(245,155,188,.15);color:#F59BBC}
+  footer{padding:28px 0 40px;color:var(--muted);font-size:13.5px}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  @media(max-width:900px){
+    .pillnav .links{display:none}
+    .hero,.phase{grid-template-columns:1fr}
+    .portal{width:min(320px,80%);margin-top:20px} .c1{left:-30px} .c2{right:-26px}
+    .cards{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:520px){.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="bar">Exemplo de como seu site pode ficar · <b>Modelo 3 · Glow</b> · <a href="/" style="text-decoration:underline">ver todas as opções</a></div>
+<nav><div class="pillnav"><b>Japa</b><div class="links"><a href="#servicos">Serviços</a><a href="#fase">Mulheres 35+</a><a href="#contato">Contato</a></div><a class="btn" href="#contato">Agendar</a></div></nav>
+
+<div class="wrap hero">
+  <div>
+    <span class="eyebrow">Personal trainer · Divinópolis - MG</span>
+    <h1>Força que <em>floresce</em> em toda fase.</h1>
+    <p>Eu sou a Eliane, a Japa. Treino mulheres para ficarem fortes, do modo certo, com atenção especial à pré e à menopausa.</p>
+    <div class="cta"><a class="btn" href="#contato">Quero começar</a><a class="btn glass" href="#servicos">Ver serviços</a></div>
+  </div>
+  <div class="portal">
+    <div class="ring"></div>
+    <img src="img/eliane.jpg" alt="Eliane, a Japa">
+    <div class="chipf c1"><b>Especialista</b>mulheres 35+</div>
+    <div class="chipf c2"><b>Corpus Studio</b>presencial e online</div>
+    <div class="chipf c3">CREF <i class="ph" style="background:rgba(245,155,188,.15);color:#F59BBC">[000000-G/MG]</i></div>
+  </div>
+</div>
+
+<div class="marquee"><div>
+  <span>Disciplina</span><i>✦</i><span>Constância</span><i>✦</i><span>Dedicação</span><i>✦</i><span>Fica forte quem faz força</span><i>✦</i><span>Disciplina</span><i>✦</i><span>Constância</span><i>✦</i><span>Dedicação</span><i>✦</i><span>Fica forte quem faz força</span><i>✦</i>
+</div></div>
+
+<section id="servicos"><div class="wrap">
+  <div class="center"><h2>Cuidado <em>de perto</em></h2><p>Presencial no Corpus Studio ou online. O treino acompanha a sua rotina e a sua fase.</p></div>
+  <div class="cards">
+    <div class="card"><img src="img/car-presencial.jpg" alt=""><h3>Presencial</h3><p>Aulas individuais com correção de cada movimento.</p></div>
+    <div class="card"><img src="img/car-online.jpg" alt=""><h3>Online</h3><p>Treino no app MFit, com ajustes a distância. <i class="ph">[confirmar]</i></p></div>
+    <div class="card"><img src="img/car-forca.jpg" alt=""><h3>Força</h3><p>Musculação e calistenia, com técnica e segurança.</p></div>
+    <div class="card"><img src="img/car-avaliacao.jpg" alt=""><h3>Avaliação</h3><p>Seu ponto de partida para medir a evolução.</p></div>
+  </div>
+</div></section>
+
+<section id="fase" style="padding-top:20px"><div class="wrap phase">
+  <div class="pic"><img src="img/glow.jpg" alt="Eliane em evento"><div class="chipf"><b>Glow up de verdade</b>começa no treino</div></div>
+  <div>
+    <h2>Pré e menopausa <em>com força</em></h2>
+    <p style="color:var(--muted);margin-top:16px">Essa fase muda o corpo, e o treino precisa acompanhar. Quanto antes você se prepara, mais leve ela fica.</p>
+    <div class="steps">
+      <div class="step"><b>1</b><span><strong>Conversa</strong>Você me conta seu objetivo e sua rotina pelo WhatsApp.</span></div>
+      <div class="step"><b>2</b><span><strong>Avaliação</strong>Definimos juntas o seu ponto de partida.</span></div>
+      <div class="step"><b>3</b><span><strong>Treino</strong>Seu plano começa e evolui junto com você.</span></div>
+    </div>
+  </div>
+</div></section>
+
+<section id="contato" style="padding-top:0"><div class="wrap">
+  <div class="final">
+    <h2>Bora <em>começar?</em></h2>
+    <p>Me chama no WhatsApp. Horários e valores eu te passo por lá.</p>
+    <a class="btn" href="https://wa.me/5537000000000">Falar no WhatsApp</a>
+    <div class="meta"><span>Corpus Studio · Divinópolis</span><span>@japsli.personaltrainer</span><span><i class="ph">[horários]</i></span></div>
+  </div>
+</div></section>
+<footer><div class="wrap"><span>© 2026 Japa Personal Trainer · Eliane Gonçalves</span><a href="https://reinventar.dev">Site por Reinventar</a></div></footer>
+</body></html>
