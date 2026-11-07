@@ -1,0 +1,11 @@
+Fotos do Unsplash (licença Unsplash: uso comercial gratuito)
+aluno1: https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5
+aluno2: https://images.unsplash.com/photo-1574680178050-55c6a6a96e0a
+aluno3: https://images.unsplash.com/photo-1546483875-ad9014c88eba
+avaliacao: https://images.unsplash.com/photo-1758875569399-99a7d80ace43
+dupla: https://images.unsplash.com/photo-1534258936925-c58bed479fcb
+faixa: https://images.unsplash.com/photo-1722925541142-5db2668ca492
+hero: https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b
+online: https://images.unsplash.com/photo-1599552683573-9dc48255fe85
+presencial: https://images.unsplash.com/photo-1758875569256-f37c438cac65
+sobre: https://images.unsplash.com/photo-1649887974297-4be052375a67
