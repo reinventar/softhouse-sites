@@ -1,0 +1,73 @@
+{
+  "nome": "Toninho Saga",
+  "nome_curto": "Toninho",
+  "intro": "Toninho\n[Saga.]",
+  "profissao_linha1": "Músico",
+  "profissao_linha2": "eclético",
+  "cidade": "São João del-Rei · MG",
+  "registro": "Voz · Violão · Guitarra · Teclado",
+  "cores": {
+    "fundo": "#141110",
+    "destaque": "#EE9441",
+    "texto": "#F3ECE2"
+  },
+  "fonte_titulo": "Big Shoulders Display",
+  "fonte_texto": "Figtree",
+  "titulo_italico": false,
+  "foto_principal": "sites/toninho-saga/img/pro-sorriso.webp",
+  "rotulo_servicos": "Música ao vivo",
+  "servicos": [
+    {
+      "titulo": "Casamentos\ne [eventos]",
+      "texto": "Cerimônia, recepção e confraternizações.",
+      "foto": "sites/toninho-saga/img/pro-abraco.webp"
+    },
+    {
+      "titulo": "Bares e\n[restaurantes]",
+      "texto": "Almoço, happy hour e fim de semana.",
+      "foto": "sites/toninho-saga/vid/bares.webp"
+    },
+    {
+      "titulo": "Aulas de\n[violão]",
+      "texto": "Aula particular, do básico ao avançado.",
+      "foto": "sites/toninho-saga/img/pro-tocando.webp"
+    }
+  ],
+  "titulo_passos": "Como\n[contratar]",
+  "passos": [
+    "Chama no WhatsApp",
+    "Formato e repertório",
+    "Show confirmado"
+  ],
+  "foto_passos": "sites/toninho-saga/img/pro-teclado.webp",
+  "titulo_site": "Tá tudo no\n[meu site]",
+  "site": "sites/toninho-saga/index.html",
+  "paradas": [
+    {
+      "seletor": "body",
+      "rotulo": "Agenda sempre em dia"
+    },
+    {
+      "seletor": "#trabalho",
+      "rotulo": "Meus instrumentos"
+    },
+    {
+      "seletor": "#ao-vivo",
+      "rotulo": "Vídeos ao vivo"
+    },
+    {
+      "seletor": "#aulas",
+      "rotulo": "Aulas de violão"
+    },
+    {
+      "seletor": "#contato",
+      "rotulo": "Orçamento no WhatsApp"
+    }
+  ],
+  "cta_linha1": "Meu site",
+  "cta_linha2": "novo está",
+  "cta_linha3": "no ar!",
+  "cta_sub": "Confere lá:",
+  "url": "toninhosaga.reinventar.dev",
+  "cta_whatsapp": "e me chama no WhatsApp pra levar música ao vivo pro seu evento."
+}

@@ -57,7 +57,7 @@ def main():
                 pg.route("https://fonts.googleapis.com/**", lambda r: r.fulfill(status=200, content_type="text/css", body=css))
                 pg.route("https://fonts.gstatic.com/**", lambda r: r.abort())
                 pg.goto(caminho(base, cfg["site"]), wait_until="load")
-                pg.add_style_tag(content=".demo,.preview,.wa,[class*=preview]{display:none!important} *{animation:none!important;transition:none!important}")
+                pg.add_style_tag(content=".demo,.preview,.previa,.wa,[class*=preview]{display:none!important} *{animation:none!important;transition:none!important}")
                 pg.evaluate("document.querySelectorAll('img[loading=lazy]').forEach(i=>i.loading='eager')")
                 pg.evaluate("document.fonts.ready"); pg.wait_for_timeout(1500)
                 return ctx, pg
