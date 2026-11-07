@@ -71,6 +71,16 @@ body{font-family:var(--corpo);color:var(--texto)}
 #c7 .url{margin-top:18px;font-size:68px;text-transform:none}
 #c7 .bio{margin-top:26px;font-size:40px}
 #c7 .wa{margin-top:70px;font:500 40px var(--corpo);color:var(--suave);max-width:820px}
+/* 8 assinatura Reinventar */
+#c8{background:#0B0A0C}
+#c8 .brilho{position:absolute;width:900px;height:900px;left:50%;top:50%;margin:-450px 0 0 -450px;border-radius:50%;background:radial-gradient(closest-side,rgba(217,79,138,.32),rgba(34,197,139,.08) 60%,transparent)}
+#c8 .bloco{position:absolute;left:0;right:0;top:640px;display:flex;flex-direction:column;align-items:center;gap:34px;font-family:"Geist",var(--corpo);color:#FAF8F9}
+#c8 .por{font:500 40px "Geist Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:#22C58B}
+#c8 .marca{display:flex;align-items:center;gap:30px}
+#c8 .word{font-size:120px;letter-spacing:-.045em;line-height:1;font-weight:400}
+#c8 .word .e{display:inline-block;transform:scaleX(-1);color:#D94F8A}
+#c8 .word sup{font:400 40px "Geist Mono",monospace;color:#22C58B;letter-spacing:0;margin-left:8px;vertical-align:top;position:relative;top:10px}
+#c8 .frase{font:400 42px "Geist",var(--corpo);color:#CFC7CB;text-align:center;max-width:820px;line-height:1.35}
 </style>
 </head>
 <body>
@@ -81,6 +91,7 @@ body{font-family:var(--corpo);color:var(--texto)}
 <div id="c5" class="cena"></div>
 <div id="c6" class="cena"></div>
 <div id="c7" class="cena"></div>
+<div id="c8" class="cena"></div>
 <div class="wipe" id="wipe"></div>
 <div class="creditos" id="creditos"></div>
 
@@ -96,8 +107,9 @@ if (C.fonte_texto) root.setProperty("--corpo", `"${C.fonte_texto}",system-ui,san
 
 // ---------- duração das cenas ----------
 const temRes = !!(C.resultado && C.resultado.antes && C.resultado.depois);
-const D = { c1: 3, c2: 3.2, c3: 5.2, c4: 3.4, c5: temRes ? 4 : 0, c6: temRes ? 6.4 : 8.6, c7: 4.8 };
-const ordem = ["c1","c2","c3","c4","c5","c6","c7"].filter(k => D[k] > 0);
+const assina = C.assinatura_reinventar === true;
+const D = { c1: 3, c2: 3.2, c3: 5.2, c4: 3.4, c5: temRes ? 4 : 0, c6: temRes ? 6.4 : 8.6, c7: 4.8, c8: assina ? 2.8 : 0 };
+const ordem = ["c1","c2","c3","c4","c5","c6","c7","c8"].filter(k => D[k] > 0);
 const ini = {}; let acc = 0; ordem.forEach(k => { ini[k] = acc; acc += D[k]; });
 window.DURACAO = acc;
 
@@ -151,7 +163,8 @@ $("#c7").innerHTML = `<div class="faixa" style="left:880px;top:-200px;width:300p
   <div class="bloco"><div class="t l" id="c7a">${letreiro(C.cta_linha1 || "Bora")}</div><div class="t l" id="c7b">${letreiro(C.cta_linha2 || "começar essa")}</div><div class="t l d" id="c7c">${letreiro(C.cta_linha3 || "semana?")}</div>
   <div class="sub" id="c7d">${esc(C.cta_sub || "Entra no meu site:")}</div><div class="chip url" id="c7e">${esc(C.url)}</div><br><div class="chip branco bio" id="c7f">Link na bio</div>
   <div class="wa" id="c7g">${esc(C.cta_whatsapp || "")}</div></div>`;
-$("#creditos").textContent = "site por reinventar.dev";
+$("#creditos").innerHTML = `<svg viewBox="0 0 100 100" fill="none" style="width:30px;height:30px;vertical-align:middle"><path d="M14 38V14H38M62 86H86V62" stroke="#22C58B" stroke-opacity=".8" stroke-width="6"/><path d="M24 46V24H46M54 76H76V54" stroke="#D94F8A" stroke-width="6"/><rect x="40" y="40" width="20" height="20" rx="4" fill="#F4C9DA"/></svg> <span style="margin-left:10px;font-family:\"Geist Mono\",monospace">site por reinventar.dev</span>`;
+if (assina) $("#c8").innerHTML = `<div class="brilho"></div><div class="bloco"><div class="por" id="c8a">Site criado por</div><div class="marca" id="c8b"><svg viewBox="0 0 100 100" fill="none" style="width:150px;height:150px;vertical-align:middle"><path d="M14 38V14H38M62 86H86V62" stroke="#22C58B" stroke-opacity=".8" stroke-width="6"/><path d="M24 46V24H46M54 76H76V54" stroke="#D94F8A" stroke-width="6"/><rect x="40" y="40" width="20" height="20" rx="4" fill="#F4C9DA"/></svg><span class="word">r<span class="e">e</span>inventar<sup>.dev</sup></span></div><div class="frase" id="c8c">${esc(C.assinatura_frase || "Sites que trabalham por você.")}</div></div>`;
 if (C.titulo_italico === false) document.querySelectorAll(".t,.chip").forEach(e => e.style.fontStyle = "normal");
 
 // ---------- linha do tempo ----------
@@ -160,7 +173,7 @@ window.seek = function(t){
   ordem.forEach((k,i) => { const a = ini[k], b = a + D[k]; $("#"+k).style.opacity = (t >= a && t < b) ? 1 : 0; });
   const w = $("#wipe"); w.style.left = "-90%";
   ordem.slice(1).forEach(k => { const x = p(t, ini[k] - .22, .44); if (x > 0 && x < 1) w.style.left = mix(-90, 130, eio(x)) + "%"; });
-  $("#creditos").style.opacity = t >= ini.c7 + 1.6 ? clamp((t - ini.c7 - 1.6) / .4) : 0;
+  $("#creditos").style.opacity = (t >= ini.c7 + 1.6 && t < ini.c7 + D.c7) ? clamp((t - ini.c7 - 1.6) / .4) : 0;
 
   // 1 intro
   let l = t - ini.c1;
@@ -218,6 +231,7 @@ window.seek = function(t){
   l = t - ini.c7;
   ["#c7a","#c7b","#c7c"].forEach((s,i) => entra($(s), l, .1 + i*.3));
   entra($("#c7d"), l, 1.2, .35, 20); entra($("#c7e"), l, 1.45, .35, 20); entra($("#c7f"), l, 1.7, .35, 20); entra($("#c7g"), l, 2.0, .35, 20);
+  if (assina) { l = t - ini.c8; entra($("#c8a"), l, .1, .4, 30); entra($("#c8b"), l, .35, .5, 40); entra($("#c8c"), l, .8, .4, 20); }
   const fim = p(t, acc - .7, .7); document.body.style.filter = `brightness(${1 - fim})`;
 };
 window.seek(0);
