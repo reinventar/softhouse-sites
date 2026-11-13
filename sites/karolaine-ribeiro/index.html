@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Karolaine Ribeiro · Nutricionista em Centro, São João del Rei</title>
+<meta name="description" content="Nutricionista em São João del Rei (CRN-9 23955). Emagrecimento, obesidade e pré e pós-bariátrica, com atendimento presencial e online.">
+<meta property="og:title" content="Karolaine Ribeiro · Nutrição Clínica">
+<meta property="og:description" content="Emagrecimento na vida real, com ciência e escuta. Presencial em São João del Rei e online.">
+<meta property="og:image" content="https://karolaine.reinventar.dev/og.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" href="img/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+html{scroll-behavior:smooth}
+a{color:#127468}a:hover{color:#0B5249}
+@keyframes kc-up{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:none}}
+@keyframes kc-fade{from{opacity:0}to{opacity:1}}
+@keyframes kc-spin{to{transform:rotate(360deg)}}
+@keyframes kc-ring1{from{transform:rotateX(72deg) rotateZ(0deg)}to{transform:rotateX(72deg) rotateZ(360deg)}}
+@keyframes kc-ring2{from{transform:rotateX(64deg) rotateY(28deg) rotateZ(360deg)}to{transform:rotateX(64deg) rotateY(28deg) rotateZ(0deg)}}
+@keyframes kc-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+@keyframes kc-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes kc-tab{0%{transform:scaleX(0);opacity:1}24%{transform:scaleX(1);opacity:1}25%,100%{transform:scaleX(1);opacity:0}}
+@keyframes kc-lit{from{color:#CFC6B4}to{color:#2A2620}}
+@keyframes kc-draw{from{stroke-dashoffset:900}to{stroke-dashoffset:0}}
+@keyframes kc-pulse{0%{transform:scale(.4);opacity:.9}100%{transform:scale(1.6);opacity:0}}
+@keyframes kc-grow{from{transform:scaleY(.15)}to{transform:scaleY(1)}}
+@keyframes kc-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes kc-step{0%,100%{background:#E6DDCA}33%{background:#127468}}
+.kc-in{animation:kc-up 1s cubic-bezier(.16,.8,.2,1) both}
+.kc-d1{animation-delay:.15s}.kc-d2{animation-delay:.3s}.kc-d3{animation-delay:.45s}.kc-d4{animation-delay:.7s}
+.kc-rv{animation:kc-up .9s cubic-bezier(.16,.8,.2,1) both}
+.kc-lit{color:#2A2620}
+@supports (animation-timeline:view()){
+.kc-rv{animation:kc-up linear both;animation-timeline:view();animation-range:entry 0% entry 50%}
+.kc-lit{animation:kc-lit linear both;animation-timeline:view();animation-range:entry 10% entry 100%}
+}
+@keyframes kc-kb1{from{transform:scale(1)}to{transform:scale(1.1)}}
+@keyframes kc-kb2{from{transform:scale(1.3) translateX(-3%)}to{transform:scale(1.42) translateX(2%)}}
+@keyframes kc-kb3{from{transform:scale(1.18) translateY(2%)}to{transform:scale(1.08) translateY(-2%)}}
+@keyframes kc-fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes kc-sx{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes kc-wa{0%{box-shadow:0 0 0 0 rgba(18,116,104,.45)}100%{box-shadow:0 0 0 18px rgba(18,116,104,0)}}
+.kc-kb1{animation:kc-kb1 14s ease-in-out infinite alternate}
+.kc-kb2{animation:kc-kb2 16s ease-in-out infinite alternate}
+.kc-kb3{animation:kc-kb3 15s ease-in-out infinite alternate}
+.kc-prog{transform:scaleX(0);transform-origin:left}
+.kc-run{animation:kc-fill 6.5s linear forwards}
+.kc-scrollbar{transform:scaleX(0)}
+@supports (animation-timeline:scroll()){.kc-scrollbar{animation:kc-sx linear both;animation-timeline:scroll(root)}}
+.kc-arrow{transition:background .25s ease,border-color .25s ease,transform .25s ease}
+.kc-arrow:hover{background:#EFE6D3;border-color:#127468;transform:scale(1.06)}
+.kc-goal{transition:transform .2s ease}
+.kc-goal:hover{transform:translateY(-2px)}
+.kc-wa::after{content:"";position:absolute;inset:0;border-radius:50%;animation:kc-wa 2s ease-out infinite}
+.kc-halo{animation:kc-spin 18s linear infinite}
+.kc-orb{animation:kc-breathe 8s ease-in-out infinite}
+.kc-ring1{animation:kc-ring1 14s linear infinite}
+.kc-ring2{animation:kc-ring2 22s linear infinite}
+.kc-chip1{animation:kc-float 7s ease-in-out infinite}
+.kc-chip2{animation:kc-float 9s ease-in-out -3s infinite}
+.kc-tabline{transform-origin:left;animation:kc-tab 16s linear infinite both}
+.kc-t2{animation-delay:4s}.kc-t3{animation-delay:8s}.kc-t4{animation-delay:12s}
+.kc-chart{stroke-dasharray:900;animation:kc-draw 3s .4s cubic-bezier(.3,.6,.2,1) both}
+.kc-pulse{animation:kc-pulse 3s ease-out infinite}
+.kc-p2{animation-delay:1s}.kc-p3{animation-delay:2s}
+.kc-col{transform-origin:bottom;animation:kc-grow 1.6s cubic-bezier(.2,.7,.2,1) infinite alternate}
+.kc-c2{animation-delay:.2s}.kc-c3{animation-delay:.4s}.kc-c4{animation-delay:.6s}.kc-c5{animation-delay:.8s}
+.kc-st{animation:kc-step 6s linear infinite}
+.kc-s2x{animation-delay:2s}.kc-s3x{animation-delay:4s}
+.kc-track{animation:kc-marquee 40s linear infinite}
+.kc-bento{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:16px}
+.kc-w4{grid-column:span 4}.kc-w2{grid-column:span 2}.kc-w3{grid-column:span 3}
+.kc-tile{position:relative;overflow:hidden;background:#FFFFFF;border:1px solid #E6DDCA;border-radius:28px;padding:32px;display:flex;flex-direction:column;gap:14px;min-height:280px;box-sizing:border-box;transition:border-color .35s ease,transform .35s ease,background .35s ease}
+.kc-tile:hover{border-color:#127468;transform:translateY(-4px);background:#FFFDF8}
+.kc-tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+.kc-btn{transition:transform .25s ease,box-shadow .25s ease}
+.kc-btn:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(18,116,104,.35);color:#FAF7F1}
+.kc-ghost{transition:background .25s ease,border-color .25s ease}
+.kc-ghost:hover{background:#EFE6D3;border-color:#127468;color:#2A2620}
+.kc-nav a{color:#5E574B;text-decoration:none}.kc-nav a:hover{color:#2A2620}
+.kc-row{transition:padding .3s ease}
+.kc-row:hover{padding-left:16px}
+details summary{cursor:pointer;list-style:none}details summary::-webkit-details-marker{display:none}
+@media (max-width:900px){.kc-w4,.kc-w2,.kc-w3{grid-column:span 6}.kc-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.kc-nav{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+.sl{opacity:0;visibility:hidden;transform:translateY(28px)}
+.sl.on{opacity:1;visibility:visible;transform:none}
+.si{opacity:0}.si.on{opacity:1}
+.kc-goal{font:inherit;font-size:15px;cursor:pointer;padding:13px 20px;border-radius:999px;background:#FFFFFF;color:#2A2620;border:1px solid #D5CAB3}
+.kc-goal[aria-pressed="true"]{background:#127468;color:#FAF7F1;border-color:#127468}
+@media (max-width:560px){.kc-chip1{left:0!important}.kc-chip2{right:0!important}}
+</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Karolaine Ribeiro · Nutricionista", "description": "Nutrição clínica: emagrecimento, obesidade, pré e pós-bariátrica e reeducação alimentar.", "telephone": "+55 32 99964-9605", "address": {"@type": "PostalAddress", "streetAddress": "R. Padre José Maria Xavier, 123", "addressLocality": "São João del Rei", "addressRegion": "MG", "postalCode": "36307-340", "addressCountry": "BR"}, "url": "https://karolaine.reinventar.dev", "sameAs": ["https://www.instagram.com/nutrikarolaineribeiro"]}</script>
+</head>
+<body>
+<div style="font-family: 'Jost', system-ui, sans-serif; color: #2A2620; background: #FAF7F1; overflow-x: clip">
+
+<div style="background: #2A2620; color: #FAF7F1; font-family: 'Jost', sans-serif; letter-spacing: .08em; font-size: 12px; text-align: center; padding: 8px 16px; letter-spacing: .04em">PRÉVIA PARA APROVAÇÃO · EXEMPLO DE COMO SEU SITE PODE FICAR</div>
+
+<div aria-hidden="true" class="kc-scrollbar" style="position: fixed; left: 0; top: 0; right: 0; height: 3px; background: #127468; transform-origin: left; z-index: 60"></div>
+
+<header style="position: sticky; top: 0; z-index: 50; max-width: 1200px; margin: 0 auto; padding: 14px 24px; box-sizing: border-box">
+<div class="kc-in" style="display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; background: rgba(250,247,241,.82); border: 1px solid rgba(42,38,32,.10); border-radius: 999px; padding: 8px 10px 8px 14px; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px)">
+<div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap">
+<img src="img/logo.webp" alt="Logo Karolaine Ribeiro Nutrição Clínica" style="width: 52px; height: 50px; object-fit: contain">
+<span style="font-weight: 500; font-size: 16px; letter-spacing: -.01em">Karolaine Ribeiro</span>
+<span style="font-family: 'Jost', sans-serif; letter-spacing: .08em; font-size: 11px; color: #6B6457">NUTRICIONISTA · CRN-9 23955</span>
+</div>
+<nav class="kc-nav" style="display: flex; gap: 28px; font-size: 14px">
+<a href="#c-servicos">Serviços</a>
+<a href="#c-sobre">Sobre</a>
+<a href="#c-metodo">Método</a>
+<a href="#c-duvidas">Dúvidas</a>
+</nav>
+<a class="kc-btn" href="https://wa.me/5532999649605" style="background: #2A2620; color: #FAF7F1; text-decoration: none; font-weight: 500; font-size: 14px; padding: 13px 22px; border-radius: 999px">Agendar consulta</a>
+</div>
+</header>
+<main>
+
+<section aria-label="Destaques" style="position: relative; max-width: 1200px; margin: 0 auto; padding: 36px 24px 64px; box-sizing: border-box">
+<div aria-hidden="true" style="position: absolute; right: -160px; top: -40px; width: 820px; height: 820px; border-radius: 50%; background: radial-gradient(circle, rgba(227,213,184,.85) 0%, rgba(227,213,184,0) 62%)"></div>
+<div style="position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: 56px">
+<div style="flex: 1 1 480px; min-width: 0; position: relative; min-height: 520px">
+<div class="sl" data-slide="0" style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 26px; transition: opacity 1s ease, transform 1.2s cubic-bezier(.16,.8,.2,1), visibility 1s">
+<div style="font-family: 'Jost', sans-serif; letter-spacing: .18em; font-size: 12px; color: #6B6457; display: flex; align-items: center; gap: 14px"><span aria-hidden="true" style="width: 44px; height: 1px; background: #C9B58C"></span>NUTRIÇÃO CLÍNICA · CRN-9 23955</div>
+<h1 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(50px, 8vw, 112px); line-height: .92; letter-spacing: -.02em">Karolaine <span style="font-style: italic; color: #127468">Ribeiro</span></h1>
+<p style="margin: 0; font-size: 19px; line-height: 1.55; font-weight: 300; color: #5E574B; max-width: 480px">A nutricionista que une ciência, escuta e a sua vida real em um emagrecimento pensado para durar.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px"><a class="kc-btn" href="https://wa.me/5532999649605" style="display: inline-flex; align-items: center; gap: 10px; background: #127468; color: #FAF7F1; text-decoration: none; font-weight: 500; font-size: 16px; padding: 17px 28px; border-radius: 999px">Agendar pelo WhatsApp<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FAF7F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a><a class="kc-ghost" href="#c-sobre" style="color: #2A2620; text-decoration: none; font-size: 16px; padding: 16px 26px; border-radius: 999px; border: 1px solid rgba(42,38,32,.22)">Conhecer a Karolaine</a></div>
+</div>
+<div class="sl" data-slide="1" style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 26px; transition: opacity 1s ease, transform 1.2s cubic-bezier(.16,.8,.2,1), visibility 1s">
+<div style="font-family: 'Jost', sans-serif; letter-spacing: .18em; font-size: 12px; color: #6B6457; display: flex; align-items: center; gap: 14px"><span aria-hidden="true" style="width: 44px; height: 1px; background: #C9B58C"></span>O MÉTODO</div>
+<h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(50px, 8vw, 112px); line-height: .92; letter-spacing: -.02em">Emagreça sem restrições <span style="font-style: italic; color: #127468">desnecessárias</span>.</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.55; font-weight: 300; color: #5E574B; max-width: 480px">Um plano alimentar prazeroso, que respeita o seu paladar, a sua rotina e a sua vida social.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px"><a class="kc-btn" href="#c-metodo" style="display: inline-flex; align-items: center; gap: 10px; background: #127468; color: #FAF7F1; text-decoration: none; font-weight: 500; font-size: 16px; padding: 17px 28px; border-radius: 999px">Ver como funciona<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FAF7F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
+</div>
+<div class="sl" data-slide="2" style="position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center; gap: 26px; transition: opacity 1s ease, transform 1.2s cubic-bezier(.16,.8,.2,1), visibility 1s">
+<div style="font-family: 'Jost', sans-serif; letter-spacing: .18em; font-size: 12px; color: #6B6457; display: flex; align-items: center; gap: 14px"><span aria-hidden="true" style="width: 44px; height: 1px; background: #C9B58C"></span>ATENDIMENTO</div>
+<h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(50px, 8vw, 112px); line-height: .92; letter-spacing: -.02em">De São João del Rei para o <span style="font-style: italic; color: #127468">mundo todo</span>.</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.55; font-weight: 300; color: #5E574B; max-width: 480px">Consultas presenciais no Centro e online, com o mesmo cuidado em cada retorno.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 12px"><a class="kc-btn" href="https://wa.me/5532999649605" style="display: inline-flex; align-items: center; gap: 10px; background: #127468; color: #FAF7F1; text-decoration: none; font-weight: 500; font-size: 16px; padding: 17px 28px; border-radius: 999px">Agendar consulta<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FAF7F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
+</div>
+</div>
+<div class="kc-in kc-d2" style="flex: 1 1 400px; min-width: 0; display: flex; justify-content: center; padding: 14px 0">
+<div style="position: relative; width: 440px; max-width: 100%; height: 580px">
+<div aria-hidden="true" style="position: absolute; left: -14px; top: -14px; right: -14px; bottom: -14px; border: 1px solid #C9B58C; border-radius: 240px 240px 30px 30px"></div>
+<div style="position: absolute; left: 0; top: 0; right: 0; bottom: 0; overflow: hidden; border-radius: 226px 226px 20px 20px; background: #EFE6D3">
+<img class="kc-kb1 si" data-slide="0" src="img/karolaine.webp" alt="Karolaine Ribeiro, nutricionista" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 1.4s ease; object-position: 62% 30%">
+<img class="kc-kb2 si" data-slide="1" src="img/karolaine.webp" alt="" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 1.4s ease; object-position: 68% 22%">
+<img class="kc-kb3 si" data-slide="2" src="img/karolaine.webp" alt="" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity 1.4s ease; object-position: 56% 38%">
+</div>
+<div class="kc-chip1" style="position: absolute; left: -28px; bottom: 96px; display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,.86); border: 1px solid rgba(42,38,32,.12); border-radius: 16px; padding: 12px 16px; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 16px 40px rgba(120,96,50,.14)">
+<svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#127468" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"></path><path d="M9 12l2 2 4-4"></path></svg>
+<div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; font-weight: 500">Registro ativo</span><span style="font-family: 'Jost', sans-serif; letter-spacing: .08em; font-size: 11px; color: #6B6457">CRN-9 23955</span></div>
+</div>
+<div class="kc-chip2" style="position: absolute; right: -24px; top: 120px; display: flex; flex-direction: column; gap: 2px; background: rgba(255,255,255,.86); border: 1px solid rgba(42,38,32,.12); border-radius: 16px; padding: 12px 16px; backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px); box-shadow: 0 16px 40px rgba(120,96,50,.14)">
+<span style="font-family: 'Jost', sans-serif; letter-spacing: .08em; font-size: 11px; color: #6B6457">PÓS-GRADUAÇÃO</span><span style="font-size: 13px; font-weight: 500">Obesidade e Síndrome Metabólica</span>
+</div>
+<div style="position: absolute; right: -18px; bottom: -22px; width: 116px; height: 116px; border-radius: 50%; background: #FFFFFF; box-shadow: 0 18px 44px rgba(120,96,50,.2); display: flex; align-items: center; justify-content: center"><img src="img/logo.webp" alt="" style="width: 96px; height: 93px; object-fit: contain"></div>
+</div>
+</div>
+</div>
+<div style="position: relative; display: flex; flex-wrap: wrap; align-items: center; gap: 20px 28px; margin-top: 44px">
+<div style="display: flex; align-items: center; gap: 10px">
+<button type="button" class="kc-arrow" aria-label="Slide anterior" data-nav="-1" style="width: 52px; height: 52px; border-radius: 50%; border: 1px solid #D5CAB3; background: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2A2620" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg></button>
+<button type="button" class="kc-arrow" aria-label="Próximo slide" data-nav="1" style="width: 52px; height: 52px; border-radius: 50%; border: 1px solid #D5CAB3; background: #FFFFFF; cursor: pointer; display: flex; align-items: center; justify-content: center; padding: 0"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#2A2620" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></button>
+<span style="font-family: 'Cormorant Garamond', serif; font-size: 26px; margin-left: 10px" id="kc-num">01</span><span style="font-family: 'Jost', sans-serif; letter-spacing: .08em; font-size: 11px; color: #6B6457">/ 03</span>
+</div>
+<div style="flex: 1 1 360px; min-width: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px">
+<button type="button" data-go="0" style="background: none; border: 0; padding: 0; text-align: left; cursor: pointer; font: inherit; color: #2A2620; display: flex; flex-direction: column; gap: 12px; min-height: 48px"><span style="display: block; height: 2px; background: #E6DDCA"><span class="kc-prog" data-prog="0" style="display: block; height: 2px; background: #127468"></span></span><span style="font-size: 15px">Quem sou</span></button>
+<button type="button" data-go="1" style="background: none; border: 0; padding: 0; text-align: left; cursor: pointer; font: inherit; color: #2A2620; display: flex; flex-direction: column; gap: 12px; min-height: 48px"><span style="display: block; height: 2px; background: #E6DDCA"><span class="kc-prog" data-prog="1" style="display: block; height: 2px; background: #127468"></span></span><span style="font-size: 15px">O método</span></button>
+<button type="button" data-go="2" style="background: none; border: 0; padding: 0; text-align: left; cursor: pointer; font: inherit; color: #2A2620; display: flex; flex-direction: column; gap: 12px; min-height: 48px"><span style="display: block; height: 2px; background: #E6DDCA"><span class="kc-prog" data-prog="2" style="display: block; height: 2px; background: #127468"></span></span><span style="font-size: 15px">Atendimento</span></button>
+</div>
+</div>
+</section>
+
+<section style="max-width: 1040px; margin: 0 auto; padding: 96px 24px; box-sizing: border-box; display: flex; flex-direction: column; gap: 28px">
+<span style="font-family: 'Jost', sans-serif; letter-spacing: .08em; font-size: 12px; color: #127468">MANIFESTO</span>
+<p style="margin: 0; font-size: clamp(28px, 4.2vw, 52px); line-height: 1.12; letter-spacing: -.01em; font-weight: 500; font-family: 'Cormorant Garamond', serif">
+<span class="kc-lit">Nutrição vai além de prescrever dietas. </span>
+<span class="kc-lit">É compreender você por inteiro: rotina, hábitos, preferências e objetivos. </span>
+<span class="kc-lit">O resultado é autonomia para comer bem pelo resto da vida.</span>
+</p>
+</section>
+
+<section aria-label="Comece por aqui" style="max-width: 1200px; margin: 0 auto; padding: 0 24px 112px; box-sizing: border-box">
+<div class="kc-rv" style="background: #FFFFFF; border: 1px solid #E6DDCA; border-radius: 40px; padding: clamp(28px, 5vw, 64px); display: flex; flex-wrap: wrap; gap: 48px; align-items: stretch">
+<div style="flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<span style="font-family: 'Jost', sans-serif; letter-spacing: .08em; font-size: 11px; color: #6B6457; font-size: 12px; color: #127468">COMECE POR AQUI</span>
+<h2 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: clamp(34px, 5vw, 64px); line-height: 1; letter-spacing: -.02em">Qual é o seu <span style="font-style: italic; color: #127468">objetivo</span> hoje?</h2>
+<div style="display: flex; flex-wrap: wrap; gap: 10px">
+<button type="button" class="kc-goal" data-goal="0" aria-pressed="true">Emagrecer</button>
+<button type="button" class="kc-goal" data-goal="1" aria-pressed="false">Tratar a obesidade</button>
+<button type="button" class="kc-goal" data-goal="2" aria-pressed="false">Cirurgia bariátrica</button>
+<button type="button" class="kc-goal" data-goal="3" aria-pressed="false">Comer melhor</button>
+<button type="button" class="kc-goal" data-goal="4" aria-pressed="false">Cuidar da saúde</button>
+</div>
+</div>
+<div style="flex: 1 1 380px; min-width: 0; background: #EFE6D3; border-radius: 28px; padding: 36px; display: flex; flex-direction: column; gap: 16px; box-sizing: border-box">
+<span style="font-family: 'Jost', sans-serif; letter-spacing: .08em; font-size: 11px; color: #6B6457">SEU PONTO DE PARTIDA</span>
+<h3 style="margin: 0; font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 36px; line-height: 1.05" id="kc-gt">Emagrecimento saudável</h3>
+<p style="margin: 0; font-size: 17px; line-height: 1.6; font-weight: 300; color: #5E574B" id="kc-gx">Um plano prazeroso, sem fome e sem restrições desnecessárias, ajustado à sua rotina.</p>
+<a class="kc-btn" id="kc-gl" href="https://wa.me/5532999649605" style="display: inline-flex; align-items: center; gap: 10px; background: #127468; color: #FAF7F1; text-decoration: none; font-weight: 500; font-size: 16px; padding: 17px 28px; border-radius: 999px; align-self: flex-start; margin-top: auto">Quero começar por aqui<svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#FAF7F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+</div>
+</section>
+
+<section id="c-servicos" style="max-width: 1200px; margin: 0 auto; padding: 0 24px 112px; box-sizing: border-box; display: flex; flex-direction: column; gap: 40px">
+<div class="kc-rv" style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 20px">
+<h2 style="margin: 0; font-size: clamp(34px, 5vw, 64px); line-height: 1; letter-spacing: -.02em; font-weight: 500; font-family: 'Cormorant Garamond', serif; max-width: 640px">Cuidado clínico para cada <span style="font-family: 'Cormorant Garamond', serif; font-style: italic; color: #127468">fase</span></h2>
+<span style="font-family: 'Jost', sans-serif; letter-spacing: .08em; font-size: 12px; color: #6B6457">05 FRENTES DE ATENDIMENTO</span>
+</div>
+<div class="kc-bento">
+<article class="kc-tile kc-w4 kc-rv">
+<span style="font-family: 'Jost', sans-serif; letter-spacing: .08em; font-size: 11px; color: #127468">01</span>
+<h3 style="margin: 0; font-size: 30px; font-weight: 400; letter-spacing: -.02em">Emagrecimento saudável</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; font-weight: 300; color: #5E574B; max-width: 420px">Perda de peso com prazer em comer, sem fome e sem dietas radicais.</p>
+<svg aria-hidden="true" viewBox="0 0 640 150" preserveAspectRatio="none" style="width: 100%; height: 130px; margin-top: auto"><path d="M0 149h640M0 100h640M0 51h640" stroke="#E6DDCA" stroke-width="1"></path><path class="kc-chart" d="M0 30 C 80 34, 110 64, 180 66 S 290 92, 360 98 S 500 124, 640 132" fill="none" stroke="#127468" stroke-width="2.5" stroke-linecap="round"></path></svg>
+<span style="font-family: 'Jost', sans-serif; letter-spacing: .08em; font-size: 10px; color: #6B6457">ILUSTRAÇÃO</span>
+</article>
+<article class="kc-tile kc-w2 kc-rv">
+<span style="font-family: 'Jost', sans-serif; letter-spacing: .08em; font-size: 11px; color: #127468">02</span>
+<h3 style="margin: 0; font-size: 24px; font-weight: 400; letter-spacing: -.02em">Tratamento da obesidade</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; font-weight: 300; color: #5E574B">Especialização em obesidade e síndrome metabólica.</p>
+<div aria-hidden="true" style="position: relative; width: 96px; height: 96px; margin: auto auto 0 0">
+<span class="kc-pulse" style="position: absolute; inset: 0; border-radius: 50%; border: 1px solid #127468"></span>
+<span class="kc-pulse kc-p2" style="position: absolute; inset: 0; border-radius: 50%; border: 1px solid #127468"></span>
+<span class="kc-pulse kc-p3" style="position: absolute; inset: 0; border-radius: 50%; border: 1px solid #127468"></span>
+<span style="position: absolute; inset: 38%; border-radius: 50%; background: #127468"></span>
+</div>
+</article>
+<article class="kc-tile kc-w2 kc-rv">
+<span style="font-family: 'Jost', sans-serif; letter-spacing: .08em; font-size: 11px; color: #127468">03</span>
+<h3 style="margin: 0; font-size: 24px; font-weight: 400; letter-spacing: -.02em">Pré e pós-bariátrica</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; font-weight: 300; color: #5E574B">Preparo para a cirurgia e suporte em cada fase da adaptação.</p>
+<div aria-hidden="true" style="display: flex; align-items: center; gap: 8px; margin-top: auto">
+<span class="kc-st" style="width: 14px; height: 14px; border-radius: 50%; background: #E6DDCA"></span><span style="flex: 1; height: 1px; background: #E6DDCA"></span>
+<span class="kc-st kc-s2x" style="width: 14px; height: 14px; border-radius: 50%; background: #E6DDCA"></span><span style="flex: 1; height: 1px; background: #E6DDCA"></span>
+<span class="kc-st kc-s3x" style="width: 14px; height: 14px; border-radius: 50%; background: #E6DDCA"></span>
+</div>
+</article>
+<article class="kc-tile kc-w2 kc-rv">
+<span style="font-family: 'Jost', sans-serif; letter-spacing: .08em; font-size: 11px; color: #127468">04</span>
+<h3 style="margin: 0; font-size: 24px; font-weight: 400; letter-spacing: -.02em">Reeducação alimentar</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; font-weight: 300; color: #5E574B">Hábitos sustentáveis que cabem no seu dia a dia.</p>
+<div aria-hidden="true" style="display: flex; align-items: flex-end; gap: 8px; height: 72px; margin-top: auto">
+<span class="kc-col" style="width: 14px; height: 40%; border-radius: 4px; background: #E3D5B8"></span>
+<span class="kc-col kc-c2" style="width: 14px; height: 62%; border-radius: 4px; background: #C9B58C"></span>
+<span class="kc-col kc-c3" style="width: 14px; height: 50%; border-radius: 4px; background: #E3D5B8"></span>
+<span class="kc-col kc-c4" style="width: 14px; height: 84%; border-radius: 4px; background: #127468"></span>
+<span class="kc-col kc-c5" style="width: 14px; height: 100%; border-radius: 4px; background: #EAA337"></span>
+</div>
+</article>
+<article class="kc-tile kc-w2 kc-rv">
+<span style="font-family: 'Jost', sans-serif; letter-spacing: .08em; font-size: 11px; color: #127468">05</span>
+<h3 style="margin: 0; font-size: 24px; font-weight: 400; letter-spacing: -.02em">Tratamento de doenças</h3>
+<p style="margin: 0; font-size: 15px; line-height: 1.55; font-weight: 300; color: #5E574B">Alimentação como parte do cuidado clínico, alinhada aos seus exames.</p>
+<div style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; font-family: 'Jost', sans-serif; letter-spacing: .08em; font-size: 11px; color: #5E574B">
+<span style="border: 1px solid #E6DDCA; border-radius: 999px; padding: 6px 12px">EXAMES</span><span style="border: 1px solid #E6DDCA; border-radius: 999px; padding: 6px 12px">ROTINA</span><span style="border: 1px solid #E6DDCA; border-radius: 999px; padding: 6px 12px">EVIDÊNCIAS</span>
+</div>
+</article>
+</div>
+</section>
+
+<section id="c-sobre" style="background: #EFE6D3; color: #2A2620; border-radius: 40px 40px 0 0">
+<div style="max-width: 1200px; margin: 0 auto; padding: 112px 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 64px; align-items: stretch">
+<div class="kc-rv" style="flex: 1 1 360px; min-width: 0; min-height: 520px; border-radius: 28px; background: #E3D5B8; border: 1px dashed #A8997A; display: flex; align-items: center; justify-content: center; text-align: center; padding: 32px; box-sizing: border-box; font-family: 'Jost', sans-serif; letter-spacing: .08em; font-size: 13px; color: #5E574B">[RETRATO PROFISSIONAL DA KAROLAINE · ENSAIO REINVENTAR]</div>
+<div style="flex: 1.2 1 460px; min-width: 0; display: flex; flex-direction: column; gap: 28px">
+<span class="kc-rv" style="font-family: 'Jost', sans-serif; letter-spacing: .08em; font-size: 12px; color: #127468">SOBRE · CREDENCIAIS</span>
+<h2 class="kc-rv" style="margin: 0; font-size: clamp(34px, 5vw, 64px); line-height: 1; letter-spacing: -.02em; font-weight: 500; font-family: 'Cormorant Garamond', serif">Prazer, sou a <span style="font-family: 'Cormorant Garamond', serif; font-style: italic; color: #127468">Karolaine</span>.</h2>
+<p class="kc-rv" style="margin: 0; font-size: 18px; line-height: 1.6; font-weight: 300; color: #5E574B; max-width: 540px">Conduzo cada acompanhamento com empatia, escuta ativa e estratégias práticas, baseadas em evidências, que se encaixam na vida real.</p>
+<div style="display: flex; flex-direction: column; border-top: 1px solid #D5C9AE">
+<div class="kc-row kc-rv" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 24px; padding: 22px 0; border-bottom: 1px solid #D5C9AE"><span style="font-size: 26px; letter-spacing: -.02em">Nutrição · UFLA</span><span style="font-family: 'Jost', sans-serif; letter-spacing: .08em; font-size: 12px; color: #6B6457">GRADUAÇÃO · 2015–2019</span></div>
+<div class="kc-row kc-rv" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 24px; padding: 22px 0; border-bottom: 1px solid #D5C9AE"><span style="font-size: 26px; letter-spacing: -.02em">Obesidade e Síndrome Metabólica</span><span style="font-family: 'Jost', sans-serif; letter-spacing: .08em; font-size: 12px; color: #6B6457">PÓS-GRADUAÇÃO · IPGS · 2022–2023</span></div>
+<div class="kc-row kc-rv" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 8px 24px; padding: 22px 0; border-bottom: 1px solid #D5C9AE"><span style="font-size: 26px; letter-spacing: -.02em">CRN-9 23955</span><span style="font-family: 'Jost', sans-serif; letter-spacing: .08em; font-size: 12px; color: #6B6457">REGISTRO PROFISSIONAL</span></div>
+</div>
+<div class="kc-rv" style="border-radius: 16px; border: 1px dashed #A8997A; padding: 16px; font-family: 'Jost', sans-serif; letter-spacing: .08em; font-size: 12px; color: #5E574B">[DEPOIMENTOS DE PACIENTES, COM AUTORIZAÇÃO]</div>
+</div>
+</div>
+</section>
+
+<section id="c-metodo" style="background: #EFE6D3; color: #2A2620">
+<div style="max-width: 1200px; margin: 0 auto; padding: 0 24px 112px; box-sizing: border-box; display: flex; flex-direction: column; gap: 40px">
+<h2 class="kc-rv" style="margin: 0; font-size: clamp(34px, 5vw, 64px); line-height: 1; letter-spacing: -.02em; font-weight: 500; font-family: 'Cormorant Garamond', serif">Três etapas. Um plano <span style="font-family: 'Cormorant Garamond', serif; font-style: italic; color: #127468">possível</span>.</h2>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px">
+<div class="kc-rv" style="background: #127468; color: #FFFFFF; border-radius: 28px; padding: 32px; min-height: 300px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px"><span style="font-size: 88px; line-height: 1; letter-spacing: -.05em; font-weight: 300; color: #EFE6D3">01</span><h3 style="margin: auto 0 0; font-size: 24px; font-weight: 400">Avaliação completa</h3><p style="margin: 0; font-size: 15px; line-height: 1.55; font-weight: 300; color: #F3EDE0">Histórico, rotina, exames e objetivos, com escuta ativa.</p></div>
+<div class="kc-rv" style="background: #FFFFFF; border: 1px solid #E2D8C2; border-radius: 28px; padding: 32px; min-height: 300px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px"><span style="font-size: 88px; line-height: 1; letter-spacing: -.05em; font-weight: 300; color: #127468">02</span><h3 style="margin: auto 0 0; font-size: 24px; font-weight: 400">Plano individualizado</h3><p style="margin: 0; font-size: 15px; line-height: 1.55; font-weight: 300; color: #5E574B">Estratégia que respeita hábitos, preferências e a sua rotina.</p></div>
+<div class="kc-rv" style="background: #FFFFFF; border: 1px solid #E2D8C2; border-radius: 28px; padding: 32px; min-height: 300px; box-sizing: border-box; display: flex; flex-direction: column; gap: 12px"><span style="font-size: 88px; line-height: 1; letter-spacing: -.05em; font-weight: 300; color: #127468">03</span><h3 style="margin: auto 0 0; font-size: 24px; font-weight: 400">Acompanhamento</h3><p style="margin: 0; font-size: 15px; line-height: 1.55; font-weight: 300; color: #5E574B">Retornos para medir a evolução e ajustar o plano.</p></div>
+</div>
+</div>
+</section>
+
+<div aria-hidden="true" style="overflow: hidden; padding: 56px 0; border-bottom: 1px solid #E6DDCA">
+<div class="kc-track" style="display: flex; gap: 48px; width: max-content; white-space: nowrap; font-size: clamp(56px, 9vw, 120px); line-height: 1; letter-spacing: -.04em; color: transparent; -webkit-text-stroke: 1px #C9BB9C">
+<span>Nutrição da vida real</span><span style="font-family: 'Cormorant Garamond', serif; font-style: italic; color: #127468; -webkit-text-stroke: 0">sem julgamentos</span><span>baseada em evidências</span><span style="font-family: 'Cormorant Garamond', serif; font-style: italic; color: #127468; -webkit-text-stroke: 0">com prazer</span>
+<span>Nutrição da vida real</span><span style="font-family: 'Cormorant Garamond', serif; font-style: italic; color: #127468; -webkit-text-stroke: 0">sem julgamentos</span><span>baseada em evidências</span><span style="font-family: 'Cormorant Garamond', serif; font-style: italic; color: #127468; -webkit-text-stroke: 0">com prazer</span>
+</div>
+</div>
+
+<section id="c-duvidas" style="max-width: 1200px; margin: 0 auto; padding: 112px 24px; box-sizing: border-box; display: flex; flex-wrap: wrap; gap: 48px">
+<h2 class="kc-rv" style="flex: 1 1 320px; min-width: 0; margin: 0; font-size: clamp(34px, 5vw, 64px); line-height: 1; letter-spacing: -.02em; font-weight: 500; font-family: 'Cormorant Garamond', serif">Perguntas frequentes</h2>
+<div style="flex: 1.4 1 460px; min-width: 0; display: flex; flex-direction: column; border-top: 1px solid #E6DDCA">
+<details class="kc-rv" style="border-bottom: 1px solid #E6DDCA; padding: 24px 0"><summary style="font-size: 20px; min-height: 28px">O atendimento é presencial ou online?</summary><p style="margin: 12px 0 0; font-size: 16px; line-height: 1.6; font-weight: 300; color: #5E574B">Os dois. Presencial no Centro de São João del Rei e online para qualquer cidade.</p></details>
+<details class="kc-rv" style="border-bottom: 1px solid #E6DDCA; padding: 24px 0"><summary style="font-size: 20px; min-height: 28px">Vou precisar cortar tudo o que gosto?</summary><p style="margin: 12px 0 0; font-size: 16px; line-height: 1.6; font-weight: 300; color: #5E574B">Não. O plano evita restrições desnecessárias e busca mudanças que você consiga manter.</p></details>
+<details class="kc-rv" style="border-bottom: 1px solid #E6DDCA; padding: 24px 0"><summary style="font-size: 20px; min-height: 28px">Atende convênio?</summary><p style="margin: 12px 0 0; font-size: 16px; line-height: 1.6; font-weight: 300; color: #5E574B">O atendimento é particular. [FORMAS DE PAGAMENTO E RECIBO PARA REEMBOLSO]</p></details>
+<details class="kc-rv" style="border-bottom: 1px solid #E6DDCA; padding: 24px 0"><summary style="font-size: 20px; min-height: 28px">O que levar na primeira consulta?</summary><p style="margin: 12px 0 0; font-size: 16px; line-height: 1.6; font-weight: 300; color: #5E574B">[ORIENTAÇÕES DA KAROLAINE: EXAMES RECENTES, MEDICAMENTOS EM USO ETC.]</p></details>
+</div>
+</section>
+
+<section id="c-contato" style="max-width: 1200px; margin: 0 auto; padding: 0 24px 96px; box-sizing: border-box">
+<div class="kc-rv" style="position: relative; overflow: hidden; background: #FFFFFF; border: 1px solid #E6DDCA; border-radius: 40px; padding: clamp(28px, 6vw, 72px); display: flex; flex-wrap: wrap; gap: 48px">
+<div aria-hidden="true" class="kc-halo" style="position: absolute; left: -160px; bottom: -220px; width: 520px; height: 520px; border-radius: 50%; background: conic-gradient(from 0deg, #127468, #EFE6D3, #EAA337, #EFE6D3, #127468); filter: blur(90px); opacity: .35"></div>
+<div style="position: relative; flex: 1 1 360px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<h2 style="margin: 0; font-size: clamp(38px, 5.6vw, 76px); line-height: .98; letter-spacing: -.02em; font-weight: 500; font-family: 'Cormorant Garamond', serif">Vamos construir o seu <span style="font-family: 'Cormorant Garamond', serif; font-style: italic; color: #127468">plano</span>?</h2>
+<p style="margin: 0; font-size: 18px; line-height: 1.55; font-weight: 300; color: #5E574B">Mande uma mensagem e receba os horários disponíveis.</p>
+<a class="kc-btn" href="https://wa.me/5532999649605" style="align-self: flex-start; background: #127468; color: #FAF7F1; text-decoration: none; font-weight: 500; font-size: 16px; padding: 17px 28px; border-radius: 999px">WhatsApp (32) 99964-9605</a>
+<div style="display: flex; flex-direction: column; gap: 6px; font-family: 'Jost', sans-serif; letter-spacing: .08em; font-size: 13px; color: #6B6457">
+<span>R. Padre José Maria Xavier, 123 · Centro</span>
+<span>São João del Rei · MG</span>
+<a href="https://www.instagram.com/nutrikarolaineribeiro">@nutrikarolaineribeiro</a>
+</div>
+</div>
+<form id="kc-form" style="position: relative; flex: 1 1 340px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: #6B6457">Nome completo<input type="text" name="nome" style="font: inherit; font-size: 16px; color: #2A2620; background: rgba(255,255,255,.85); padding: 15px 16px; border: 1px solid #D5CAB3; border-radius: 14px"></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: #6B6457">WhatsApp<input type="tel" name="telefone" style="font: inherit; font-size: 16px; color: #2A2620; background: rgba(255,255,255,.85); padding: 15px 16px; border: 1px solid #D5CAB3; border-radius: 14px"></label>
+<label style="display: flex; flex-direction: column; gap: 8px; font-size: 13px; color: #6B6457">Como posso ajudar?<textarea name="mensagem" rows="3" style="font: inherit; font-size: 16px; color: #2A2620; background: rgba(255,255,255,.85); padding: 15px 16px; border: 1px solid #D5CAB3; border-radius: 14px; resize: vertical"></textarea></label>
+<button type="submit" class="kc-btn" style="font: inherit; font-weight: 500; font-size: 16px; background: #2A2620; color: #FAF7F1; border: 0; border-radius: 999px; padding: 17px; cursor: pointer">Enviar mensagem</button>
+</form>
+</div>
+</section>
+
+</main>
+<footer style="max-width: 1200px; margin: 0 auto; padding: 0 24px 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 24px">
+<img src="img/logo.webp" alt="" style="width: 132px; height: 127px; object-fit: contain">
+<div aria-hidden="true" style="font-size: clamp(44px, 11.5vw, 168px); line-height: .9; letter-spacing: -.02em; font-weight: 500; font-family: 'Cormorant Garamond', serif; color: #EDE5D3; white-space: nowrap">Karolaine Ribeiro</div>
+<div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; font-family: 'Jost', sans-serif; letter-spacing: .08em; font-size: 12px; color: #6B6457; border-top: 1px solid #E6DDCA; padding-top: 20px">
+<span>Karolaine Ribeiro · Nutricionista · CRN-9 23955</span>
+<a href="https://reinventar.dev" style="color: #6B6457">Site por Reinventar</a>
+</div>
+</footer>
+
+<a class="kc-wa" href="https://wa.me/5532999649605" aria-label="Falar com a Karolaine no WhatsApp" style="position: fixed; right: 20px; bottom: 20px; z-index: 55; width: 60px; height: 60px; border-radius: 50%; background: #127468; display: flex; align-items: center; justify-content: center; box-shadow: 0 14px 36px rgba(18,116,104,.4)"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FAF7F1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5.1A8.5 8.5 0 1 1 21 11.5z"></path></svg></a>
+
+</div>
+<script>
+(function(){
+var i=0,t,sl=document.querySelectorAll('.sl'),si=document.querySelectorAll('.si'),pr=document.querySelectorAll('[data-prog]'),num=document.getElementById('kc-num');
+function show(n){i=(n+3)%3;
+sl.forEach(function(e){e.classList.toggle('on',+e.dataset.slide===i)});
+si.forEach(function(e){e.classList.toggle('on',+e.dataset.slide===i)});
+pr.forEach(function(e){e.classList.remove('kc-run');void e.offsetWidth;if(+e.dataset.prog===i)e.classList.add('kc-run')});
+num.textContent='0'+(i+1);}
+function start(){clearInterval(t);t=setInterval(function(){show(i+1)},6500)}
+document.querySelectorAll('[data-go]').forEach(function(b){b.addEventListener('click',function(){show(+b.dataset.go);start()})});
+document.querySelectorAll('[data-nav]').forEach(function(b){b.addEventListener('click',function(){show(i+(+b.dataset.nav));start()})});
+show(0);start();
+var G=[["Emagrecer", "Emagrecimento saudável", "Um plano prazeroso, sem fome e sem restrições desnecessárias, ajustado à sua rotina."], ["Tratar a obesidade", "Tratamento da obesidade", "Acompanhamento especializado em obesidade e síndrome metabólica, com escuta e sem julgamentos."], ["Cirurgia bariátrica", "Pré e pós-bariátrica", "Preparo nutricional antes da cirurgia e suporte em cada fase da adaptação depois dela."], ["Comer melhor", "Reeducação alimentar", "Hábitos sustentáveis e autonomia para fazer boas escolhas no dia a dia."], ["Cuidar da saúde", "Tratamento de doenças", "Alimentação como parte do cuidado clínico, alinhada aos seus exames."]],WA='https://wa.me/5532999649605?text=';
+function goal(n){document.querySelectorAll('.kc-goal').forEach(function(b){b.setAttribute('aria-pressed',+b.dataset.goal===n?'true':'false')});
+document.getElementById('kc-gt').textContent=G[n][1];document.getElementById('kc-gx').textContent=G[n][2];
+document.getElementById('kc-gl').href=WA+encodeURIComponent('Olá, Karolaine! Vim pelo site e quero ajuda com: '+G[n][1]+'.');}
+document.querySelectorAll('.kc-goal').forEach(function(b){b.addEventListener('click',function(){goal(+b.dataset.goal)})});goal(0);
+document.getElementById('kc-form').addEventListener('submit',function(e){e.preventDefault();var f=e.target;
+var m='Olá, Karolaine! Meu nome é '+f.nome.value+'. '+f.mensagem.value;window.open(WA+encodeURIComponent(m),'_blank','noopener');});
+})();
+</script>
+</body>
+</html>
