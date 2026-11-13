@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Karolaine Ribeiro · Nutricionista em Centro, São João del Rei</title>
+<meta name="description" content="Nutricionista em São João del Rei (CRN-9 23955). Emagrecimento, obesidade e pré e pós-bariátrica, com atendimento presencial e online.">
+<meta property="og:title" content="Karolaine Ribeiro · Nutrição Clínica">
+<meta property="og:description" content="Emagrecimento na vida real, com ciência e escuta. Presencial em São João del Rei e online.">
+<meta property="og:image" content="https://karolaine.reinventar.dev/og.jpg">
+<link rel="icon" href="img/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1C1915;--ink2:#26221C;--off:#FAF7F1;--palha:#EFE6D3;--palha2:#E3D5B8;--line:#E4DBC8;--gold:#E0A64B;--teal:#127468;--tealb:#4DB3A5;--mut:#6B6457;--mutd:#B9B0A0}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Jost',system-ui,sans-serif;color:var(--ink);background:var(--off);overflow-x:hidden}
+a{color:inherit}
+img{display:block;max-width:100%}
+.serif{font-family:'Cormorant Garamond',serif}
+.up{text-transform:uppercase;letter-spacing:.28em;font-size:12px;font-weight:500}
+.wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+.prev-bar{background:var(--gold);color:var(--ink);text-align:center;font-size:12px;letter-spacing:.08em;padding:8px 16px}
+.bar{position:fixed;left:0;top:0;height:3px;width:100%;background:var(--gold);transform:scaleX(0);transform-origin:left;z-index:90}
+
+/* header */
+.hd{position:fixed;left:0;right:0;top:0;z-index:80;transition:background .4s ease,box-shadow .4s ease,transform .4s ease}
+.hd.solid{background:rgba(28,25,21,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 40px rgba(0,0,0,.25)}
+.hd .in{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:16px 28px;color:#fff}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+.brand .chip{width:54px;height:54px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex:none}
+.brand .chip img{width:44px;height:43px;object-fit:contain}
+.brand b{display:block;font-weight:500;font-size:16px;letter-spacing:.02em}
+.brand small{display:block;font-size:11px;letter-spacing:.16em;color:#D9D2C4}
+.nav{display:flex;gap:34px}
+.nav a{text-decoration:none;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:#E9E3D6;position:relative;padding:14px 0}
+.nav a::after{content:"";position:absolute;left:0;right:100%;bottom:8px;height:1px;background:var(--gold);transition:right .35s ease}
+.nav a:hover::after{right:0}
+.pill{display:inline-flex;align-items:center;gap:12px;background:var(--gold);color:var(--ink);text-decoration:none;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;padding:17px 28px;border-radius:999px;border:0;cursor:pointer;transition:transform .25s ease,box-shadow .25s ease,background .25s ease}
+.pill:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(224,166,75,.45);background:#EBB763}
+.pill.teal{background:var(--teal);color:#fff}.pill.teal:hover{background:#0E5F56;box-shadow:0 14px 40px rgba(18,116,104,.4)}
+.pill svg{transition:transform .25s ease}.pill:hover svg{transform:translateX(4px)}
+
+/* hero */
+.hero{position:relative;height:100vh;min-height:680px;max-height:980px;background:var(--ink);color:#fff;overflow:hidden}
+.bg{position:absolute;inset:0;opacity:0;transition:opacity 1.6s ease}
+.bg.on{opacity:1}
+.bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.bg:nth-child(1) img{object-position:60% 28%;animation:kb1 16s ease-in-out infinite alternate}
+.bg:nth-child(2) img{object-position:75% 20%;animation:kb2 18s ease-in-out infinite alternate}
+.bg:nth-child(3) img{object-position:50% 36%;animation:kb3 17s ease-in-out infinite alternate}
+@keyframes kb1{from{transform:scale(1.02)}to{transform:scale(1.12)}}
+@keyframes kb2{from{transform:scale(1.3) translateX(4%)}to{transform:scale(1.42) translateX(-2%)}}
+@keyframes kb3{from{transform:scale(1.22)}to{transform:scale(1.1) translateY(-2%)}}
+.shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(24,21,17,.92) 0%,rgba(24,21,17,.72) 38%,rgba(24,21,17,.28) 72%,rgba(24,21,17,.18) 100%),linear-gradient(0deg,rgba(24,21,17,.75) 0%,rgba(24,21,17,0) 34%)}
+.glow{position:absolute;width:520px;height:520px;border-radius:50%;background:radial-gradient(circle,rgba(224,166,75,.20),rgba(224,166,75,0) 65%);left:var(--mx,30%);top:var(--my,50%);transform:translate(-50%,-50%);pointer-events:none;transition:left .5s ease-out,top .5s ease-out}
+.rail{position:absolute;left:0;top:0;bottom:0;width:112px;border-right:1px solid rgba(255,255,255,.12);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:26px;padding:0 0 44px;z-index:3}
+.rail .vert{writing-mode:vertical-rl;transform:rotate(180deg);font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:#D9D2C4}
+.rail .ln{width:1px;height:64px;background:rgba(255,255,255,.3)}
+.rail a{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:background .25s ease}
+.rail a:hover{background:rgba(255,255,255,.12)}
+.count{position:absolute;left:150px;top:150px;z-index:3;display:flex;align-items:flex-start;gap:8px}
+.count b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:84px;line-height:.8;color:var(--gold)}
+.count span{font-size:13px;letter-spacing:.2em;color:#D9D2C4;padding-top:6px}
+.slides{position:absolute;left:150px;right:28px;bottom:150px;z-index:3;max-width:720px;min-height:360px}
+.sl{position:absolute;left:0;right:0;bottom:0;display:flex;flex-direction:column;gap:24px;opacity:0;visibility:hidden;transform:translateY(34px);transition:opacity 1s ease,transform 1.2s cubic-bezier(.16,.8,.2,1),visibility 1s}
+.sl.on{opacity:1;visibility:visible;transform:none}
+.sl .eye{display:flex;align-items:center;gap:16px;color:var(--gold)}
+.sl .eye i{width:48px;height:1px;background:var(--gold)}
+.sl h1,.sl h2{margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(44px,6.4vw,96px);line-height:.94;letter-spacing:-.015em}
+.sl em{font-style:italic;color:var(--gold)}
+.sl p{margin:0;font-size:18px;line-height:1.6;font-weight:300;color:#E9E3D6;max-width:520px}
+.ctl{position:absolute;left:150px;right:28px;bottom:48px;z-index:3;display:flex;align-items:center;gap:32px;flex-wrap:wrap}
+.ctl button{background:none;border:0;color:#fff;font:inherit;font-size:12px;letter-spacing:.3em;text-transform:uppercase;cursor:pointer;display:flex;align-items:center;gap:12px;padding:14px 0;min-height:44px;transition:color .25s ease}
+.ctl button:hover{color:var(--gold)}
+.tabs{flex:1 1 320px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;max-width:560px}
+.tabs button{flex-direction:column;align-items:stretch;gap:10px;text-align:left;letter-spacing:.2em;font-size:11px;color:#D9D2C4}
+.tabs span{display:block;height:2px;background:rgba(255,255,255,.22)}
+.tabs span i{display:block;height:2px;background:var(--gold);transform:scaleX(0);transform-origin:left}
+.tabs span i.run{animation:fill 6.5s linear forwards}
+@keyframes fill{to{transform:scaleX(1)}}
+
+/* sections */
+.sec{position:relative;padding:130px 0;overflow:hidden}
+.grid-lines{background-image:linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:20% 100%;background-position:center}
+.ghost{position:absolute;left:4%;top:86px;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:clamp(110px,19vw,280px);line-height:1;color:#F1EADB;pointer-events:none;user-select:none;white-space:nowrap}
+.dark .ghost{color:#24201A}
+.ttl{position:relative;text-align:center;margin:0 0 72px;font-weight:500;font-size:clamp(22px,2.6vw,30px);letter-spacing:.34em;text-transform:uppercase}
+.ttl em{font-style:normal;color:var(--teal)}
+.dark .ttl em{color:var(--gold)}
+.rv{opacity:0;transform:translateY(40px);transition:opacity .9s ease,transform 1s cubic-bezier(.16,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.12s}.rv.d2{transition-delay:.24s}.rv.d3{transition-delay:.36s}
+
+.about{position:relative;display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:56px;align-items:start}
+.about h3{margin:0 0 22px;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:38px;line-height:1.02}
+.about p{margin:0;font-size:16px;line-height:1.75;font-weight:300;color:var(--mut)}
+.spec{display:flex;flex-direction:column;gap:22px;margin:0;padding:0;list-style:none}
+.spec li{display:flex;align-items:center;gap:16px;font-size:12px;letter-spacing:.24em;text-transform:uppercase;font-weight:500}
+.spec svg{flex:none}
+.portrait{position:relative;aspect-ratio:1;overflow:hidden}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:66% 26%;transition:transform 1.2s ease}
+.portrait:hover img{transform:scale(1.06)}
+.portrait::after{content:"";position:absolute;inset:14px;border:1px solid rgba(255,255,255,.6);pointer-events:none}
+.creds{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:88px;border-top:1px solid var(--line)}
+.creds div{padding:30px 28px 0 0}
+.creds b{display:block;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:30px;line-height:1.1}
+.creds span{display:block;margin-top:8px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--mut)}
+
+/* strips */
+.strips{display:flex;height:620px;background:var(--ink)}
+.strip{position:relative;flex:1;min-width:0;padding:44px 34px;color:#fff;display:flex;flex-direction:column;overflow:hidden;transition:flex 1s cubic-bezier(.16,.8,.2,1);text-decoration:none}
+.strip:hover{flex:1.9}
+.strip:nth-child(1){background:#2A2620}
+.strip:nth-child(2){background:#127468}
+.strip:nth-child(3){background:#3A3329}
+.strip:nth-child(4){background:#0E5F56}
+.strip:nth-child(5){background:#1C1915}
+.strip .num{font-family:'Cormorant Garamond',serif;font-size:64px;line-height:1;color:var(--gold)}
+.strip h3{margin:18px 0 0;font-size:17px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;line-height:1.35}
+.strip p{margin:18px 0 0;font-size:15px;line-height:1.65;font-weight:300;color:#E9E3D6;max-width:300px;opacity:0;transform:translateY(16px);transition:opacity .6s ease .1s,transform .7s ease .1s}
+.strip:hover p,.strip:focus p{opacity:1;transform:none}
+.strip .vert{margin-top:auto;writing-mode:vertical-rl;transform:rotate(180deg);align-self:flex-start;font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:#D9D2C4}
+.strip::before{content:"";position:absolute;right:-90px;bottom:-90px;width:260px;height:260px;border-radius:50%;border:1px solid rgba(255,255,255,.16);transition:transform 1s ease}
+.strip:hover::before{transform:scale(1.5)}
+
+/* quote */
+.dark{background:var(--ink);color:#fff}
+.quote{position:relative;text-align:center;max-width:980px;margin:0 auto}
+.quote p{margin:0;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(32px,4.6vw,62px);line-height:1.12}
+.quote p em{color:var(--gold)}
+.quote span{display:block;margin-top:34px;color:var(--mutd)}
+
+/* method */
+.steps{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--line)}
+.step{padding:44px 36px 0 0;position:relative}
+.step::before{content:"";position:absolute;left:0;top:-1px;width:0;height:2px;background:var(--teal);transition:width 1.4s ease .3s}
+.step.in::before{width:72px}
+.step b{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:96px;line-height:.9;color:var(--palha2)}
+.step h3{margin:18px 0 12px;font-size:15px;font-weight:500;letter-spacing:.22em;text-transform:uppercase}
+.step p{margin:0;font-size:16px;line-height:1.7;font-weight:300;color:var(--mut);max-width:300px}
+
+/* goal */
+.goal{position:relative;display:grid;grid-template-columns:1.1fr 1fr;gap:0;background:#fff;border:1px solid var(--line)}
+.goal .l{padding:64px 56px}
+.goal .r{background:var(--palha);padding:64px 56px;display:flex;flex-direction:column;gap:18px}
+.goal h3{margin:14px 0 30px;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(34px,4vw,54px);line-height:1}
+.goal h3 em{color:var(--teal)}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chips button{font:inherit;font-size:12px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;padding:15px 20px;background:#fff;color:var(--ink);border:1px solid #D5CAB3;transition:background .25s ease,color .25s ease,border-color .25s ease}
+.chips button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.goal .r h4{margin:0;font-family:'Cormorant Garamond',serif;font-weight:600;font-size:36px;line-height:1.05}
+.goal .r p{margin:0;font-size:17px;line-height:1.65;font-weight:300;color:#5E574B}
+.goal .r .pill{align-self:flex-start;margin-top:auto}
+
+/* faq + contact */
+.faq{max-width:860px;margin:0 auto;position:relative}
+details{border-bottom:1px solid var(--line);padding:26px 0}
+summary{cursor:pointer;list-style:none;font-size:20px;display:flex;justify-content:space-between;gap:24px;min-height:28px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-family:'Cormorant Garamond',serif;font-size:30px;line-height:.8;color:var(--teal);transition:transform .3s ease}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin:14px 0 0;font-size:16px;line-height:1.7;font-weight:300;color:var(--mut)}
+.contact{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.contact h3{margin:18px 0 22px;font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(40px,5.4vw,76px);line-height:.98}
+.contact h3 em{color:var(--gold)}
+.contact p{margin:0 0 30px;font-size:18px;line-height:1.6;font-weight:300;color:#E9E3D6}
+.contact address{font-style:normal;margin-top:34px;display:flex;flex-direction:column;gap:8px;font-size:13px;letter-spacing:.12em;color:var(--mutd)}
+form{display:flex;flex-direction:column;gap:22px}
+label{display:flex;flex-direction:column;gap:10px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--mutd)}
+input,textarea{font:inherit;font-size:17px;letter-spacing:0;text-transform:none;color:#fff;background:transparent;border:0;border-bottom:1px solid #4A443A;padding:10px 0 14px;outline:none;transition:border-color .3s ease}
+input:focus,textarea:focus{border-color:var(--gold)}
+footer{background:#14120F;color:var(--mutd);padding:30px 0;font-size:12px;letter-spacing:.14em}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+.wa{position:fixed;right:20px;bottom:20px;z-index:85;width:60px;height:60px;border-radius:50%;background:var(--teal);display:flex;align-items:center;justify-content:center;box-shadow:0 14px 36px rgba(18,116,104,.45)}
+.wa::after{content:"";position:absolute;inset:0;border-radius:50%;animation:wa 2s ease-out infinite}
+@keyframes wa{0%{box-shadow:0 0 0 0 rgba(18,116,104,.5)}100%{box-shadow:0 0 0 18px rgba(18,116,104,0)}}
+
+@media (max-width:980px){
+.nav{display:none}
+.rail{display:none}
+.count{display:none}
+.ctl{padding-right:76px}
+.slides{left:28px;bottom:170px}
+.ctl{left:28px;bottom:30px;gap:10px 24px}
+.shade{background:linear-gradient(0deg,rgba(24,21,17,.94) 0%,rgba(24,21,17,.7) 48%,rgba(24,21,17,.25) 100%)}
+.sec{padding:90px 0}
+.about,.contact,.goal{grid-template-columns:1fr}
+.creds,.steps{grid-template-columns:1fr}
+.strips{flex-direction:column;height:auto}
+.strip{padding:34px 28px}.strip p{opacity:1;transform:none}.strip .vert{display:none}
+.goal .l,.goal .r{padding:40px 28px}
+.grid-lines{background-size:50% 100%}
+}
+@media (max-height:800px){.count{display:none}}
+@media (max-width:520px){.hd .pill{display:none}.sl p{font-size:16px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Karolaine Ribeiro · Nutricionista","description":"Nutrição clínica: emagrecimento, obesidade, pré e pós-bariátrica e reeducação alimentar.","telephone":"+55 32 99964-9605","address":{"@type":"PostalAddress","streetAddress":"R. Padre José Maria Xavier, 123","addressLocality":"São João del Rei","addressRegion":"MG","postalCode":"36307-340","addressCountry":"BR"},"url":"https://karolaine.reinventar.dev","sameAs":["https://www.instagram.com/nutrikarolaineribeiro"]}</script>
+</head>
+<body>
+<div class="bar" id="bar" aria-hidden="true"></div>
+
+<header class="hd" id="hd">
+<div class="prev-bar">PRÉVIA PARA APROVAÇÃO · EXEMPLO DE COMO SEU SITE PODE FICAR</div>
+<div class="in">
+<a class="brand" href="#topo" aria-label="Karolaine Ribeiro, início">
+<span class="chip"><img src="img/logo.webp" alt="Logo Karolaine Ribeiro Nutrição Clínica"></span>
+<span><b>Karolaine Ribeiro</b><small>NUTRICIONISTA · CRN-9 23955</small></span>
+</a>
+<nav class="nav" aria-label="Seções">
+<a href="#sobre">Sobre</a><a href="#servicos">Serviços</a><a href="#metodo">Método</a><a href="#duvidas">Dúvidas</a><a href="#contato">Contato</a>
+</nav>
+<a class="pill" href="https://wa.me/5532999649605">Agendar</a>
+</div>
+</header>
+
+<main>
+<section class="hero" id="topo" aria-label="Destaques">
+<div class="bg on"><img src="img/karolaine.webp" alt="Karolaine Ribeiro, nutricionista"></div>
+<div class="bg"><img src="img/karolaine.webp" alt=""></div>
+<div class="bg"><img src="img/karolaine.webp" alt=""></div>
+<div class="shade" aria-hidden="true"></div>
+<div class="glow" aria-hidden="true"></div>
+
+<div class="rail">
+<span class="vert">Nutrição clínica</span>
+<span class="ln" aria-hidden="true"></span>
+<a href="https://www.instagram.com/nutrikarolaineribeiro" aria-label="Instagram da Karolaine"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.3" cy="6.7" r=".6" fill="#fff"></circle></svg></a>
+<a href="https://wa.me/5532999649605" aria-label="WhatsApp da Karolaine"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5.1A8.5 8.5 0 1 1 21 11.5z"></path></svg></a>
+</div>
+
+<div class="count" aria-hidden="true"><b id="num">01</b><span>/ 03</span></div>
+
+<div class="slides">
+<div class="sl on">
+<div class="eye up"><i></i>Nutrição clínica · CRN-9 23955</div>
+<h1>Prazer, <em>Karolaine</em>.</h1>
+<p>Meu compromisso é ajudar você a emagrecer de forma definitiva, com escuta, empatia e ciência.</p>
+<div><a class="pill" href="https://wa.me/5532999649605">Agendar consulta <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
+</div>
+<div class="sl">
+<div class="eye up"><i></i>O método</div>
+<h2>Sem restrições <em>desnecessárias</em>.</h2>
+<p>Um plano alimentar prazeroso, que respeita o seu paladar, a sua rotina e a sua vida social.</p>
+<div><a class="pill" href="#metodo">Ver como funciona <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
+</div>
+<div class="sl">
+<div class="eye up"><i></i>Atendimento</div>
+<h2>Presencial e <em>online</em>.</h2>
+<p>No Centro de São João del Rei ou de qualquer lugar do mundo, com o mesmo cuidado em cada retorno.</p>
+<div><a class="pill" href="https://wa.me/5532999649605">Quero atendimento <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a></div>
+</div>
+</div>
+
+<div class="ctl">
+<button type="button" data-nav="-1"><svg aria-hidden="true" width="22" height="12" viewBox="0 0 28 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M28 6H1M6 1L1 6l5 5"></path></svg>Anterior</button>
+<button type="button" data-nav="1">Próximo<svg aria-hidden="true" width="22" height="12" viewBox="0 0 28 12" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 6h27M22 1l5 5-5 5"></path></svg></button>
+<div class="tabs">
+<button type="button" data-go="0"><span><i></i></span>Quem sou</button>
+<button type="button" data-go="1"><span><i></i></span>O método</button>
+<button type="button" data-go="2"><span><i></i></span>Atendimento</button>
+</div>
+</div>
+</section>
+
+<section class="sec grid-lines" id="sobre">
+<div class="ghost" data-par="-0.12" aria-hidden="true">Sobre</div>
+<div class="wrap">
+<h2 class="ttl rv">Sobre <em>Karolaine</em></h2>
+<div class="about">
+<div class="rv">
+<h3>Nutrição que respeita a sua vida real.</h3>
+<p>Acredito que o emagrecimento definitivo e sustentável nasce do respeito entre o seu paladar, a sua rotina, a sua vida social e as suas necessidades nutricionais. Por isso cada plano é construído junto com você, sem julgamentos.</p>
+</div>
+<div class="rv d1">
+<h3>Especialidades:</h3>
+<ul class="spec">
+<li><svg aria-hidden="true" width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#127468" stroke-width="1.4"><path d="M4 26l8-9 6 5 12-14"></path><path d="M22 8h8v8"></path></svg>Emagrecimento</li>
+<li><svg aria-hidden="true" width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#127468" stroke-width="1.4"><circle cx="17" cy="17" r="12"></circle><path d="M17 9v8l5 4"></path></svg>Obesidade e síndrome metabólica</li>
+<li><svg aria-hidden="true" width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#127468" stroke-width="1.4"><rect x="6" y="6" width="22" height="22"></rect><path d="M17 11v12M11 17h12"></path></svg>Pré e pós-bariátrica</li>
+<li><svg aria-hidden="true" width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#127468" stroke-width="1.4"><path d="M17 30c-7-3-10-9-10-15 4 0 8 2 10 6 2-4 6-6 10-6 0 6-3 12-10 15z"></path><path d="M17 21V5"></path></svg>Reeducação alimentar</li>
+</ul>
+</div>
+<div class="portrait rv d2"><img src="img/karolaine.webp" alt="Retrato de Karolaine Ribeiro"></div>
+</div>
+<div class="creds">
+<div class="rv"><b>Nutrição · UFLA</b><span>Graduação · 2015–2019</span></div>
+<div class="rv d1"><b>Obesidade e Síndrome Metabólica</b><span>Pós-graduação · IPGS · 2022–2023</span></div>
+<div class="rv d2"><b>CRN-9 23955</b><span>Registro profissional</span></div>
+</div>
+</div>
+</section>
+
+<section id="servicos" aria-label="Serviços">
+<div class="sec dark" style="padding-bottom:72px"><div class="wrap"><h2 class="ttl rv" style="margin-bottom:0">Meus <em>serviços</em></h2></div></div>
+<div class="strips">
+<a class="strip" href="https://wa.me/5532999649605?text=Ol%C3%A1%2C%20Karolaine!%20Quero%20saber%20sobre%20emagrecimento%20saud%C3%A1vel."><span class="num">01</span><h3>Emagrecimento saudável</h3><p>Perda de peso com prazer em comer, sem fome e sem dietas radicais.</p><span class="vert">Nutrição clínica</span></a>
+<a class="strip" href="https://wa.me/5532999649605?text=Ol%C3%A1%2C%20Karolaine!%20Quero%20saber%20sobre%20tratamento%20da%20obesidade."><span class="num">02</span><h3>Tratamento da obesidade</h3><p>Acompanhamento especializado em obesidade e síndrome metabólica.</p><span class="vert">Nutrição clínica</span></a>
+<a class="strip" href="https://wa.me/5532999649605?text=Ol%C3%A1%2C%20Karolaine!%20Quero%20saber%20sobre%20pr%C3%A9%20e%20p%C3%B3s-bari%C3%A1trica."><span class="num">03</span><h3>Pré e pós-bariátrica</h3><p>Preparo para a cirurgia e suporte em cada fase da adaptação.</p><span class="vert">Nutrição clínica</span></a>
+<a class="strip" href="https://wa.me/5532999649605?text=Ol%C3%A1%2C%20Karolaine!%20Quero%20saber%20sobre%20reeduca%C3%A7%C3%A3o%20alimentar."><span class="num">04</span><h3>Reeducação alimentar</h3><p>Hábitos sustentáveis e autonomia para o dia a dia.</p><span class="vert">Nutrição clínica</span></a>
+<a class="strip" href="https://wa.me/5532999649605?text=Ol%C3%A1%2C%20Karolaine!%20Quero%20saber%20sobre%20tratamento%20de%20doen%C3%A7as."><span class="num">05</span><h3>Tratamento de doenças</h3><p>Alimentação como parte do cuidado clínico, alinhada aos seus exames.</p><span class="vert">Nutrição clínica</span></a>
+</div>
+</section>
+
+<section class="sec dark" aria-label="Filosofia">
+<div class="ghost" data-par="0.1" aria-hidden="true" style="left:auto;right:4%">Real</div>
+<div class="wrap">
+<div class="quote rv">
+<p>Nutrição vai além de prescrever dietas. É compreender você <em>por inteiro</em>.</p>
+<span class="up">Karolaine Ribeiro · Nutricionista</span>
+</div>
+</div>
+</section>
+
+<section class="sec grid-lines" id="metodo">
+<div class="ghost" data-par="-0.12" aria-hidden="true">Método</div>
+<div class="wrap">
+<h2 class="ttl rv">Como <em>funciona</em></h2>
+<div class="steps">
+<div class="step rv"><b>01</b><h3>Avaliação completa</h3><p>Histórico, rotina, exames e objetivos, com escuta ativa.</p></div>
+<div class="step rv d1"><b>02</b><h3>Plano individualizado</h3><p>Estratégia que respeita hábitos, preferências e a sua rotina.</p></div>
+<div class="step rv d2"><b>03</b><h3>Acompanhamento</h3><p>Retornos para medir a evolução e ajustar o plano.</p></div>
+</div>
+<div class="goal rv" style="margin-top:110px">
+<div class="l">
+<span class="up" style="color:var(--teal)">Comece por aqui</span>
+<h3>Qual é o seu <em>objetivo</em> hoje?</h3>
+<div class="chips" id="chips"></div>
+</div>
+<div class="r">
+<span class="up" style="color:var(--mut)">Seu ponto de partida</span>
+<h4 id="gt"></h4>
+<p id="gx"></p>
+<a class="pill teal" id="gl" href="https://wa.me/5532999649605">Quero começar <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+</div>
+</div>
+</div>
+</section>
+
+<section class="sec" id="duvidas" style="background:#fff">
+<div class="wrap">
+<h2 class="ttl rv">Perguntas <em>frequentes</em></h2>
+<div class="faq">
+<details class="rv"><summary>O atendimento é presencial ou online?</summary><p>Os dois. Presencial no Centro de São João del Rei e online para qualquer cidade.</p></details>
+<details class="rv"><summary>Vou precisar cortar tudo o que gosto?</summary><p>Não. O plano evita restrições desnecessárias e busca mudanças que você consiga manter.</p></details>
+<details class="rv"><summary>Atende convênio?</summary><p>O atendimento é particular. [FORMAS DE PAGAMENTO E RECIBO PARA REEMBOLSO]</p></details>
+<details class="rv"><summary>O que levar na primeira consulta?</summary><p>[ORIENTAÇÕES DA KAROLAINE: EXAMES RECENTES, MEDICAMENTOS EM USO ETC.]</p></details>
+</div>
+</div>
+</section>
+
+<section class="sec dark" id="contato">
+<div class="ghost" data-par="0.1" aria-hidden="true">Contato</div>
+<div class="wrap">
+<div class="contact">
+<div class="rv">
+<span class="up" style="color:var(--gold)">Contato</span>
+<h3>Vamos construir o seu <em>plano</em>?</h3>
+<p>Mande uma mensagem e receba os horários disponíveis.</p>
+<a class="pill" href="https://wa.me/5532999649605">WhatsApp (32) 99964-9605</a>
+<address>
+<span>R. PADRE JOSÉ MARIA XAVIER, 123 · CENTRO</span>
+<span>SÃO JOÃO DEL REI · MG</span>
+<a href="https://www.instagram.com/nutrikarolaineribeiro">@NUTRIKAROLAINERIBEIRO</a>
+</address>
+</div>
+<form id="form" class="rv d1">
+<label>Nome completo<input type="text" name="nome" required></label>
+<label>WhatsApp<input type="tel" name="telefone"></label>
+<label>Como posso ajudar?<textarea name="mensagem" rows="3"></textarea></label>
+<button class="pill" type="submit" style="align-self:flex-start">Enviar mensagem</button>
+</form>
+</div>
+</div>
+</section>
+</main>
+
+<footer><div class="wrap"><span>KAROLAINE RIBEIRO · NUTRICIONISTA · CRN-9 23955</span><a href="https://reinventar.dev">SITE POR REINVENTAR</a></div></footer>
+
+<a class="wa" href="https://wa.me/5532999649605" aria-label="Falar com a Karolaine no WhatsApp"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5.1A8.5 8.5 0 1 1 21 11.5z"></path></svg></a>
+
+<script>
+(function(){
+var WA='https://wa.me/5532999649605?text=';
+var i=0,t,bg=document.querySelectorAll('.bg'),sl=document.querySelectorAll('.sl'),pr=document.querySelectorAll('.tabs i'),num=document.getElementById('num');
+function show(n){i=(n+3)%3;
+bg.forEach(function(e,k){e.classList.toggle('on',k===i)});
+sl.forEach(function(e,k){e.classList.toggle('on',k===i)});
+pr.forEach(function(e,k){e.classList.remove('run');void e.offsetWidth;if(k===i)e.classList.add('run')});
+num.textContent='0'+(i+1);}
+function start(){clearInterval(t);t=setInterval(function(){show(i+1)},6500)}
+document.querySelectorAll('[data-go]').forEach(function(b){b.addEventListener('click',function(){show(+b.dataset.go);start()})});
+document.querySelectorAll('[data-nav]').forEach(function(b){b.addEventListener('click',function(){show(i+(+b.dataset.nav));start()})});
+show(0);start();
+
+var hero=document.querySelector('.hero'),glow=document.querySelector('.glow');
+hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect();glow.style.setProperty('--mx',(e.clientX-r.left)+'px');glow.style.setProperty('--my',(e.clientY-r.top)+'px')});
+
+var hd=document.getElementById('hd'),bar=document.getElementById('bar'),par=document.querySelectorAll('[data-par]');
+function onScroll(){var y=window.scrollY,h=document.documentElement.scrollHeight-window.innerHeight;
+hd.classList.toggle('solid',y>40);bar.style.transform='scaleX('+(h>0?y/h:0)+')';
+par.forEach(function(e){var r=e.parentElement.getBoundingClientRect();e.style.transform='translateX('+(r.top*parseFloat(e.dataset.par))+'px)'});}
+window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+
+if('IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.15});
+document.querySelectorAll('.rv').forEach(function(e){io.observe(e)});}else{document.querySelectorAll('.rv').forEach(function(e){e.classList.add('in')});}
+
+var G=[['Emagrecer','Emagrecimento saudável','Um plano prazeroso, sem fome e sem restrições desnecessárias, ajustado à sua rotina.'],
+['Tratar a obesidade','Tratamento da obesidade','Acompanhamento especializado em obesidade e síndrome metabólica, com escuta e sem julgamentos.'],
+['Cirurgia bariátrica','Pré e pós-bariátrica','Preparo nutricional antes da cirurgia e suporte em cada fase da adaptação depois dela.'],
+['Comer melhor','Reeducação alimentar','Hábitos sustentáveis e autonomia para fazer boas escolhas no dia a dia.'],
+['Cuidar da saúde','Tratamento de doenças','Alimentação como parte do cuidado clínico, alinhada aos seus exames.']];
+var chips=document.getElementById('chips');
+G.forEach(function(g,n){var b=document.createElement('button');b.type='button';b.textContent=g[0];b.addEventListener('click',function(){goal(n)});chips.appendChild(b)});
+function goal(n){[].forEach.call(chips.children,function(b,k){b.setAttribute('aria-pressed',k===n?'true':'false')});
+document.getElementById('gt').textContent=G[n][1];document.getElementById('gx').textContent=G[n][2];
+document.getElementById('gl').href=WA+encodeURIComponent('Olá, Karolaine! Vim pelo site e quero ajuda com: '+G[n][1]+'.');}
+goal(0);
+
+document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();var f=e.target;
+window.open(WA+encodeURIComponent('Olá, Karolaine! Meu nome é '+f.nome.value+'. '+f.mensagem.value),'_blank','noopener');});
+})();
+</script>
+</body>
+</html>
