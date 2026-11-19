@@ -14,23 +14,23 @@
   "fonte_titulo": "Big Shoulders Display",
   "fonte_texto": "Figtree",
   "titulo_italico": false,
-  "foto_principal": "sites/_arquivo/toninho-saga/img/pro-sorriso.webp",
+  "foto_principal": "sites/_toninho-saga/site/img/pro-sorriso.webp",
   "rotulo_servicos": "Música ao vivo",
   "servicos": [
     {
       "titulo": "Casamentos\ne [eventos]",
       "texto": "Cerimônia, recepção e confraternizações.",
-      "foto": "sites/_arquivo/toninho-saga/img/pro-abraco.webp"
+      "foto": "sites/_toninho-saga/site/img/pro-abraco.webp"
     },
     {
       "titulo": "Bares e\n[restaurantes]",
       "texto": "Almoço, happy hour e fim de semana.",
-      "foto": "sites/_arquivo/toninho-saga/img/g2.webp"
+      "foto": "sites/_toninho-saga/site/img/g2.webp"
     },
     {
       "titulo": "Aulas de\n[violão]",
       "texto": "Aula particular, do básico ao avançado.",
-      "foto": "sites/_arquivo/toninho-saga/img/pro-tocando.webp"
+      "foto": "sites/_toninho-saga/site/img/pro-tocando.webp"
     }
   ],
   "titulo_passos": "Como\n[contratar]",
@@ -39,9 +39,9 @@
     "Formato e repertório",
     "Show confirmado"
   ],
-  "foto_passos": "sites/_arquivo/toninho-saga/img/pro-teclado.webp",
+  "foto_passos": "sites/_toninho-saga/site/img/pro-teclado.webp",
   "titulo_site": "Tá tudo no\n[meu site]",
-  "site": "sites/_arquivo/toninho-saga/index.html",
+  "site": "sites/_toninho-saga/site/index.html",
   "paradas": [
     {
       "seletor": "body",

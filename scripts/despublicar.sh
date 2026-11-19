@@ -3,7 +3,7 @@
 #  1) publica uma página "indisponível" (noindex) no projeto sh-<slug> (o endereço *.pages.dev deixa de mostrar o site)
 #  2) desliga do projeto todos os domínios (subdomínio da softhouse e domínio próprio)
 #  3) apaga os registros DNS que apontam para sh-<slug>.pages.dev
-# Para voltar: tirar o site de sites/_arquivo/ e publicar de novo (workflow "Publicar sites").
+# Para voltar: git mv sites/_<slug>/site sites/<slug> e push (workflow "Publicar sites" religa domínio e DNS).
 # Uso: bash scripts/despublicar.sh <slug>
 set -uo pipefail
 slug="$1"; project="sh-${slug}"; pages_host="${project}.pages.dev"
