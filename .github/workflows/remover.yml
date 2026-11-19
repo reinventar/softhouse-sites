@@ -1,0 +1,56 @@
+name: Remover site
+
+# Despublica um site: remove os domínios do projeto Pages, apaga o projeto sh-<slug>
+# e o registro DNS <subdominio>.reinventar.dev. Antes, mova a pasta para sites/_<algo>
+# (pastas com "_" não são publicadas) para o código ficar guardado no repositório.
+
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: "Slug do site (projeto sh-<slug>), ex.: japa-personal"
+        required: true
+      subdominio:
+        description: "Subdomínio a apagar do DNS (ex.: japa). Vazio = só o projeto"
+        required: false
+
+jobs:
+  remover:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Remover projeto, domínios e DNS
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
+          SOFTHOUSE_DOMAIN: ${{ vars.SOFTHOUSE_DOMAIN }}
+          SLUG: ${{ github.event.inputs.slug }}
+          SUB: ${{ github.event.inputs.subdominio }}
+        run: |
+          set -u
+          api="https://api.cloudflare.com/client/v4"
+          H="Authorization: Bearer $CLOUDFLARE_API_TOKEN"
+          proj="sh-$SLUG"
+          base="$api/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$proj"
+
+          if curl -sS -H "$H" "$base" | jq -e '.success' >/dev/null; then
+            for d in $(curl -sS -H "$H" "$base/domains" | jq -r '.result[].name'); do
+              r=$(curl -sS -X DELETE -H "$H" "$base/domains/$d")
+              echo "$r" | jq -e '.success' >/dev/null && echo "::notice::Domínio removido do projeto: $d" || echo "::warning::Falhou ao remover domínio $d: $(echo "$r" | jq -c '.errors')"
+            done
+            r=$(curl -sS -X DELETE -H "$H" "$base")
+            echo "$r" | jq -e '.success' >/dev/null && echo "::notice::Projeto apagado: $proj" || { echo "::error::Falhou ao apagar $proj: $(echo "$r" | jq -c '.errors')"; exit 1; }
+          else
+            echo "::warning::Projeto $proj não existe (já removido?)"
+          fi
+
+          if [ -n "$SUB" ]; then
+            name="$SUB.$SOFTHOUSE_DOMAIN"
+            ids=$(curl -sS -H "$H" "$api/zones/$CF_ZONE_ID/dns_records?name=$name&per_page=50" | jq -r '.result[].id')
+            [ -n "$ids" ] || echo "::warning::Nenhum DNS para $name"
+            for id in $ids; do
+              r=$(curl -sS -X DELETE -H "$H" "$api/zones/$CF_ZONE_ID/dns_records/$id")
+              echo "$r" | jq -e '.success' >/dev/null && echo "::notice::DNS apagado: $name" || echo "::warning::Falhou DNS $name"
+            done
+          fi
+          echo "::notice::Remoção concluída: $proj ${SUB:+($SUB.$SOFTHOUSE_DOMAIN)}"
