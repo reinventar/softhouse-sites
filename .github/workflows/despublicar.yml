@@ -1,0 +1,23 @@
+name: Despublicar site
+
+on:
+  workflow_dispatch:
+    inputs:
+      slug:
+        description: "Cliente a tirar do ar (ex.: toninho-saga). O código não é apagado."
+        required: true
+
+jobs:
+  despublicar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Tirar do ar
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CF_ZONE_ID: ${{ secrets.CF_ZONE_ID }}
+        run: bash scripts/despublicar.sh "${{ github.event.inputs.slug }}"
