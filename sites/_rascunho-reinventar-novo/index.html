@@ -87,6 +87,12 @@ h1.gigante .l1{top:24%;left:max(20px,env(safe-area-inset-left,0px))}
 h1.gigante .l2{top:50%;right:max(20px,env(safe-area-inset-right,0px));text-align:right}
 h1.gigante .ch{display:inline-block;transform:translateY(105%);transition:transform 1.1s cubic-bezier(.19,1,.22,1)}
 .pronto h1.gigante .ch{transform:none}
+h1.gigante .l{will-change:transform,opacity}
+.endereco{position:absolute;z-index:1;right:max(20px,env(safe-area-inset-right,0px));top:calc(50% + clamp(52px,10.6vw,188px)*1.02);display:inline-flex;align-items:center;gap:10px;padding:10px 16px 10px 14px;border:1px solid rgba(244,201,218,.22);border-radius:999px;background:rgba(11,10,12,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-family:var(--mono);font-size:clamp(13px,1.25vw,17px);white-space:nowrap}
+.endereco svg{width:14px;height:14px;flex:none;color:var(--verde)}
+.endereco .pref{color:var(--mudo)}
+.endereco .dom{color:var(--blush)}
+.endereco .cursor{width:2px;height:1.1em;vertical-align:-2px;margin-left:1px}
 h1.gigante .rs{color:var(--blush);font-style:normal}
 .h-base{position:absolute;left:max(24px,env(safe-area-inset-left,0px));right:max(24px,env(safe-area-inset-right,0px));bottom:56px;display:flex;justify-content:space-between;align-items:flex-end;gap:32px}
 .h-base .txt{max-width:420px}
@@ -259,6 +265,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
   h1.gigante{font-size:clamp(40px,12.4vw,80px)}
   h1.gigante .l1{top:calc(96px + 52px)}
   h1.gigante .l2{top:calc(96px + 52px + 1em)}
+  .endereco{top:calc(148px + clamp(40px,12.4vw,80px)*2.02);right:auto;left:max(20px,env(safe-area-inset-left,0px))}
   .h-base .txt p{display:none}
   .h-base{flex-direction:column;align-items:stretch;bottom:28px;gap:20px}
   .h-acoes{align-items:stretch}
@@ -309,6 +316,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
     <span class="l l1" aria-hidden="true" data-split>Sua marca,</span>
     <span class="l l2" aria-hidden="true" data-split>Seu endereço.</span>
   </h1>
+  <div class="endereco sobe" aria-label="Seu endereço na internet"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg><span class="pref">https://</span><span class="dom" id="dom">seunome.com.br</span><span class="cursor"></span></div>
   <div class="h-base">
     <div class="txt sobe">
       <strong>Seu trabalho merece um endereço próprio.</strong>
@@ -553,6 +561,58 @@ document.querySelectorAll("[data-split]").forEach(function(el){
   el.innerHTML = h;
 });
 requestAnimationFrame(function(){ requestAnimationFrame(function(){ document.body.classList.add("pronto"); }); });
+
+/* "SEU ENDEREÇO." se decodifica como código enquanto sobe */
+var l1 = document.querySelector("h1.gigante .l1"), l2 = document.querySelector("h1.gigante .l2");
+var letras = Array.prototype.slice.call(document.querySelectorAll("h1.gigante .ch"));
+if (!reduz) l2.querySelectorAll(".ch").forEach(function(c, i){
+  var certo = c.textContent, fim = performance.now() + 650 + i*90;
+  c.dataset.c = certo;
+  (function troca(){
+    if (performance.now() >= fim || certo === "."){ c.textContent = certo; return; }
+    c.textContent = "01<>/{}[]#*+=_"[(Math.random()*14)|0];
+    setTimeout(troca, 55);
+  })();
+});
+
+/* o endereço: digita, mostra, apaga, troca */
+var DOMS = ["seunome.com.br", "personal.reinventar.dev", "dentista.reinventar.dev", "corretor.reinventar.dev", "seunome.reinventar.dev"];
+var domEl = document.getElementById("dom");
+if (!reduz){
+  var di = 0, dn = DOMS[0].length, apagando = false;
+  setTimeout(function passo(){
+    var alvo = DOMS[di], espera = apagando ? 28 : 65;
+    if (!apagando && dn < alvo.length){ dn++; }
+    else if (!apagando){ apagando = true; espera = 2200; }
+    else if (dn > 0){ dn--; }
+    else { apagando = false; di = (di+1) % DOMS.length; espera = 320; }
+    domEl.textContent = DOMS[di].slice(0, dn);
+    setTimeout(passo, espera);
+  }, 2600);
+}
+
+/* título: peso da letra reage ao mouse; ao rolar, as duas linhas se afastam */
+var fino = matchMedia("(pointer:fine)").matches;
+var enderecoEl = document.querySelector(".endereco");
+(function laco(){
+  var vh = innerHeight, hp = clamp(scrollY / vh, 0, 1);
+  if (hp < 1){
+    l1.style.transform = "translate3d(" + (-hp*34).toFixed(2) + "vw,0,0)";
+    l2.style.transform = enderecoEl.style.transform = "translate3d(" + (hp*34).toFixed(2) + "vw,0,0)";
+    l1.style.opacity = l2.style.opacity = (1 - suave(0.15, 0.75, hp)).toFixed(3);
+    if (document.body.classList.contains("pronto") && hp > 0) enderecoEl.style.opacity = (1 - suave(0.1, 0.6, hp)).toFixed(3);
+    else if (hp === 0) enderecoEl.style.opacity = "";
+    if (fino && !reduz){
+      for (var i=0;i<letras.length;i++){
+        var r = letras[i].getBoundingClientRect();
+        var d = Math.hypot(r.left + r.width/2 - mx, r.top + r.height/2 - my);
+        var k = Math.max(0, 1 - d/260);
+        letras[i].style.fontWeight = Math.round(250 + k*k*420);
+      }
+    }
+  }
+  requestAnimationFrame(laco);
+})();
 
 /* rótulos que "decodificam" */
 var CH = "01<>/{}[]#*+=_";
@@ -824,6 +884,7 @@ function montaPalco(){
     dias.textContent = (d < 10 ? "0" : "") + d;
 
     canvas.classList.toggle("frente", r.top > vh*0.35);
+    var intro = reduz ? 0 : Math.pow(1 - suave(0.2, 2.2, t), 3);
     barra.classList.toggle("solido", scrollY > 40);
 
     uni.uF.value = F; uni.uT.value = t;
@@ -832,14 +893,14 @@ function montaPalco(){
     pecas.forEach(function(pc, i){
       pc.g.visible = vis;
       var resp = reduz ? 0 : Math.sin(t*1.3 + pc.fase) * 0.045 * (1 - F);
-      var voa = F * (2.2 + i*0.7);
+      var voa = F * (2.2 + i*0.7) + intro * (3.2 + i*0.6);
       pc.g.position.copy(pc.base).addScaledVector(pc.fora, resp + voa);
       pc.g.position.z = pc.base.z + F*pc.giro.z*2.5;
       pc.g.rotation.set(pc.giro.x*F*3.5, pc.giro.y*F*3.5, pc.giro.z*F*2.5);
     });
     cubo.visible = vis;
     cubo.rotation.set(reduz ? 0.5 : t*0.45, reduz ? 0.7 : t*0.62, 0);
-    cubo.scale.setScalar(Math.max(0.001, 1 - suave(0.0, 0.6, F)*0.9));
+    cubo.scale.setScalar(Math.max(0.001, (1 - suave(0.0, 0.6, F)*0.9) * (1 - intro)));
     uniP.uDim.value = dim;
     brilho.style.opacity = (suave(0.15, 0.7, F) * (1 - dim*0.85)).toFixed(3);
     brilho.style.transform = "scale(" + (0.8 + F*0.35).toFixed(3) + ")";
