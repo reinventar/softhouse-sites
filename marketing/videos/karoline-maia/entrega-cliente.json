@@ -42,10 +42,38 @@
       "texto": "Um PDF de 15 páginas para produtoras e castings."
     }
   ],
-  "kicker_site": "Feito para o celular",
-  "titulo_site": "um passeio\npelo site",
+  "kicker_site": "No celular",
+  "titulo_site": "e no\ncelular",
   "site": "sites/karoline-maia/index.html",
   "paradas": [
+    {
+      "seletor": "body",
+      "rotulo": "Abertura em cenas"
+    },
+    {
+      "seletor": "#direcao",
+      "rotulo": "Direção"
+    },
+    {
+      "seletor": "#projetos",
+      "rotulo": "Aulas, eventos e campanhas"
+    },
+    {
+      "seletor": "#contato",
+      "rotulo": "Seu WhatsApp direto"
+    }
+  ],
+  "cta": "seu site\nestá no ar.",
+  "cta_sub": "Seu endereço:",
+  "url": "karoline-maia.reinventar.dev",
+  "cta_whatsapp": "Me conta o que achou e o que quer ajustar.",
+  "cta_chip": "Abra e compartilhe",
+  "assinatura_reinventar": true,
+  "assinatura_frase": "Sites que trabalham por você.",
+  "notebook": true,
+  "kicker_notebook": "No computador",
+  "titulo_notebook": "no\nnotebook",
+  "paradas_notebook": [
     {
       "seletor": "body",
       "rotulo": "Abertura em cenas"
@@ -63,19 +91,8 @@
       "rotulo": "Aulas, eventos e campanhas"
     },
     {
-      "seletor": "#aulas",
-      "rotulo": "Para escolas e eventos"
-    },
-    {
       "seletor": "#contato",
-      "rotulo": "Seu WhatsApp direto"
+      "rotulo": "Contato"
     }
-  ],
-  "cta": "seu site\nestá no ar.",
-  "cta_sub": "Seu endereço:",
-  "url": "karoline-maia.reinventar.dev",
-  "cta_whatsapp": "Me conta o que achou e o que quer ajustar.",
-  "cta_chip": "Abra e compartilhe",
-  "assinatura_reinventar": true,
-  "assinatura_frase": "Sites que trabalham por você."
+  ]
 }

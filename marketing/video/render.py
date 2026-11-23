@@ -19,6 +19,7 @@ from playwright.sync_api import sync_playwright
 AQUI = os.path.dirname(os.path.abspath(__file__))
 RAIZ = os.path.abspath(os.path.join(AQUI, "..", ".."))
 LARG_TELA = 604   # largura útil da tela do celular no modelo (640 - 2*18)
+LARG_NOTE = 920   # largura da tela do notebook no modelo-cinema (config "notebook": true)
 
 def caminho(base, v):
     if not v or v.startswith(("http://", "https://", "file://", "data:")): return v
@@ -50,32 +51,40 @@ def main():
         b = p.chromium.launch()
 
         # 1) print do site no celular + posição de cada parada
-        if cfg.get("site"):
-            esc = LARG_TELA / 390          # escala de exibição na tela do celular
-            def abrir(dsf):
-                ctx = b.new_context(viewport={"width": 390, "height": 844}, device_scale_factor=dsf)
-                pg = ctx.new_page()
-                pg.route("https://fonts.googleapis.com/**", lambda r: r.fulfill(status=200, content_type="text/css", body=css))
-                pg.route("https://fonts.gstatic.com/**", lambda r: r.abort())
-                pg.goto(caminho(base, cfg["site"]), wait_until="load")
-                pg.add_style_tag(content=".demo,.preview,.previa,.wa,[class*=preview]{display:none!important} *{animation:none!important;transition:none!important} .reveal{opacity:1!important;transform:none!important}")
-                pg.evaluate("document.querySelectorAll('img[loading=lazy]').forEach(i=>i.loading='eager')")
-                pg.evaluate("document.fonts.ready"); pg.wait_for_timeout(1500)
-                return ctx, pg
-            ctx, pg = abrir(1)
+        def abrir(larg, alt, dsf):
+            ctx = b.new_context(viewport={"width": larg, "height": alt}, device_scale_factor=dsf)
+            pg = ctx.new_page()
+            pg.route("https://fonts.googleapis.com/**", lambda r: r.fulfill(status=200, content_type="text/css", body=css))
+            pg.route("https://fonts.gstatic.com/**", lambda r: r.abort())
+            pg.goto(caminho(base, cfg["site"]), wait_until="load")
+            pg.add_style_tag(content=".demo,.preview,.previa,.wa,[class*=preview]{display:none!important} *{animation:none!important;transition:none!important} .reveal{opacity:1!important;transform:none!important}")
+            pg.evaluate("document.querySelectorAll('img[loading=lazy]').forEach(i=>i.loading='eager')")
+            pg.evaluate("document.fonts.ready"); pg.wait_for_timeout(1500)
+            return ctx, pg
+
+        def print_site(larg, alt, tela, paradas, sufixo):
+            esc = tela / larg              # escala de exibição na tela do aparelho
+            ctx, pg = abrir(larg, alt, 1)
             altura = pg.evaluate("document.documentElement.scrollHeight"); ctx.close()
             dsf = min(esc, 15500 / altura)   # o Chromium não captura imagens com mais de ~16 mil px
-            ctx, pg = abrir(dsf)
+            ctx, pg = abrir(larg, alt, dsf)
             altura = pg.evaluate("document.documentElement.scrollHeight")
-            for pa in cfg.get("paradas", []):
+            for pa in paradas:
                 if "seletor" in pa:
                     y = pg.evaluate("s => { const e = document.querySelector(s); return e ? e.getBoundingClientRect().top + scrollY : 0 }", pa["seletor"])
-                    pa["y"] = max(0, min(y - pa.get("margem", 10), altura - 780)) * esc
+                    pa["y"] = max(0, min(y - pa.get("margem", 10), altura - alt)) * esc
                 pa.setdefault("y", 0)
-            arq = os.path.splitext(a.saida)[0] + "-print-site.png"
-            pg.screenshot(path=arq, full_page=True, clip={"x": 0, "y": 0, "width": 390, "height": altura})
-            cfg["print_site"] = "file://" + os.path.abspath(arq)
+            arq = os.path.splitext(a.saida)[0] + f"-print-{sufixo}.png"
+            pg.screenshot(path=arq, full_page=True, clip={"x": 0, "y": 0, "width": larg, "height": altura})
             ctx.close()
+            return "file://" + os.path.abspath(arq)
+
+        # 1) print do site no celular (+ notebook, se a config pedir) e posição de cada parada
+        if cfg.get("site"):
+            cfg["print_site"] = print_site(390, 844, LARG_TELA, cfg.get("paradas", []), "site")
+            if cfg.get("notebook"):
+                cfg.setdefault("paradas_notebook", json.loads(json.dumps(cfg.get("paradas", []))))
+                cfg["print_notebook"] = print_site(1440, 900, LARG_NOTE, cfg["paradas_notebook"], "notebook")
 
         # 2) quadros
         pg = b.new_page(viewport={"width": 1080, "height": 1920})
