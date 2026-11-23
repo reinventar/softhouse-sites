@@ -57,6 +57,10 @@ a{color:inherit;text-decoration:none}
 #carrega .intro .e{display:inline-block;transform:scaleX(-1);color:var(--blush)}
 #carrega.frase .intro .l1,#carrega.frase .intro .l2{opacity:1;transform:none}
 #carrega.sai .intro .l1,#carrega.sai .intro .l2{opacity:0;transform:translateY(-30%);transition-delay:0s}
+#carrega .chuva-c{position:absolute;inset:0;width:100%;height:100%}
+#carrega .bloco{position:relative}
+#carrega .bt{display:inline-block;text-align:center}
+#carrega .bt.b{color:var(--verde);font-family:var(--mono);font-weight:400;transform:scale(.62);text-shadow:0 0 14px rgba(63,191,132,.8)}
 #carrega .barra{width:min(320px,60vw);height:1px;background:#14261D;overflow:hidden}
 #carrega .barra i{display:block;height:100%;width:100%;background:var(--verde);transform-origin:left;transform:scaleX(0)}
 #carrega .pct{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--mudo);margin-top:calc(-1 * clamp(14px,2.4vw,32px))}
@@ -131,10 +135,12 @@ h1.gigante{position:absolute;inset:0;margin:0;pointer-events:none;font-weight:20
 h1.gigante .l{position:absolute;display:block;padding-block:.08em .3em;white-space:nowrap}
 h1.gigante .l1{top:24%;left:max(20px,env(safe-area-inset-left,0px))}
 h1.gigante .l2{top:50%;right:max(20px,env(safe-area-inset-right,0px));text-align:right}
-h1.gigante .ch{display:inline-block;text-align:center;opacity:0;transition:color .35s ease,text-shadow .35s ease}
+h1.gigante .ch{display:inline-block;text-align:center;opacity:0;transition:color .9s ease,text-shadow .9s ease}
+h1.gigante .ch.acende{color:#BFF5DA;text-shadow:0 0 18px rgba(63,191,132,.95),0 0 4px rgba(63,191,132,.9);transition:none}
 h1.gigante .ch.on{opacity:1}
-h1.gigante .ch.mx{color:var(--verde);text-shadow:0 0 14px rgba(63,191,132,.75);font-family:var(--mono);font-weight:400;transform:scale(.62);transform-origin:50% 60%}
+h1.gigante .ch.mx{color:var(--verde);text-shadow:0 0 14px rgba(63,191,132,.75);font-family:var(--mono);font-weight:400;transform:scale(.6);transform-origin:50% 60%}
 html.no-js h1.gigante .ch{opacity:1}
+.hero .chuva{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1}
 h1.gigante .ced{position:relative}
 h1.gigante .ced::after{content:"";position:absolute;left:50%;top:.705em;width:.07em;height:.17em;border:solid currentColor;border-width:0 .022em .022em 0;border-radius:0 0 .06em 0;transform:translateX(-30%)}
 h1.gigante .ced.mx::after{display:none}
@@ -330,7 +336,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
 </style>
 </head>
 <body>
-<div id="carrega" aria-hidden="true"><div class="bloco"><h2 class="intro"><span class="l1">O que vamos</span><span class="l2">r<span class="e">e</span>inventar hoje?</span></h2><div class="barra"><i id="carrega-arco"></i></div><span class="pct" id="carrega-pct">0%</span></div></div>
+<div id="carrega" aria-hidden="true"><canvas class="chuva-c"></canvas><div class="bloco"><h2 class="intro"><span class="l1">O que vamos</span><span class="l2">r<span class="e">e</span>inventar hoje?</span></h2><div class="barra"><i id="carrega-arco"></i></div><span class="pct" id="carrega-pct">0%</span></div></div>
 <canvas id="gl" aria-hidden="true"></canvas>
 <div class="brilho" id="brilho" aria-hidden="true"></div>
 <div class="vinheta" aria-hidden="true"></div>
@@ -365,6 +371,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
     <g fill="#EEF2EF" fill-opacity=".55"><rect x="1160" y="636" width="6" height="6"/><rect x="1180" y="636" width="6" height="6"/><rect x="1200" y="636" width="6" height="6"/></g>
   </svg>
   <div class="h-topo mono sobe"><span><b>●</b>&nbsp; Sua marca, seu endereço</span><span>Sites one-page para<br>profissionais liberais</span></div>
+  <canvas class="chuva" aria-hidden="true"></canvas>
   <h1 class="gigante" aria-label="Sua marca, seu endereço.">
     <span class="l l1" aria-hidden="true" data-split>Sua marca,</span>
     <span class="l l2" aria-hidden="true" data-split>Seu endereço.</span>
@@ -632,10 +639,52 @@ document.querySelectorAll("[data-split]").forEach(function(el){
 (function(){
   var cg = document.getElementById("carrega"), arco = document.getElementById("carrega-arco"), pct = document.getElementById("carrega-pct");
   var foi = false;
-  function abre(){ if (foi) return; foi = true; cg.classList.add("sai"); setTimeout(function(){ document.body.classList.add("pronto"); if (window.__decodifica) window.__decodifica(); }, reduz ? 0 : 750); }
+  function abre(){ if (foi) return; foi = true; ultSai = performance.now(); cg.classList.add("sai"); setTimeout(function(){ document.body.classList.add("pronto"); if (window.__decodifica) window.__decodifica(); }, reduz ? 0 : 750); }
   function libera(){ setTimeout(abre, reduz ? 0 : 500); }
   if (reduz) { abre(); return; }
   requestAnimationFrame(function(){ cg.classList.add("frase"); });
+  /* o futuro é binário: "reinventar" nasce de 0 e 1 enquanto carrega */
+  var l2i = cg.querySelector(".intro .l2"), bts = [];
+  (function(){
+    var h = "", idx = 0;
+    Array.prototype.forEach.call(l2i.childNodes, function(n){
+      var txt = n.textContent, espelho = n.nodeType === 1;
+      for (var c of txt){
+        if (c === " ") { h += " "; continue; }
+        var ehPalavra = idx < 10; idx++;
+        h += '<span class="bt' + (ehPalavra ? ' b' : '') + (espelho ? ' e' : '') + '" data-c="' + c + '">' + (ehPalavra ? (Math.random() < .5 ? "0" : "1") : c) + '</span>';
+      }
+    });
+    l2i.innerHTML = h;
+    bts = Array.prototype.slice.call(l2i.querySelectorAll(".bt.b"));
+  })();
+  var ccv = cg.querySelector(".chuva-c"), ccx = ccv.getContext("2d"), cols = [], cfs = 15;
+  function tam(){ var d = Math.min(devicePixelRatio || 1, 2); ccv.width = innerWidth * d; ccv.height = innerHeight * d; ccx.setTransform(d,0,0,d,0,0); cfs = Math.max(12, Math.min(17, innerWidth / 90));
+    cols = []; for (var x = cfs / 2; x < innerWidth; x += cfs * 1.6) cols.push({ x: x, y: -Math.random() * innerHeight, v: innerHeight * (.25 + Math.random() * .5), n: 6 + (Math.random() * 16 | 0), bits: Array.from({length: 24}, function(){ return Math.random() < .5 ? "0" : "1"; }) }); }
+  tam();
+  var ult = performance.now(), progresso = 0;
+  (function chove(agora){
+    var dt = Math.min(.05, (agora - ult) / 1000); ult = agora;
+    ccx.clearRect(0, 0, innerWidth, innerHeight);
+    ccx.font = "500 " + cfs + "px 'JetBrains Mono', monospace"; ccx.textAlign = "center";
+    cols.forEach(function(c){
+      c.y += c.v * dt; if (c.y - c.n * cfs * 1.15 > innerHeight) { c.y = -Math.random() * 200; }
+      if (Math.random() < .2) c.bits[(Math.random() * 24) | 0] = Math.random() < .5 ? "0" : "1";
+      for (var j = 0; j < c.n; j++){
+        var a = (1 - j / c.n) * .5;
+        ccx.fillStyle = j ? "rgba(63,191,132," + a + ")" : "rgba(210,255,230,.75)";
+        ccx.fillText(c.bits[j], c.x, c.y - j * cfs * 1.15);
+      }
+    });
+    // cada letra de "reinventar" se fixa conforme a porcentagem sobe
+    bts.forEach(function(b, i){
+      if (b.dataset.ok) return;
+      if (progresso >= (i + 1) / bts.length * .97){ b.dataset.ok = 1; b.textContent = b.dataset.c; b.classList.remove("b"); }
+      else if (Math.random() < .3) b.textContent = Math.random() < .5 ? "0" : "1";
+    });
+    if (!cg.classList.contains("sai") || agora - ult < 1000) { if (!foi || performance.now() - ultSai < 900) requestAnimationFrame(chove); }
+  })(ult);
+  var ultSai = 0;
   var t0 = performance.now(), dur = 2600, carregou = document.readyState === "complete";
   addEventListener("load", function(){ carregou = true; });
   (function passo(agora){
@@ -643,7 +692,7 @@ document.querySelectorAll("[data-split]").forEach(function(el){
     if (!carregou) u = Math.min(u, 0.92);
     var e = 1 - Math.pow(1 - u, 3);
     arco.style.transform = "scaleX(" + e.toFixed(3) + ")";
-    pct.textContent = Math.round(e * 100) + "%";
+    pct.textContent = Math.round(e * 100) + "%"; progresso = e;
     if (u < 1 || !carregou) { if (agora - t0 < 6000) return requestAnimationFrame(passo); }
     setTimeout(libera, 250);
   })(t0);
@@ -659,26 +708,53 @@ document.querySelectorAll("[data-split]").forEach(function(el){
 /* "SEU ENDEREÇO." se decodifica como código enquanto sobe */
 var l1 = document.querySelector("h1.gigante .l1"), l2 = document.querySelector("h1.gigante .l2");
 var letras = Array.prototype.slice.call(document.querySelectorAll("h1.gigante .ch"));
+/* chuva binária (0 e 1) que cai e forma cada letra */
 window.__decodifica = function(){
-  var todas = letras, MX = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワン";
+  var todas = letras;
   if (reduz){ todas.forEach(function(c){ c.classList.add("on"); }); return; }
-  // fixa a largura de cada letra para nada pular enquanto os símbolos trocam
+  var hero = document.getElementById("topo"), cv = hero.querySelector(".chuva"), cx = cv.getContext("2d");
+  var dpr = Math.min(devicePixelRatio || 1, 2), hr = hero.getBoundingClientRect();
+  cv.width = hr.width * dpr; cv.height = hr.height * dpr; cx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  var fs = Math.max(12, Math.min(18, hr.width / 90)), passo = fs * 1.15;
   todas.forEach(function(c){ c.dataset.c = c.dataset.c || c.textContent; c.style.width = ""; c.style.width = c.getBoundingClientRect().width + "px"; });
-  var t0 = performance.now();
+  var t0 = performance.now(), gotas = [], ESP = 70;
+  function bit(){ return Math.random() < .5 ? "0" : "1"; }
+  // uma coluna para cada letra
   todas.forEach(function(c, i){
-    var certo = c.dataset.c, entra = t0 + i * 85, fim = entra + 420;
-    setTimeout(function(){
-      c.classList.add("on");
-      if (certo === " " || certo === "," || certo === ".") { c.textContent = certo; return; }
-      c.classList.add("mx");
-      (function troca(){
-        if (performance.now() >= fim){ c.textContent = certo; c.classList.remove("mx"); return; }
-        c.textContent = MX[(Math.random() * MX.length) | 0];
-        setTimeout(troca, 60);
-      })();
-    }, i * 85);
+    var certo = c.dataset.c, r = c.getBoundingClientRect();
+    if (certo === " ") return;
+    gotas.push({ x: r.left - hr.left + r.width / 2, y0: r.top - hr.top - hr.height * .45, alvo: r.top - hr.top + r.height * .55,
+      ini: t0 + i * ESP, vel: hr.height * 1.5, n: 16, el: c, certo: certo, bits: Array.from({length: 16}, bit), forte: 1 });
   });
-  setTimeout(function(){ todas.forEach(function(c){ c.style.width = ""; }); }, todas.length * 85 + 600);
+  // colunas de fundo, mais apagadas
+  var fundo = Math.round(hr.width / 45);
+  for (var k = 0; k < fundo; k++) gotas.push({ x: Math.random() * hr.width, y0: -Math.random() * hr.height * .6, alvo: hr.height * (0.5 + Math.random() * .7),
+    ini: t0 + Math.random() * (todas.length * ESP + 400), vel: hr.height * (0.7 + Math.random() * .8), n: 8 + (Math.random() * 14 | 0), bits: Array.from({length: 22}, bit), forte: .28 });
+  var fimTotal = t0 + todas.length * ESP + 2200;
+  function quadro(agora){
+    cx.clearRect(0, 0, hr.width, hr.height);
+    cx.font = "500 " + fs + "px 'JetBrains Mono', monospace"; cx.textAlign = "center";
+    gotas.forEach(function(g){
+      var dt = (agora - g.ini) / 1000; if (dt < 0) return;
+      var cab = g.y0 + dt * g.vel, chegou = cab >= g.alvo;
+      if (chegou && g.el && !g.ok){ g.ok = agora; var el = g.el; el.classList.add("on", "acende"); setTimeout(function(){ el.classList.remove("acende"); }, 60); }
+      var cabVis = g.el ? Math.min(cab, g.alvo) : cab;
+      var some = g.el ? (g.ok ? clamp(1 - (agora - g.ok) / 700, 0, 1) : 1) : clamp(1 - (cab - g.alvo) / 300, 0, 1);
+      if (some <= 0) return;
+      if (Math.random() < .25) g.bits[(Math.random() * g.bits.length) | 0] = bit();
+      for (var j = 0; j < g.n; j++){
+        var y = cabVis - j * passo; if (y < -fs) break;
+        var a = (1 - j / g.n) * g.forte * some;
+        if (j === 0){ cx.fillStyle = "rgba(210,255,230," + a + ")"; cx.shadowColor = "rgba(63,191,132,.9)"; cx.shadowBlur = 12; }
+        else { cx.fillStyle = "rgba(63,191,132," + a + ")"; cx.shadowBlur = j < 4 ? 8 : 0; }
+        cx.fillText(g.bits[j % g.bits.length], g.x, y);
+      }
+      cx.shadowBlur = 0;
+    });
+    if (agora < fimTotal) requestAnimationFrame(quadro);
+    else { cx.clearRect(0, 0, hr.width, hr.height); todas.forEach(function(c){ c.classList.add("on"); c.textContent = c.dataset.c; c.classList.remove("mx"); c.style.width = ""; }); }
+  }
+  requestAnimationFrame(quadro);
 };
 
 /* o endereço: digita, mostra, apaga, troca */
