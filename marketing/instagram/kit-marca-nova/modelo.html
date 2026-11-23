@@ -4,7 +4,7 @@
 :root{--preto:#000;--grafite:#06140E;--floresta:#0A3B27;--off:#EEF2EF;--mudo:#8FA89A;--vinho:#A8264F;--blush:#B8395E;--verde:#3FBF84;--linha:rgba(63,191,132,.22)}
 *{box-sizing:border-box}body{margin:0;background:#222;font-family:"Josefin Sans",sans-serif;color:var(--off)}
 .f{position:relative;overflow:hidden;background:#000;margin:20px}
-.post{width:1080px;height:1350px}.sq{width:1080px;height:1080px}
+.post{width:1080px;height:1350px}.st{width:1080px;height:1920px}.st::after{content:"";position:absolute;left:0;right:0;bottom:0;height:300px;background:linear-gradient(to top,#000 35%,transparent)}.sq{width:1080px;height:1080px}
 .mono{font-family:"JetBrains Mono",monospace;letter-spacing:.2em;text-transform:uppercase}
 .onda{position:absolute;left:-20%;right:-20%;top:60%;height:110%;background-image:radial-gradient(rgba(63,191,132,.85) 1.6px,transparent 2.2px);background-size:16px 16px;transform:perspective(700px) rotateX(62deg);transform-origin:top;-webkit-mask-image:linear-gradient(to bottom,transparent,#000 15%,#000 55%,transparent 85%);mask-image:linear-gradient(to bottom,transparent,#000 15%,#000 55%,transparent 85%);opacity:.75}
 .onda.v{background-image:radial-gradient(rgba(63,191,132,.85) 1.6px,transparent 2.2px),radial-gradient(rgba(168,38,79,.9) 1.6px,transparent 2.2px);background-size:16px 16px,112px 96px;background-position:0 0,8px 40px}
@@ -79,9 +79,17 @@ F.push(post('p3', topo('Como funciona','7 dias')+
  '<div class="conteudo"><h2 style="font-size:92px">Do briefing<br>ao <em>ar.</em></h2><div class="passos">'+
  [['dia 1','Conversa','Você conta sobre o seu trabalho pelo WhatsApp.'],['dia 3','Prévia gratuita','Você vê o seu site antes de decidir.'],['dia 5','Ajustes','Textos, cores e fotos do seu jeito.'],['dia 7','No ar','Publicado no seu endereço, com manutenção.']].map(function(a){return '<div class="passo"><span class="n">'+a[0]+'</span><div><h3>'+a[1]+'</h3><p>'+a[2]+'</p></div></div>';}).join('')+
  '</div></div>'+base(),''));
-F.push(cliente('p4','01','Igor Augusto','Personal trainer · São João del-Rei','igoraugusto.reinventar.dev','igor'));
-F.push(cliente('p5','02','Karoline Maia','Professora de teatro, diretora e atriz','karoline-maia.reinventar.dev','karoline'));
-F.push(cliente('p6','03','Toninho Saga','Músico · São João del-Rei','toninhosaga.reinventar.dev','toninho'));
+// p4 manifesto
+F.push(post('p4', topo('Manifesto')+
+ '<div class="conteudo" style="top:300px"><h2 style="font-size:100px">Reinventar<br>não é<br>começar do zero.</h2><p style="margin-top:60px;max-width:860px;font-size:38px">É olhar para o que <span style="color:var(--verde)">já existe</span> e criar <span style="color:var(--blush)">o que ainda não existe.</span> Com o seu trabalho, a sua história e o seu jeito.</p></div>'+base(),'v'));
+// p5 princípios
+F.push(post('p5', topo('No que acreditamos')+
+ '<div class="conteudo"><h2 style="font-size:92px">Três coisas<br>que <em>não mudam.</em></h2><div class="passos">'+
+ [['01','Identidade','Cada projeto nasce de quem você é. Nada de modelo pronto.'],['02','Simplicidade','Tecnologia que resolve, sem complicar a sua rotina.'],['03','Cuidado contínuo','A gente não entrega e some. Acompanha e melhora.']].map(function(a){return '<div class="passo"><span class="n">'+a[0]+'</span><div><h3>'+a[1]+'</h3><p>'+a[2]+'</p></div></div>';}).join('')+
+ '</div></div>'+base(),''));
+// p6 visão
+F.push(post('p6', topo('Para onde vamos')+
+ '<div class="conteudo" style="top:300px"><p class="mono" style="font-size:22px;color:var(--verde)">Hoje</p><h2 style="font-size:84px;margin-top:16px">Sites que mostram<br>o seu trabalho.</h2><div style="height:1px;background:var(--linha);margin:64px 0"></div><p class="mono" style="font-size:22px;color:var(--blush)">Amanhã</p><h2 style="font-size:84px;margin-top:16px">Soluções que<br><em>reinventam</em><br>processos.</h2></div>'+base(),'v'));
 // p7 sua marca seu endereço
 F.push(post('p7', topo('Sua marca, seu endereço')+
  '<div class="conteudo" style="top:330px"><h2 style="font-size:104px">Sua marca,<br><span style="display:block;text-align:right">seu endereço.</span></h2><div style="text-align:right;margin-top:60px"><span class="url"><span class="pref">https://</span><span class="dom">seunome.com.br</span><i class="cur"></i></span></div><p style="margin-top:70px;max-width:760px">Seu trabalho merece um endereço próprio: bonito no celular, fácil de achar no Google e com um toque até o seu WhatsApp.</p></div>'+base(),'g'));
@@ -93,6 +101,16 @@ F.push(post('p8', topo('Nosso serviço')+
 // p9 CTA
 F.push(post('p9', topo('Prévia gratuita','em 3 dias')+
  '<div class="conteudo" style="top:330px;text-align:center"><h2 style="font-size:116px;letter-spacing:-.04em">O que vamos<br>r<span class="e">e</span>inventar<br>hoje?</h2><p style="margin:60px auto 50px;max-width:800px">Mande “quero meu site” no WhatsApp e receba uma prévia gratuita, sem compromisso.</p><span class="pill">(37) 99918-1248 ↗</span></div>'+base(),'v'));
+function story(id,n,nome,nicho,url,img){
+  return '<div class="f st" id="'+id+'">'+cantos+topo('Cliente '+n,'no ar')+
+  '<div class="conteudo" style="top:230px"><h2 style="font-size:96px">'+nome+'</h2><p style="margin-top:18px;color:var(--mudo)">'+nicho+'</p></div>'+
+  '<div class="janela" style="left:84px;top:540px;width:912px;height:760px"><div class="barra"><i></i><i></i><i></i>&nbsp;https://'+url+'</div><div class="tela"><img src="../../../sites/reinventar/img/clientes/'+img+'-desk.webp"></div></div>'+
+  '<div class="cel" style="right:120px;top:980px;width:300px;height:620px"><img src="../../../sites/reinventar/img/clientes/'+img+'-cel.webp"></div>'+
+  '<div class="base mono" style="bottom:120px">'+marca(250,7)+'<span>'+url+'</span></div></div>';
+}
+F.push(story('st-igor','01','Igor Augusto','Personal trainer · São João del-Rei','igoraugusto.reinventar.dev','igor'));
+F.push(story('st-karoline','02','Karoline Maia','Professora de teatro, diretora e atriz','karoline-maia.reinventar.dev','karoline'));
+F.push(story('st-toninho','03','Toninho Saga','Músico · São João del-Rei','toninhosaga.reinventar.dev','toninho'));
 // destaques
 var ic={
  clientes:'<rect x="40" y="70" width="220" height="150" rx="10"/><path d="M40 100h220"/><rect x="200" y="120" width="70" height="120" rx="10" fill="#06140E"/>',

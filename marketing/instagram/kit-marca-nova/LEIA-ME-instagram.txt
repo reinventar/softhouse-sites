@@ -16,6 +16,8 @@ Botão de contato: WhatsApp (37) 99918-1248
 
 2) DESTAQUES (capas)
   Clientes      → hl-clientes.png
+                  Stories do destaque: st-igor.png, st-karoline.png, st-toninho.png
+                  (os sites ficam só aqui, não no feed; confirme com Karoline e Toninho antes)
   Como funciona → hl-como.png
   Serviço       → hl-servico.png
   Dúvidas       → hl-duvidas.png
@@ -44,23 +46,23 @@ p3 · Como funciona
   Você só fecha depois de ver o site pronto.
   #comofunciona #sitesprofissionais
 
-p4 · Cliente: Igor Augusto
-  Site no ar! 🚀 Igor Augusto, personal trainer em São João del-Rei: serviços, resultados e agendamento direto no WhatsApp.
-  igoraugusto.reinventar.dev
-  #personaltrainer #saojoaodelrei
-  (marque o perfil do Igor)
+p4 · Manifesto
+  Reinventar não é começar do zero. ✨
+  É olhar para o que já existe e criar o que ainda não existe: com o seu trabalho, a sua história e o seu jeito.
+  #reinventar #manifesto #divinopolis
 
-p5 · Cliente: Karoline Maia
-  Site no ar! 🎭 Karoline Maia, professora de teatro, diretora e atriz, agora tem um endereço com a cara do trabalho dela.
-  karoline-maia.reinventar.dev
-  #teatro #atriz
-  (confirme com a Karoline antes de postar e marque o perfil dela)
+p5 · No que acreditamos
+  Três coisas que não mudam na Reinventar:
+  01 Identidade: cada projeto nasce de quem você é.
+  02 Simplicidade: tecnologia que resolve, sem complicar a sua rotina.
+  03 Cuidado contínuo: a gente não entrega e some.
+  #reinventar #proposito
 
-p6 · Cliente: Toninho Saga
-  Site no ar! 🎸 Toninho Saga, músico em São João del-Rei: agenda de shows, vídeos e contato num lugar só.
-  toninhosaga.reinventar.dev
-  #musica #saojoaodelrei
-  (confirme com o Toninho antes de postar e marque o perfil dele)
+p6 · Para onde vamos
+  Hoje, sites que mostram o seu trabalho.
+  Amanhã, soluções que reinventam processos. 🚀
+  A Reinventar está só começando.
+  #inovacao #tecnologia #reinventar
 
 p7 · Sua marca, seu endereço
   Seu trabalho merece um endereço próprio. 🌐
