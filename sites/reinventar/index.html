@@ -46,28 +46,24 @@ a{color:inherit;text-decoration:none}
 /* palco */
 #gl{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;display:block}
 #gl.frente{z-index:3}
-/* carregamento */
-#carrega{position:fixed;inset:0;z-index:90;background:#000;display:grid;place-items:center;transition:opacity .7s ease,visibility .7s}
+/* carregamento: a frase aparece enquanto o site carrega até 100% */
+#carrega{position:fixed;inset:0;z-index:90;background:#000;display:grid;place-items:center;transition:opacity .8s ease,visibility .8s}
 #carrega.sai{opacity:0;visibility:hidden}
-#carrega .anel{position:relative;width:150px;height:150px}
-#carrega svg{width:150px;height:150px;transform:rotate(-90deg)}
-#carrega .pct{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--mudo)}
-#carrega .traco{position:absolute;left:58%;top:42%;width:42px;height:1px;background:var(--off)}
-/* abertura: a hero só aparece depois que a frase sai */
-.hero .hud,.hero .cantos,.hero .endereco,header{transition:opacity .8s ease}
-html.js body:not(.pronto) .hero .hud,html.js body:not(.pronto) .hero .cantos,html.js body:not(.pronto) .hero .endereco,html.js body:not(.pronto) header{opacity:0}
-.no-js #carrega{display:none}
-#carrega{transition:opacity .9s ease,visibility .9s,background-color .9s ease}
-#carrega .anel{transition:opacity .5s ease,transform .5s ease}
-#carrega.frase{background:rgba(0,0,0,.25)}
-#carrega.frase .anel{opacity:0;transform:scale(.85)}
-#carrega .intro{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);margin:0;padding-inline:max(16px,env(safe-area-inset-left,0px));text-align:center;font-weight:250;text-transform:uppercase;letter-spacing:-.055em;line-height:.88;font-size:clamp(44px,9vw,150px);color:var(--off);pointer-events:none}
+#carrega .bloco{display:flex;flex-direction:column;align-items:center;gap:clamp(28px,4vw,48px);padding-inline:max(16px,env(safe-area-inset-left,0px))}
+#carrega .intro{margin:0;text-align:center;font-weight:250;text-transform:uppercase;letter-spacing:-.055em;line-height:.88;font-size:clamp(44px,9vw,150px);color:var(--off)}
 #carrega .intro>span{display:block;overflow:hidden;padding-bottom:.06em}
 #carrega .intro .l1,#carrega .intro .l2{opacity:0;transform:translateY(40%);transition:opacity .8s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
 #carrega .intro .l2{transition-delay:.18s}
 #carrega .intro .e{display:inline-block;transform:scaleX(-1);color:var(--blush)}
 #carrega.frase .intro .l1,#carrega.frase .intro .l2{opacity:1;transform:none}
 #carrega.sai .intro .l1,#carrega.sai .intro .l2{opacity:0;transform:translateY(-30%);transition-delay:0s}
+#carrega .barra{width:min(320px,60vw);height:1px;background:#14261D;overflow:hidden}
+#carrega .barra i{display:block;height:100%;width:100%;background:var(--verde);transform-origin:left;transform:scaleX(0)}
+#carrega .pct{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--mudo);margin-top:calc(-1 * clamp(14px,2.4vw,32px))}
+/* abertura: a hero só aparece depois que a frase sai */
+.hero .hud,.hero .cantos,.hero .endereco,header{transition:opacity .8s ease}
+html.js body:not(.pronto) .hero .hud,html.js body:not(.pronto) .hero .cantos,html.js body:not(.pronto) .hero .endereco,html.js body:not(.pronto) header{opacity:0}
+.no-js #carrega{display:none}
 
 /* clientes */
 .clientes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
@@ -329,7 +325,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
 </style>
 </head>
 <body>
-<div id="carrega" aria-hidden="true"><div class="anel"><svg viewBox="0 0 150 150" fill="none"><circle cx="75" cy="75" r="62" stroke="#14261D" stroke-width="1.5"/><circle id="carrega-arco" cx="75" cy="75" r="62" stroke="#EEF2EF" stroke-width="1.5" stroke-dasharray="389.6" stroke-dashoffset="389.6"/></svg><i class="traco"></i><span class="pct" id="carrega-pct">0%</span></div><h2 class="intro"><span class="l1">O que vamos</span><span class="l2">r<span class="e">e</span>inventar hoje?</span></h2></div>
+<div id="carrega" aria-hidden="true"><div class="bloco"><h2 class="intro"><span class="l1">O que vamos</span><span class="l2">r<span class="e">e</span>inventar hoje?</span></h2><div class="barra"><i id="carrega-arco"></i></div><span class="pct" id="carrega-pct">0%</span></div></div>
 <canvas id="gl" aria-hidden="true"></canvas>
 <div class="brilho" id="brilho" aria-hidden="true"></div>
 <div class="vinheta" aria-hidden="true"></div>
@@ -632,21 +628,16 @@ document.querySelectorAll("[data-split]").forEach(function(el){
   var cg = document.getElementById("carrega"), arco = document.getElementById("carrega-arco"), pct = document.getElementById("carrega-pct");
   var foi = false;
   function abre(){ if (foi) return; foi = true; cg.classList.add("sai"); setTimeout(function(){ document.body.classList.add("pronto"); if (window.__decodifica) window.__decodifica(); }, reduz ? 0 : 750); }
-  function libera(){
-    if (reduz) return abre();
-    cg.classList.add("frase");
-    var pula = function(){ abre(); ["wheel","touchstart","keydown","pointerdown"].forEach(function(ev){ removeEventListener(ev, pula); }); };
-    ["wheel","touchstart","keydown","pointerdown"].forEach(function(ev){ addEventListener(ev, pula, {passive:true}); });
-    setTimeout(pula, 2700);
-  }
+  function libera(){ setTimeout(abre, reduz ? 0 : 500); }
   if (reduz) { abre(); return; }
-  var t0 = performance.now(), dur = 1500, carregou = document.readyState === "complete";
+  requestAnimationFrame(function(){ cg.classList.add("frase"); });
+  var t0 = performance.now(), dur = 2600, carregou = document.readyState === "complete";
   addEventListener("load", function(){ carregou = true; });
   (function passo(agora){
     var u = Math.min(1, (agora - t0) / dur);
     if (!carregou) u = Math.min(u, 0.92);
     var e = 1 - Math.pow(1 - u, 3);
-    arco.style.strokeDashoffset = (389.6 * (1 - e)).toFixed(1);
+    arco.style.transform = "scaleX(" + e.toFixed(3) + ")";
     pct.textContent = Math.round(e * 100) + "%";
     if (u < 1 || !carregou) { if (agora - t0 < 6000) return requestAnimationFrame(passo); }
     setTimeout(libera, 250);
