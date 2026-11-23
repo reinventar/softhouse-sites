@@ -128,11 +128,16 @@ footer .logo svg.marca{width:140px}
 .h-topo{position:absolute;top:118px;left:max(24px,env(safe-area-inset-left,0px));right:max(24px,env(safe-area-inset-right,0px));display:flex;justify-content:space-between;color:var(--mudo)}
 .h-topo b{color:var(--verde);font-weight:500}
 h1.gigante{position:absolute;inset:0;margin:0;pointer-events:none;font-weight:200;text-transform:uppercase;letter-spacing:.01em;line-height:.9;font-size:clamp(44px,9.2vw,164px)}
-h1.gigante .l{position:absolute;display:block;overflow:hidden;padding-bottom:.06em;white-space:nowrap}
+h1.gigante .l{position:absolute;display:block;padding-block:.08em .3em;white-space:nowrap}
 h1.gigante .l1{top:24%;left:max(20px,env(safe-area-inset-left,0px))}
 h1.gigante .l2{top:50%;right:max(20px,env(safe-area-inset-right,0px));text-align:right}
-h1.gigante .ch{display:inline-block;transform:translateY(105%);transition:transform 1.1s cubic-bezier(.19,1,.22,1)}
-.pronto h1.gigante .ch{transform:none}
+h1.gigante .ch{display:inline-block;text-align:center;opacity:0;transition:color .35s ease,text-shadow .35s ease}
+h1.gigante .ch.on{opacity:1}
+h1.gigante .ch.mx{color:var(--verde);text-shadow:0 0 14px rgba(63,191,132,.75);font-family:var(--mono);font-weight:400;transform:scale(.62);transform-origin:50% 60%}
+html.no-js h1.gigante .ch{opacity:1}
+h1.gigante .ced{position:relative}
+h1.gigante .ced::after{content:"";position:absolute;left:50%;top:.705em;width:.07em;height:.17em;border:solid currentColor;border-width:0 .022em .022em 0;border-radius:0 0 .06em 0;transform:translateX(-30%)}
+h1.gigante .ced.mx::after{display:none}
 h1.gigante .l{will-change:transform,opacity}
 .endereco{position:absolute;z-index:1;right:max(20px,env(safe-area-inset-right,0px));top:calc(50% + clamp(52px,10.6vw,188px)*1.02);display:inline-flex;align-items:center;gap:10px;padding:10px 16px 10px 14px;border:1px solid rgba(63,191,132,.22);border-radius:999px;background:rgba(0,0,0,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-family:var(--mono);font-size:clamp(13px,1.25vw,17px);white-space:nowrap}
 .endereco svg{width:14px;height:14px;flex:none;color:var(--verde)}
@@ -301,7 +306,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
   .nav .pill{display:none}
   .h-topo{top:96px}
   .h-topo span:last-child{display:none}
-  h1.gigante{font-size:clamp(40px,12.4vw,80px)}
+  h1.gigante{font-size:clamp(30px,10.6vw,80px)}
   h1.gigante .l1{top:30%}
   h1.gigante .l2{top:calc(30% + 1em)}
   .endereco{top:calc(30% + clamp(40px,12.4vw,80px)*2.1);right:auto;left:max(20px,env(safe-area-inset-left,0px))}
@@ -619,7 +624,7 @@ document.querySelectorAll("[data-split]").forEach(function(el){
   t.split(" ").forEach(function(w, wi){
     if (wi) h += " ";
     h += '<span style="display:inline-block;white-space:nowrap">';
-    for (var c of w) { h += '<span class="ch" style="transition-delay:' + (0.15 + i*0.035).toFixed(3) + 's">' + c + "</span>"; i++; }
+    for (var c of w) { h += c.toUpperCase() === "Ç" ? '<span class="ch ced" data-c="C">C</span>' : '<span class="ch">' + c + "</span>"; i++; }
     h += "</span>";
   });
   el.innerHTML = h;
@@ -654,15 +659,27 @@ document.querySelectorAll("[data-split]").forEach(function(el){
 /* "SEU ENDEREÇO." se decodifica como código enquanto sobe */
 var l1 = document.querySelector("h1.gigante .l1"), l2 = document.querySelector("h1.gigante .l2");
 var letras = Array.prototype.slice.call(document.querySelectorAll("h1.gigante .ch"));
-window.__decodifica = function(){ if (!reduz) l2.querySelectorAll(".ch").forEach(function(c, i){
-  var certo = c.dataset.c || c.textContent, fim = performance.now() + 650 + i*90;
-  c.dataset.c = certo;
-  (function troca(){
-    if (performance.now() >= fim || certo === "."){ c.textContent = certo; return; }
-    c.textContent = "01<>/{}[]#*+=_"[(Math.random()*14)|0];
-    setTimeout(troca, 55);
-  })();
-}); };
+window.__decodifica = function(){
+  var todas = letras, MX = "01アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワン";
+  if (reduz){ todas.forEach(function(c){ c.classList.add("on"); }); return; }
+  // fixa a largura de cada letra para nada pular enquanto os símbolos trocam
+  todas.forEach(function(c){ c.dataset.c = c.dataset.c || c.textContent; c.style.width = ""; c.style.width = c.getBoundingClientRect().width + "px"; });
+  var t0 = performance.now();
+  todas.forEach(function(c, i){
+    var certo = c.dataset.c, entra = t0 + i * 85, fim = entra + 420;
+    setTimeout(function(){
+      c.classList.add("on");
+      if (certo === " " || certo === "," || certo === ".") { c.textContent = certo; return; }
+      c.classList.add("mx");
+      (function troca(){
+        if (performance.now() >= fim){ c.textContent = certo; c.classList.remove("mx"); return; }
+        c.textContent = MX[(Math.random() * MX.length) | 0];
+        setTimeout(troca, 60);
+      })();
+    }, i * 85);
+  });
+  setTimeout(function(){ todas.forEach(function(c){ c.style.width = ""; }); }, todas.length * 85 + 600);
+};
 
 /* o endereço: digita, mostra, apaga, troca */
 var DOMS = ["seunome.com.br", "personal.reinventar.dev", "dentista.reinventar.dev", "corretor.reinventar.dev", "seunome.reinventar.dev"];
@@ -696,7 +713,7 @@ var enderecoEl = document.querySelector(".endereco");
         var r = letras[i].getBoundingClientRect();
         var d = Math.hypot(r.left + r.width/2 - mx, r.top + r.height/2 - my);
         var k = Math.max(0, 1 - d/260);
-        letras[i].style.fontWeight = Math.round(200 + k*k*420);
+        
       }
     }
   }
