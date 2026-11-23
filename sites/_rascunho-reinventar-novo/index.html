@@ -18,7 +18,7 @@
  "description":"Sites de portfólio one-page e fotos profissionais para personal trainers, dentistas e outros profissionais.",
  "areaServed":"Divinópolis e região, MG","telephone":"+5537999181248","address":{"@type":"PostalAddress","addressLocality":"Divinópolis","addressRegion":"MG","addressCountry":"BR"}}
 </script>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230A3B27'/%3E%3Cpath d='M22 72V28H44A11 11 0 0 1 44 50H30M40 55L54 72' stroke='%23EEF2EF' stroke-width='6' fill='none'/%3E%3Cpath d='M80 28V72M80 28H60M74 50H64M80 72H60' stroke='%23D2456E' stroke-width='6' fill='none'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230A3B27'/%3E%3Cpath d='M22 72V28H44A11 11 0 0 1 44 50H30M40 55L54 72' stroke='%23EEF2EF' stroke-width='6' fill='none'/%3E%3Cpath d='M80 28V72M80 28H60M74 50H64M80 72H60' stroke='%23A8264F' stroke-width='6' fill='none'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100..700&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -27,7 +27,7 @@
 :root{
   --preto:#000000; --grafite:#06140E; --linha:rgba(63,191,132,.16); --floresta:#0A3B27;
   --off:#EEF2EF; --mudo:#8FA89A;
-  --vinho:#A82A52; --rosa:#D2456E; --blush:#E7889F; --verde:#3FBF84;
+  --vinho:#6E1530; --rosa:#A8264F; --blush:#B8395E; --verde:#3FBF84;
   --sans:"Josefin Sans",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
   --gut:max(16px,env(safe-area-inset-left,0px));
@@ -69,7 +69,7 @@ a{color:inherit;text-decoration:none}
 @media (max-width:640px){.letras .grade{inset:30% 2% 10% 2%}.letras .chamada{top:12%}.letras .rodape{top:auto;bottom:4%;left:24px;text-align:left;font-size:13px}}
 .grao{position:fixed;inset:0;z-index:4;pointer-events:none;opacity:.07;mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
-.brilho{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0;background:radial-gradient(40% 44% at 50% 48%,rgba(31,122,82,.5),rgba(10,59,39,.35) 45%,transparent 75%),radial-gradient(14% 16% at 50% 48%,rgba(210,69,110,.35),transparent 70%)}
+.brilho{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0;background:radial-gradient(40% 44% at 50% 48%,rgba(31,122,82,.5),rgba(10,59,39,.35) 45%,transparent 75%),radial-gradient(14% 16% at 50% 48%,rgba(168,38,79,.35),transparent 70%)}
 .hud{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
 .hud .gira{transform-origin:50% 50%;animation:pulsa 6s ease-in-out infinite}
 @keyframes pulsa{0%,100%{opacity:.35}50%{opacity:.8}}
@@ -131,9 +131,10 @@ h1.gigante .rs{color:var(--blush);font-style:normal}
 /* manifesto */
 .manifesto{position:relative;z-index:2;height:280vh}
 .manifesto .fixo{position:sticky;top:0;height:100vh;height:100svh;display:grid;place-items:center;text-align:center;overflow:hidden}
-.manifesto .centro{max-width:880px;padding:0 24px;opacity:0;transform:scale(.96);will-change:opacity,transform}
-.manifesto h2{margin:0 0 22px;font-weight:300;text-transform:uppercase;letter-spacing:-.04em;line-height:.95;font-size:clamp(38px,6.4vw,96px);text-wrap:balance}
-.manifesto h2 em{font-style:normal;color:var(--blush)}
+.manifesto .fixo::before{content:"";position:absolute;inset:0;background:radial-gradient(42% 46% at 50% 50%,rgba(0,0,0,.88),rgba(0,0,0,.55) 55%,transparent 80%);pointer-events:none}
+.manifesto .centro{position:relative;max-width:880px;padding:0 24px;opacity:0;transform:scale(.96);will-change:opacity,transform}
+.manifesto h2{margin:0 0 22px;font-weight:200;text-transform:uppercase;letter-spacing:.02em;line-height:1;font-size:clamp(38px,6.4vw,96px);text-wrap:balance}
+.manifesto h2 em{font-style:normal;color:var(--blush);font-weight:400}
 .manifesto p{margin:0 auto;max-width:540px;color:rgba(238,242,239,.78);font-size:17px}
 .manifesto .rodape{position:absolute;left:max(24px,env(safe-area-inset-left,0px));right:calc(96px + env(safe-area-inset-right,0px));bottom:40px;display:flex;justify-content:space-between;align-items:flex-end;color:var(--mudo);opacity:0}
 .contador{font-weight:200;font-size:clamp(48px,6vw,84px);line-height:1;letter-spacing:-.04em;color:var(--off);font-variant-numeric:tabular-nums}
@@ -162,7 +163,7 @@ h3.titulo em{font-style:normal;color:var(--blush)}
 /* por que */
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .card{position:relative;padding:34px 30px 32px;border:1px solid var(--linha);border-radius:18px;background:rgba(6,20,14,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);overflow:hidden;min-width:0}
-.card::before{content:"";position:absolute;inset:0;background:radial-gradient(380px circle at var(--mx,50%) var(--my,0%),rgba(210,69,110,.18),transparent 60%);opacity:0;transition:opacity .35s;pointer-events:none}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(380px circle at var(--mx,50%) var(--my,0%),rgba(168,38,79,.18),transparent 60%);opacity:0;transition:opacity .35s;pointer-events:none}
 .card:hover::before{opacity:1}
 .card .ic{width:44px;height:44px;margin-bottom:46px;color:var(--blush)}
 .card h4{margin:0 0 10px;font-weight:500;font-size:21px;letter-spacing:-.02em}
@@ -189,7 +190,7 @@ h3.titulo em{font-style:normal;color:var(--blush)}
 .codigo .ln{display:block;padding:0 22px 0 0}
 .codigo .ln::before{counter-increment:ln;content:counter(ln);display:inline-block;width:46px;padding-right:18px;text-align:right;color:#3A4D43}
 .c-k{color:var(--rosa)}.c-s{color:var(--verde)}.c-p{color:var(--blush)}.c-m{color:#5F746A}.c-ok{color:var(--verde)}
-.c-add{color:var(--verde);background:rgba(63,191,132,.08)}.c-del{color:#C9657F;background:rgba(210,69,110,.08);text-decoration:line-through;text-decoration-color:rgba(210,69,110,.5)}
+.c-add{color:var(--verde);background:rgba(63,191,132,.08)}.c-del{color:#C9657F;background:rgba(168,38,79,.08);text-decoration:line-through;text-decoration-color:rgba(168,38,79,.5)}
 .cursor{display:inline-block;width:8px;height:1.15em;vertical-align:-3px;background:var(--rosa);animation:pisca 1s steps(1) infinite}
 @keyframes pisca{50%{opacity:0}}
 .ed-base{display:flex;justify-content:space-between;padding:10px 16px;border-top:1px solid var(--linha);color:var(--mudo)}
@@ -266,13 +267,11 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
 .wa svg{width:27px;height:27px}
 
 /* cursor */
-.mira{position:fixed;left:0;top:0;z-index:70;pointer-events:none;width:34px;height:34px;margin:-17px 0 0 -17px;transition:width .25s,height .25s,margin .25s;display:none}
-.mira::before,.mira::after{content:"";position:absolute;width:9px;height:9px;border-color:var(--blush);border-style:solid;border-width:0}
-.mira::before{top:0;left:0;border-top-width:1.5px;border-left-width:1.5px}
-.mira::after{bottom:0;right:0;border-bottom-width:1.5px;border-right-width:1.5px}
-.mira i{position:absolute;left:50%;top:50%;width:5px;height:5px;margin:-2.5px;border-radius:1px;background:var(--rosa)}
-.mira.link{width:56px;height:56px;margin:-28px 0 0 -28px}
-@media (pointer:fine){.mira{display:block}}
+.mira{position:fixed;left:0;top:0;z-index:70;pointer-events:none;width:30px;height:30px;margin:-15px 0 0 -15px;border:1px solid rgba(63,191,132,.7);border-radius:50%;transition:width .25s,height .25s,margin .25s,background .25s,border-color .25s;display:none}
+.mira.link{width:54px;height:54px;margin:-27px 0 0 -27px;border-color:var(--rosa);background:rgba(168,38,79,.12)}
+.ponto{position:fixed;left:0;top:0;z-index:71;pointer-events:none;width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;background:var(--rosa);display:none}
+@media (pointer:fine){.mira,.ponto{display:block}html,body,a,button,summary,.passo{cursor:none}}
+@media (prefers-reduced-motion:reduce){.mira{transition:none}}
 
 @media (max-width:980px){
   .links{display:none}
@@ -315,7 +314,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
 <div class="brilho" id="brilho" aria-hidden="true"></div>
 <div class="vinheta" aria-hidden="true"></div>
 <div class="grao" aria-hidden="true"></div>
-<div class="mira" aria-hidden="true"><i></i></div>
+<div class="mira" aria-hidden="true"></div><div class="ponto" aria-hidden="true"></div>
 
 <header id="topo-barra">
   <div class="wrap nav">
@@ -338,7 +337,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
   <svg class="hud" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" fill="none" aria-hidden="true">
     <rect class="gira" x="430" y="240" width="580" height="380" stroke="#1F7A52" stroke-opacity=".5"/>
     <rect x="560" y="320" width="320" height="220" stroke="#EEF2EF" stroke-opacity=".12"/>
-    <g stroke="#D2456E" stroke-width="1.5"><rect x="250" y="250" width="10" height="10" transform="rotate(45 255 255)"/><rect x="280" y="250" width="10" height="10" transform="rotate(45 285 255)"/></g>
+    <g stroke="#A8264F" stroke-width="1.5"><rect x="250" y="250" width="10" height="10" transform="rotate(45 255 255)"/><rect x="280" y="250" width="10" height="10" transform="rotate(45 285 255)"/></g>
     <g fill="#8FA89A" fill-opacity=".8"><path d="M1150 250l10 9-10 9z"/><path d="M1190 250l10 9-10 9z"/></g>
     <g stroke="#EEF2EF" stroke-opacity=".5"><path d="M250 640h70M370 625v30M355 640h30"/></g>
     <g fill="#EEF2EF" fill-opacity=".55"><rect x="1160" y="636" width="6" height="6"/><rect x="1180" y="636" width="6" height="6"/><rect x="1200" y="636" width="6" height="6"/></g>
@@ -731,10 +730,11 @@ document.querySelectorAll(".card").forEach(function(c){
 });
 
 /* mira (cursor) */
-var mira = document.querySelector(".mira"), mx = innerWidth/2, my = innerHeight/2, cx = mx, cy = my;
+var mira = document.querySelector(".mira"), ponto = document.querySelector(".ponto"), mx = innerWidth/2, my = innerHeight/2, cx = mx, cy = my;
 var px = 0, py = 0, coords = document.getElementById("coords");
 addEventListener("pointermove", function(e){
   mx = e.clientX; my = e.clientY;
+  ponto.style.transform = "translate(" + mx + "px," + my + "px)";
   px = mx/innerWidth*2-1; py = my/innerHeight*2-1;
   if (coords) coords.textContent = "x " + (mx/innerWidth).toFixed(3) + " · y " + (my/innerHeight).toFixed(3) + " · role ↓";
   mira.classList.toggle("link", !!e.target.closest("a,summary,.passo,button"));
@@ -837,7 +837,7 @@ function montaPalco(){
       var x = -11 + ix/(COLS-1)*22, z = -9 + iz/(ROWS-1)*11;
       pc[k*3] = x + (Math.random()-.5)*0.04; pc[k*3+1] = 0; pc[k*3+2] = z + (Math.random()-.5)*0.04;
       dirR.randomDirection();
-      var R = 0.6 + Math.pow(Math.random(), 1.4) * 6.5;
+      var R = 3.4 + Math.pow(Math.random(), 1.3) * 4.5;
       pb[k*3] = dirR.x*R; pb[k*3+1] = 2.2 + dirR.y*R*0.8; pb[k*3+2] = 1.5 + dirR.z*R*0.7;
       pr[k*3] = Math.random(); pr[k*3+1] = Math.random(); pr[k*3+2] = Math.random();
       k++;
@@ -868,14 +868,14 @@ function montaPalco(){
       "  q += f * 0.2 * vec3(sin(t*.6+aR.z*20.), cos(t*.5+aR.y*20.), sin(t*.7+aR.x*20.));",
       "  vec4 mv = modelViewMatrix * vec4(q,1.0);",
       "  gl_Position = projectionMatrix * mv;",
-      "  float tam = mix(1.3 + aR.z*1.1, 2.4 + aR.z*aR.z*5.0, f);",
+      "  float tam = mix(1.3 + aR.z*1.1, 1.4 + aR.z*aR.z*2.6, f);",
       "  gl_PointSize = tam * uPx * (20.0 / -mv.z);",
       "  float prof = smoothstep(-26.0, -6.0, mv.z);",
-      "  vA = mix(0.35 + 0.9*prof, 0.75, f) * (1.0 - uDim*0.7);",
-      "  vec3 escuro = vec3(.06,.32,.21), esm = vec3(.14,.58,.38), luz = vec3(.35,.85,.6), vinho = vec3(.82,.27,.43);",
+      "  vA = mix(0.35 + 0.9*prof, 0.42, f) * (1.0 - uDim*0.7);",
+      "  vec3 escuro = vec3(.06,.32,.21), esm = vec3(.14,.58,.38), luz = vec3(.35,.85,.6), vinho = vec3(.62,.12,.27);",
       "  vec3 c = mix(escuro, esm, smoothstep(-1.2, 0.4, w));",
       "  c = mix(c, luz, smoothstep(0.5, 1.4, w) * 0.85);",
-      "  float novo = step(0.972, aR.y) + step(0.86, aR.y) * f;",
+      "  float novo = step(0.972, aR.y) + step(0.9, aR.y) * f;",
       "  vCol = mix(c, vinho, clamp(novo, 0.0, 1.0));",
       "}"].join("\n"),
     fragmentShader: [
@@ -936,7 +936,7 @@ function montaPalco(){
 
     uni.uF.value = F; uni.uT.value = t;
     uniP.uDim.value = dim;
-    brilho.style.opacity = (suave(0.15, 0.7, F) * (1 - dim*0.85)).toFixed(3);
+    brilho.style.opacity = (suave(0.15, 0.7, F) * 0.45 * (1 - dim*0.85)).toFixed(3);
     brilho.style.transform = "scale(" + (0.8 + F*0.35).toFixed(3) + ")";
 
     rx += (py - rx) * Math.min(1, dt*3); ry += (px - ry) * Math.min(1, dt*3);
