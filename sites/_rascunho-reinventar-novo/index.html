@@ -231,7 +231,7 @@ h3.titulo em{font-style:normal;color:var(--blush)}
 .final{position:relative;z-index:2;min-height:100vh;min-height:100svh;display:grid;place-items:center;text-align:center;padding-block:140px}
 .final h3{margin:0;font-weight:250;text-transform:uppercase;letter-spacing:-.055em;line-height:.88;font-size:clamp(48px,9vw,150px)}
 .final h3 .e{display:inline-block;transform:scaleX(-1);color:var(--blush)}
-.final h3 .l2{display:block;margin-top:clamp(120px,22vw,300px)}
+.final h3 .l2{display:block}
 .final p{color:var(--off);margin:28px auto 30px;max-width:460px;text-shadow:0 2px 18px var(--preto),0 0 4px var(--preto)}
 
 footer{position:relative;z-index:2;border-top:1px solid var(--linha);padding-block:30px;background:var(--preto)}
@@ -263,9 +263,9 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
   .h-topo{top:96px}
   .h-topo span:last-child{display:none}
   h1.gigante{font-size:clamp(40px,12.4vw,80px)}
-  h1.gigante .l1{top:calc(96px + 52px)}
-  h1.gigante .l2{top:calc(96px + 52px + 1em)}
-  .endereco{top:calc(148px + clamp(40px,12.4vw,80px)*2.02);right:auto;left:max(20px,env(safe-area-inset-left,0px))}
+  h1.gigante .l1{top:30%}
+  h1.gigante .l2{top:calc(30% + 1em)}
+  .endereco{top:calc(30% + clamp(40px,12.4vw,80px)*2.1);right:auto;left:max(20px,env(safe-area-inset-left,0px))}
   .h-base .txt p{display:none}
   .h-base{flex-direction:column;align-items:stretch;bottom:28px;gap:20px}
   .h-acoes{align-items:stretch}
@@ -826,7 +826,7 @@ function montaPalco(){
       "  gl_Position = projectionMatrix * mv;",
       "  float tam = mix(1.6, 7.5, f) * (0.3 + aR.z*aR.z*1.4);",
       "  gl_PointSize = tam * uPx * (22.0 / -mv.z);",
-      "  vA = mix(0.35, 0.7, f) * (1.0 - uDim*0.75) * (0.65 + 0.35*sin(uT*2.0 + aR.y*30.0));",
+      "  vA = mix(0.0, 0.7, f) * (1.0 - uDim*0.75) * (0.65 + 0.35*sin(uT*2.0 + aR.y*30.0));",
       "  vec3 rosa = vec3(.85,.31,.54), blush = vec3(.96,.79,.85), verde = vec3(.13,.77,.55), vinho = vec3(.62,.13,.38);",
       "  vCol = aR.y < .7 ? aCor : (aR.y < .88 ? rosa : (aR.y < .95 ? vinho*1.3 : blush));",
       "}"].join("\n"),
@@ -889,7 +889,7 @@ function montaPalco(){
 
     uni.uF.value = F; uni.uT.value = t;
     alfa.value = 1 - suave(0.45, 0.9, F);
-    var vis = alfa.value > 0.01;
+    var vis = false; /* logo 3D desligada: só as partículas */
     pecas.forEach(function(pc, i){
       pc.g.visible = vis;
       var resp = reduz ? 0 : Math.sin(t*1.3 + pc.fase) * 0.045 * (1 - F);
