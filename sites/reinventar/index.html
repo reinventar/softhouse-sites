@@ -54,18 +54,18 @@ a{color:inherit;text-decoration:none}
 #carrega .pct{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--mudo)}
 #carrega .traco{position:absolute;left:58%;top:42%;width:42px;height:1px;background:var(--off)}
 .no-js #carrega{display:none}
+#carrega{transition:opacity .9s ease,visibility .9s,background-color .9s ease}
+#carrega .anel{transition:opacity .5s ease,transform .5s ease}
+#carrega.frase{background:rgba(0,0,0,.25)}
+#carrega.frase .anel{opacity:0;transform:scale(.85)}
+#carrega .intro{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);margin:0;padding-inline:max(16px,env(safe-area-inset-left,0px));text-align:center;font-weight:250;text-transform:uppercase;letter-spacing:-.055em;line-height:.88;font-size:clamp(44px,9vw,150px);color:var(--off);pointer-events:none}
+#carrega .intro>span{display:block;overflow:hidden;padding-bottom:.06em}
+#carrega .intro .l1,#carrega .intro .l2{opacity:0;transform:translateY(40%);transition:opacity .8s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
+#carrega .intro .l2{transition-delay:.18s}
+#carrega .intro .e{display:inline-block;transform:scaleX(-1);color:var(--blush)}
+#carrega.frase .intro .l1,#carrega.frase .intro .l2{opacity:1;transform:none}
+#carrega.sai .intro .l1,#carrega.sai .intro .l2{opacity:0;transform:translateY(-30%);transition-delay:0s}
 
-/* letras espalhadas */
-.letras{position:relative;z-index:2;height:240vh}
-.letras .fixo{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
-.letras .chamada{position:absolute;left:max(24px,env(safe-area-inset-left,0px));top:16%;font-weight:300;text-transform:uppercase;letter-spacing:.06em;font-size:clamp(18px,2vw,28px);line-height:1.25;color:var(--off)}
-.letras .chamada b{display:block;font-weight:300;color:var(--verde)}
-.letras .grade{position:absolute;inset:22% 4% 10% 4%;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(3,1fr);align-items:center;justify-items:center}
-.letras .lt{font-weight:100;font-size:clamp(70px,15vw,250px);line-height:1;color:var(--off);will-change:transform,opacity}
-.letras .lt.e{display:inline-block;color:var(--rosa)}
-.letras .lt.e span{display:inline-block;transform:scaleX(-1)}
-.letras .rodape{position:absolute;right:max(24px,env(safe-area-inset-right,0px));top:16%;max-width:340px;text-align:right;color:var(--mudo);font-size:15px;line-height:1.6}
-@media (max-width:640px){.letras .grade{inset:30% 2% 10% 2%}.letras .chamada{top:12%}.letras .rodape{top:auto;bottom:4%;left:24px;text-align:left;font-size:13px}}
 /* clientes */
 .clientes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
 .cliente{display:flex;flex-direction:column;gap:18px;min-width:0}
@@ -175,12 +175,6 @@ h3.titulo em{font-style:normal;color:var(--blush)}
 .rv{transition:opacity 1s cubic-bezier(.19,1,.22,1),transform 1s cubic-bezier(.19,1,.22,1)}
 .js .rv.fora{opacity:0;transform:translateY(28px)}
 
-/* letreiro */
-.letreiro{position:relative;z-index:2;border-block:1px solid var(--linha);padding-block:22px;overflow:hidden;background:rgba(0,0,0,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
-.letreiro .trilho{display:flex;gap:48px;width:max-content;animation:corre 38s linear infinite}
-.letreiro span{font-weight:250;font-size:clamp(28px,3.4vw,46px);letter-spacing:-.03em;white-space:nowrap;display:flex;align-items:center;gap:48px}
-.letreiro span::after{content:"";width:12px;height:12px;border-radius:3px;background:var(--rosa);flex:none}
-.letreiro span:nth-child(3n)::after{background:var(--verde)}
 @keyframes corre{to{transform:translateX(-50%)}}
 
 /* por que */
@@ -325,14 +319,14 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
   .cab{margin-bottom:44px}
 }
 @media (prefers-reduced-motion:reduce){
-  .letreiro .trilho,.plano.top,.visor .foco,.cursor{animation:none}
+  .plano.top,.visor .foco,.cursor{animation:none}
   h1.gigante .ch,.sobe,.rv{transition:none}
   html{scroll-behavior:auto}
 }
 </style>
 </head>
 <body>
-<div id="carrega" aria-hidden="true"><div class="anel"><svg viewBox="0 0 150 150" fill="none"><circle cx="75" cy="75" r="62" stroke="#14261D" stroke-width="1.5"/><circle id="carrega-arco" cx="75" cy="75" r="62" stroke="#EEF2EF" stroke-width="1.5" stroke-dasharray="389.6" stroke-dashoffset="389.6"/></svg><i class="traco"></i><span class="pct" id="carrega-pct">0%</span></div></div>
+<div id="carrega" aria-hidden="true"><div class="anel"><svg viewBox="0 0 150 150" fill="none"><circle cx="75" cy="75" r="62" stroke="#14261D" stroke-width="1.5"/><circle id="carrega-arco" cx="75" cy="75" r="62" stroke="#EEF2EF" stroke-width="1.5" stroke-dasharray="389.6" stroke-dashoffset="389.6"/></svg><i class="traco"></i><span class="pct" id="carrega-pct">0%</span></div><h2 class="intro"><span class="l1">O que vamos</span><span class="l2">r<span class="e">e</span>inventar hoje?</span></h2></div>
 <canvas id="gl" aria-hidden="true"></canvas>
 <div class="brilho" id="brilho" aria-hidden="true"></div>
 <div class="vinheta" aria-hidden="true"></div>
@@ -387,25 +381,6 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
   </div>
 </section>
 
-<section class="letras" id="letras" aria-label="Reinventar">
-  <div class="fixo">
-    <div class="chamada">Um jeito novo de<b>fazer o seu trabalho aparecer</b></div>
-    <div class="grade" aria-hidden="true">
-      <span class="lt" style="grid-column:1;grid-row:1">R</span>
-      <span class="lt e" style="grid-column:2;grid-row:1"><span>E</span></span>
-      <span class="lt" style="grid-column:3;grid-row:1">I</span>
-      <span class="lt" style="grid-column:1;grid-row:2">N</span>
-      <span class="lt" style="grid-column:2;grid-row:2">V</span>
-      <span class="lt" style="grid-column:3;grid-row:2">E</span>
-      <span class="lt" style="grid-column:4;grid-row:2">N</span>
-      <span class="lt" style="grid-column:2;grid-row:3">T</span>
-      <span class="lt" style="grid-column:3;grid-row:3">A</span>
-      <span class="lt" style="grid-column:4;grid-row:3">R</span>
-    </div>
-    <p class="rodape">O verde é o que você já construiu. O vinho é o que a gente cria junto: um site que mostra o seu trabalho do jeito que ele merece.</p>
-  </div>
-</section>
-
 <section class="manifesto" id="manifesto" aria-label="Por que um site">
   <div class="fixo">
     <div class="centro" id="m-centro">
@@ -419,13 +394,6 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
     </div>
   </div>
 </section>
-
-<div class="letreiro" aria-hidden="true">
-  <div class="trilho">
-    <span>Personal trainers</span><span>Dentistas</span><span>Corretores de imóveis</span><span>Nutricionistas</span><span>Fisioterapeutas</span><span>Psicólogos</span><span>Estúdios</span>
-    <span>Personal trainers</span><span>Dentistas</span><span>Corretores de imóveis</span><span>Nutricionistas</span><span>Fisioterapeutas</span><span>Psicólogos</span><span>Estúdios</span>
-  </div>
-</div>
 
 <section class="faixa" id="porque">
   <div class="wrap">
@@ -488,7 +456,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
     <div class="cab rv">
       <div>
         <div class="rotulo mono" data-scramble>Clientes</div>
-        <h3 class="titulo">Sites que já estão <em>no ar.</em></h3>
+        <h3 class="titulo">Sites por <em>Reinventar.</em></h3>
       </div>
       <p class="lead">Cada site nasce da identidade do cliente. Passe o mouse para ver o site inteiro rolando.</p>
     </div>
@@ -527,30 +495,6 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
         </div>
       </article>
     </div>
-  </div>
-</section>
-
-<section class="faixa" id="para-quem">
-  <div class="wrap">
-    <div class="cab rv">
-      <div>
-        <div class="rotulo mono" data-scramble>Para quem</div>
-        <h3 class="titulo">Feito para quem <em>atende gente.</em></h3>
-      </div>
-    </div>
-    <div class="nichos">
-      <article class="nicho rv">
-        <h4>Personal trainers e estúdios</h4>
-        <ul><li>Planos e modalidades (presencial, online, consultoria)</li><li>Antes e depois e depoimentos de alunos</li><li>CREF visível e botão para aula experimental</li></ul>
-        <div class="ex"><q>Treino que cabe na sua rotina.</q> · exemplo de chamada</div>
-      </article>
-      <article class="nicho rv">
-        <h4>Dentistas e clínicas</h4>
-        <ul><li>Tratamentos explicados em linguagem simples</li><li>Dentro das regras do CFO: CRO visível, sem preços</li><li>Mapa, horários e agendamento pelo WhatsApp</li></ul>
-        <div class="ex"><q>Seu sorriso em boas mãos.</q> · exemplo de chamada</div>
-      </article>
-    </div>
-    <p class="obs rv">Nutricionistas, fisioterapeutas, psicólogos e advogados também. Pergunte pelo seu nicho.</p>
   </div>
 </section>
 
@@ -683,8 +627,16 @@ document.querySelectorAll("[data-split]").forEach(function(el){
 });
 (function(){
   var cg = document.getElementById("carrega"), arco = document.getElementById("carrega-arco"), pct = document.getElementById("carrega-pct");
-  function libera(){ cg.classList.add("sai"); requestAnimationFrame(function(){ document.body.classList.add("pronto"); }); }
-  if (reduz) { libera(); return; }
+  var foi = false;
+  function abre(){ if (foi) return; foi = true; cg.classList.add("sai"); requestAnimationFrame(function(){ document.body.classList.add("pronto"); }); }
+  function libera(){
+    if (reduz) return abre();
+    cg.classList.add("frase");
+    var pula = function(){ abre(); ["wheel","touchstart","keydown","pointerdown"].forEach(function(ev){ removeEventListener(ev, pula); }); };
+    ["wheel","touchstart","keydown","pointerdown"].forEach(function(ev){ addEventListener(ev, pula, {passive:true}); });
+    setTimeout(pula, 2700);
+  }
+  if (reduz) { abre(); return; }
   var t0 = performance.now(), dur = 1500, carregou = document.readyState === "complete";
   addEventListener("load", function(){ carregou = true; });
   (function passo(agora){
@@ -703,22 +655,6 @@ document.querySelectorAll("[data-split]").forEach(function(el){
   if (matchMedia("(hover:hover)").matches) return;
   var io2 = new IntersectionObserver(function(es){ es.forEach(function(e){ e.target.classList.toggle("rola", e.isIntersecting); }); }, {threshold:.6});
   document.querySelectorAll(".cliente").forEach(function(c){ io2.observe(c); });
-})();
-
-/* letras espalhadas: começam longe e se encontram ao rolar */
-(function(){
-  var sec = document.getElementById("letras"), lts = Array.prototype.slice.call(sec.querySelectorAll(".lt"));
-  var alvo = lts.map(function(_, i){ var a = i * 2.39996; return { x: Math.cos(a) * (40 + (i % 3) * 18), y: Math.sin(a) * (30 + (i % 4) * 10), r: (i % 2 ? 1 : -1) * (12 + i * 3) }; });
-  (function laco(){
-    var r = sec.getBoundingClientRect(), vh = innerHeight;
-    var p = clamp(-r.top / (r.height - vh), 0, 1), u = reduz ? 0 : 1 - suave(0.0, 0.55, p), sai = reduz ? 0 : suave(0.8, 1, p);
-    if (r.bottom > 0 && r.top < vh) lts.forEach(function(el, i){
-      var a = alvo[i], k = u + sai;
-      el.style.transform = "translate3d(" + (a.x * k).toFixed(1) + "vw," + (a.y * k).toFixed(1) + "vh,0) rotate(" + (a.r * k).toFixed(1) + "deg)";
-      el.style.opacity = (1 - Math.min(1, k) * 0.85).toFixed(3);
-    });
-    requestAnimationFrame(laco);
-  })();
 })();
 
 /* "SEU ENDEREÇO." se decodifica como código enquanto sobe */
