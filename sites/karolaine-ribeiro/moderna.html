@@ -63,8 +63,8 @@ h1,h2,h3{font-weight:500;letter-spacing:-.035em;margin:0}
 .hero{position:relative;min-height:100vh;padding:118px 0 40px;overflow:hidden}
 .hero .grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:56px;align-items:stretch;min-height:calc(100vh - 158px)}
 .hl{position:relative;display:flex;flex-direction:column;justify-content:center;gap:30px;z-index:2;padding:20px 0}
-.slides{position:relative;min-height:330px}
-.sl{position:absolute;left:0;right:0;top:0;opacity:0;visibility:hidden;transform:translateY(20px);transition:opacity .9s ease,transform 1.1s cubic-bezier(.16,.8,.2,1),visibility .9s;display:flex;flex-direction:column;gap:24px}
+.slides{position:relative;display:grid}
+.sl{grid-area:1/1;opacity:0;visibility:hidden;transform:translateY(20px);transition:opacity .9s ease,transform 1.1s cubic-bezier(.16,.8,.2,1),visibility .9s;display:flex;flex-direction:column;gap:24px}
 .sl.on{opacity:1;visibility:visible;transform:none}
 .sl h1,.sl h2{font-size:clamp(50px,5.6vw,92px);line-height:.96}
 .sl h1 .it,.sl h2 .it{color:var(--teal);font-size:1.08em}
@@ -270,7 +270,7 @@ footer img{width:56px;height:54px;object-fit:contain}
 .hero{padding:96px 0 30px}
 .hero .grid{grid-template-columns:1fr;gap:28px;min-height:0}
 .panel{height:62vh;order:-1}
-.slides{min-height:360px}
+
 .stats{grid-template-columns:1fr 1fr}
 .cue{display:none}
 .ptext,.ztext{left:22px;right:22px}
@@ -284,7 +284,7 @@ footer img{width:56px;height:54px;object-fit:contain}
 .contact .r{min-height:520px}
 .fr.hide-m{display:none}
 }
-@media (max-width:520px){.hd .btn{display:none}.sl h1,.sl h2{font-size:46px}.prev{bottom:90px}}
+@media (max-width:520px){.hd .btn{display:none}.sl h1,.sl h2{font-size:46px}.prev{bottom:auto;top:82px;left:50%;transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}#intro{display:none}.panel{clip-path:none}}
 </style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Karolaine Ribeiro · Nutricionista","description":"Nutrição clínica: emagrecimento, obesidade, pré e pós-bariátrica e reeducação alimentar.","telephone":"+55 32 99964-9605","address":{"@type":"PostalAddress","streetAddress":"R. Padre José Maria Xavier, 123","addressLocality":"São João del Rei","addressRegion":"MG","postalCode":"36307-340","addressCountry":"BR"},"url":"https://karolaine.reinventar.dev","sameAs":["https://www.instagram.com/nutrikarolaineribeiro"]}</script>
