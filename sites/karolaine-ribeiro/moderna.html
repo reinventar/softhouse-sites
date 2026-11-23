@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Karolaine Ribeiro · Nutricionista em São João del Rei</title>
+<meta name="description" content="Nutricionista em São João del Rei (CRN-9 23955). Emagrecimento, obesidade e pré e pós-bariátrica, com atendimento presencial e online.">
+<meta property="og:title" content="Karolaine Ribeiro · Nutrição Clínica">
+<meta property="og:description" content="Emagrecer com leveza. Cuidar com ciência. Presencial em São João del Rei e online.">
+<meta property="og:image" content="https://karolaine.reinventar.dev/og.jpg">
+<link rel="icon" href="img/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#F7F5F0;--card:#FFFFFF;--ink:#14211E;--mut:#5B6662;--line:#E5E1D8;--teal:#127468;--deep:#0E3B35;--mint:#E4F1EC;--wood:#5B3F2B;--wood2:#8A6447;--sand:#E9DFCF;--orange:#EAA337}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:'Inter Tight',system-ui,sans-serif;color:var(--ink);background:var(--bg);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{display:block;max-width:100%}
+.it{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:-.01em}
+.mono{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase}
+.wrap{max-width:1320px;margin:0 auto;padding:0 40px}
+.tag{display:inline-flex;align-items:center;gap:10px;color:var(--teal)}
+.tag i{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px rgba(18,116,104,.14)}
+.btn{display:inline-flex;align-items:center;gap:12px;background:var(--ink);color:#fff;text-decoration:none;font:inherit;font-size:15px;font-weight:500;padding:17px 26px;border-radius:14px;border:0;cursor:pointer;transition:transform .3s ease,background .3s ease,box-shadow .3s ease}
+.btn:hover{transform:translateY(-2px);background:var(--teal);box-shadow:0 16px 40px rgba(18,116,104,.28)}
+.btn svg{transition:transform .3s ease}.btn:hover svg{transform:translateX(4px)}
+.btn.lt{background:#fff;color:var(--ink)}.btn.lt:hover{background:var(--mint)}
+.lnk{font-size:15px;font-weight:500;text-decoration:none;padding:17px 4px;border-bottom:1px solid currentColor}
+h1,h2,h3{font-weight:500;letter-spacing:-.035em;margin:0}
+
+/* real fruit cut-outs */
+.fr{position:absolute;border-radius:50%;background:var(--img) center/cover no-repeat;mix-blend-mode:multiply;-webkit-mask-image:radial-gradient(closest-side,#000 64%,transparent 100%);mask-image:radial-gradient(closest-side,#000 64%,transparent 100%);will-change:transform;pointer-events:none}
+
+/* intro */
+#intro{position:fixed;inset:0;z-index:300;background:var(--deep);display:flex;align-items:center;justify-content:center;animation:introOut 1.1s cubic-bezier(.8,0,.2,1) 1.3s forwards}
+#intro div{display:flex;align-items:center;gap:18px;color:#fff;animation:fadeUp .9s cubic-bezier(.16,.8,.2,1) both}
+#intro img{width:64px;height:62px;object-fit:contain;background:#fff;border-radius:50%;padding:6px}
+#intro b{font-weight:500;font-size:20px;letter-spacing:-.02em}
+#intro small{display:block;color:#A9CFC6;margin-top:4px}
+@keyframes introOut{to{transform:translateY(-100%);visibility:hidden}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* chrome */
+.bar{position:fixed;left:0;top:0;height:2px;width:100%;background:var(--teal);transform:scaleX(0);transform-origin:left;z-index:150}
+.hd{position:fixed;left:0;right:0;top:14px;z-index:140;display:flex;justify-content:center;padding:0 20px;transition:top .4s ease}
+.hd .in{width:100%;max-width:1320px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:10px 10px 10px 14px;border-radius:20px;background:rgba(255,255,255,.72);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);border:1px solid rgba(255,255,255,.8);box-shadow:0 10px 40px rgba(20,33,30,.06)}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:44px;height:42px;object-fit:contain}
+.brand b{display:block;font-weight:600;font-size:15px;letter-spacing:-.01em}
+.brand .mono{display:block;font-size:10px;color:var(--mut);margin-top:2px}
+.nav{display:flex;gap:6px}
+.nav a{text-decoration:none;font-size:14px;color:var(--mut);padding:10px 14px;border-radius:10px;transition:background .25s ease,color .25s ease}
+.nav a:hover{background:#fff;color:var(--ink)}
+.hd .btn{padding:13px 20px;font-size:14px;border-radius:12px}
+.prev{position:fixed;left:20px;bottom:22px;z-index:130;background:rgba(20,33,30,.88);color:#fff;padding:8px 14px;border-radius:999px;font-size:10px}
+
+/* hero */
+.hero{position:relative;min-height:100vh;padding:118px 0 40px;overflow:hidden}
+.hero .grid{display:grid;grid-template-columns:.92fr 1.08fr;gap:56px;align-items:stretch;min-height:calc(100vh - 158px)}
+.hl{position:relative;display:flex;flex-direction:column;justify-content:center;gap:30px;z-index:2;padding:20px 0}
+.slides{position:relative;min-height:330px}
+.sl{position:absolute;left:0;right:0;top:0;opacity:0;visibility:hidden;transform:translateY(20px);transition:opacity .9s ease,transform 1.1s cubic-bezier(.16,.8,.2,1),visibility .9s;display:flex;flex-direction:column;gap:24px}
+.sl.on{opacity:1;visibility:visible;transform:none}
+.sl h1,.sl h2{font-size:clamp(50px,5.6vw,92px);line-height:.96}
+.sl h1 .it,.sl h2 .it{color:var(--teal);font-size:1.08em}
+.sl p{margin:0;font-size:19px;line-height:1.55;color:var(--mut);max-width:480px}
+.acts{display:flex;flex-wrap:wrap;align-items:center;gap:22px}
+.ctl{display:flex;align-items:center;gap:16px}
+.ctl button{width:64px;height:30px;padding:0;border:0;background:none;cursor:pointer;display:flex;align-items:center}
+.ctl button span{display:block;width:100%;height:3px;border-radius:3px;background:var(--line);overflow:hidden}
+.ctl button i{display:block;height:3px;background:var(--teal);transform:scaleX(0);transform-origin:left}
+.ctl button i.run{animation:fill 6.5s linear forwards}
+@keyframes fill{to{transform:scaleX(1)}}
+.ctl .mono{color:var(--mut);margin-left:6px}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;max-width:560px}
+.stat{background:rgba(255,255,255,.7);border:1px solid var(--line);border-radius:16px;padding:14px 16px;backdrop-filter:blur(10px)}
+.stat .mono{color:var(--mut);font-size:10px}
+.stat b{display:block;margin-top:6px;font-weight:500;font-size:15px;letter-spacing:-.01em}
+.panel{position:relative;border-radius:34px;overflow:hidden;background:var(--sand);transform-origin:center top;will-change:transform;clip-path:inset(0 0 100% 0 round 34px);animation:panelIn 1.4s cubic-bezier(.7,0,.2,1) 1.6s forwards}
+@keyframes panelIn{to{clip-path:inset(0 0 0 0 round 34px)}}
+.panel img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.4s ease,transform 9s ease;transform:scale(1.08)}
+.panel img.on{opacity:1;transform:scale(1)}
+.panel img:nth-child(1){object-position:46% 36%}
+.panel img:nth-child(2){object-position:52% 40%}
+.panel::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,59,53,0) 55%,rgba(14,59,53,.55) 100%)}
+.glass{position:absolute;z-index:2;background:rgba(255,255,255,.18);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);border:1px solid rgba(255,255,255,.35);border-radius:18px;color:#fff}
+.g1{left:22px;bottom:22px;right:22px;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 16px}
+.g1 .who{display:flex;align-items:center;gap:12px}
+.g1 .who img{position:static;opacity:1;transform:none;width:46px;height:46px;border-radius:50%;background:#fff;object-fit:contain;padding:3px}
+.g1 b{display:block;font-weight:500;font-size:16px}
+.g1 .mono{color:#D8ECE6;font-size:10px}
+.g1 .live{display:flex;align-items:center;gap:8px;font-size:12px}
+.g1 .live i{width:8px;height:8px;border-radius:50%;background:#7CE0B5;animation:pulse 2s ease-out infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(124,224,181,.6)}100%{box-shadow:0 0 0 10px rgba(124,224,181,0)}}
+.g2{right:22px;top:22px;padding:12px 14px;display:flex;align-items:center;gap:10px;font-size:13px}
+.cue{position:absolute;left:40px;bottom:26px;display:flex;align-items:center;gap:12px;color:var(--mut)}
+.cue i{width:42px;height:1px;background:var(--line);position:relative;overflow:hidden}
+.cue i::after{content:"";position:absolute;top:0;left:-40%;width:40%;height:1px;background:var(--teal);animation:cue 2s ease-in-out infinite}
+@keyframes cue{to{left:100%}}
+
+/* logos strip */
+.strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:26px 0;background:var(--bg)}
+.strip div{display:flex;gap:56px;width:max-content;animation:marq 40s linear infinite;align-items:center;white-space:nowrap;font-size:30px;letter-spacing:-.03em}
+.strip .it{color:var(--teal)}
+.strip span.d{width:8px;height:8px;border-radius:50%;background:var(--orange)}
+@keyframes marq{to{transform:translateX(-50%)}}
+
+/* sticky scenes */
+.scene{position:relative}
+.stick{position:sticky;top:0;height:100vh;overflow:hidden}
+
+/* scene: reveal circle */
+#prato{height:280vh}
+#prato .stick{background:var(--bg)}
+.circle{position:absolute;inset:0;will-change:clip-path}
+.circle img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;will-change:transform}
+.circle::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 50%,rgba(20,14,8,.72) 0%,rgba(20,14,8,.35) 55%,rgba(20,14,8,.1) 100%);opacity:var(--o,0)}
+.ptitle{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;width:min(1100px,92vw);z-index:3;pointer-events:none}
+.ptitle h2{font-size:clamp(46px,7vw,120px);line-height:.92}
+.ptitle h2 .it{color:var(--teal)}
+.ptext{position:absolute;left:max(40px,calc(50vw - 620px));top:50%;transform:translateY(-50%);max-width:560px;color:#fff;z-index:4;opacity:0}
+.ptext h2{font-size:clamp(44px,5.4vw,88px);line-height:.95;margin:18px 0 22px}
+.ptext h2 .it{color:#F3C784}
+.ptext p{margin:0;font-size:19px;line-height:1.6;color:#F1E9DF;max-width:460px}
+.ptext .tag{color:#F3C784}.ptext .tag i{background:#F3C784;box-shadow:0 0 0 4px rgba(243,199,132,.2)}
+.chipsF{position:absolute;right:max(40px,calc(50vw - 620px));bottom:60px;display:flex;flex-direction:column;gap:10px;z-index:4;opacity:0}
+.chipsF .glass{position:static;padding:12px 16px;display:flex;align-items:center;gap:12px;font-size:14px}
+.chipsF .glass i{width:8px;height:8px;border-radius:50%;background:#F3C784}
+
+/* scene: 90 dias */
+#zoom{height:260vh}
+#zoom .stick{background:var(--bg)}
+.zimg{position:absolute;inset:0;overflow:hidden;will-change:clip-path}
+.zimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 32%;will-change:transform}
+.zimg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,59,53,.86) 0%,rgba(14,59,53,.45) 45%,rgba(14,59,53,0) 72%);opacity:var(--o,0)}
+.zlabel{position:absolute;left:0;right:0;top:12vh;text-align:center;z-index:2}
+.zlabel h2{font-size:clamp(34px,4.4vw,64px);line-height:1}
+.zlabel h2 .it{color:var(--teal)}
+.ztext{position:absolute;left:max(40px,calc(50vw - 620px));top:50%;transform:translateY(-50%);color:#fff;max-width:540px;z-index:3;opacity:0}
+.ztext .tag{color:#9FE0CF}.ztext .tag i{background:#9FE0CF}
+.ztext h2{font-size:clamp(44px,5.4vw,86px);line-height:.95;margin:18px 0 22px}
+.ztext h2 .it{color:#F3C784}
+.ztext p{margin:0 0 30px;font-size:19px;line-height:1.6;color:#E3F0EC}
+
+/* services horizontal */
+#serv{height:400vh}
+#serv .stick{display:flex;flex-direction:column;justify-content:center;gap:40px;background:var(--bg)}
+.shead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px}
+.shead h2{font-size:clamp(40px,4.8vw,78px);line-height:.96;margin-top:16px}
+.shead h2 .it{color:var(--teal)}
+.shead .count{font-size:15px;color:var(--mut)}
+.shead .count b{font-weight:500;color:var(--ink);font-size:28px;letter-spacing:-.03em}
+.track{display:flex;gap:22px;padding-left:max(40px,calc(50vw - 620px));will-change:transform}
+.card{flex:none;width:min(380px,80vw);height:min(540px,62vh);border-radius:28px;background:#fff;border:1px solid var(--line);overflow:hidden;display:flex;flex-direction:column;transition:transform .5s cubic-bezier(.16,.8,.2,1),box-shadow .5s ease}
+.card:hover{transform:translateY(-8px);box-shadow:0 30px 70px rgba(20,33,30,.12)}
+.card .ph{position:relative;flex:1.15;background:var(--img) center/cover no-repeat;transition:transform 1.2s cubic-bezier(.16,.8,.2,1)}
+.card:hover .ph{transform:scale(1.06)}
+.card .ph .mono{position:absolute;left:16px;top:16px;background:rgba(255,255,255,.85);backdrop-filter:blur(8px);padding:7px 10px;border-radius:8px;color:var(--ink)}
+.card .tx{flex:1;padding:24px 26px 26px;display:flex;flex-direction:column;gap:10px;background:#fff;position:relative}
+.card h3{font-size:27px;line-height:1.05}
+.card p{margin:0;font-size:15px;line-height:1.55;color:var(--mut)}
+.card a{margin-top:auto;display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;color:var(--teal);text-decoration:none}
+.card.intro{background:var(--deep);border-color:var(--deep);color:#fff;padding:34px;justify-content:space-between}
+.card.intro p{color:#B9D9D1;font-size:17px}
+.card.intro h3{font-size:40px}
+.card.intro h3 .it{color:#F3C784}
+
+/* wood */
+.wood{position:relative;padding:170px 0;color:#F4ECE2;overflow:hidden;background:var(--wood)}
+.wood .tex{position:absolute;inset:-20% 0;background:url('https://images.unsplash.com/photo-1736506159776-22ca388780fa?auto=format&fit=crop&w=1800&q=70') center/cover;will-change:transform}
+.wood::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(38,24,14,.86) 0%,rgba(38,24,14,.62) 55%,rgba(38,24,14,.4) 100%)}
+.wood .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:70px;align-items:center}
+.wood blockquote{margin:0;font-size:clamp(38px,4.6vw,74px);line-height:1.02;letter-spacing:-.035em;font-weight:400}
+.wood blockquote .it{color:#F3C784}
+.wood cite{display:block;margin-top:34px;font-style:normal;color:#D6C3AE}
+.wood .wpic{position:relative;border-radius:28px;overflow:hidden;aspect-ratio:.82;box-shadow:0 40px 90px rgba(0,0,0,.35)}
+.wood .wpic img{width:100%;height:100%;object-fit:cover;transform:scale(1.12);will-change:transform}
+.wood .wpic .glass{left:16px;bottom:16px;padding:12px 14px;font-size:13px;display:flex;align-items:center;gap:10px}
+
+/* about */
+.sec{position:relative;padding:150px 0}
+.about{display:grid;grid-template-columns:.95fr 1.05fr;gap:80px;align-items:center}
+.about .pic{position:relative;border-radius:30px;overflow:hidden;aspect-ratio:.8}
+.about .pic img{width:100%;height:100%;object-fit:cover;object-position:50% 38%;transform:scale(1.12);will-change:transform}
+.about .pic .glass{left:18px;top:18px;padding:10px 14px;font-size:13px;display:flex;align-items:center;gap:10px}
+.about h2{font-size:clamp(44px,5vw,80px);line-height:.95;margin:18px 0 26px}
+.about h2 .it{color:var(--teal)}
+.about p{margin:0 0 16px;font-size:18px;line-height:1.65;color:var(--mut)}
+.table{margin-top:36px;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:150px 1fr auto;gap:20px;align-items:center;padding:20px 0;border-bottom:1px solid var(--line);transition:padding .3s ease}
+.row:hover{padding-left:10px}
+.row .mono{color:var(--mut)}
+.row b{font-weight:500;font-size:20px;letter-spacing:-.02em}
+.row span:last-child{color:var(--mut);font-size:14px}
+
+/* method */
+.method{margin-top:150px}
+.mhead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:20px;margin-bottom:50px}
+.mhead h2{font-size:clamp(40px,4.6vw,74px);line-height:.96;margin-top:16px}
+.mhead h2 .it{color:var(--teal)}
+.mline{height:2px;background:var(--line);border-radius:2px;margin-bottom:34px;overflow:hidden}
+.mline i{display:block;height:2px;background:var(--teal);transform-origin:left;transform:scaleX(0)}
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.step{background:#fff;border:1px solid var(--line);border-radius:24px;padding:30px;transition:border-color .4s ease,transform .4s ease}
+.step.lit{border-color:var(--teal)}
+.step .mono{color:var(--teal)}
+.step h3{font-size:26px;margin:40px 0 10px}
+.step p{margin:0;font-size:16px;line-height:1.6;color:var(--mut)}
+
+/* goal */
+.goal{margin-top:150px;display:grid;grid-template-columns:1.05fr .95fr;gap:0;border-radius:32px;overflow:hidden;background:#fff;border:1px solid var(--line)}
+.goal .l{padding:60px 56px}
+.goal h2{font-size:clamp(38px,4.2vw,66px);line-height:.98;margin:16px 0 30px}
+.goal h2 .it{color:var(--teal)}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chips button{font:inherit;font-size:15px;cursor:pointer;padding:13px 18px;border-radius:12px;background:var(--bg);color:var(--ink);border:1px solid var(--line);transition:all .25s ease}
+.chips button:hover{border-color:var(--teal)}
+.chips button[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.goal .r{position:relative;min-height:460px;background:var(--sand);overflow:hidden;color:#fff}
+.goal .r .gimg{position:absolute;inset:0;background:var(--img) center/cover;transition:opacity .6s ease,transform 1.2s ease}
+.goal .r::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,59,53,0) 30%,rgba(14,59,53,.88) 100%)}
+.goal .r .gt{position:absolute;left:34px;right:34px;bottom:34px;z-index:2;display:flex;flex-direction:column;gap:12px}
+.goal .r .mono{color:#BFE5DA}
+.goal .r h3{font-size:36px;line-height:1}
+.goal .r p{margin:0;font-size:16px;line-height:1.55;color:#E3F0EC;max-width:400px}
+.goal .r .btn{align-self:flex-start;margin-top:8px}
+
+/* faq + contact */
+.faq{margin-top:150px;display:grid;grid-template-columns:.8fr 1.2fr;gap:70px}
+.faq h2{font-size:clamp(40px,4.4vw,70px);line-height:.96;margin-top:16px}
+.faq h2 .it{color:var(--teal)}
+details{border-bottom:1px solid var(--line);padding:24px 0}
+details:first-child{border-top:1px solid var(--line)}
+summary{cursor:pointer;list-style:none;font-size:19px;font-weight:500;letter-spacing:-.01em;display:flex;justify-content:space-between;gap:20px;min-height:28px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";flex:none;width:28px;height:28px;border-radius:8px;background:var(--mint) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23127468' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M12 5v14M5 12h14'/%3E%3C/svg%3E") center no-repeat;transition:transform .3s ease}
+details[open] summary::after{transform:rotate(45deg)}
+details p{margin:12px 0 0;font-size:16px;line-height:1.65;color:var(--mut)}
+.contact{position:relative;margin-top:150px;border-radius:36px;overflow:hidden;background:var(--deep);color:#fff;display:grid;grid-template-columns:1fr 1fr}
+.contact .l{padding:clamp(36px,5vw,70px)}
+.contact h2{font-size:clamp(42px,5vw,80px);line-height:.95;margin:16px 0 20px}
+.contact h2 .it{color:#F3C784}
+.contact p{margin:0 0 28px;font-size:18px;line-height:1.6;color:#B9D9D1}
+.contact .tag{color:#9FE0CF}.contact .tag i{background:#9FE0CF}
+.contact address{font-style:normal;margin-top:30px;display:flex;flex-direction:column;gap:6px;font-size:15px;color:#B9D9D1}
+.contact .r{position:relative;min-height:480px}
+.contact .r img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.contact form{position:absolute;left:28px;right:28px;bottom:28px;display:flex;flex-direction:column;gap:12px;padding:22px;border-radius:22px;background:rgba(14,59,53,.55);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.2)}
+.contact input,.contact textarea{font:inherit;font-size:16px;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:14px 16px;outline:none;transition:border-color .3s ease}
+.contact input::placeholder,.contact textarea::placeholder{color:#B9D9D1}
+.contact input:focus,.contact textarea:focus{border-color:#9FE0CF}
+footer{padding:50px 0 100px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;color:var(--mut)}
+footer img{width:56px;height:54px;object-fit:contain}
+.wa{position:fixed;right:20px;bottom:20px;z-index:135;width:58px;height:58px;border-radius:18px;background:var(--teal);display:flex;align-items:center;justify-content:center;box-shadow:0 14px 36px rgba(18,116,104,.4);transition:transform .3s ease}
+.wa:hover{transform:translateY(-3px)}
+
+.rv{opacity:0;transform:translateY(36px);transition:opacity 1s ease,transform 1.1s cubic-bezier(.16,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.12s}.d2{transition-delay:.24s}
+
+@media (max-width:1000px){
+.nav{display:none}
+.wrap{padding:0 22px}
+.hero{padding:96px 0 30px}
+.hero .grid{grid-template-columns:1fr;gap:28px;min-height:0}
+.panel{height:62vh;order:-1}
+.slides{min-height:360px}
+.stats{grid-template-columns:1fr 1fr}
+.cue{display:none}
+.ptext,.ztext{left:22px;right:22px}
+.chipsF{display:none}
+.wood .wrap,.about,.goal,.faq,.contact{grid-template-columns:1fr;gap:40px}
+.goal .l{padding:36px 26px}
+.row{grid-template-columns:1fr;gap:4px}
+.steps{grid-template-columns:1fr}
+.sec{padding:100px 0}
+.wood{padding:110px 0}
+.contact .r{min-height:520px}
+.fr.hide-m{display:none}
+}
+@media (max-width:520px){.hd .btn{display:none}.sl h1,.sl h2{font-size:46px}.prev{bottom:90px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}#intro{display:none}.panel{clip-path:none}}
+</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"LocalBusiness","name":"Karolaine Ribeiro · Nutricionista","description":"Nutrição clínica: emagrecimento, obesidade, pré e pós-bariátrica e reeducação alimentar.","telephone":"+55 32 99964-9605","address":{"@type":"PostalAddress","streetAddress":"R. Padre José Maria Xavier, 123","addressLocality":"São João del Rei","addressRegion":"MG","postalCode":"36307-340","addressCountry":"BR"},"url":"https://karolaine.reinventar.dev","sameAs":["https://www.instagram.com/nutrikarolaineribeiro"]}</script>
+</head>
+<body>
+
+<div id="intro" aria-hidden="true"><div><img src="img/logo.webp" alt=""><span><b>Karolaine Ribeiro</b><small class="mono">Nutrição clínica</small></span></div></div>
+<div class="bar" id="bar" aria-hidden="true"></div>
+
+<header class="hd"><div class="in">
+<a class="brand" href="#inicio" aria-label="Karolaine Ribeiro, início"><img src="img/logo.webp" alt="Logo Karolaine Ribeiro Nutrição Clínica"><span><b>Karolaine Ribeiro</b><span class="mono">Nutricionista · CRN-9 23955</span></span></a>
+<nav class="nav" aria-label="Seções"><a href="#prato">Filosofia</a><a href="#zoom">90 dias</a><a href="#serv">Serviços</a><a href="#sobre">Sobre</a><a href="#contato">Contato</a></nav>
+<a class="btn" href="https://wa.me/5532999649605">Agendar consulta</a>
+</div></header>
+
+<div class="prev mono" aria-hidden="true">Prévia para aprovação · Reinventar</div>
+
+<main>
+<section class="hero" id="inicio" aria-label="Destaques">
+<div class="fr" data-f="1" style="--img:url('https://images.unsplash.com/photo-1582287086947-1fd0fdac5cc9?auto=format&fit=crop&w=520&h=520&crop=focalpoint&fp-x=.5&fp-y=.38&fp-z=1.6&q=75');width:190px;height:190px;left:41%;top:9%"></div>
+<div class="fr hide-m" data-f="2" style="--img:url('https://images.unsplash.com/photo-1591495746097-8a92864d5c1f?auto=format&fit=crop&w=400&h=400&crop=focalpoint&fp-x=.5&fp-y=.5&fp-z=1.5&q=75');width:130px;height:130px;left:2%;top:13%"></div>
+<div class="fr hide-m" data-f="3" style="--img:url('https://images.unsplash.com/photo-1708100769120-015acf75bcc1?auto=format&fit=crop&w=520&h=520&q=75');width:220px;height:220px;left:36%;bottom:4%"></div>
+<div class="fr hide-m" data-f="4" style="--img:url('https://images.unsplash.com/photo-1573066778058-03dbee2c5a0c?auto=format&fit=crop&w=420&h=420&crop=focalpoint&fp-x=.42&fp-y=.5&fp-z=1.5&q=75');width:140px;height:140px;left:-1%;bottom:16%"></div>
+<div class="wrap">
+<div class="grid">
+<div class="hl">
+<div class="slides">
+<div class="sl on">
+<span class="tag mono"><i></i>Nutrição clínica · CRN-9 23955</span>
+<h1>Emagrecer com <span class="it">leveza</span>. Cuidar com ciência.</h1>
+<p>Um plano alimentar prazeroso, sem restrições desnecessárias, construído para a sua vida real.</p>
+</div>
+<div class="sl">
+<span class="tag mono"><i></i>Prazer, Karolaine</span>
+<h2>Escuta, empatia e resultado que <span class="it">fica</span>.</h2>
+<p>Nutricionista pela UFLA e pós-graduada em Obesidade e Síndrome Metabólica.</p>
+</div>
+<div class="sl">
+<span class="tag mono"><i></i>Presencial e online</span>
+<h2>Do consultório no Centro para o <span class="it">mundo</span>.</h2>
+<p>Atendimento em São João del Rei e online, com o mesmo cuidado em cada retorno.</p>
+</div>
+</div>
+<div class="acts">
+<a class="btn" href="https://wa.me/5532999649605">Agendar pelo WhatsApp <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+<a class="lnk" href="#prato">Conhecer o método</a>
+</div>
+<div class="ctl"><button type="button" data-go="0" aria-label="Destaque 1"><span><i></i></span></button><button type="button" data-go="1" aria-label="Destaque 2"><span><i></i></span></button><button type="button" data-go="2" aria-label="Destaque 3"><span><i></i></span></button><span class="mono"><span id="num">01</span> / 03</span></div>
+<div class="stats">
+<div class="stat"><span class="mono">Atendimento</span><b>Presencial e online</b></div>
+<div class="stat"><span class="mono">Especialidade</span><b>Emagrecimento</b></div>
+<div class="stat"><span class="mono">Formação</span><b>UFLA · Pós IPGS</b></div>
+</div>
+</div>
+<div class="panel" id="panel">
+<img class="on" src="img/karolaine-cafe.webp" alt="Karolaine Ribeiro em seu consultório">
+<img src="img/karolaine-consultorio.webp" alt="">
+<div class="glass g2"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>Registro CRN-9 23955</div>
+<div class="glass g1"><div class="who"><img src="img/logo.webp" alt=""><div><b>Karolaine Ribeiro</b><span class="mono">Nutrição clínica · São João del Rei</span></div></div><div class="live"><i></i>Agenda aberta</div></div>
+</div>
+</div>
+</div>
+<div class="cue mono" aria-hidden="true"><i></i>Role para explorar</div>
+</section>
+
+<div class="strip" aria-hidden="true"><div>
+<span>Emagrecimento <span class="it">saudável</span></span><span class="d"></span><span>Obesidade e <span class="it">síndrome metabólica</span></span><span class="d"></span><span>Pré e pós-<span class="it">bariátrica</span></span><span class="d"></span><span>Reeducação <span class="it">alimentar</span></span><span class="d"></span>
+<span>Emagrecimento <span class="it">saudável</span></span><span class="d"></span><span>Obesidade e <span class="it">síndrome metabólica</span></span><span class="d"></span><span>Pré e pós-<span class="it">bariátrica</span></span><span class="d"></span><span>Reeducação <span class="it">alimentar</span></span><span class="d"></span>
+</div></div>
+
+<section class="scene" id="prato" aria-label="Filosofia">
+<div class="stick">
+<div class="ptitle" id="ptitle"><h2>Comida de verdade, <span class="it">sem</span> restrições desnecessárias.</h2></div>
+<div class="fr" data-p="1" style="--img:url('https://images.unsplash.com/photo-1588514206464-214a4d63ed18?auto=format&fit=crop&w=420&h=420&q=75');width:180px;height:180px;left:8%;top:12%"></div>
+<div class="fr" data-p="2" style="--img:url('https://images.unsplash.com/photo-1615485925807-d11c291f531c?auto=format&fit=crop&w=460&h=460&q=75');width:210px;height:210px;right:7%;top:14%"></div>
+<div class="fr hide-m" data-p="3" style="--img:url('https://images.unsplash.com/photo-1609424572698-04d9d2e04954?auto=format&fit=crop&w=420&h=420&q=75');width:170px;height:170px;left:12%;bottom:10%"></div>
+<div class="fr hide-m" data-p="4" style="--img:url('https://images.unsplash.com/photo-1705147296208-dffaf3fe5d7c?auto=format&fit=crop&w=380&h=380&crop=focalpoint&fp-x=.5&fp-y=.5&fp-z=1.6&q=75');width:150px;height:150px;right:12%;bottom:12%"></div>
+<div class="circle" id="circle"><img id="cimg" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=2000&q=75" alt="Prato colorido com legumes, grãos e folhas sobre mesa de madeira"></div>
+<div class="ptext" id="ptext">
+<span class="tag mono"><i></i>Filosofia</span>
+<h2>Seu prato, sua rotina, <span class="it">seu</span> ritmo.</h2>
+<p>O emagrecimento sustentável nasce do respeito entre o seu paladar, a sua rotina, a sua vida social e as suas necessidades nutricionais.</p>
+</div>
+<div class="chipsF" id="chipsF">
+<div class="glass"><i></i>Sem dietas radicais</div>
+<div class="glass"><i></i>Baseado em evidências</div>
+<div class="glass"><i></i>Sem julgamentos</div>
+</div>
+</div>
+</section>
+
+<section class="scene" id="zoom" aria-label="Acompanhamento por 90 dias">
+<div class="stick">
+<div class="zlabel" id="zlabel"><span class="tag mono"><i></i>Programa</span><h2 style="margin-top:14px">Acompanhamento <span class="it">por 90 dias</span></h2></div>
+<div class="zimg" id="zimg"><img src="img/karolaine-consultorio.webp" alt="Karolaine Ribeiro no consultório, mostrando modelos de alimentos" id="zpic"></div>
+<div class="ztext" id="ztext">
+<span class="tag mono"><i></i>Acompanhamento por 90 dias</span>
+<h2>Três meses para criar hábitos que <span class="it">ficam</span>.</h2>
+<p>Um ciclo de acompanhamento próximo, com avaliações e ajustes, para o resultado não depender só de força de vontade.</p>
+<a class="btn lt" href="https://wa.me/5532999649605?text=Ol%C3%A1%2C%20Karolaine!%20Quero%20saber%20sobre%20o%20acompanhamento%20por%2090%20dias.">Quero saber mais <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+</div>
+</div>
+</section>
+
+<section class="scene" id="serv" aria-label="Serviços">
+<div class="stick">
+<div class="wrap" style="width:100%"><div class="shead"><div><span class="tag mono"><i></i>Serviços</span><h2>Cuidado clínico para <span class="it">cada fase</span>.</h2></div><div class="count"><b id="sn">01</b> / 05</div></div></div>
+<div class="track" id="track">
+<article class="card" style="--img:url('https://images.unsplash.com/photo-1588514206464-214a4d63ed18?auto=format&fit=crop&w=800&h=640&q=75')"><div class="ph"><span class="mono">01</span></div><div class="tx"><h3>Emagrecimento saudável</h3><p>Perda de peso com prazer em comer, sem fome e sem dietas radicais.</p><a href="https://wa.me/5532999649605?text=Ol%C3%A1%2C%20Karolaine!%20Quero%20saber%20sobre%20emagrecimento%20saud%C3%A1vel.">Agendar →</a></div></article>
+<article class="card" style="--img:url('https://images.unsplash.com/photo-1519162808019-7de1683fa2ad?auto=format&fit=crop&w=800&h=640&q=75')"><div class="ph"><span class="mono">02</span></div><div class="tx"><h3>Tratamento da obesidade</h3><p>Acompanhamento especializado em obesidade e síndrome metabólica, com escuta.</p><a href="https://wa.me/5532999649605?text=Ol%C3%A1%2C%20Karolaine!%20Quero%20saber%20sobre%20tratamento%20da%20obesidade.">Agendar →</a></div></article>
+<article class="card" style="--img:url('https://images.unsplash.com/photo-1466637574441-749b8f19452f?auto=format&fit=crop&w=800&h=640&q=75')"><div class="ph"><span class="mono">03</span></div><div class="tx"><h3>Pré e pós-bariátrica</h3><p>Preparo nutricional para a cirurgia e suporte em cada fase da adaptação.</p><a href="https://wa.me/5532999649605?text=Ol%C3%A1%2C%20Karolaine!%20Quero%20saber%20sobre%20pr%C3%A9%20e%20p%C3%B3s-bari%C3%A1trica.">Agendar →</a></div></article>
+<article class="card" style="--img:url('https://images.unsplash.com/photo-1615485925807-d11c291f531c?auto=format&fit=crop&w=800&h=640&q=75')"><div class="ph"><span class="mono">04</span></div><div class="tx"><h3>Reeducação alimentar</h3><p>Hábitos sustentáveis e autonomia para fazer boas escolhas no dia a dia.</p><a href="https://wa.me/5532999649605?text=Ol%C3%A1%2C%20Karolaine!%20Quero%20saber%20sobre%20reeduca%C3%A7%C3%A3o%20alimentar.">Agendar →</a></div></article>
+<article class="card" style="--img:url('https://images.unsplash.com/photo-1659778709169-1536581a282f?auto=format&fit=crop&w=800&h=640&q=75')"><div class="ph"><span class="mono">05</span></div><div class="tx"><h3>Tratamento de doenças</h3><p>Alimentação como parte do cuidado clínico, alinhada aos seus exames.</p><a href="https://wa.me/5532999649605?text=Ol%C3%A1%2C%20Karolaine!%20Quero%20saber%20sobre%20tratamento%20de%20doen%C3%A7as.">Agendar →</a></div></article>
+</div>
+</div>
+</section>
+
+<section class="wood" aria-label="Filosofia">
+<div class="tex" id="tex" aria-hidden="true"></div>
+<div class="wrap">
+<div class="rv">
+<span class="tag mono" style="color:#F3C784"><i style="background:#F3C784;box-shadow:0 0 0 4px rgba(243,199,132,.2)"></i>Manifesto</span>
+<blockquote style="margin-top:26px">Nutrição vai além de prescrever dietas. É compreender você <span class="it">por inteiro</span>.</blockquote>
+<cite class="mono">Karolaine Ribeiro · Nutricionista</cite>
+</div>
+<div class="wpic rv d1"><img id="wimg" src="https://images.unsplash.com/photo-1467453678174-768ec283a940?auto=format&fit=crop&w=900&h=1100&q=75" alt="Café da manhã saudável sobre mesa de madeira"><div class="glass"><span style="width:8px;height:8px;border-radius:50%;background:#F3C784"></span>Prazer em comer bem</div></div>
+</div>
+</section>
+
+<section class="sec" id="sobre">
+<div class="wrap">
+<div class="about">
+<div class="pic rv"><img id="apic" src="img/karolaine-cafe.webp" alt="Retrato de Karolaine Ribeiro"><div class="glass"><span style="width:8px;height:8px;border-radius:50%;background:#7CE0B5"></span>Consultório · Centro, São João del Rei</div></div>
+<div>
+<span class="tag mono rv"><i></i>Sobre</span>
+<h2 class="rv">Prazer, sou a <span class="it">Karolaine</span>.</h2>
+<p class="rv d1">Sou apaixonada por alimentos e pelo poder que eles têm sobre a nossa vida, as emoções e o corpo. Meu compromisso é ajudar você a emagrecer de forma definitiva, lidando melhor com o próprio corpo, com escuta e empatia.</p>
+<div class="table rv d2">
+<div class="row"><span class="mono">Graduação</span><b>Nutrição · UFLA</b><span>2015–2019</span></div>
+<div class="row"><span class="mono">Pós-graduação</span><b>Obesidade e Síndrome Metabólica</b><span>IPGS · 2022–2023</span></div>
+<div class="row"><span class="mono">Registro</span><b>CRN-9 23955</b><span>Ativo</span></div>
+</div>
+</div>
+</div>
+
+<div class="method" id="metodo">
+<div class="mhead"><div><span class="tag mono rv"><i></i>Como funciona</span><h2 class="rv">Três passos. Um plano <span class="it">possível</span>.</h2></div></div>
+<div class="mline" id="mline"><i></i></div>
+<div class="steps">
+<div class="step"><span class="mono">Passo 01</span><h3>Avaliação completa</h3><p>Histórico, rotina, exames e objetivos, com escuta ativa.</p></div>
+<div class="step"><span class="mono">Passo 02</span><h3>Plano individualizado</h3><p>Estratégia que respeita hábitos, preferências e a sua rotina.</p></div>
+<div class="step"><span class="mono">Passo 03</span><h3>Acompanhamento</h3><p>Retornos para medir a evolução e ajustar o plano.</p></div>
+</div>
+</div>
+
+<div class="goal rv">
+<div class="l">
+<span class="tag mono"><i></i>Comece por aqui</span>
+<h2>Qual é o seu <span class="it">objetivo</span> hoje?</h2>
+<div class="chips" id="chips"></div>
+</div>
+<div class="r"><div class="gimg" id="gimg"></div><div class="gt"><span class="mono">Seu ponto de partida</span><h3 id="gt"></h3><p id="gx"></p><a class="btn lt" id="gl" href="https://wa.me/5532999649605">Quero começar <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div></div>
+</div>
+
+<div class="faq" id="duvidas">
+<div><span class="tag mono rv"><i></i>Dúvidas</span><h2 class="rv">Perguntas <span class="it">frequentes</span>.</h2></div>
+<div class="rv d1">
+<details><summary>O atendimento é presencial ou online?</summary><p>Os dois. Presencial no Centro de São João del Rei e online para qualquer cidade.</p></details>
+<details><summary>Vou precisar cortar tudo o que gosto?</summary><p>Não. O plano evita restrições desnecessárias e busca mudanças que você consiga manter.</p></details>
+<details><summary>Atende convênio?</summary><p>O atendimento é particular. [FORMAS DE PAGAMENTO E RECIBO PARA REEMBOLSO]</p></details>
+<details><summary>O que levar na primeira consulta?</summary><p>[ORIENTAÇÕES DA KAROLAINE: EXAMES RECENTES, MEDICAMENTOS EM USO ETC.]</p></details>
+</div>
+</div>
+
+<div class="contact rv" id="contato">
+<div class="l">
+<span class="tag mono"><i></i>Contato</span>
+<h2>Vamos montar o seu <span class="it">plano</span>?</h2>
+<p>Mande uma mensagem e receba os horários disponíveis.</p>
+<a class="btn lt" href="https://wa.me/5532999649605">WhatsApp (32) 99964-9605</a>
+<address><span>R. Padre José Maria Xavier, 123 · Centro</span><span>São João del Rei · MG</span><a href="https://www.instagram.com/nutrikarolaineribeiro">@nutrikarolaineribeiro</a></address>
+</div>
+<div class="r"><img src="https://images.unsplash.com/photo-1623428187969-5da2dcea5ebf?auto=format&fit=crop&w=1000&h=1100&q=75" alt="Bowl de salada sobre fundo escuro">
+<form id="form">
+<label class="mono" for="fn" style="color:#B9D9D1">Fale comigo</label>
+<input id="fn" type="text" name="nome" placeholder="Seu nome" required>
+<input type="tel" name="telefone" placeholder="Seu WhatsApp" aria-label="Seu WhatsApp">
+<textarea name="mensagem" rows="2" placeholder="Como posso ajudar?" aria-label="Como posso ajudar?"></textarea>
+<button class="btn lt" type="submit">Enviar pelo WhatsApp</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<footer><div class="wrap"><img src="img/logo.webp" alt=""><span class="mono">Karolaine Ribeiro · Nutricionista · CRN-9 23955</span><a class="mono" href="https://reinventar.dev">Site por Reinventar</a></div></footer>
+
+<a class="wa" href="https://wa.me/5532999649605" aria-label="Falar com a Karolaine no WhatsApp"><svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5.1A8.5 8.5 0 1 1 21 11.5z"/></svg></a>
+
+<script>
+(function(){
+var WA='https://wa.me/5532999649605?text=';
+function cl(v,a,b){return v<a?a:v>b?b:v}
+function ease(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
+function prog(el){var r=el.getBoundingClientRect();return cl(-r.top/(r.height-innerHeight),0,1)}
+
+var i=0,t,sl=document.querySelectorAll('.sl'),im=document.querySelectorAll('#panel>img'),pr=document.querySelectorAll('.ctl i'),num=document.getElementById('num');
+function show(n){i=(n+3)%3;sl.forEach(function(e,k){e.classList.toggle('on',k===i)});im.forEach(function(e,k){e.classList.toggle('on',k===(i===1?1:0))});
+pr.forEach(function(e,k){e.classList.remove('run');void e.offsetWidth;if(k===i)e.classList.add('run')});num.textContent='0'+(i+1)}
+function start(){clearInterval(t);t=setInterval(function(){show(i+1)},6500)}
+document.querySelectorAll('[data-go]').forEach(function(b){b.addEventListener('click',function(){show(+b.dataset.go);start()})});
+show(0);start();
+
+var mx=0,my=0,hero=document.getElementById('inicio');
+hero.addEventListener('mousemove',function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5;req()});
+var hf=[].slice.call(document.querySelectorAll('[data-f]')),pf=[].slice.call(document.querySelectorAll('[data-p]'));
+var dirs={1:[.2,-1],2:[-1,-.4],3:[.3,1],4:[-1,.6]};
+var panel=document.getElementById('panel'),bar=document.getElementById('bar');
+var circle=document.getElementById('circle'),cimg=document.getElementById('cimg'),ptitle=document.getElementById('ptitle'),ptext=document.getElementById('ptext'),chipsF=document.getElementById('chipsF');
+var zimg=document.getElementById('zimg'),zpic=document.getElementById('zpic'),ztext=document.getElementById('ztext'),zlabel=document.getElementById('zlabel');
+var track=document.getElementById('track'),sn=document.getElementById('sn');
+var tex=document.getElementById('tex'),wimg=document.getElementById('wimg'),apic=document.getElementById('apic');
+var mline=document.querySelector('#mline i'),steps=document.querySelectorAll('.step');
+var rv=[].slice.call(document.querySelectorAll('.rv'));
+var t0=performance.now();
+
+function frame(){
+var y=scrollY,vh=innerHeight,vw=innerWidth,h=document.documentElement.scrollHeight-vh,now=(performance.now()-t0)/1000;
+bar.style.transform='scaleX('+(h>0?y/h:0)+')';
+/* hero */
+var hp=cl(y/vh,0,1);
+hf.forEach(function(e,k){var d=dirs[e.dataset.f],bob=Math.sin(now*.8+k*1.7)*10;
+e.style.transform='translate('+(mx*(30+k*12)+d[0]*hp*260)+'px,'+(my*(30+k*12)+d[1]*hp*260+bob)+'px) rotate('+(Math.sin(now*.5+k)*6+hp*(k%2?40:-40))+'deg)'});
+if(vw>1000)panel.style.transform='scale('+(1-hp*.06)+') translateY('+(hp*30)+'px)';
+/* prato */
+var p=prog(document.getElementById('prato')),q=ease(cl(p/.62,0,1));
+var r0=vw<1000?18:13;var rad=r0+(80-r0)*q;
+circle.style.clipPath='circle('+rad+'% at 50% 50%)';
+cimg.style.transform='scale('+(1.3-.3*q)+') rotate('+((1-q)*-8)+'deg)';
+circle.style.setProperty('--o',cl((p-.5)/.15,0,1));
+ptitle.style.opacity=1-cl(p/.22,0,1);ptitle.style.transform='translate(-50%,-50%) scale('+(1+cl(p/.22,0,1)*.08)+')';
+pf.forEach(function(e,k){var s=cl(p/.5,0,1),d=k%2?1:-1;e.style.opacity=1-s;e.style.transform='translate('+(d*s*240)+'px,'+(Math.sin(now*.8+k)*10-s*120)+'px) rotate('+(d*s*90+Math.sin(now*.6+k)*6)+'deg) scale('+(1+s*.4)+')'});
+var tp=cl((p-.6)/.14,0,1);ptext.style.opacity=tp;ptext.style.transform='translateY(calc(-50% + '+((1-tp)*40)+'px))';chipsF.style.opacity=cl((p-.7)/.12,0,1);
+/* zoom */
+var zp=prog(document.getElementById('zoom')),zq=ease(cl(zp/.6,0,1));
+var ix=(1-zq)*(vw<1000?10:28),iy=(1-zq)*(vw<1000?30:28);
+zimg.style.clipPath='inset('+(iy+(1-zq)*6)+'% '+ix+'% '+(iy-(1-zq)*6)+'% '+ix+'% round '+((1-zq)*30)+'px)';
+zpic.style.transform='scale('+(1.2-.2*zq)+')';
+zimg.style.setProperty('--o',cl((zp-.45)/.2,0,1));
+var zt=cl((zp-.55)/.18,0,1);ztext.style.opacity=zt;ztext.style.transform='translateY(calc(-50% + '+((1-zt)*40)+'px))';
+zlabel.style.opacity=1-cl(zp/.28,0,1);
+/* services */
+var sp=prog(document.getElementById('serv'));var max=track.scrollWidth-vw+Math.max(40,vw/2-620);
+track.style.transform='translateX('+(-sp*Math.max(0,max))+'px)';sn.textContent='0'+Math.min(5,1+Math.round(sp*4));
+/* wood + photos */
+var wr=tex.parentElement.getBoundingClientRect();tex.style.transform='translateY('+((wr.top)*-.12)+'px)';
+var r1=wimg.getBoundingClientRect();wimg.style.transform='scale(1.12) translateY('+((r1.top-vh/2)*-.05)+'px)';
+var r2=apic.getBoundingClientRect();apic.style.transform='scale(1.12) translateY('+((r2.top-vh/2)*-.05)+'px)';
+/* method line */
+var mr=mline.parentElement.getBoundingClientRect(),mp=cl((vh*.85-mr.top)/(vh*.6),0,1);mline.style.transform='scaleX('+mp+')';
+steps.forEach(function(s,k){s.classList.toggle('lit',mp>k/3+.05)});
+rv=rv.filter(function(e){if(e.getBoundingClientRect().top<vh*.9){e.classList.add('in');return false}return true});
+}
+var ticking=false;function req(){if(!ticking){ticking=true;requestAnimationFrame(function(){ticking=false;frame()})}}
+addEventListener('scroll',req,{passive:true});addEventListener('resize',req);
+(function idle(){frame();requestAnimationFrame(idle)})();
+
+var IMG='https://images.unsplash.com/';
+var G=[['Emagrecer','Emagrecimento saudável','Um plano prazeroso, sem fome e sem restrições desnecessárias, ajustado à sua rotina.','photo-1512621776951-a57141f2eefd'],
+['Tratar a obesidade','Tratamento da obesidade','Acompanhamento especializado em obesidade e síndrome metabólica, com escuta e sem julgamentos.','photo-1519162808019-7de1683fa2ad'],
+['Cirurgia bariátrica','Pré e pós-bariátrica','Preparo nutricional antes da cirurgia e suporte em cada fase da adaptação depois dela.','photo-1466637574441-749b8f19452f'],
+['Comer melhor','Reeducação alimentar','Hábitos sustentáveis e autonomia para fazer boas escolhas no dia a dia.','photo-1467453678174-768ec283a940'],
+['Cuidar da saúde','Tratamento de doenças','Alimentação como parte do cuidado clínico, alinhada aos seus exames.','photo-1615485925807-d11c291f531c']];
+var chips=document.getElementById('chips'),gimg=document.getElementById('gimg');
+G.forEach(function(g,n){var b=document.createElement('button');b.type='button';b.textContent=g[0];b.addEventListener('click',function(){goal(n)});chips.appendChild(b)});
+function goal(n){[].forEach.call(chips.children,function(b,k){b.setAttribute('aria-pressed',k===n?'true':'false')});
+document.getElementById('gt').textContent=G[n][1];document.getElementById('gx').textContent=G[n][2];
+gimg.style.opacity=0;setTimeout(function(){gimg.style.setProperty('--img','url('+IMG+G[n][3]+'?auto=format&fit=crop&w=900&h=900&q=75)');gimg.style.opacity=1},250);
+document.getElementById('gl').href=WA+encodeURIComponent('Olá, Karolaine! Vim pelo site e quero ajuda com: '+G[n][1]+'.')}
+goal(0);
+document.getElementById('form').addEventListener('submit',function(e){e.preventDefault();var f=e.target;
+window.open(WA+encodeURIComponent('Olá, Karolaine! Meu nome é '+f.nome.value+'. '+f.mensagem.value),'_blank','noopener')});
+})();
+</script>
+</body>
+</html>
