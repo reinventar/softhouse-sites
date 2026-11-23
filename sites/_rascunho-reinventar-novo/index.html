@@ -683,97 +683,78 @@ function montaPalco(){
   var cam = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
   var grupo = new THREE.Group(); cena.add(grupo);
 
-  /* cristal: núcleo + estilhaços (instâncias) */
-  var vert = [
-    "uniform float uF; uniform float uT;",
-    "attribute vec3 aDir; attribute float aRnd;",
-    "varying vec3 vPos; varying float vF;",
-    "void main(){",
-    "  vec3 p = position;",
-    "  #ifdef USE_INSTANCING",
-    "    vec4 w = instanceMatrix * vec4(p,1.0);",
-    "    float f = smoothstep(aRnd*0.3, aRnd*0.3+0.6, uF);",
-    "    w.xyz += aDir * (0.035*sin(uT*1.6 + aRnd*40.0)) * (1.0-f);",
-    "    w.xyz += aDir * f * (2.2 + aRnd*7.0);",
-    "    w.xyz = mix(w.xyz, w.xyz + vec3(sin(aRnd*91.0), cos(aRnd*57.0), sin(aRnd*33.0))*1.2, f);",
-    "  #else",
-    "    float f = uF;",
-    "    vec4 w = vec4(p * (1.0 - smoothstep(0.0,0.5,uF)*0.95) * (1.0 + 0.04*sin(uT*1.3)), 1.0);",
-    "  #endif",
-    "  vec4 mv = modelViewMatrix * w;",
-    "  vPos = mv.xyz; vF = f;",
-    "  gl_Position = projectionMatrix * mv;",
-    "}"].join("\n");
+  /* logo 3D: colchetes verdes (fundo), colchetes rosa (meio) e cubo blush (frente) */
+  var vert = "varying vec3 vPos; void main(){ vec4 mv = modelViewMatrix * vec4(position,1.0); vPos = mv.xyz; gl_Position = projectionMatrix * mv; }";
   var frag = [
-    "uniform float uAlpha;",
-    "varying vec3 vPos; varying float vF;",
+    "uniform vec3 uCor; uniform float uAlpha;",
+    "varying vec3 vPos;",
     "void main(){",
     "  vec3 n = normalize(cross(dFdx(vPos), dFdy(vPos)));",
-    "  vec3 v = normalize(-vPos);",
-    "  if (dot(n,v) < 0.0) n = -n;",
-    "  vec3 r = reflect(-v, n);",
-    "  float ndv = clamp(dot(n,v), 0.0, 1.0);",
-    "  vec3 escuro = vec3(.035,.03,.04), vinho = vec3(.62,.13,.38), rosa = vec3(.85,.31,.54), blush = vec3(.96,.79,.85), verde = vec3(.13,.77,.55);",
-    "  vec3 env = escuro;",
-    "  env += blush * smoothstep(.45,.95,r.y) * 1.25;",
-    "  env += rosa * smoothstep(.28,.0,abs(r.y-.05)) * (.65+.5*r.x);",
-    "  env += vinho * smoothstep(.0,-.5,r.y) * .9;",
-    "  env += verde * smoothstep(-.55,-.95,r.y) * .8 * (.5-.5*r.x);",
-    "  env += vec3(1.0) * pow(max(0.0, dot(r, normalize(vec3(.55,.7,.45)))), 36.0) * 1.6;",
-    "  float fr = pow(1.0-ndv, 3.0);",
-    "  vec3 col = env * (.55 + .45*ndv) + fr * mix(rosa, blush, ndv) * .9;",
-    "  gl_FragColor = vec4(col, uAlpha * (1.0 - vF*0.92));",
+    "  vec3 v = normalize(-vPos); if (dot(n,v) < 0.0) n = -n;",
+    "  vec3 r = reflect(-v, n); float ndv = clamp(dot(n,v), 0.0, 1.0);",
+    "  vec3 col = uCor * (0.16 + 0.6*ndv);",
+    "  col += uCor * smoothstep(0.25, 0.9, r.y) * 0.6;",
+    "  col += vec3(.96,.79,.85) * smoothstep(0.8, 1.0, r.y) * 0.35;",
+    "  col += vec3(1.0) * pow(max(0.0, dot(r, normalize(vec3(.5,.75,.45)))), 48.0) * 1.1;",
+    "  col += mix(uCor, vec3(1.0), 0.45) * pow(1.0-ndv, 3.0) * 0.75;",
+    "  gl_FragColor = vec4(col, uAlpha);",
     "}"].join("\n");
-  var uni = {uF:{value:0}, uT:{value:0}, uAlpha:{value:1}};
-  var matCristal = new THREE.ShaderMaterial({uniforms:uni, vertexShader:vert, fragmentShader:frag, transparent:true});
-
-  var nucleo = new THREE.Mesh(new THREE.IcosahedronGeometry(0.62, 1), matCristal);
-  grupo.add(nucleo);
-
-  var N_EST = celular ? 120 : 190;
-  var cone = new THREE.ConeGeometry(0.075, 1, 4, 1); cone.translate(0, 0.5, 0);
-  var est = new THREE.InstancedMesh(cone, matCristal, N_EST);
-  var dirs = [], lens = [], aDir = new Float32Array(N_EST*3), aRnd = new Float32Array(N_EST);
-  var m = new THREE.Matrix4(), q = new THREE.Quaternion(), Y = new THREE.Vector3(0,1,0), s = new THREE.Vector3(), o = new THREE.Vector3();
-  for (var i=0;i<N_EST;i++){
-    var d = new THREE.Vector3().randomDirection();
-    var longo = Math.random() < 0.22;
-    var L = longo ? 1.3 + Math.random()*1.0 : 0.55 + Math.random()*0.6;
-    var W = longo ? 0.55 + Math.random()*0.5 : 0.8 + Math.random()*0.9;
-    dirs.push(d); lens.push(L);
-    q.setFromUnitVectors(Y, d); s.set(W, L, W); o.copy(d).multiplyScalar(0.35);
-    m.compose(o, q, s); est.setMatrixAt(i, m);
-    aDir[i*3]=d.x; aDir[i*3+1]=d.y; aDir[i*3+2]=d.z; aRnd[i]=Math.random();
+  var uni = {uF:{value:0}, uT:{value:0}};
+  var alfa = {value:1};
+  var VERDE = [.13,.77,.55], ROSA = [.85,.31,.54], BLUSH = [.96,.79,.85];
+  function mat(c){ return new THREE.ShaderMaterial({uniforms:{uCor:{value:new THREE.Vector3(c[0],c[1],c[2])}, uAlpha:alfa}, vertexShader:vert, fragmentShader:frag, transparent:true}); }
+  var U = 0.036, T = 3.6*U, D = 0.16;
+  function w(u, v){ return new THREE.Vector2((u-50)*U, -(v-50)*U); }
+  var pecas = [], segs = [];
+  function colchete(cx, cy, sx, len, z, cor, fase){
+    var g = new THREE.Group(), m = mat(cor), c = w(cx, cy), L = len*U;
+    var h = new THREE.Mesh(new THREE.BoxGeometry(L + T/2, T, D), m); h.position.set(sx*(L/2 - T/4), 0, 0);
+    var vv = new THREE.Mesh(new THREE.BoxGeometry(T, L, D), m); vv.position.set(0, -sx*L/2, 0);
+    g.add(h); g.add(vv); g.position.set(c.x, c.y, z); grupo.add(g);
+    var fora = new THREE.Vector3(-sx, sx, 0).normalize();
+    pecas.push({g:g, base:g.position.clone(), fora:fora, fase:fase, giro:new THREE.Vector3(Math.random()-.5, Math.random()-.5, Math.random()-.5).multiplyScalar(2)});
+    var a = new THREE.Vector3(c.x - sx*T/2, c.y, z), b = new THREE.Vector3(c.x + sx*L, c.y, z);
+    segs.push({a:a, b:b, cor:cor, len:L}); segs.push({a:new THREE.Vector3(c.x, c.y, z), b:new THREE.Vector3(c.x, c.y - sx*L, z), cor:cor, len:L});
   }
-  cone.setAttribute("aDir", new THREE.InstancedBufferAttribute(aDir, 3));
-  cone.setAttribute("aRnd", new THREE.InstancedBufferAttribute(aRnd, 1));
-  grupo.add(est);
+  colchete(14, 14,  1, 24, -0.42, VERDE, 0);
+  colchete(86, 86, -1, 24, -0.42, VERDE, 0);
+  colchete(24, 24,  1, 22,  0.0,  ROSA, Math.PI);
+  colchete(76, 76, -1, 22,  0.0,  ROSA, Math.PI);
+  var lado = 17*U;
+  var cubo = new THREE.Mesh(new THREE.BoxGeometry(lado, lado, lado), mat(BLUSH));
+  cubo.position.set(0, 0, 0.42); grupo.add(cubo);
+  segs.push({a:new THREE.Vector3(-lado/2, 0, 0.42), b:new THREE.Vector3(lado/2, 0, 0.42), cor:BLUSH, len:lado*2.2, cubo:true});
 
-  /* partículas: nascem nos estilhaços e explodem em raios */
+  /* partículas: nascem no desenho da logo e explodem */
   var N = celular ? 2600 : 6500;
-  var pc = new Float32Array(N*3), pb = new Float32Array(N*3), pr = new Float32Array(N*3);
-  var tmp = new THREE.Vector3();
+  var pc = new Float32Array(N*3), pb = new Float32Array(N*3), pr = new Float32Array(N*3), pk = new Float32Array(N*3);
+  var total = segs.reduce(function(a, sg){ return a + sg.len; }, 0);
+  var tmp = new THREE.Vector3(), dirR = new THREE.Vector3();
   for (var k=0;k<N;k++){
-    var j = k % N_EST, dd = dirs[j];
-    var raio = Math.random() < 0.55;
-    var base = raio ? tmp.copy(dd) : tmp.randomDirection();
-    if (raio) base.add(new THREE.Vector3().randomDirection().multiplyScalar(0.12)).normalize();
-    var tC = 0.35 + Math.random()*lens[j];
-    pc[k*3]=dd.x*tC; pc[k*3+1]=dd.y*tC; pc[k*3+2]=dd.z*tC;
-    var R = raio ? lens[j]*0.7 + Math.pow(Math.random(),1.5)*6.5 : 0.15 + Math.pow(Math.random(),1.7)*2.6;
-    pb[k*3]=base.x*R; pb[k*3+1]=base.y*R; pb[k*3+2]=base.z*R;
+    var x = Math.random()*total, sg = segs[0];
+    for (var q=0;q<segs.length;q++){ if (x < segs[q].len){ sg = segs[q]; break; } x -= segs[q].len; }
+    tmp.lerpVectors(sg.a, sg.b, Math.random());
+    if (sg.cubo) tmp.y = (Math.random()-.5)*lado;
+    tmp.x += (Math.random()-.5)*T*0.9; tmp.y += (Math.random()-.5)*T*0.9; tmp.z += (Math.random()-.5)*D;
+    pc[k*3]=tmp.x; pc[k*3+1]=tmp.y; pc[k*3+2]=tmp.z;
+    var perto = Math.random() < 0.45;
+    if (perto){ dirR.randomDirection(); var R = 0.15 + Math.pow(Math.random(),1.7)*2.6; }
+    else { dirR.set(tmp.x, tmp.y, (Math.random()-.5)*1.4).normalize().add(tmp.clone().randomDirection().multiplyScalar(0.3)).normalize(); var R = 1.2 + Math.pow(Math.random(),1.5)*6.5; }
+    pb[k*3]=dirR.x*R; pb[k*3+1]=dirR.y*R; pb[k*3+2]=dirR.z*R;
     pr[k*3]=Math.random(); pr[k*3+1]=Math.random(); pr[k*3+2]=Math.random();
+    pk[k*3]=sg.cor[0]; pk[k*3+1]=sg.cor[1]; pk[k*3+2]=sg.cor[2];
   }
   var gp = new THREE.BufferGeometry();
   gp.setAttribute("position", new THREE.BufferAttribute(pc, 3));
   gp.setAttribute("aB", new THREE.BufferAttribute(pb, 3));
   gp.setAttribute("aR", new THREE.BufferAttribute(pr, 3));
+  gp.setAttribute("aCor", new THREE.BufferAttribute(pk, 3));
   var uniP = {uF:uni.uF, uT:uni.uT, uPx:{value:renderer.getPixelRatio()}, uDim:{value:0}, uVis:{value:1}};
   var matP = new THREE.ShaderMaterial({
     uniforms: uniP, transparent:true, depthWrite:false, blending:THREE.AdditiveBlending,
     vertexShader: [
       "uniform float uF, uT, uPx, uDim;",
-      "attribute vec3 aB; attribute vec3 aR;",
+      "attribute vec3 aB; attribute vec3 aR; attribute vec3 aCor;",
       "varying float vA; varying vec3 vCol;",
       "void main(){",
       "  float f = smoothstep(aR.x*0.35, aR.x*0.35+0.65, uF);",
@@ -787,7 +768,7 @@ function montaPalco(){
       "  gl_PointSize = tam * uPx * (22.0 / -mv.z);",
       "  vA = mix(0.35, 0.7, f) * (1.0 - uDim*0.75) * (0.65 + 0.35*sin(uT*2.0 + aR.y*30.0));",
       "  vec3 rosa = vec3(.85,.31,.54), blush = vec3(.96,.79,.85), verde = vec3(.13,.77,.55), vinho = vec3(.62,.13,.38);",
-      "  vCol = aR.y < .45 ? rosa : (aR.y < .72 ? vinho*1.3 : (aR.y < .92 ? blush : verde));",
+      "  vCol = aR.y < .7 ? aCor : (aR.y < .88 ? rosa : (aR.y < .95 ? vinho*1.3 : blush));",
       "}"].join("\n"),
     fragmentShader: [
       "uniform float uVis;",
@@ -805,7 +786,7 @@ function montaPalco(){
     var w = innerWidth, h = innerHeight;
     renderer.setSize(w, h, false);
     cam.aspect = w/h;
-    cam.position.set(0, 0, w < 700 ? 9.6 : (w < 1100 ? 8.2 : 7.2));
+    cam.position.set(0, 0, w < 700 ? 11.5 : (w < 1100 ? 8.6 : 7.4));
     cam.updateProjectionMatrix();
     uniP.uPx.value = renderer.getPixelRatio() * (h/900);
   }
@@ -846,16 +827,27 @@ function montaPalco(){
     barra.classList.toggle("solido", scrollY > 40);
 
     uni.uF.value = F; uni.uT.value = t;
-    uni.uAlpha.value = 1 - suave(0.55, 0.95, F);
-    est.visible = nucleo.visible = uni.uAlpha.value > 0.01;
+    alfa.value = 1 - suave(0.45, 0.9, F);
+    var vis = alfa.value > 0.01;
+    pecas.forEach(function(pc, i){
+      pc.g.visible = vis;
+      var resp = reduz ? 0 : Math.sin(t*1.3 + pc.fase) * 0.045 * (1 - F);
+      var voa = F * (2.2 + i*0.7);
+      pc.g.position.copy(pc.base).addScaledVector(pc.fora, resp + voa);
+      pc.g.position.z = pc.base.z + F*pc.giro.z*2.5;
+      pc.g.rotation.set(pc.giro.x*F*3.5, pc.giro.y*F*3.5, pc.giro.z*F*2.5);
+    });
+    cubo.visible = vis;
+    cubo.rotation.set(reduz ? 0.5 : t*0.45, reduz ? 0.7 : t*0.62, 0);
+    cubo.scale.setScalar(Math.max(0.001, 1 - suave(0.0, 0.6, F)*0.9));
     uniP.uDim.value = dim;
     brilho.style.opacity = (suave(0.15, 0.7, F) * (1 - dim*0.85)).toFixed(3);
     brilho.style.transform = "scale(" + (0.8 + F*0.35).toFixed(3) + ")";
 
     rx += (py - rx) * Math.min(1, dt*3); ry += (px - ry) * Math.min(1, dt*3);
-    if (!reduz) rotY += dt * (0.12 + F*0.05);
-    grupo.rotation.y = rotY + ry*0.45;
-    grupo.rotation.x = 0.25 + rx*0.3 + (reduz ? 0 : Math.sin(t*0.3)*0.06);
+    if (!reduz) rotY += dt * F * 0.08;
+    grupo.rotation.y = rotY + ry*0.55 + (reduz ? -0.35 : Math.sin(t*0.35)*0.32);
+    grupo.rotation.x = rx*0.35 + (reduz ? 0.15 : Math.sin(t*0.27)*0.12);
     grupo.position.y = (innerWidth < 640 ? -0.25*(1-volta) : 0) + volta*0.15 + (reduz ? 0 : Math.sin(t*0.8)*0.06);
     var esc = (1 + F*0.25 - dim*0.1) * (1 - volta*0.42);
     grupo.scale.setScalar(esc);
