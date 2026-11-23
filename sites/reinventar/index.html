@@ -613,6 +613,10 @@ document.querySelectorAll(".wa-link").forEach(function(a){
   a.target = "_blank"; a.rel = "noopener";
 });
 document.getElementById("ano").textContent = new Date().getFullYear();
+/* ao atualizar (F5), sempre recomeça do topo, com a abertura */
+if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+if (!location.hash) scrollTo(0, 0);
+addEventListener("pageshow", function(e){ if (e.persisted) location.reload(); });
 document.documentElement.classList.add("js"); document.documentElement.classList.remove("no-js");
 
 var reduz = matchMedia("(prefers-reduced-motion: reduce)").matches;
