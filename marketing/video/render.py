@@ -5,7 +5,7 @@ Uso:
   python3 marketing/video/render.py --config marketing/videos/<slug>/config.json \
       --saida marketing/videos/<slug>/entrega.mp4 \
       [--audio marketing/audio/lost_in_the_fire_instrumental.mp3 --inicio 7] \
-      [--fontes fontes.css] [--fps 30] [--previa]
+      [--fontes fontes.css] [--fps 30] [--previa] [--modelo modelo-cinema.html]
 
 - Caminhos de imagem na config são relativos à pasta da config (ou à raiz do repo, se começarem com "sites/").
 - Se a config tiver "site": "sites/<slug>/index.html", o print do celular é tirado sozinho, e cada parada
@@ -32,6 +32,7 @@ def main():
     ap.add_argument("--inicio", type=float, default=7.0, help="segundo da música onde o vídeo começa")
     ap.add_argument("--fontes", default=None); ap.add_argument("--fps", type=int, default=30)
     ap.add_argument("--previa", action="store_true")
+    ap.add_argument("--modelo", default="modelo-entrega.html", help="modelo de cenas na pasta marketing/video (ex.: modelo-cinema.html)")
     a = ap.parse_args()
 
     base = os.path.dirname(os.path.abspath(a.config))
@@ -41,7 +42,7 @@ def main():
 
     for k in ("foto_principal", "foto_passos", "print_site"):
         cfg[k] = caminho(base, cfg.get(k))
-    for s in cfg.get("servicos", []): s["foto"] = caminho(base, s.get("foto"))
+    for s in cfg.get("servicos", []) + cfg.get("cenas", []): s["foto"] = caminho(base, s.get("foto"))
     if cfg.get("resultado"):
         for k in ("antes", "depois"): cfg["resultado"][k] = caminho(base, cfg["resultado"].get(k))
 
@@ -79,7 +80,7 @@ def main():
         # 2) quadros
         pg = b.new_page(viewport={"width": 1080, "height": 1920})
         pg.add_init_script("window.CFG = " + json.dumps(cfg) + ";")
-        pg.goto("file://" + os.path.join(AQUI, "modelo-entrega.html"), wait_until="load")
+        pg.goto("file://" + os.path.join(AQUI, a.modelo), wait_until="load")
         pg.evaluate("css => { document.getElementById('fontes').textContent = css }", css)
         pg.evaluate("document.fonts.ready"); pg.wait_for_timeout(1200)
         dur = pg.evaluate("window.DURACAO")

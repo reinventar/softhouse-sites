@@ -1,51 +1,61 @@
 {
   "nome": "Karoline Maia",
-  "nome_curto": "Karoline",
-  "intro": "Karoline\n[Maia.]",
-  "profissao_linha1": "Teatro",
-  "profissao_linha2": "e direção",
-  "cidade": "Professora · Diretora · Atriz",
+  "monograma": "KM",
   "registro": "DRT 0014172/MG",
+  "intro": "olá, sou\nkaroline",
+  "kicker_principal": "Professora de teatro · Diretora · Atriz",
+  "texto_principal": "Teatro em sala de aula, na praça, no palco e em eventos.",
+  "pos_principal": "52% 25%",
   "cores": {
     "fundo": "#0D0C0B",
-    "destaque": "#E0293F",
     "texto": "#F4F4F2"
   },
   "fonte_titulo": "Inter Tight",
-  "fonte_texto": "Inter Tight",
-  "titulo_italico": false,
   "foto_principal": "sites/karoline-maia/img/foto.webp",
-  "rotulo_servicos": "O que eu faço",
-  "servicos": [
+  "cenas": [
     {
-      "titulo": "Aulas de\n[teatro]",
-      "texto": "Para crianças e adolescentes, em sala e no palco.",
-      "foto": "sites/karoline-maia/img/a8.webp"
+      "foto": "sites/karoline-maia/img/a8.webp",
+      "pos": "49% 40%",
+      "kicker": "Aulas de teatro",
+      "titulo": "teatro se\naprende junto",
+      "texto": "Corpo, voz e presença com crianças e adolescentes."
     },
     {
-      "titulo": "Direção de\n[montagens]",
-      "texto": "Do primeiro ensaio à rua e ao palco.",
-      "foto": "sites/karoline-maia/img/d3o.webp"
+      "foto": "sites/karoline-maia/img/d3o.webp",
+      "pos": "66% 20%",
+      "kicker": "Direção · Pelo fim da violência contra a mulher",
+      "titulo": "teatro como\ndenúncia",
+      "texto": "Intervenção cênica nas ruas de Divinópolis."
     },
     {
-      "titulo": "Eventos e\n[recreação]",
-      "texto": "Natal, festas e brincadeiras para as crianças.",
-      "foto": "sites/karoline-maia/img/r2.webp"
+      "foto": "sites/karoline-maia/img/d9.webp",
+      "pos": "55% 30%",
+      "kicker": "Direção e montagens",
+      "titulo": "do ensaio\nao aplauso",
+      "texto": "Espetáculos com alunos, do primeiro ensaio ao palco."
+    },
+    {
+      "foto": "sites/karoline-maia/img/n1.webp",
+      "pos": "52% 35%",
+      "kicker": "Apresentações de Natal",
+      "titulo": "o natal\nem cena",
+      "texto": "Personagens, figurino e música pelas ruas."
+    },
+    {
+      "foto": "sites/karoline-maia/img/r2.webp",
+      "pos": "46% 35%",
+      "kicker": "Recreação",
+      "titulo": "brincar\ntambém é arte",
+      "texto": "Brincadeiras que reúnem as crianças em festas e eventos."
     }
   ],
-  "titulo_passos": "Como\n[funciona]",
-  "passos": [
-    "Chama no WhatsApp",
-    "Proposta para a turma",
-    "Teatro em cena"
-  ],
-  "foto_passos": "sites/karoline-maia/img/a2.webp",
-  "titulo_site": "Tá tudo no\n[meu site]",
+  "kicker_site": "Feito para o celular",
+  "titulo_site": "tá tudo no\nmeu site",
   "site": "sites/karoline-maia/index.html",
   "paradas": [
     {
       "seletor": "body",
-      "rotulo": "Feito para o celular"
+      "rotulo": "Abertura em cenas"
     },
     {
       "seletor": "#direcao",
@@ -53,7 +63,7 @@
     },
     {
       "seletor": "#projetos",
-      "rotulo": "Aulas e eventos"
+      "rotulo": "Aulas, eventos e campanhas"
     },
     {
       "seletor": "#aulas",
@@ -64,10 +74,8 @@
       "rotulo": "Contato no WhatsApp"
     }
   ],
-  "cta_linha1": "Meu site",
-  "cta_linha2": "novo está",
-  "cta_linha3": "no ar!",
+  "cta": "meu site novo\nestá no ar.",
   "cta_sub": "Confere lá:",
   "url": "karoline-maia.reinventar.dev",
-  "cta_whatsapp": "e me chama no WhatsApp pra levar teatro à sua escola ou evento."
+  "cta_whatsapp": "E me chama no WhatsApp pra levar teatro à sua escola ou evento."
 }
