@@ -134,7 +134,7 @@ h1.gigante{position:absolute;inset:0;margin:0;pointer-events:none;font-weight:20
 h1.gigante .l{position:absolute;display:block;padding-block:.08em .3em;white-space:nowrap}
 h1.gigante .l1{top:24%;left:max(20px,env(safe-area-inset-left,0px))}
 h1.gigante .l2{top:50%;right:max(20px,env(safe-area-inset-right,0px));text-align:right}
-h1.gigante .ch{display:inline-block;opacity:0}
+h1.gigante .ch{display:inline-block;opacity:0;transition:opacity .9s ease}
 h1.gigante .ch.on{opacity:1}
 html.no-js h1.gigante .ch{opacity:1}
 h1.gigante .ced{position:relative}
@@ -699,22 +699,8 @@ document.querySelectorAll("[data-split]").forEach(function(el){
 /* "SEU ENDEREÇO." se decodifica como código enquanto sobe */
 var l1 = document.querySelector("h1.gigante .l1"), l2 = document.querySelector("h1.gigante .l2");
 var letras = Array.prototype.slice.call(document.querySelectorAll("h1.gigante .ch"));
-/* "Sua marca, seu endereço." digitado letra a letra */
-window.__decodifica = function(){
-  if (reduz){ letras.forEach(function(c){ c.classList.add("on"); }); return; }
-  var lista = [];
-  [l1, l2].forEach(function(l){ l.querySelectorAll(".ch").forEach(function(c){ lista.push(c); }); lista.push(null); });
-  var caret = window.__caret || document.createElement("i"); caret.className = "caret";
-  var i = 0;
-  (function prox(){
-    if (i >= lista.length) return;
-    var c = lista[i++];
-    if (!c){ setTimeout(prox, 260); return; }
-    c.classList.add("on"); c.after(caret);
-    var palavraAcaba = !c.nextElementSibling || c.nextElementSibling === caret;
-    setTimeout(prox, palavraAcaba ? 140 : 70);
-  })();
-};
+/* "Sua marca, seu endereço." aparece inteiro, sem digitação */
+window.__decodifica = function(){ letras.forEach(function(c){ c.classList.add("on"); }); var k = document.querySelector(".hero .caret"); if (k) k.remove(); };
 
 /* o endereço: digita, mostra, apaga, troca */
 var DOMS = ["seunome.com.br", "personal.reinventar.dev", "dentista.reinventar.dev", "corretor.reinventar.dev", "seunome.reinventar.dev"];
