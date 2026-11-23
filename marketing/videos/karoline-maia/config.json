@@ -1,0 +1,73 @@
+{
+  "nome": "Karoline Maia",
+  "nome_curto": "Karoline",
+  "intro": "Karoline\n[Maia.]",
+  "profissao_linha1": "Teatro",
+  "profissao_linha2": "e direção",
+  "cidade": "Professora · Diretora · Atriz",
+  "registro": "DRT 0014172/MG",
+  "cores": {
+    "fundo": "#0D0C0B",
+    "destaque": "#E0293F",
+    "texto": "#F4F4F2"
+  },
+  "fonte_titulo": "Inter Tight",
+  "fonte_texto": "Inter Tight",
+  "titulo_italico": false,
+  "foto_principal": "sites/karoline-maia/img/foto.webp",
+  "rotulo_servicos": "O que eu faço",
+  "servicos": [
+    {
+      "titulo": "Aulas de\n[teatro]",
+      "texto": "Para crianças e adolescentes, em sala e no palco.",
+      "foto": "sites/karoline-maia/img/a8.webp"
+    },
+    {
+      "titulo": "Direção de\n[montagens]",
+      "texto": "Do primeiro ensaio à rua e ao palco.",
+      "foto": "sites/karoline-maia/img/d3o.webp"
+    },
+    {
+      "titulo": "Eventos e\n[recreação]",
+      "texto": "Natal, festas e brincadeiras para as crianças.",
+      "foto": "sites/karoline-maia/img/r2.webp"
+    }
+  ],
+  "titulo_passos": "Como\n[funciona]",
+  "passos": [
+    "Chama no WhatsApp",
+    "Proposta para a turma",
+    "Teatro em cena"
+  ],
+  "foto_passos": "sites/karoline-maia/img/a2.webp",
+  "titulo_site": "Tá tudo no\n[meu site]",
+  "site": "sites/karoline-maia/index.html",
+  "paradas": [
+    {
+      "seletor": "body",
+      "rotulo": "Feito para o celular"
+    },
+    {
+      "seletor": "#direcao",
+      "rotulo": "Projetos de direção"
+    },
+    {
+      "seletor": "#projetos",
+      "rotulo": "Aulas e eventos"
+    },
+    {
+      "seletor": "#aulas",
+      "rotulo": "Para escolas e eventos"
+    },
+    {
+      "seletor": "#contato",
+      "rotulo": "Contato no WhatsApp"
+    }
+  ],
+  "cta_linha1": "Meu site",
+  "cta_linha2": "novo está",
+  "cta_linha3": "no ar!",
+  "cta_sub": "Confere lá:",
+  "url": "karoline-maia.reinventar.dev",
+  "cta_whatsapp": "e me chama no WhatsApp pra levar teatro à sua escola ou evento."
+}
