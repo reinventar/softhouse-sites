@@ -67,6 +67,30 @@ a{color:inherit;text-decoration:none}
 .letras .lt.e span{display:inline-block;transform:scaleX(-1)}
 .letras .rodape{position:absolute;right:max(24px,env(safe-area-inset-right,0px));top:16%;max-width:340px;text-align:right;color:var(--mudo);font-size:15px;line-height:1.6}
 @media (max-width:640px){.letras .grade{inset:30% 2% 10% 2%}.letras .chamada{top:12%}.letras .rodape{top:auto;bottom:4%;left:24px;text-align:left;font-size:13px}}
+/* clientes */
+.clientes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+.cliente{display:flex;flex-direction:column;gap:18px;min-width:0}
+.janela{position:relative;border:1px solid var(--linha);border-radius:14px;background:#030C08;overflow:visible}
+.janela .barra-j{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--linha)}
+.janela .barra-j i{width:8px;height:8px;border-radius:50%;background:#14261D}
+.janela .barra-j i:first-child{background:var(--rosa)}
+.janela .barra-j span{font-family:var(--mono);font-size:11px;color:var(--mudo);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.janela .tela{position:relative;aspect-ratio:16/11;overflow:hidden;border-radius:0 0 13px 13px}
+.janela .tela img{display:block;width:100%;height:auto;transform:translateY(0);transition:transform 7s cubic-bezier(.45,0,.2,1)}
+.janela .cel{position:absolute;right:-14px;bottom:-26px;width:27%;aspect-ratio:9/19;border-radius:16px;border:3px solid #0E1A14;background:#000;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.6)}
+.janela .cel img{display:block;width:100%;height:auto;transition:transform 7s cubic-bezier(.45,0,.2,1)}
+.cliente:hover .tela img,.cliente.rola .tela img{transform:translateY(calc(-100% + 100cqh))}
+.janela .tela{container-type:size}
+.janela .cel{container-type:size}
+.cliente:hover .cel img,.cliente.rola .cel img{transform:translateY(calc(-100% + 100cqh))}
+.cliente .info{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;padding-top:14px}
+.cliente .num{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--verde)}
+.cliente h4{margin:6px 0 4px;font-weight:300;font-size:26px;letter-spacing:.01em}
+.cliente .nicho-c{color:var(--mudo);font-size:14px}
+.cliente .ver{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--off);border-bottom:1px solid var(--rosa);padding-bottom:4px;white-space:nowrap}
+.cliente .ver:hover{color:var(--blush)}
+@media (max-width:980px){.clientes{grid-template-columns:1fr;gap:56px}.janela .cel{width:24%}}
+@media (prefers-reduced-motion:reduce){.janela .tela img,.janela .cel img{transition:none}}
 .grao{position:fixed;inset:0;z-index:4;pointer-events:none;opacity:.07;mix-blend-mode:overlay;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 .brilho{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0;background:radial-gradient(40% 44% at 50% 48%,rgba(31,122,82,.5),rgba(10,59,39,.35) 45%,transparent 75%),radial-gradient(14% 16% at 50% 48%,rgba(168,38,79,.35),transparent 70%)}
@@ -267,7 +291,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
 .wa svg{width:27px;height:27px}
 
 /* cursor */
-.mira{position:fixed;left:0;top:0;z-index:70;pointer-events:none;width:30px;height:30px;margin:-15px 0 0 -15px;border:1px solid rgba(63,191,132,.7);border-radius:50%;transition:width .25s,height .25s,margin .25s,background .25s,border-color .25s;display:none}
+.mira{position:fixed;left:0;top:0;z-index:70;pointer-events:none;width:30px;height:30px;margin:-15px 0 0 -15px;border:1px solid rgba(63,191,132,.7);border-radius:50%;transition:width .12s,height .12s,margin .12s,background .12s,border-color .12s;display:none}
 .mira.link{width:54px;height:54px;margin:-27px 0 0 -27px;border-color:var(--rosa);background:rgba(168,38,79,.12)}
 .ponto{position:fixed;left:0;top:0;z-index:71;pointer-events:none;width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;background:var(--rosa);display:none}
 @media (pointer:fine){.mira,.ponto{display:block}html,body,a,button,summary,.passo{cursor:none}}
@@ -323,6 +347,7 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
     </a>
     <nav class="links" aria-label="Seções">
       <a href="#como-funciona">Como funciona</a>
+      <a href="#clientes">Clientes</a>
       <a href="#fotos">Fotos</a>
       <a href="#planos">Planos</a>
       <a href="#duvidas">Dúvidas</a>
@@ -455,6 +480,53 @@ footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:2
         <pre class="codigo" id="codigo"></pre>
         <div class="ed-base mono"><span id="ed-status">passo 1 de 4</span><span><b>●</b> reinventar.dev</span></div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="faixa" id="clientes">
+  <div class="wrap">
+    <div class="cab rv">
+      <div>
+        <div class="rotulo mono" data-scramble>Clientes</div>
+        <h3 class="titulo">Sites que já estão <em>no ar.</em></h3>
+      </div>
+      <p class="lead">Cada site nasce da identidade do cliente. Passe o mouse para ver o site inteiro rolando.</p>
+    </div>
+    <div class="clientes">
+      <article class="cliente rv">
+        <div class="janela">
+          <div class="barra-j" aria-hidden="true"><i></i><i></i><i></i><span>https://igoraugusto.reinventar.dev</span></div>
+          <div class="tela"><img src="img/clientes/igor-desk.webp" alt="Site de Igor Augusto no computador" loading="lazy"></div>
+          <div class="cel"><img src="img/clientes/igor-cel.webp" alt="Site de Igor Augusto no celular" loading="lazy"></div>
+        </div>
+        <div class="info">
+          <div><div class="num">01</div><h4>Igor Augusto</h4><div class="nicho-c">Personal trainer · São João del-Rei</div></div>
+          <a class="ver" href="https://igoraugusto.reinventar.dev" target="_blank" rel="noopener">Ver site ↗</a>
+        </div>
+      </article>
+      <article class="cliente rv">
+        <div class="janela">
+          <div class="barra-j" aria-hidden="true"><i></i><i></i><i></i><span>https://karoline-maia.reinventar.dev</span></div>
+          <div class="tela"><img src="img/clientes/karoline-desk.webp" alt="Site de Karoline Maia no computador" loading="lazy"></div>
+          <div class="cel"><img src="img/clientes/karoline-cel.webp" alt="Site de Karoline Maia no celular" loading="lazy"></div>
+        </div>
+        <div class="info">
+          <div><div class="num">02</div><h4>Karoline Maia</h4><div class="nicho-c">Professora de teatro, diretora e atriz</div></div>
+          <a class="ver" href="https://karoline-maia.reinventar.dev" target="_blank" rel="noopener">Ver site ↗</a>
+        </div>
+      </article>
+      <article class="cliente rv">
+        <div class="janela">
+          <div class="barra-j" aria-hidden="true"><i></i><i></i><i></i><span>https://toninhosaga.reinventar.dev</span></div>
+          <div class="tela"><img src="img/clientes/toninho-desk.webp" alt="Site de Toninho Saga no computador" loading="lazy"></div>
+          <div class="cel"><img src="img/clientes/toninho-cel.webp" alt="Site de Toninho Saga no celular" loading="lazy"></div>
+        </div>
+        <div class="info">
+          <div><div class="num">03</div><h4>Toninho Saga</h4><div class="nicho-c">Músico · São João del-Rei</div></div>
+          <a class="ver" href="https://toninhosaga.reinventar.dev" target="_blank" rel="noopener">Ver site ↗</a>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -625,6 +697,13 @@ document.querySelectorAll("[data-split]").forEach(function(el){
     if (u < 1 || !carregou) { if (agora - t0 < 6000) return requestAnimationFrame(passo); }
     setTimeout(libera, 250);
   })(t0);
+})();
+
+/* clientes: no celular, o site rola sozinho quando o card aparece */
+(function(){
+  if (matchMedia("(hover:hover)").matches) return;
+  var io2 = new IntersectionObserver(function(es){ es.forEach(function(e){ e.target.classList.toggle("rola", e.isIntersecting); }); }, {threshold:.6});
+  document.querySelectorAll(".cliente").forEach(function(c){ io2.observe(c); });
 })();
 
 /* letras espalhadas: começam longe e se encontram ao rolar */
@@ -939,7 +1018,7 @@ function montaPalco(){
     brilho.style.opacity = (suave(0.15, 0.7, F) * 0.45 * (1 - dim*0.85)).toFixed(3);
     brilho.style.transform = "scale(" + (0.8 + F*0.35).toFixed(3) + ")";
 
-    rx += (py - rx) * Math.min(1, dt*3); ry += (px - ry) * Math.min(1, dt*3);
+    rx += (py - rx) * Math.min(1, dt*8); ry += (px - ry) * Math.min(1, dt*8);
     uniP.uMouse.value.set(ry * 9, -2 + rx * 4);
     if (!reduz) rotY += dt * F * 0.06;
     var hp = clamp(scrollY / vh, 0, 1);
@@ -951,7 +1030,7 @@ function montaPalco(){
     if (!reduz || true) requestAnimationFrame(quadro);
 
     /* mira */
-    cx += (mx - cx) * Math.min(1, dt*14); cy += (my - cy) * Math.min(1, dt*14);
+    cx += (mx - cx) * Math.min(1, dt*34); cy += (my - cy) * Math.min(1, dt*34);
     mira.style.transform = "translate(" + cx.toFixed(1) + "px," + cy.toFixed(1) + "px)";
   }
   requestAnimationFrame(quadro);
@@ -968,7 +1047,7 @@ if (!palco){
     var txt = suave(0.22, 0.42, pm) * (1 - suave(0.8, 0.95, pm));
     mC.style.opacity = mR.style.opacity = txt;
     document.getElementById("topo-barra").classList.toggle("solido", scrollY > 40);
-    cx += (mx-cx)*.25; cy += (my-cy)*.25;
+    cx += (mx-cx)*.55; cy += (my-cy)*.55;
     mira.style.transform = "translate(" + cx + "px," + cy + "px)";
     requestAnimationFrame(laco);
   })();
