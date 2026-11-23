@@ -53,6 +53,9 @@ a{color:inherit;text-decoration:none}
 #carrega svg{width:150px;height:150px;transform:rotate(-90deg)}
 #carrega .pct{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--mudo)}
 #carrega .traco{position:absolute;left:58%;top:42%;width:42px;height:1px;background:var(--off)}
+/* abertura: a hero só aparece depois que a frase sai */
+.hero .hud,.hero .cantos,.hero .endereco,header{transition:opacity .8s ease}
+html.js body:not(.pronto) .hero .hud,html.js body:not(.pronto) .hero .cantos,html.js body:not(.pronto) .hero .endereco,html.js body:not(.pronto) header{opacity:0}
 .no-js #carrega{display:none}
 #carrega{transition:opacity .9s ease,visibility .9s,background-color .9s ease}
 #carrega .anel{transition:opacity .5s ease,transform .5s ease}
@@ -628,7 +631,7 @@ document.querySelectorAll("[data-split]").forEach(function(el){
 (function(){
   var cg = document.getElementById("carrega"), arco = document.getElementById("carrega-arco"), pct = document.getElementById("carrega-pct");
   var foi = false;
-  function abre(){ if (foi) return; foi = true; cg.classList.add("sai"); requestAnimationFrame(function(){ document.body.classList.add("pronto"); }); }
+  function abre(){ if (foi) return; foi = true; cg.classList.add("sai"); setTimeout(function(){ document.body.classList.add("pronto"); if (window.__decodifica) window.__decodifica(); }, reduz ? 0 : 750); }
   function libera(){
     if (reduz) return abre();
     cg.classList.add("frase");
@@ -660,15 +663,15 @@ document.querySelectorAll("[data-split]").forEach(function(el){
 /* "SEU ENDEREÇO." se decodifica como código enquanto sobe */
 var l1 = document.querySelector("h1.gigante .l1"), l2 = document.querySelector("h1.gigante .l2");
 var letras = Array.prototype.slice.call(document.querySelectorAll("h1.gigante .ch"));
-if (!reduz) l2.querySelectorAll(".ch").forEach(function(c, i){
-  var certo = c.textContent, fim = performance.now() + 650 + i*90;
+window.__decodifica = function(){ if (!reduz) l2.querySelectorAll(".ch").forEach(function(c, i){
+  var certo = c.dataset.c || c.textContent, fim = performance.now() + 650 + i*90;
   c.dataset.c = certo;
   (function troca(){
     if (performance.now() >= fim || certo === "."){ c.textContent = certo; return; }
     c.textContent = "01<>/{}[]#*+=_"[(Math.random()*14)|0];
     setTimeout(troca, 55);
   })();
-});
+}); };
 
 /* o endereço: digita, mostra, apaga, troca */
 var DOMS = ["seunome.com.br", "personal.reinventar.dev", "dentista.reinventar.dev", "corretor.reinventar.dev", "seunome.reinventar.dev"];
