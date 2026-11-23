@@ -1,0 +1,892 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Reinventar · Sua marca, seu endereço</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="robots" content="noindex">
+<meta name="description" content="A Reinventar cria e mantém sites de portfólio one-page para personal trainers, dentistas e outros profissionais liberais. No ar em poucos dias, com domínio, hospedagem e ajustes inclusos.">
+<link rel="canonical" href="https://reinventar.dev/">
+<meta name="theme-color" content="#0B0A0C">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://reinventar.dev/">
+<meta property="og:title" content="Reinventar · Sua marca, seu endereço">
+<meta property="og:description" content="Seu trabalho merece um endereço próprio. Site one-page no ar em poucos dias.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Reinventar","url":"https://reinventar.dev/",
+ "description":"Sites de portfólio one-page e fotos profissionais para personal trainers, dentistas e outros profissionais.",
+ "areaServed":"Divinópolis e região, MG","telephone":"+5537999181248","address":{"@type":"PostalAddress","addressLocality":"Divinópolis","addressRegion":"MG","addressCountry":"BR"}}
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='none'%3E%3Crect width='100' height='100' rx='22' fill='%230B0A0C'/%3E%3Cpath d='M22 44V22H44M56 78H78V56' stroke='%2322C58B' stroke-width='9'/%3E%3Crect x='38' y='38' width='24' height='24' rx='5' fill='%23D94F8A'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@200..700&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: palco WebGL fixo (cristal → explosão → poeira → cristal) com o conteúdo rolando por cima, em faixas escuras. */
+:root{
+  --preto:#0B0A0C; --grafite:#141216; --linha:rgba(244,201,218,.12);
+  --off:#FAF8F9; --mudo:#A99BA3;
+  --vinho:#9E2260; --rosa:#D94F8A; --blush:#F4C9DA; --verde:#22C58B;
+  --sans:"Geist",ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Geist Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --gut:max(16px,env(safe-area-inset-left,0px));
+  --gutr:max(16px,env(safe-area-inset-right,0px));
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--preto);color:var(--off);font:400 16px/1.6 var(--sans);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--preto)}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--rosa);color:var(--preto)}
+:focus-visible{outline:2px solid var(--verde);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(24px,env(safe-area-inset-left,0px));padding-right:max(24px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase}
+
+/* palco */
+#gl{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;display:block}
+#gl.frente{z-index:3}
+.grao{position:fixed;inset:0;z-index:4;pointer-events:none;opacity:.07;mix-blend-mode:overlay;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+.brilho{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0;background:radial-gradient(38% 42% at 50% 50%,rgba(217,79,138,.55),rgba(158,34,96,.28) 45%,transparent 75%),radial-gradient(14% 16% at 50% 50%,rgba(244,201,218,.45),transparent 70%)}
+.vinheta{position:fixed;inset:0;z-index:1;pointer-events:none;background:radial-gradient(120% 90% at 50% 45%,transparent 45%,rgba(11,10,12,.85) 100%)}
+
+/* topo */
+header{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;transition:background .4s,backdrop-filter .4s}
+header.solido{background:rgba(11,10,12,.62);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--linha)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px;height:68px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:500;font-size:18px;letter-spacing:-.02em}
+.logo svg{width:26px;height:26px}
+.logo .e{display:inline-block;transform:scaleX(-1);color:var(--rosa)}
+.logo sup{font-family:var(--mono);font-size:10px;color:var(--mudo);margin-left:2px;letter-spacing:0}
+.links{display:flex;gap:28px}
+.links a{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--mudo);transition:color .2s}
+.links a:hover{color:var(--off)}
+.pill{display:inline-flex;align-items:center;gap:10px;height:42px;padding:0 18px;border-radius:999px;font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;border:1px solid rgba(244,201,218,.28);transition:background .25s,color .25s,border-color .25s;white-space:nowrap}
+.pill:hover{background:var(--blush);color:var(--preto);border-color:var(--blush)}
+.pill.cheio{background:var(--rosa);border-color:var(--rosa);color:var(--preto)}
+.pill.cheio:hover{background:var(--blush);border-color:var(--blush)}
+.pill .seta{transition:transform .25s}
+.pill:hover .seta{transform:translate(2px,-2px)}
+
+/* hero */
+.hero{position:relative;z-index:2;height:100vh;height:100svh;min-height:620px}
+.hero .wrap{position:relative;height:100%}
+.cantos{position:absolute;inset:92px 24px 28px;pointer-events:none}
+.cantos i{position:absolute;width:22px;height:22px;border-color:rgba(244,201,218,.35);border-style:solid;border-width:0}
+.cantos i:nth-child(1){top:0;left:0;border-top-width:1px;border-left-width:1px}
+.cantos i:nth-child(2){top:0;right:0;border-top-width:1px;border-right-width:1px}
+.cantos i:nth-child(3){bottom:0;left:0;border-bottom-width:1px;border-left-width:1px}
+.cantos i:nth-child(4){bottom:0;right:0;border-bottom-width:1px;border-right-width:1px}
+.h-topo{position:absolute;top:118px;left:max(24px,env(safe-area-inset-left,0px));right:max(24px,env(safe-area-inset-right,0px));display:flex;justify-content:space-between;color:var(--mudo)}
+.h-topo b{color:var(--verde);font-weight:500}
+h1.gigante{position:absolute;inset:0;margin:0;pointer-events:none;font-weight:250;text-transform:uppercase;letter-spacing:-.055em;line-height:.86;font-size:clamp(52px,10.6vw,188px)}
+h1.gigante .l{position:absolute;display:block;overflow:hidden;padding-bottom:.06em;white-space:nowrap}
+h1.gigante .l1{top:24%;left:max(20px,env(safe-area-inset-left,0px))}
+h1.gigante .l2{top:50%;right:max(20px,env(safe-area-inset-right,0px));text-align:right}
+h1.gigante .ch{display:inline-block;transform:translateY(105%);transition:transform 1.1s cubic-bezier(.19,1,.22,1)}
+.pronto h1.gigante .ch{transform:none}
+h1.gigante .rs{color:var(--blush);font-style:normal}
+.h-base{position:absolute;left:max(24px,env(safe-area-inset-left,0px));right:max(24px,env(safe-area-inset-right,0px));bottom:56px;display:flex;justify-content:space-between;align-items:flex-end;gap:32px}
+.h-base .txt{max-width:420px}
+.h-base .txt strong{display:block;font-weight:500;font-size:20px;letter-spacing:-.02em;margin-bottom:8px}
+.h-base .txt p{margin:0;color:var(--mudo);font-size:15px}
+.h-acoes{display:flex;flex-direction:column;align-items:flex-end;gap:14px}
+.h-acoes .linha{display:flex;gap:10px}
+.coords{color:var(--mudo);font-variant-numeric:tabular-nums}
+.sobe{opacity:0;transform:translateY(14px);transition:opacity 1s .9s,transform 1s .9s cubic-bezier(.19,1,.22,1)}
+.pronto .sobe{opacity:1;transform:none}
+
+/* manifesto */
+.manifesto{position:relative;z-index:2;height:280vh}
+.manifesto .fixo{position:sticky;top:0;height:100vh;height:100svh;display:grid;place-items:center;text-align:center;overflow:hidden}
+.manifesto .centro{max-width:880px;padding:0 24px;opacity:0;transform:scale(.96);will-change:opacity,transform}
+.manifesto h2{margin:0 0 22px;font-weight:300;text-transform:uppercase;letter-spacing:-.04em;line-height:.95;font-size:clamp(38px,6.4vw,96px);text-wrap:balance}
+.manifesto h2 em{font-style:normal;color:var(--blush)}
+.manifesto p{margin:0 auto;max-width:540px;color:rgba(250,248,249,.78);font-size:17px}
+.manifesto .rodape{position:absolute;left:max(24px,env(safe-area-inset-left,0px));right:calc(96px + env(safe-area-inset-right,0px));bottom:40px;display:flex;justify-content:space-between;align-items:flex-end;color:var(--mudo);opacity:0}
+.contador{font-weight:200;font-size:clamp(48px,6vw,84px);line-height:1;letter-spacing:-.04em;color:var(--off);font-variant-numeric:tabular-nums}
+.contador small{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mudo);margin-top:8px}
+
+/* faixas de conteúdo */
+section.faixa{position:relative;z-index:2;padding-block:140px}
+.rotulo{display:inline-flex;align-items:center;gap:10px;color:var(--verde);margin-bottom:22px}
+.rotulo::before{content:"";width:14px;height:14px;border-top:1px solid currentColor;border-left:1px solid currentColor}
+h3.titulo{margin:0 0 18px;font-weight:300;font-size:clamp(34px,4.6vw,64px);line-height:1;letter-spacing:-.045em;text-wrap:balance;max-width:16ch}
+h3.titulo em{font-style:normal;color:var(--blush)}
+.lead{color:var(--mudo);max-width:560px;margin:0;font-size:17px}
+.cab{display:flex;justify-content:space-between;align-items:flex-end;gap:40px;margin-bottom:64px;flex-wrap:wrap}
+
+.rv{transition:opacity 1s cubic-bezier(.19,1,.22,1),transform 1s cubic-bezier(.19,1,.22,1)}
+.js .rv.fora{opacity:0;transform:translateY(28px)}
+
+/* letreiro */
+.letreiro{position:relative;z-index:2;border-block:1px solid var(--linha);padding-block:22px;overflow:hidden;background:rgba(11,10,12,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.letreiro .trilho{display:flex;gap:48px;width:max-content;animation:corre 38s linear infinite}
+.letreiro span{font-weight:250;font-size:clamp(28px,3.4vw,46px);letter-spacing:-.03em;white-space:nowrap;display:flex;align-items:center;gap:48px}
+.letreiro span::after{content:"";width:12px;height:12px;border-radius:3px;background:var(--rosa);flex:none}
+.letreiro span:nth-child(3n)::after{background:var(--verde)}
+@keyframes corre{to{transform:translateX(-50%)}}
+
+/* por que */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{position:relative;padding:34px 30px 32px;border:1px solid var(--linha);border-radius:18px;background:rgba(20,18,22,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);overflow:hidden;min-width:0}
+.card::before{content:"";position:absolute;inset:0;background:radial-gradient(380px circle at var(--mx,50%) var(--my,0%),rgba(217,79,138,.18),transparent 60%);opacity:0;transition:opacity .35s;pointer-events:none}
+.card:hover::before{opacity:1}
+.card .ic{width:44px;height:44px;margin-bottom:46px;color:var(--blush)}
+.card h4{margin:0 0 10px;font-weight:500;font-size:21px;letter-spacing:-.02em}
+.card p{margin:0;color:var(--mudo);font-size:15px}
+
+/* como funciona */
+.processo{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:56px;align-items:start}
+.passos{list-style:none;margin:0;padding:0}
+.passo{display:grid;grid-template-columns:86px 1fr;gap:18px;padding:30px 0;border-top:1px solid var(--linha);cursor:pointer;opacity:.38;transition:opacity .4s}
+.passo:last-child{border-bottom:1px solid var(--linha)}
+.passo.ativo{opacity:1}
+.passo .dia{color:var(--verde);padding-top:6px}
+.passo h4{margin:0 0 6px;font-weight:400;font-size:28px;letter-spacing:-.03em}
+.passo p{margin:0;color:var(--mudo);font-size:15px}
+.editor{position:sticky;top:120px;border:1px solid var(--linha);border-radius:16px;background:rgba(14,12,15,.92);box-shadow:0 40px 120px -40px rgba(158,34,96,.55);overflow:hidden;min-width:0}
+.ed-topo{display:flex;align-items:center;gap:14px;padding:13px 16px;border-bottom:1px solid var(--linha)}
+.ed-topo .bol{display:flex;gap:6px}
+.ed-topo .bol i{width:10px;height:10px;border-radius:50%;background:#2A262C}
+.ed-topo .bol i:first-child{background:var(--rosa)}
+.abas{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
+.abas span{font-family:var(--mono);font-size:12px;color:var(--mudo);padding:5px 10px;border-radius:6px;white-space:nowrap}
+.abas span.on{background:rgba(244,201,218,.08);color:var(--off)}
+.codigo{margin:0;padding:22px 0;min-height:340px;font:400 13.5px/1.75 var(--mono);color:#CFC5CA;overflow-x:auto;counter-reset:ln;white-space:pre}
+.codigo .ln{display:block;padding:0 22px 0 0}
+.codigo .ln::before{counter-increment:ln;content:counter(ln);display:inline-block;width:46px;padding-right:18px;text-align:right;color:#4A4248}
+.c-k{color:var(--rosa)}.c-s{color:var(--verde)}.c-p{color:var(--blush)}.c-m{color:#6E636A}.c-ok{color:var(--verde)}
+.c-add{color:var(--verde);background:rgba(34,197,139,.08)}.c-del{color:#C46A92;background:rgba(217,79,138,.08);text-decoration:line-through;text-decoration-color:rgba(217,79,138,.5)}
+.cursor{display:inline-block;width:8px;height:1.15em;vertical-align:-3px;background:var(--rosa);animation:pisca 1s steps(1) infinite}
+@keyframes pisca{50%{opacity:0}}
+.ed-base{display:flex;justify-content:space-between;padding:10px 16px;border-top:1px solid var(--linha);color:var(--mudo)}
+.ed-base b{color:var(--verde);font-weight:500}
+
+/* para quem */
+.nichos{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.nicho{padding:38px 34px;border-radius:18px;border:1px solid var(--linha);background:rgba(20,18,22,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);min-width:0}
+.nicho h4{margin:0 0 20px;font-weight:400;font-size:30px;letter-spacing:-.03em}
+.nicho ul{list-style:none;margin:0 0 26px;padding:0;display:grid;gap:10px}
+.nicho li{display:flex;gap:12px;color:rgba(250,248,249,.85)}
+.nicho li::before{content:"";flex:none;width:7px;height:7px;margin-top:9px;border-radius:2px;background:var(--rosa)}
+.nicho .ex{color:var(--mudo);font-size:14px;border-top:1px solid var(--linha);padding-top:18px}
+.nicho .ex q{color:var(--blush)}
+.obs{margin-top:22px;color:var(--mudo)}
+
+/* fotos */
+.fotos{display:grid;grid-template-columns:7fr 5fr;gap:18px}
+.foto{position:relative;padding:40px 36px;border-radius:18px;border:1px solid var(--linha);background:rgba(20,18,22,.72);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);overflow:hidden;min-width:0}
+.foto.destaque{background:linear-gradient(140deg,rgba(158,34,96,.55),rgba(20,18,22,.8) 60%)}
+.visor{position:relative;height:150px;margin-bottom:32px;border:1px solid rgba(244,201,218,.25);border-radius:10px;display:grid;place-items:center;overflow:hidden}
+.visor::before,.visor::after{content:"";position:absolute;background:rgba(244,201,218,.18)}
+.visor::before{left:33.3%;right:33.3%;top:0;bottom:0;border-inline:1px solid rgba(244,201,218,.18);background:none}
+.visor::after{top:33.3%;bottom:33.3%;left:0;right:0;border-block:1px solid rgba(244,201,218,.18);background:none}
+.visor .foco{width:46px;height:46px;border:1.5px solid var(--verde);border-radius:4px;animation:foca 3.2s ease-in-out infinite}
+@keyframes foca{0%,100%{transform:scale(1.25);opacity:.5}40%,70%{transform:scale(1);opacity:1}}
+.visor .rec{position:absolute;top:10px;left:12px;color:var(--blush)}
+.visor .rec::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--rosa);margin-right:7px;animation:pisca 1.4s steps(1) infinite}
+.visor .exp{position:absolute;bottom:10px;right:12px;color:var(--mudo)}
+.foto h4{margin:0 0 10px;font-weight:400;font-size:26px;letter-spacing:-.03em}
+.foto p{margin:0 0 18px;color:rgba(250,248,249,.78)}
+.foto .tag{color:var(--verde)}
+
+/* planos */
+.planos{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:stretch}
+.plano{position:relative;display:flex;flex-direction:column;padding:36px 30px 30px;border-radius:20px;border:1px solid var(--linha);background:rgba(20,18,22,.8);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);min-width:0}
+@property --ang{syntax:"<angle>";initial-value:0deg;inherits:false}
+.plano.top{border-color:transparent;background:linear-gradient(rgba(22,16,20,.96),rgba(22,16,20,.96)) padding-box,conic-gradient(from var(--ang),var(--vinho),var(--rosa),var(--blush),var(--verde),var(--vinho)) border-box;animation:gira 6s linear infinite}
+@keyframes gira{to{--ang:360deg}}
+.plano .selo{position:absolute;top:-12px;left:30px;background:var(--rosa);color:var(--preto);padding:4px 12px;border-radius:999px;font-size:10.5px}
+.plano h4{margin:0 0 18px;font-weight:400;font-size:24px;letter-spacing:-.02em}
+.preco{display:flex;align-items:baseline;gap:6px;margin-bottom:4px}
+.preco b{font-weight:300;font-size:52px;letter-spacing:-.05em;line-height:1;font-variant-numeric:tabular-nums}
+.preco span{color:var(--mudo)}
+.impl{color:var(--mudo);font-size:14px;margin-bottom:26px}
+.plano ul{list-style:none;margin:0 0 30px;padding:22px 0 0;border-top:1px solid var(--linha);display:grid;gap:11px;flex:1}
+.plano li{display:flex;gap:12px;font-size:15px;color:rgba(250,248,249,.86)}
+.plano li::before{content:"";flex:none;width:12px;height:7px;margin-top:7px;border-left:1.5px solid var(--verde);border-bottom:1.5px solid var(--verde);transform:rotate(-45deg)}
+.plano .pill{justify-content:center}
+.nota{margin-top:26px;color:var(--mudo);font-size:15px}
+
+/* dúvidas */
+.faq{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,7fr);gap:56px}
+.faq details{border-top:1px solid var(--linha)}
+.faq details:last-child{border-bottom:1px solid var(--linha)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;padding:24px 0;font-size:19px;letter-spacing:-.015em}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--mono);font-size:20px;color:var(--rosa);transition:transform .3s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{margin:0 0 24px;color:var(--mudo);max-width:60ch}
+
+/* cta final */
+.final{position:relative;z-index:2;min-height:100vh;min-height:100svh;display:grid;place-items:center;text-align:center;padding-block:140px}
+.final h3{margin:0;font-weight:250;text-transform:uppercase;letter-spacing:-.055em;line-height:.88;font-size:clamp(48px,9vw,150px)}
+.final h3 .e{display:inline-block;transform:scaleX(-1);color:var(--blush)}
+.final h3 .l2{display:block;margin-top:clamp(120px,22vw,300px)}
+.final p{color:var(--off);margin:28px auto 30px;max-width:460px;text-shadow:0 2px 18px var(--preto),0 0 4px var(--preto)}
+
+footer{position:relative;z-index:2;border-top:1px solid var(--linha);padding-block:30px;background:var(--preto)}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;color:var(--mudo)}
+
+.wa{position:fixed;z-index:40;right:calc(20px + env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));width:56px;height:56px;border-radius:50%;background:var(--verde);display:grid;place-items:center;box-shadow:0 12px 40px -8px rgba(34,197,139,.6);transition:transform .25s}
+.wa:hover{transform:scale(1.07)}
+.wa svg{width:27px;height:27px}
+
+/* cursor */
+.mira{position:fixed;left:0;top:0;z-index:70;pointer-events:none;width:34px;height:34px;margin:-17px 0 0 -17px;transition:width .25s,height .25s,margin .25s;display:none}
+.mira::before,.mira::after{content:"";position:absolute;width:9px;height:9px;border-color:var(--blush);border-style:solid;border-width:0}
+.mira::before{top:0;left:0;border-top-width:1.5px;border-left-width:1.5px}
+.mira::after{bottom:0;right:0;border-bottom-width:1.5px;border-right-width:1.5px}
+.mira i{position:absolute;left:50%;top:50%;width:5px;height:5px;margin:-2.5px;border-radius:1px;background:var(--rosa)}
+.mira.link{width:56px;height:56px;margin:-28px 0 0 -28px}
+@media (pointer:fine){.mira{display:block}}
+
+@media (max-width:980px){
+  .links{display:none}
+  .cards,.planos{grid-template-columns:1fr}
+  .processo,.faq,.nichos,.fotos{grid-template-columns:1fr}
+  .editor{position:relative;top:0;order:-1}
+  .codigo{min-height:300px;font-size:12.5px}
+  section.faixa{padding-block:100px}
+}
+@media (max-width:640px){
+  .nav .pill{display:none}
+  .h-topo{top:96px}
+  .h-topo span:last-child{display:none}
+  h1.gigante{font-size:clamp(40px,12.4vw,80px)}
+  h1.gigante .l1{top:calc(96px + 52px)}
+  h1.gigante .l2{top:calc(96px + 52px + 1em)}
+  .h-base .txt p{display:none}
+  .h-base{flex-direction:column;align-items:stretch;bottom:28px;gap:20px}
+  .h-acoes{align-items:stretch}
+  .h-acoes .linha{flex-direction:column}
+  .h-acoes .pill{justify-content:center}
+  .coords{display:none}
+  .cantos{inset:80px 12px 14px}
+  .manifesto .rodape{flex-direction:column;align-items:flex-start;gap:14px}
+  .card,.nicho,.foto,.plano{padding-left:22px;padding-right:22px}
+  .passo{grid-template-columns:1fr;gap:6px}
+  .cab{margin-bottom:44px}
+}
+@media (prefers-reduced-motion:reduce){
+  .letreiro .trilho,.plano.top,.visor .foco,.cursor{animation:none}
+  h1.gigante .ch,.sobe,.rv{transition:none}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<canvas id="gl" class="frente" aria-hidden="true"></canvas>
+<div class="brilho" id="brilho" aria-hidden="true"></div>
+<div class="vinheta" aria-hidden="true"></div>
+<div class="grao" aria-hidden="true"></div>
+<div class="mira" aria-hidden="true"><i></i></div>
+
+<header id="topo-barra">
+  <div class="wrap nav">
+    <a class="logo" href="#topo" aria-label="Reinventar, início">
+      <svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M14 38V14H38M62 86H86V62" stroke="#22C58B" stroke-opacity=".8" stroke-width="6"/><path d="M24 46V24H46M54 76H76V54" stroke="#D94F8A" stroke-width="6"/><rect x="40" y="40" width="20" height="20" rx="4" fill="#F4C9DA"/></svg>
+      <span>r<span class="e">e</span>inventar<sup>.dev</sup></span>
+    </a>
+    <nav class="links" aria-label="Seções">
+      <a href="#como-funciona">Como funciona</a>
+      <a href="#fotos">Fotos</a>
+      <a href="#planos">Planos</a>
+      <a href="#duvidas">Dúvidas</a>
+    </nav>
+    <a class="pill wa-link" href="#" data-msg="Olá! Vi o site da Reinventar e quero um site de portfólio.">Falar no WhatsApp <span class="seta">↗</span></a>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="topo">
+  <div class="cantos" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  <div class="h-topo mono sobe"><span><b>●</b>&nbsp; Sua marca, seu endereço</span><span>Sites one-page para<br>profissionais liberais</span></div>
+  <h1 class="gigante" aria-label="Sua marca, seu endereço.">
+    <span class="l l1" aria-hidden="true" data-split>Sua marca,</span>
+    <span class="l l2" aria-hidden="true" data-split>Seu endereço.</span>
+  </h1>
+  <div class="h-base">
+    <div class="txt sobe">
+      <strong>Seu trabalho merece um endereço próprio.</strong>
+      <p>A Reinventar cria e mantém o site one-page do seu consultório ou estúdio: bonito no celular, fácil de achar no Google e com um botão direto para o seu WhatsApp.</p>
+    </div>
+    <div class="h-acoes sobe">
+      <div class="linha">
+        <a class="pill cheio wa-link" href="#" data-msg="Olá! Quero uma prévia grátis do meu site.">Quero uma prévia grátis <span class="seta">↗</span></a>
+        <a class="pill" href="#planos">Ver planos</a>
+      </div>
+      <span class="mono coords" id="coords">x 0.500 · y 0.500 · role ↓</span>
+    </div>
+  </div>
+</section>
+
+<section class="manifesto" id="manifesto" aria-label="Por que um site">
+  <div class="fixo">
+    <div class="centro" id="m-centro">
+      <div class="rotulo mono" style="justify-content:center">Por que um site</div>
+      <h2>O Instagram mostra. <em>O site convence.</em></h2>
+      <p>Quem chega por indicação procura seu nome antes de chamar. Um site próprio responde as dúvidas e transforma a visita em conversa.</p>
+    </div>
+    <div class="rodape" id="m-rodape">
+      <div class="contador"><span id="dias">07</span><small>dias do briefing ao ar</small></div>
+      <div class="mono" style="text-align:right">Divinópolis · MG<br>20°08′S 44°53′W</div>
+    </div>
+  </div>
+</section>
+
+<div class="letreiro" aria-hidden="true">
+  <div class="trilho">
+    <span>Personal trainers</span><span>Dentistas</span><span>Corretores de imóveis</span><span>Nutricionistas</span><span>Fisioterapeutas</span><span>Psicólogos</span><span>Estúdios</span>
+    <span>Personal trainers</span><span>Dentistas</span><span>Corretores de imóveis</span><span>Nutricionistas</span><span>Fisioterapeutas</span><span>Psicólogos</span><span>Estúdios</span>
+  </div>
+</div>
+
+<section class="faixa" id="porque">
+  <div class="wrap">
+    <div class="cab rv">
+      <div>
+        <div class="rotulo mono" data-scramble>O que o site faz</div>
+        <h3 class="titulo">Do primeiro clique <em>à conversa.</em></h3>
+      </div>
+    </div>
+    <div class="cards">
+      <article class="card rv">
+        <svg class="ic" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 14V4h10M30 40h10V30"/><rect x="13" y="13" width="18" height="18" rx="3"/></svg>
+        <h4>Profissional desde o primeiro clique</h4>
+        <p>Formação, especialidades, fotos e depoimentos num lugar só, com a sua cara e o seu registro profissional visível.</p>
+      </article>
+      <article class="card rv">
+        <svg class="ic" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><circle cx="19" cy="19" r="12"/><path d="m28 28 11 11M13 19h12M19 13v12"/></svg>
+        <h4>Pronto para o Google</h4>
+        <p>Seu site cadastrado no Google e seu perfil da empresa configurado, com endereço, horários e mapa.</p>
+      </article>
+      <article class="card rv">
+        <svg class="ic" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M8 34 10 26A15 15 0 1 1 17 33Z"/><path d="M16 20h12M16 25h7"/></svg>
+        <h4>Um toque até o seu WhatsApp</h4>
+        <p>Sem formulário perdido: o paciente ou aluno abre a conversa com uma mensagem pronta.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="faixa" id="como-funciona">
+  <div class="wrap">
+    <div class="cab rv">
+      <div>
+        <div class="rotulo mono" data-scramble>Como funciona</div>
+        <h3 class="titulo">Do briefing ao ar em <em>quatro passos.</em></h3>
+      </div>
+      <p class="lead">Por trás de cada passo tem código de verdade. É ele que deixa seu site rápido, seguro e fácil de achar.</p>
+    </div>
+    <div class="processo">
+      <ol class="passos" id="passos">
+        <li class="passo ativo" data-i="0"><span class="mono dia">dia 1</span><div><h4>Conversa</h4><p>15 minutos no WhatsApp para entender seu público, serviços e estilo.</p></div></li>
+        <li class="passo" data-i="1"><span class="mono dia">dia 2–3</span><div><h4>Prévia</h4><p>Você recebe o site montado num link para ver no celular antes de pagar a mensalidade.</p></div></li>
+        <li class="passo" data-i="2"><span class="mono dia">dia 4–6</span><div><h4>Ajustes</h4><p>Textos, fotos e cores ajustados até ficar do seu jeito.</p></div></li>
+        <li class="passo" data-i="3"><span class="mono dia">dia 7</span><div><h4>No ar</h4><p>Publicado no seu endereço, com segurança (https) e manutenção contínua.</p></div></li>
+      </ol>
+      <div class="editor rv" aria-label="Exemplo de código de cada passo">
+        <div class="ed-topo">
+          <div class="bol" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="abas" id="abas"><span class="on">briefing.json</span><span>index.html</span><span>ajustes.diff</span><span>terminal</span></div>
+        </div>
+        <pre class="codigo" id="codigo"></pre>
+        <div class="ed-base mono"><span id="ed-status">passo 1 de 4</span><span><b>●</b> reinventar.dev</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faixa" id="para-quem">
+  <div class="wrap">
+    <div class="cab rv">
+      <div>
+        <div class="rotulo mono" data-scramble>Para quem</div>
+        <h3 class="titulo">Feito para quem <em>atende gente.</em></h3>
+      </div>
+    </div>
+    <div class="nichos">
+      <article class="nicho rv">
+        <h4>Personal trainers e estúdios</h4>
+        <ul><li>Planos e modalidades (presencial, online, consultoria)</li><li>Antes e depois e depoimentos de alunos</li><li>CREF visível e botão para aula experimental</li></ul>
+        <div class="ex"><q>Treino que cabe na sua rotina.</q> · exemplo de chamada</div>
+      </article>
+      <article class="nicho rv">
+        <h4>Dentistas e clínicas</h4>
+        <ul><li>Tratamentos explicados em linguagem simples</li><li>Dentro das regras do CFO: CRO visível, sem preços</li><li>Mapa, horários e agendamento pelo WhatsApp</li></ul>
+        <div class="ex"><q>Seu sorriso em boas mãos.</q> · exemplo de chamada</div>
+      </article>
+    </div>
+    <p class="obs rv">Nutricionistas, fisioterapeutas, psicólogos e advogados também. Pergunte pelo seu nicho.</p>
+  </div>
+</section>
+
+<section class="faixa" id="fotos">
+  <div class="wrap">
+    <div class="cab rv">
+      <div>
+        <div class="rotulo mono" data-scramble>Fotos profissionais</div>
+        <h3 class="titulo">Sem fotos boas? <em>A gente resolve.</em></h3>
+      </div>
+      <p class="lead">Foto é o que faz o visitante confiar. Por isso a Reinventar também cuida das imagens do seu site.</p>
+    </div>
+    <div class="fotos">
+      <article class="foto destaque rv">
+        <div class="visor" aria-hidden="true"><span class="rec mono">rec</span><div class="foco"></div><span class="exp mono">f/2.8 · 1/125 · iso 400</span></div>
+        <h4>Ensaio fotográfico profissional</h4>
+        <p>Vamos até o seu consultório ou estúdio e fotografamos você, a equipe e o espaço. As fotos chegam tratadas, prontas para o site e para o Instagram.</p>
+        <span class="mono tag">Divinópolis e região · agende pelo WhatsApp</span>
+      </article>
+      <article class="foto rv">
+        <div class="visor" aria-hidden="true"><svg width="70" height="52" viewBox="0 0 70 52" fill="none" stroke="#F4C9DA" stroke-width="1.4"><rect x="1" y="1" width="68" height="50" rx="4"/><path d="m1 40 20-18 15 14 11-10 22 18"/><circle cx="49" cy="15" r="5"/></svg></div>
+        <h4>Imagens de apoio licenciadas</h4>
+        <p>Enquanto o ensaio não acontece, usamos imagens de banco com licença comercial para ambientes, equipamentos e detalhes. Seu site não fica esperando.</p>
+        <span class="mono tag">incluso em todos os planos</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="faixa" id="planos">
+  <div class="wrap">
+    <div class="cab rv">
+      <div>
+        <div class="rotulo mono" data-scramble>Planos</div>
+        <h3 class="titulo">Implantação única <em>+ mensalidade.</em></h3>
+      </div>
+      <p class="lead">A mensalidade cobre hospedagem, segurança, domínio e ajustes. Contrato de 12 meses.</p>
+    </div>
+    <div class="planos">
+      <article class="plano rv">
+        <h4>Essencial</h4>
+        <div class="preco"><b>R$ 79</b><span>/mês</span></div>
+        <div class="impl">+ R$ 497 de implantação</div>
+        <ul><li>Site one-page com a sua identidade</li><li>Endereço seunome.reinventar.dev</li><li>Botão de WhatsApp e mapa</li><li>1 ajuste por mês</li></ul>
+        <a class="pill wa-link" href="#" data-msg="Olá! Tenho interesse no plano Essencial.">Quero o Essencial <span class="seta">↗</span></a>
+      </article>
+      <article class="plano top rv">
+        <span class="selo mono">mais escolhido</span>
+        <h4>Profissional</h4>
+        <div class="preco"><b>R$ 149</b><span>/mês</span></div>
+        <div class="impl">+ R$ 997 de implantação</div>
+        <ul><li>Tudo do Essencial</li><li>Domínio próprio no seu nome (seunome.com.br)</li><li>Galeria, depoimentos e perguntas frequentes</li><li>Perfil da Empresa no Google configurado</li><li>3 ajustes por mês</li></ul>
+        <a class="pill cheio wa-link" href="#" data-msg="Olá! Tenho interesse no plano Profissional.">Quero o Profissional <span class="seta">↗</span></a>
+      </article>
+      <article class="plano rv">
+        <h4>Premium</h4>
+        <div class="preco"><b>R$ 297</b><span>/mês</span></div>
+        <div class="impl">+ R$ 1.997 de implantação</div>
+        <ul><li>Tudo do Profissional</li><li>Layout exclusivo e seções sob medida</li><li>Relatório mensal de visitas</li><li>Ajustes sem limite e prioridade</li></ul>
+        <a class="pill wa-link" href="#" data-msg="Olá! Tenho interesse no plano Premium.">Quero o Premium <span class="seta">↗</span></a>
+      </article>
+    </div>
+    <p class="nota rv">Ensaio fotográfico: pode ser contratado junto com qualquer plano. Valor sob consulta.</p>
+  </div>
+</section>
+
+<section class="faixa" id="duvidas">
+  <div class="wrap faq">
+    <div class="rv">
+      <div class="rotulo mono" data-scramble>Dúvidas</div>
+      <h3 class="titulo">Perguntas <em>frequentes.</em></h3>
+    </div>
+    <div class="rv">
+      <details><summary>Preciso entender de tecnologia?</summary><p>Não. Você manda fotos e informações pelo WhatsApp e aprova a prévia. Domínio, hospedagem e segurança ficam com a gente.</p></details>
+      <details><summary>Posso ver o site antes de pagar?</summary><p>Sim. Montamos uma prévia com seus dados reais e enviamos o link. Você só fecha se gostar.</p></details>
+      <details><summary>E se eu não tiver fotos boas?</summary><p>Fazemos um ensaio profissional no seu espaço, em Divinópolis e região. Até lá, o site usa imagens de apoio licenciadas. Fotos de pessoas, antes e depois e resultados são sempre reais, nunca de banco de imagens.</p></details>
+      <details><summary>E se eu quiser mudar algo depois?</summary><p>Os ajustes mensais estão no plano: troca de foto, horário, texto ou serviço. É só mandar mensagem.</p></details>
+      <details><summary>O domínio fica no meu nome?</summary><p>Nos planos Profissional e Premium, sim: o domínio é registrado em seu nome no Registro.br. No Essencial, você usa um endereço reinventar.dev.</p></details>
+      <details><summary>O site segue as regras do meu conselho?</summary><p>Sim. Para dentistas seguimos as normas do CFO (CRO visível, sem preços, antes e depois só com autorização). Para personal, o CREF fica sempre à vista.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="final" id="contato">
+  <div class="wrap">
+    <h3><span>Bora</span><span class="l2">r<span class="e">e</span>inventar?</span></h3>
+    <p>Mande "quero meu site" e receba uma prévia gratuita em até 3 dias.</p>
+    <a class="pill cheio wa-link" href="#" data-msg="Quero meu site!">Chamar no WhatsApp <span class="seta">↗</span></a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="logo" href="#topo"><svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><path d="M14 38V14H38M62 86H86V62" stroke="#22C58B" stroke-opacity=".8" stroke-width="6"/><path d="M24 46V24H46M54 76H76V54" stroke="#D94F8A" stroke-width="6"/><rect x="40" y="40" width="20" height="20" rx="4" fill="#F4C9DA"/></svg><span>r<span class="e">e</span>inventar<sup>.dev</sup></span></a>
+    <span class="mono">Divinópolis · MG · (37) 99918-1248 · © <span id="ano">2026</span> Reinventar</span>
+  </div>
+</footer>
+
+<a class="wa wa-link" href="#" data-msg="Olá! Vi o site da Reinventar e quero saber mais." aria-label="Falar no WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#0B0A0C" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-1-1.1-1.3-1.7-.1-.2 0-.4.1-.5l.4-.5.3-.4v-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3c-.3.3-1 .9-1 2.3s1 2.7 1.2 2.9c.1.2 2 3.1 4.9 4.3 1.8.8 2.5.8 3.4.7.6-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></svg>
+</a>
+
+<script src="js/three.min.js"></script>
+<script>
+(function(){
+"use strict";
+var WHATSAPP = "5537999181248";
+document.querySelectorAll(".wa-link").forEach(function(a){
+  a.href = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(a.dataset.msg || "Olá!");
+  a.target = "_blank"; a.rel = "noopener";
+});
+document.getElementById("ano").textContent = new Date().getFullYear();
+document.documentElement.classList.add("js");
+
+var reduz = matchMedia("(prefers-reduced-motion: reduce)").matches;
+var clamp = function(v,a,b){return Math.max(a,Math.min(b,v))};
+var suave = function(a,b,v){v=clamp((v-a)/(b-a),0,1);return v*v*(3-2*v)};
+
+/* título: letra por letra */
+document.querySelectorAll("[data-split]").forEach(function(el){
+  var t = el.textContent, h = "", i = 0;
+  t.split(" ").forEach(function(w, wi){
+    if (wi) h += " ";
+    h += '<span style="display:inline-block;white-space:nowrap">';
+    for (var c of w) { h += '<span class="ch" style="transition-delay:' + (0.15 + i*0.035).toFixed(3) + 's">' + c + "</span>"; i++; }
+    h += "</span>";
+  });
+  el.innerHTML = h;
+});
+requestAnimationFrame(function(){ requestAnimationFrame(function(){ document.body.classList.add("pronto"); }); });
+
+/* rótulos que "decodificam" */
+var CH = "01<>/{}[]#*+=_";
+function embaralha(el){
+  var alvo = el.dataset.txt || (el.dataset.txt = el.textContent), n = 0;
+  if (reduz) return;
+  var iv = setInterval(function(){
+    var s = "";
+    for (var i=0;i<alvo.length;i++) s += (i < n || alvo[i]===" ") ? alvo[i] : CH[(Math.random()*CH.length)|0];
+    el.textContent = s; n += 0.6;
+    if (n > alvo.length){ clearInterval(iv); el.textContent = alvo; }
+  }, 28);
+}
+
+/* revelar ao rolar (só esconde o que ainda está abaixo da tela) */
+var io = new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if (!e.isIntersecting) return;
+    e.target.classList.remove("fora");
+    e.target.querySelectorAll("[data-scramble]").forEach(embaralha);
+    io.unobserve(e.target);
+  });
+}, {rootMargin:"0px 0px -8% 0px"});
+document.querySelectorAll(".rv").forEach(function(el){
+  if (el.getBoundingClientRect().top > innerHeight) { el.classList.add("fora"); io.observe(el); }
+});
+
+/* brilho que segue o mouse nos cards */
+document.querySelectorAll(".card").forEach(function(c){
+  c.addEventListener("pointermove", function(e){
+    var r = c.getBoundingClientRect();
+    c.style.setProperty("--mx", (e.clientX-r.left)+"px"); c.style.setProperty("--my", (e.clientY-r.top)+"px");
+  });
+});
+
+/* mira (cursor) */
+var mira = document.querySelector(".mira"), mx = innerWidth/2, my = innerHeight/2, cx = mx, cy = my;
+var px = 0, py = 0, coords = document.getElementById("coords");
+addEventListener("pointermove", function(e){
+  mx = e.clientX; my = e.clientY;
+  px = mx/innerWidth*2-1; py = my/innerHeight*2-1;
+  if (coords) coords.textContent = "x " + (mx/innerWidth).toFixed(3) + " · y " + (my/innerHeight).toFixed(3) + " · role ↓";
+  mira.classList.toggle("link", !!e.target.closest("a,summary,.passo,button"));
+}, {passive:true});
+
+/* editor: o código de cada passo */
+var PASSOS = [
+  {aba:0, tipo:"json", txt:
+'{\n  "nome": "Dra. Marina",\n  "nicho": "dentista",\n  "cidade": "Divinópolis · MG",\n  "publico": "famílias e adultos",\n  "estilo": ["claro", "acolhedor"],\n  "servicos": 5,\n  "whatsapp": true\n}'},
+  {aba:1, tipo:"html", txt:
+'<section class="hero">\n  <h1>Seu sorriso em boas mãos.</h1>\n  <p>Clínica no centro de Divinópolis.</p>\n  <a class="whatsapp" href="https://wa.me/…">\n    Agendar avaliação\n  </a>\n</section>\n<!-- CRO visível · sem preços (CFO) -->'},
+  {aba:2, tipo:"diff", txt:
+'  <section class="hero">\n-   <h1>Seu sorriso em boas mãos.</h1>\n+   <h1>Cuidado que aparece no sorriso.</h1>\n- --destaque: #A9BDB2;\n+ --destaque: #C9A27A;\n- <img src="banco-de-imagem.webp">\n+ <img src="ensaio-consultorio.webp">\n  </section>'},
+  {aba:3, tipo:"term", txt:
+'$ reinventar publicar seunome\n  enviando 14 arquivos…\n✓ https ativo (certificado válido)\n✓ sitemap.xml enviado ao Google\n✓ botão de WhatsApp testado\n✓ no ar em 38 s\n\n→ https://seunome.reinventar.dev'}
+];
+function esc(s){return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+function realce(linha, tipo){
+  var e = esc(linha);
+  if (tipo==="json") return e.replace(/("[^"]*")(\s*:)?/g, function(m,s,c){return c ? '<span class="c-k">'+s+'</span>'+c : '<span class="c-s">'+s+'</span>'}).replace(/\b(true|false|\d+)\b/g,'<span class="c-p">$1</span>');
+  if (tipo==="html") {
+    if (/^\s*&lt;!--/.test(e)) return '<span class="c-m">'+e+'</span>';
+    return e.replace(/(&lt;\/?)([a-z0-9]+)/g,'$1<span class="c-k">$2</span>').replace(/(\s)([a-z-]+)=/g,'$1<span class="c-p">$2</span>=').replace(/("[^"]*"?)/g,'<span class="c-s">$1</span>');
+  }
+  if (tipo==="diff") {
+    if (/^\+/.test(linha)) return '<span class="c-add">'+e+'</span>';
+    if (/^-/.test(linha)) return '<span class="c-del">'+e+'</span>';
+    return '<span class="c-m">'+e+'</span>';
+  }
+  if (tipo==="term") {
+    if (/^\$/.test(linha)) return '<span class="c-m">$</span><span class="c-p">'+e.slice(1)+'</span>';
+    if (/^✓/.test(linha)) return '<span class="c-ok">✓</span>'+e.slice(1);
+    if (/^→/.test(linha)) return '<span class="c-k">'+e+'</span>';
+    return '<span class="c-m">'+e+'</span>';
+  }
+  return e;
+}
+var codigo = document.getElementById("codigo"), abas = document.querySelectorAll("#abas span"),
+    passosEl = document.querySelectorAll(".passo"), status = document.getElementById("ed-status");
+var atual = -1, digito = null;
+function mostra(i, instantaneo){
+  if (i === atual) return; atual = i;
+  passosEl.forEach(function(p,k){ p.classList.toggle("ativo", k===i); });
+  abas.forEach(function(a,k){ a.classList.toggle("on", k===PASSOS[i].aba); });
+  status.textContent = "passo " + (i+1) + " de 4";
+  var p = PASSOS[i], n = 0; clearInterval(digito);
+  function pinta(fim){
+    var parte = p.txt.slice(0, n), linhas = parte.split("\n");
+    codigo.innerHTML = linhas.map(function(l, k){
+      return '<span class="ln">' + realce(l, p.tipo) + (k===linhas.length-1 && !fim ? '<span class="cursor"></span>' : "") + "</span>";
+    }).join("");
+  }
+  if (instantaneo || reduz){ n = p.txt.length; pinta(true); return; }
+  digito = setInterval(function(){
+    n += 3; if (n >= p.txt.length){ n = p.txt.length; clearInterval(digito); pinta(false); return; }
+    pinta(false);
+  }, 22);
+}
+mostra(0, true);
+passosEl.forEach(function(p){ p.addEventListener("click", function(){ mostra(+p.dataset.i); auto = false; }); });
+var largo = matchMedia("(min-width: 981px)"), auto = true;
+var ioPasso = new IntersectionObserver(function(es){
+  if (!largo.matches) return;
+  es.forEach(function(e){ if (e.isIntersecting) mostra(+e.target.dataset.i); });
+}, {rootMargin:"-45% 0px -45% 0px"});
+passosEl.forEach(function(p){ ioPasso.observe(p); });
+var ioEd = new IntersectionObserver(function(es){
+  es.forEach(function(e){ if (e.isIntersecting && atual===0 && !largo.matches) { atual=-1; mostra(0); } });
+}, {threshold:.4});
+ioEd.observe(codigo);
+setInterval(function(){
+  if (largo.matches || !auto || reduz) return;
+  var r = codigo.getBoundingClientRect(); if (r.bottom < 0 || r.top > innerHeight) return;
+  mostra((atual+1)%4);
+}, 5200);
+
+/* ===================== palco WebGL ===================== */
+var canvas = document.getElementById("gl");
+var palco = null;
+try { if (window.THREE) palco = montaPalco(); } catch(err){ console.error(err); }
+
+function montaPalco(){
+  var celular = innerWidth < 700;
+  var renderer = new THREE.WebGLRenderer({canvas:canvas, antialias:true, alpha:true, powerPreference:"high-performance"});
+  renderer.setPixelRatio(Math.min(devicePixelRatio, celular ? 1.6 : 2));
+  renderer.setClearColor(0x000000, 0);
+  var cena = new THREE.Scene();
+  var cam = new THREE.PerspectiveCamera(38, 1, 0.1, 100);
+  var grupo = new THREE.Group(); cena.add(grupo);
+
+  /* cristal: núcleo + estilhaços (instâncias) */
+  var vert = [
+    "uniform float uF; uniform float uT;",
+    "attribute vec3 aDir; attribute float aRnd;",
+    "varying vec3 vPos; varying float vF;",
+    "void main(){",
+    "  vec3 p = position;",
+    "  #ifdef USE_INSTANCING",
+    "    vec4 w = instanceMatrix * vec4(p,1.0);",
+    "    float f = smoothstep(aRnd*0.3, aRnd*0.3+0.6, uF);",
+    "    w.xyz += aDir * (0.035*sin(uT*1.6 + aRnd*40.0)) * (1.0-f);",
+    "    w.xyz += aDir * f * (2.2 + aRnd*7.0);",
+    "    w.xyz = mix(w.xyz, w.xyz + vec3(sin(aRnd*91.0), cos(aRnd*57.0), sin(aRnd*33.0))*1.2, f);",
+    "  #else",
+    "    float f = uF;",
+    "    vec4 w = vec4(p * (1.0 - smoothstep(0.0,0.5,uF)*0.95) * (1.0 + 0.04*sin(uT*1.3)), 1.0);",
+    "  #endif",
+    "  vec4 mv = modelViewMatrix * w;",
+    "  vPos = mv.xyz; vF = f;",
+    "  gl_Position = projectionMatrix * mv;",
+    "}"].join("\n");
+  var frag = [
+    "uniform float uAlpha;",
+    "varying vec3 vPos; varying float vF;",
+    "void main(){",
+    "  vec3 n = normalize(cross(dFdx(vPos), dFdy(vPos)));",
+    "  vec3 v = normalize(-vPos);",
+    "  if (dot(n,v) < 0.0) n = -n;",
+    "  vec3 r = reflect(-v, n);",
+    "  float ndv = clamp(dot(n,v), 0.0, 1.0);",
+    "  vec3 escuro = vec3(.035,.03,.04), vinho = vec3(.62,.13,.38), rosa = vec3(.85,.31,.54), blush = vec3(.96,.79,.85), verde = vec3(.13,.77,.55);",
+    "  vec3 env = escuro;",
+    "  env += blush * smoothstep(.45,.95,r.y) * 1.25;",
+    "  env += rosa * smoothstep(.28,.0,abs(r.y-.05)) * (.65+.5*r.x);",
+    "  env += vinho * smoothstep(.0,-.5,r.y) * .9;",
+    "  env += verde * smoothstep(-.55,-.95,r.y) * .8 * (.5-.5*r.x);",
+    "  env += vec3(1.0) * pow(max(0.0, dot(r, normalize(vec3(.55,.7,.45)))), 36.0) * 1.6;",
+    "  float fr = pow(1.0-ndv, 3.0);",
+    "  vec3 col = env * (.55 + .45*ndv) + fr * mix(rosa, blush, ndv) * .9;",
+    "  gl_FragColor = vec4(col, uAlpha * (1.0 - vF*0.92));",
+    "}"].join("\n");
+  var uni = {uF:{value:0}, uT:{value:0}, uAlpha:{value:1}};
+  var matCristal = new THREE.ShaderMaterial({uniforms:uni, vertexShader:vert, fragmentShader:frag, transparent:true});
+
+  var nucleo = new THREE.Mesh(new THREE.IcosahedronGeometry(0.62, 1), matCristal);
+  grupo.add(nucleo);
+
+  var N_EST = celular ? 120 : 190;
+  var cone = new THREE.ConeGeometry(0.075, 1, 4, 1); cone.translate(0, 0.5, 0);
+  var est = new THREE.InstancedMesh(cone, matCristal, N_EST);
+  var dirs = [], lens = [], aDir = new Float32Array(N_EST*3), aRnd = new Float32Array(N_EST);
+  var m = new THREE.Matrix4(), q = new THREE.Quaternion(), Y = new THREE.Vector3(0,1,0), s = new THREE.Vector3(), o = new THREE.Vector3();
+  for (var i=0;i<N_EST;i++){
+    var d = new THREE.Vector3().randomDirection();
+    var longo = Math.random() < 0.22;
+    var L = longo ? 1.3 + Math.random()*1.0 : 0.55 + Math.random()*0.6;
+    var W = longo ? 0.55 + Math.random()*0.5 : 0.8 + Math.random()*0.9;
+    dirs.push(d); lens.push(L);
+    q.setFromUnitVectors(Y, d); s.set(W, L, W); o.copy(d).multiplyScalar(0.35);
+    m.compose(o, q, s); est.setMatrixAt(i, m);
+    aDir[i*3]=d.x; aDir[i*3+1]=d.y; aDir[i*3+2]=d.z; aRnd[i]=Math.random();
+  }
+  cone.setAttribute("aDir", new THREE.InstancedBufferAttribute(aDir, 3));
+  cone.setAttribute("aRnd", new THREE.InstancedBufferAttribute(aRnd, 1));
+  grupo.add(est);
+
+  /* partículas: nascem nos estilhaços e explodem em raios */
+  var N = celular ? 2600 : 6500;
+  var pc = new Float32Array(N*3), pb = new Float32Array(N*3), pr = new Float32Array(N*3);
+  var tmp = new THREE.Vector3();
+  for (var k=0;k<N;k++){
+    var j = k % N_EST, dd = dirs[j];
+    var raio = Math.random() < 0.55;
+    var base = raio ? tmp.copy(dd) : tmp.randomDirection();
+    if (raio) base.add(new THREE.Vector3().randomDirection().multiplyScalar(0.12)).normalize();
+    var tC = 0.35 + Math.random()*lens[j];
+    pc[k*3]=dd.x*tC; pc[k*3+1]=dd.y*tC; pc[k*3+2]=dd.z*tC;
+    var R = raio ? lens[j]*0.7 + Math.pow(Math.random(),1.5)*6.5 : 0.15 + Math.pow(Math.random(),1.7)*2.6;
+    pb[k*3]=base.x*R; pb[k*3+1]=base.y*R; pb[k*3+2]=base.z*R;
+    pr[k*3]=Math.random(); pr[k*3+1]=Math.random(); pr[k*3+2]=Math.random();
+  }
+  var gp = new THREE.BufferGeometry();
+  gp.setAttribute("position", new THREE.BufferAttribute(pc, 3));
+  gp.setAttribute("aB", new THREE.BufferAttribute(pb, 3));
+  gp.setAttribute("aR", new THREE.BufferAttribute(pr, 3));
+  var uniP = {uF:uni.uF, uT:uni.uT, uPx:{value:renderer.getPixelRatio()}, uDim:{value:0}, uVis:{value:1}};
+  var matP = new THREE.ShaderMaterial({
+    uniforms: uniP, transparent:true, depthWrite:false, blending:THREE.AdditiveBlending,
+    vertexShader: [
+      "uniform float uF, uT, uPx, uDim;",
+      "attribute vec3 aB; attribute vec3 aR;",
+      "varying float vA; varying vec3 vCol;",
+      "void main(){",
+      "  float f = smoothstep(aR.x*0.35, aR.x*0.35+0.65, uF);",
+      "  vec3 p = mix(position, aB, f);",
+      "  float a = uT * 0.04 * (0.4 + aR.y) * f;",
+      "  p.xz = mat2(cos(a),-sin(a),sin(a),cos(a)) * p.xz;",
+      "  p += f * 0.18 * vec3(sin(uT*.6+aR.z*20.), cos(uT*.5+aR.y*20.), sin(uT*.7+aR.x*20.));",
+      "  vec4 mv = modelViewMatrix * vec4(p,1.0);",
+      "  gl_Position = projectionMatrix * mv;",
+      "  float tam = mix(1.6, 7.5, f) * (0.3 + aR.z*aR.z*1.4);",
+      "  gl_PointSize = tam * uPx * (22.0 / -mv.z);",
+      "  vA = mix(0.35, 0.7, f) * (1.0 - uDim*0.75) * (0.65 + 0.35*sin(uT*2.0 + aR.y*30.0));",
+      "  vec3 rosa = vec3(.85,.31,.54), blush = vec3(.96,.79,.85), verde = vec3(.13,.77,.55), vinho = vec3(.62,.13,.38);",
+      "  vCol = aR.y < .45 ? rosa : (aR.y < .72 ? vinho*1.3 : (aR.y < .92 ? blush : verde));",
+      "}"].join("\n"),
+    fragmentShader: [
+      "uniform float uVis;",
+      "varying float vA; varying vec3 vCol;",
+      "void main(){",
+      "  float d = length(gl_PointCoord - 0.5);",
+      "  float a = smoothstep(0.5, 0.0, d);",
+      "  a *= a * vA * uVis;",
+      "  gl_FragColor = vec4(vCol * a, a);",
+      "}"].join("\n")
+  });
+  var pontos = new THREE.Points(gp, matP); grupo.add(pontos);
+
+  function tamanho(){
+    var w = innerWidth, h = innerHeight;
+    renderer.setSize(w, h, false);
+    cam.aspect = w/h;
+    cam.position.set(0, 0, w < 700 ? 9.6 : (w < 1100 ? 8.2 : 7.2));
+    cam.updateProjectionMatrix();
+    uniP.uPx.value = renderer.getPixelRatio() * (h/900);
+  }
+  tamanho(); addEventListener("resize", tamanho);
+
+  var manifesto = document.getElementById("manifesto"), mCentro = document.getElementById("m-centro"),
+      mRod = document.getElementById("m-rodape"), finalEl = document.getElementById("contato"),
+      barra = document.getElementById("topo-barra"), brilho = document.getElementById("brilho"), dias = document.getElementById("dias");
+  var F = 0, dim = 0, rotY = 0, rotX = 0, rx = 0, ry = 0, t0 = performance.now(), ultimo = t0, alvoX = 0;
+  var visivel = true;
+  document.addEventListener("visibilitychange", function(){ visivel = !document.hidden; if (visivel) { ultimo = performance.now(); requestAnimationFrame(quadro); } });
+
+  function quadro(agora){
+    if (!visivel) return;
+    var dt = Math.min(0.05, (agora - ultimo)/1000); ultimo = agora;
+    var t = (agora - t0)/1000;
+    var vh = innerHeight;
+
+    var r = manifesto.getBoundingClientRect();
+    var pm = clamp(-r.top / (r.height - vh), 0, 1);
+    var antes = r.top > 0 ? clamp(1 - r.top/vh, 0, 1) : 1;
+    var explode = suave(0.0, 0.5, pm) * (r.top <= 0 ? 1 : 0) + (r.top > 0 ? antes*0.12 : 0);
+    var rf = finalEl.getBoundingClientRect();
+    var volta = suave(0.15, 0.85, 1 - rf.top / vh);
+    var alvoF = explode * (1 - volta);
+    var alvoDim = suave(0.82, 1, pm) * (1 - volta);
+    F += (alvoF - F) * (reduz ? 1 : Math.min(1, dt*5));
+    dim += (alvoDim - dim) * Math.min(1, dt*4);
+
+    var txt = suave(0.22, 0.42, pm) * (1 - suave(0.8, 0.95, pm));
+    mCentro.style.opacity = txt.toFixed(3);
+    mCentro.style.transform = "scale(" + (0.96 + txt*0.04).toFixed(4) + ")";
+    mRod.style.opacity = txt.toFixed(3);
+    var d = Math.max(1, Math.round(1 + suave(0.25, 0.6, pm)*6));
+    dias.textContent = (d < 10 ? "0" : "") + d;
+
+    canvas.classList.toggle("frente", r.top > vh*0.35);
+    barra.classList.toggle("solido", scrollY > 40);
+
+    uni.uF.value = F; uni.uT.value = t;
+    uni.uAlpha.value = 1 - suave(0.55, 0.95, F);
+    est.visible = nucleo.visible = uni.uAlpha.value > 0.01;
+    uniP.uDim.value = dim;
+    brilho.style.opacity = (suave(0.15, 0.7, F) * (1 - dim*0.85)).toFixed(3);
+    brilho.style.transform = "scale(" + (0.8 + F*0.35).toFixed(3) + ")";
+
+    rx += (py - rx) * Math.min(1, dt*3); ry += (px - ry) * Math.min(1, dt*3);
+    if (!reduz) rotY += dt * (0.12 + F*0.05);
+    grupo.rotation.y = rotY + ry*0.45;
+    grupo.rotation.x = 0.25 + rx*0.3 + (reduz ? 0 : Math.sin(t*0.3)*0.06);
+    grupo.position.y = (innerWidth < 640 ? -0.25*(1-volta) : 0) + volta*0.15 + (reduz ? 0 : Math.sin(t*0.8)*0.06);
+    var esc = (1 + F*0.25 - dim*0.1) * (1 - volta*0.42);
+    grupo.scale.setScalar(esc);
+
+    renderer.render(cena, cam);
+    if (!reduz || true) requestAnimationFrame(quadro);
+
+    /* mira */
+    cx += (mx - cx) * Math.min(1, dt*14); cy += (my - cy) * Math.min(1, dt*14);
+    mira.style.transform = "translate(" + cx.toFixed(1) + "px," + cy.toFixed(1) + "px)";
+  }
+  requestAnimationFrame(quadro);
+  return {renderer:renderer};
+}
+
+/* sem WebGL: ainda anima o texto do manifesto e a mira */
+if (!palco){
+  canvas.style.background = "radial-gradient(60% 50% at 50% 45%, rgba(217,79,138,.35), transparent 70%)";
+  var mC = document.getElementById("m-centro"), mR = document.getElementById("m-rodape");
+  (function laco(){
+    var r = document.getElementById("manifesto").getBoundingClientRect();
+    var pm = clamp(-r.top / (r.height - innerHeight), 0, 1);
+    var txt = suave(0.22, 0.42, pm) * (1 - suave(0.8, 0.95, pm));
+    mC.style.opacity = mR.style.opacity = txt;
+    document.getElementById("topo-barra").classList.toggle("solido", scrollY > 40);
+    cx += (mx-cx)*.25; cy += (my-cy)*.25;
+    mira.style.transform = "translate(" + cx + "px," + cy + "px)";
+    requestAnimationFrame(laco);
+  })();
+}
+})();
+</script>
+</body>
+</html>
