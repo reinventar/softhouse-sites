@@ -1,0 +1,106 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8">
+<link rel="stylesheet" href="fontes.css">
+<style>
+:root{--preto:#000;--grafite:#06140E;--floresta:#0A3B27;--off:#EEF2EF;--mudo:#8FA89A;--vinho:#A8264F;--blush:#B8395E;--verde:#3FBF84;--linha:rgba(63,191,132,.22)}
+*{box-sizing:border-box}body{margin:0;background:#222;font-family:"Josefin Sans",sans-serif;color:var(--off)}
+.f{position:relative;overflow:hidden;background:#000;margin:20px}
+.post{width:1080px;height:1350px}.sq{width:1080px;height:1080px}
+.mono{font-family:"JetBrains Mono",monospace;letter-spacing:.2em;text-transform:uppercase}
+.onda{position:absolute;left:-20%;right:-20%;top:60%;height:110%;background-image:radial-gradient(rgba(63,191,132,.85) 1.6px,transparent 2.2px);background-size:16px 16px;transform:perspective(700px) rotateX(62deg);transform-origin:top;-webkit-mask-image:linear-gradient(to bottom,transparent,#000 15%,#000 55%,transparent 85%);mask-image:linear-gradient(to bottom,transparent,#000 15%,#000 55%,transparent 85%);opacity:.75}
+.onda.v{background-image:radial-gradient(rgba(63,191,132,.85) 1.6px,transparent 2.2px),radial-gradient(rgba(168,38,79,.9) 1.6px,transparent 2.2px);background-size:16px 16px,112px 96px;background-position:0 0,8px 40px}
+.post::after{content:"";position:absolute;left:0;right:0;bottom:0;height:300px;background:linear-gradient(to top,#000 35%,transparent)}
+.base,.cantos{z-index:2}
+.cantos{position:absolute;inset:0}
+.cantos i{position:absolute;width:40px;height:40px;border-color:rgba(63,191,132,.55);border-style:solid;border-width:0}
+.cantos i:nth-child(1){left:48px;top:48px;border-left-width:2px;border-top-width:2px}
+.cantos i:nth-child(2){right:48px;top:48px;border-right-width:2px;border-top-width:2px}
+.cantos i:nth-child(3){left:48px;bottom:48px;border-left-width:2px;border-bottom-width:2px}
+.cantos i:nth-child(4){right:48px;bottom:48px;border-right-width:2px;border-bottom-width:2px}
+.topo{position:absolute;left:84px;right:84px;top:92px;display:flex;justify-content:space-between;align-items:center;font-size:20px;color:var(--mudo)}
+.topo b{color:var(--verde);font-weight:400}
+.base{position:absolute;left:84px;right:84px;bottom:92px;display:flex;justify-content:space-between;align-items:center;font-size:20px;color:var(--mudo)}
+.marca{display:block}
+.conteudo{position:absolute;left:84px;right:84px;top:200px}
+h1,h2{margin:0;font-weight:200;text-transform:uppercase;letter-spacing:-.01em;line-height:1.02}
+em{font-style:normal;color:var(--blush);font-weight:300}
+.e{display:inline-block;transform:scaleX(-1);color:var(--blush)}
+p{font-size:34px;line-height:1.45;font-weight:300;color:#C9D4CE;margin:0}
+.diam{position:absolute;width:16px;height:16px;border:2px solid var(--vinho);transform:rotate(45deg)}
+.url{display:inline-flex;align-items:center;gap:16px;padding:20px 30px;border:1.5px solid rgba(63,191,132,.35);border-radius:999px;background:rgba(0,0,0,.6);font-family:"JetBrains Mono",monospace;font-size:34px}
+.url .pref{color:var(--mudo)}.url .dom{color:var(--blush)}.url .cur{width:3px;height:36px;background:var(--blush)}
+.pill{display:inline-block;padding:24px 40px;border-radius:999px;background:var(--vinho);color:var(--off);font-family:"JetBrains Mono",monospace;font-size:24px;letter-spacing:.18em;text-transform:uppercase}
+.passos{display:grid;gap:0;margin-top:70px;border-top:1px solid var(--linha)}
+.passo{display:grid;grid-template-columns:150px 1fr;gap:30px;padding:36px 0;border-bottom:1px solid var(--linha);align-items:baseline}
+.passo .n{font-family:"JetBrains Mono",monospace;color:var(--verde);font-size:24px;letter-spacing:.15em}
+.passo h3{margin:0 0 10px;font-weight:300;font-size:46px;text-transform:uppercase}
+.passo p{font-size:28px}
+.lista{margin-top:60px;display:grid;gap:26px}
+.lista div{display:flex;gap:26px;align-items:baseline;font-size:36px;font-weight:300}
+.lista div::before{content:"";flex:none;width:14px;height:14px;border:2px solid var(--verde);transform:rotate(45deg) translateY(-4px)}
+.janela{position:absolute;border:1.5px solid var(--linha);border-radius:22px;background:#030C08;overflow:hidden}
+.janela .barra{height:58px;display:flex;align-items:center;gap:12px;padding:0 22px;border-bottom:1px solid var(--linha);font-family:"JetBrains Mono",monospace;font-size:20px;color:var(--mudo)}
+.janela .barra i{width:12px;height:12px;border-radius:50%;background:#1D3A2C}.janela .barra i:first-child{background:var(--vinho)}
+.janela .tela{position:absolute;top:58px;left:0;right:0;bottom:0;overflow:hidden}
+.janela .tela img{width:100%;display:block}
+.cel{position:absolute;border:2px solid #2A4A3A;border-radius:34px;background:#000;overflow:hidden;padding:10px;box-shadow:0 30px 80px rgba(0,0,0,.7)}
+.cel img{width:100%;display:block;border-radius:24px}
+.hl{width:1080px;height:1080px;background:radial-gradient(circle at 50% 50%,#0A3B27 0,#06140E 62%,#000 100%);display:grid;place-items:center}
+.hl svg{width:430px;height:430px}
+</style></head><body>
+<div id="frames"></div>
+<script>
+var W='M 0 100 V 0 H 54 A 25 25 0 0 1 54 50 H 18 M 44 62 L 76 100 M 220 0 V 100 M 250 100 V 0 L 312 80 M 330 0 V 100 M 360 0 L 399 94 M 444 0 L 405 94 M 554 0 H 474 V 100 H 554 M 488 50 H 534 M 584 100 V 0 L 646 80 M 664 0 V 100 M 694 0 H 774 M 734 16 V 100 M 804 100 L 846 0 L 864 43 M 870 58 L 888 100 M 918 100 V 0 H 972 A 25 25 0 0 1 972 50 H 936 M 962 62 L 994 100';
+var E='M 190 0 V 100 M 190 0 H 110 M 176 50 H 130 M 190 100 H 110';
+function marca(w,sw){return '<svg class="marca" width="'+w+'" viewBox="-6 -6 1010 112" fill="none"><path d="'+W+'" stroke="#EEF2EF" stroke-width="'+sw+'"/><path d="'+E+'" stroke="#A8264F" stroke-width="'+sw+'"/></svg>';}
+var RE='<path d="M0 100V0H54A25 25 0 0 1 54 50H18M44 62L76 100" stroke="#EEF2EF" stroke-width="5"/><path d="M190 0V100M190 0H110M176 50H130M190 100H110" stroke="#A8264F" stroke-width="5"/>';
+var cantos='<div class="cantos"><i></i><i></i><i></i><i></i></div>';
+function topo(esq,dir){return '<div class="topo mono"><span><b>●</b>&nbsp; '+esq+'</span><span>'+(dir||'')+'</span></div>';}
+function base(){return '<div class="base mono">'+marca(250,7)+'<span>reinventar.dev</span></div>';}
+function post(id,html,onda){return '<div class="f post" id="'+id+'">'+(onda?'<div class="onda'+(onda==='v'?' v':'')+'"></div>':'')+cantos+html+'</div>';}
+function cliente(id,n,nome,nicho,url,img,leg){
+  return post(id, topo('Cliente '+n,'no ar')+
+  '<div class="conteudo"><h2 style="font-size:92px">'+nome+'</h2><p style="margin-top:18px;color:var(--mudo)">'+nicho+'</p></div>'+
+  '<div class="janela" style="left:84px;top:470px;width:800px;height:640px"><div class="barra"><i></i><i></i><i></i>&nbsp;https://'+url+'</div><div class="tela"><img src="../../../sites/reinventar/img/clientes/'+img+'-desk.webp"></div></div>'+
+  '<div class="cel" style="right:84px;top:600px;width:250px;height:520px"><img src="../../../sites/reinventar/img/clientes/'+img+'-cel.webp"></div>'+
+  base(),'');
+}
+var F=[];
+// avatar
+F.push('<div class="f sq" id="avatar" style="background:radial-gradient(circle,#0A3B27 0,#06140E 55%,#000 100%);display:grid;place-items:center"><svg width="660" viewBox="-30 -30 250 160" fill="none">'+RE.replace(/stroke-width="5"/g,'stroke-width="7"')+'</svg></div>');
+// p1 nova marca
+F.push(post('p1', topo('Nova marca','2026')+
+ '<div style="position:absolute;left:84px;right:84px;top:360px;text-align:center">'+marca(912,4.5)+'</div>'+
+ '<div class="conteudo" style="top:620px"><p style="font-size:38px"><span style="color:var(--verde)">O verde é o que já existe:</span> o seu trabalho.<br><span style="color:var(--blush)">O vinho é o que a gente cria junto:</span> um site à altura dele.</p></div>'+base(),'v'));
+// p2
+F.push(post('p2', topo('Por que um site')+
+ '<div class="conteudo" style="top:300px"><h2 style="font-size:118px">O Instagram<br>mostra.<br><em>O site<br>convence.</em></h2><p style="margin-top:56px;max-width:820px">Quem chega por indicação procura seu nome antes de chamar. O site responde as dúvidas e leva direto pro seu WhatsApp.</p></div>'+base(),'g'));
+// p3 como funciona
+F.push(post('p3', topo('Como funciona','7 dias')+
+ '<div class="conteudo"><h2 style="font-size:92px">Do briefing<br>ao <em>ar.</em></h2><div class="passos">'+
+ [['dia 1','Conversa','Você conta sobre o seu trabalho pelo WhatsApp.'],['dia 3','Prévia gratuita','Você vê o seu site antes de decidir.'],['dia 5','Ajustes','Textos, cores e fotos do seu jeito.'],['dia 7','No ar','Publicado no seu endereço, com manutenção.']].map(function(a){return '<div class="passo"><span class="n">'+a[0]+'</span><div><h3>'+a[1]+'</h3><p>'+a[2]+'</p></div></div>';}).join('')+
+ '</div></div>'+base(),''));
+F.push(cliente('p4','01','Igor Augusto','Personal trainer · São João del-Rei','igoraugusto.reinventar.dev','igor'));
+F.push(cliente('p5','02','Karoline Maia','Professora de teatro, diretora e atriz','karoline-maia.reinventar.dev','karoline'));
+F.push(cliente('p6','03','Toninho Saga','Músico · São João del-Rei','toninhosaga.reinventar.dev','toninho'));
+// p7 sua marca seu endereço
+F.push(post('p7', topo('Sua marca, seu endereço')+
+ '<div class="conteudo" style="top:330px"><h2 style="font-size:104px">Sua marca,<br><span style="display:block;text-align:right">seu endereço.</span></h2><div style="text-align:right;margin-top:60px"><span class="url"><span class="pref">https://</span><span class="dom">seunome.com.br</span><i class="cur"></i></span></div><p style="margin-top:70px;max-width:760px">Seu trabalho merece um endereço próprio: bonito no celular, fácil de achar no Google e com um toque até o seu WhatsApp.</p></div>'+base(),'g'));
+// p8 serviço
+F.push(post('p8', topo('Nosso serviço')+
+ '<div class="conteudo"><h2 style="font-size:92px">Você cuida<br>dos clientes.<br><em>A gente cuida<br>do site.</em></h2><div class="lista">'+
+ ['Site com a sua identidade','Domínio, hospedagem e https','Pronto para o Google','WhatsApp a um toque','Ajustes todo mês'].map(function(t){return '<div>'+t+'</div>';}).join('')+
+ '</div><p class="mono" style="font-size:20px;margin-top:56px;color:var(--mudo)">Ensaio fotográfico à parte · valor a combinar</p></div>'+base(),''));
+// p9 CTA
+F.push(post('p9', topo('Prévia gratuita','em 3 dias')+
+ '<div class="conteudo" style="top:330px;text-align:center"><h2 style="font-size:116px;letter-spacing:-.04em">O que vamos<br>r<span class="e">e</span>inventar<br>hoje?</h2><p style="margin:60px auto 50px;max-width:800px">Mande “quero meu site” no WhatsApp e receba uma prévia gratuita, sem compromisso.</p><span class="pill">(37) 99918-1248 ↗</span></div>'+base(),'v'));
+// destaques
+var ic={
+ clientes:'<rect x="40" y="70" width="220" height="150" rx="10"/><path d="M40 100h220"/><rect x="200" y="120" width="70" height="120" rx="10" fill="#06140E"/>',
+ como:'<circle cx="80" cy="150" r="14"/><circle cx="150" cy="150" r="14"/><circle cx="220" cy="150" r="14" stroke="#A8264F"/><path d="M94 150h42M164 150h42"/>',
+ servico:'<path d="M70 230V80h160v150"/><path d="M100 120h100M100 160h100M100 200h60"/><path d="M150 40v40" stroke="#A8264F"/>',
+ duvidas:'<path d="M110 110a40 40 0 1 1 60 34c-12 8-20 16-20 32"/><circle cx="150" cy="218" r="4" fill="#3FBF84"/>',
+ contato:'<path d="M150 50a100 100 0 0 0-86 150l-12 44 46-12a100 100 0 1 0 52-182z"/><path d="M118 118c4 30 30 56 60 64" stroke="#A8264F"/>'
+};
+Object.keys(ic).forEach(function(k){F.push('<div class="f hl" id="hl-'+k+'"><svg viewBox="0 0 300 300" fill="none" stroke="#3FBF84" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">'+ic[k]+'</svg></div>');});
+document.getElementById('frames').innerHTML=F.join('');
+</script></body></html>
