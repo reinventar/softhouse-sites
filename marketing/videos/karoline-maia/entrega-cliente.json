@@ -1,0 +1,81 @@
+{
+  "nome": "Karoline Maia",
+  "monograma": "KM",
+  "registro": "DRT 0014172/MG",
+  "intro": "karoline,\nseu site\nficou pronto.",
+  "kicker_principal": "Entrega do seu site · Reinventar",
+  "texto_principal": "Do jeito que você é: professora, diretora e atriz.",
+  "pos_principal": "52% 25%",
+  "cores": {
+    "fundo": "#0D0C0B",
+    "texto": "#F4F4F2"
+  },
+  "fonte_titulo": "Inter Tight",
+  "foto_principal": "sites/karoline-maia/img/foto.webp",
+  "cenas": [
+    {
+      "foto": "sites/karoline-maia/img/d3o.webp",
+      "pos": "66% 20%",
+      "kicker": "Direção",
+      "titulo": "sua direção\nem destaque",
+      "texto": "Seus projetos com fotos, contexto e a reportagem do MG1."
+    },
+    {
+      "foto": "sites/karoline-maia/img/a8.webp",
+      "pos": "49% 40%",
+      "kicker": "Projetos",
+      "titulo": "aulas, eventos\ne campanhas",
+      "texto": "Tudo por categoria, com o rosto dos alunos protegido."
+    },
+    {
+      "foto": "sites/karoline-maia/img/n1.webp",
+      "pos": "52% 35%",
+      "kicker": "Abertura em cenas",
+      "titulo": "cada foto\nconta uma história",
+      "texto": "As cenas trocam conforme a pessoa rola a página."
+    },
+    {
+      "foto": "portfolio-capa.jpg",
+      "card": true,
+      "kicker": "Bônus",
+      "titulo": "seu portfólio\nde atriz",
+      "texto": "Um PDF de 15 páginas para produtoras e castings."
+    }
+  ],
+  "kicker_site": "Feito para o celular",
+  "titulo_site": "um passeio\npelo site",
+  "site": "sites/karoline-maia/index.html",
+  "paradas": [
+    {
+      "seletor": "body",
+      "rotulo": "Abertura em cenas"
+    },
+    {
+      "seletor": "#sobre",
+      "rotulo": "Sobre você"
+    },
+    {
+      "seletor": "#direcao",
+      "rotulo": "Direção"
+    },
+    {
+      "seletor": "#projetos",
+      "rotulo": "Aulas, eventos e campanhas"
+    },
+    {
+      "seletor": "#aulas",
+      "rotulo": "Para escolas e eventos"
+    },
+    {
+      "seletor": "#contato",
+      "rotulo": "Seu WhatsApp direto"
+    }
+  ],
+  "cta": "seu site\nestá no ar.",
+  "cta_sub": "Seu endereço:",
+  "url": "karoline-maia.reinventar.dev",
+  "cta_whatsapp": "Me conta o que achou e o que quer ajustar.",
+  "cta_chip": "Abra e compartilhe",
+  "assinatura_reinventar": true,
+  "assinatura_frase": "Sites que trabalham por você."
+}

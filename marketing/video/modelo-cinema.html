@@ -46,6 +46,17 @@ body{font-family:var(--titulo);color:var(--texto)}
 #cta .bio{display:inline-block;margin-top:26px;padding:16px 30px;border-radius:99px;background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.22);font-size:32px;font-weight:500}
 #cta .wa{margin-top:60px;font-size:40px;line-height:1.35;color:var(--suave);max-width:860px}
 .cred{position:absolute;left:80px;bottom:80px;font-size:26px;color:rgba(255,255,255,.45);z-index:60}
+.cena img.fundo-card{filter:blur(34px) brightness(.35);transform:scale(1.2)}
+.cena img.card{position:absolute;left:60px;width:960px;top:300px;border-radius:28px;box-shadow:0 50px 120px rgba(0,0,0,.6),0 0 0 2px rgba(255,255,255,.12)}
+#ass{background:#0B0A0C}
+#ass .brilho{position:absolute;width:900px;height:900px;left:50%;top:50%;margin:-450px 0 0 -450px;border-radius:50%;background:radial-gradient(closest-side,rgba(217,79,138,.32),rgba(34,197,139,.08) 60%,transparent)}
+#ass .bloco{position:absolute;left:0;right:0;top:640px;display:flex;flex-direction:column;align-items:center;gap:34px;font-family:"Geist",var(--titulo);color:#FAF8F9}
+#ass .por{font:500 40px "Geist Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:#22C58B}
+#ass .marca{display:flex;align-items:center;gap:30px}
+#ass .word{font-size:120px;letter-spacing:-.045em;line-height:1;font-weight:400}
+#ass .word .e{display:inline-block;transform:scaleX(-1);color:#D94F8A}
+#ass .word sup{font:400 40px "Geist Mono",monospace;color:#22C58B;margin-left:8px;vertical-align:top;position:relative;top:10px}
+#ass .frase{font:400 42px "Geist",var(--titulo);color:#CFC7CB;text-align:center;max-width:820px;line-height:1.35}
 </style></head><body>
 <div id="palco"></div>
 <script>
@@ -56,24 +67,28 @@ if (C.fonte_titulo) r.setProperty("--titulo", `"${C.fonte_titulo}",system-ui,san
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const linhas = t => String(t).split("\n").map(l => `<span><i>${esc(l)}</i></span>`).join("");
 const CENAS = [{foto: C.foto_principal, pos: C.pos_principal || "50% 25%", kicker: C.kicker_principal || "", titulo: C.intro || C.nome, texto: C.texto_principal || ""}, ...(C.cenas || [])];
-const N = CENAS.length, DUR = 3.0, TR = 0.9, P = N * DUR, PD = 7.2, CTA = P + PD, FIM = CTA + 4.6;
+const PAR = C.paradas || [];
+const ASS = C.assinatura_reinventar === true;
+const N = CENAS.length, DUR = 3.0, TR = 0.9, P = N * DUR, PD = 1.6 + 1.12 * Math.max(PAR.length, 1), CTA = P + PD, ASI = CTA + 4.6, FIM = ASI + (ASS ? 3.4 : 0);
 window.DURACAO = FIM;
 const palco = document.getElementById("palco");
-palco.innerHTML = CENAS.map((c, i) => `<section class="cena" style="z-index:${i + 1}"><img class="f" src="${esc(c.foto)}" style="object-position:${esc(c.pos || "50% 30%")}"><div class="sombra"></div><div class="escuro"></div>
+palco.innerHTML = CENAS.map((c, i) => `<section class="cena" style="z-index:${i + 1}"><img class="f${c.card ? " fundo-card" : ""}" src="${esc(c.foto)}" style="object-position:${esc(c.pos || "50% 30%")}">${c.card ? `<img class="card" src="${esc(c.foto)}">` : ""}<div class="sombra"></div><div class="escuro"></div>
  <div class="copy">${c.kicker ? `<p class="kick">${esc(c.kicker)}</p>` : ""}<h1 class="big">${linhas(c.titulo)}</h1>${c.texto ? `<p class="desc">${esc(c.texto)}</p>` : ""}</div></section>`).join("")
  + `<section class="cena" id="site" style="z-index:${N + 1}"><div class="tt"><p class="kick">${esc(C.kicker_site || "Feito para o celular")}</p><h1 class="big">${linhas(C.titulo_site || "tá tudo no\nmeu site")}</h1></div>
    <div class="cel"><div class="tela"><img id="print" src="${esc(C.print_site || "")}"></div></div><div class="rot" id="rot"></div></section>`
  + `<section class="cena" id="cta" style="z-index:${N + 2}"><img class="fundo" src="${esc(C.foto_principal)}"><div class="bloco"><h1 class="big">${linhas(C.cta || "meu site novo\nestá no ar.")}</h1>
-   <p class="sub">${esc(C.cta_sub || "Confere lá:")}</p><div class="url">${esc(C.url || "")}</div><br><span class="bio">Link na bio</span><p class="wa">${esc(C.cta_whatsapp || "")}</p></div></section>`
+   <p class="sub">${esc(C.cta_sub || "Confere lá:")}</p><div class="url">${esc(C.url || "")}</div><br>${C.cta_chip === "" ? "" : `<span class="bio">${esc(C.cta_chip || "Link na bio")}</span>`}<p class="wa">${esc(C.cta_whatsapp || "")}</p></div></section>`
+
+ + (ASS ? `<section class="cena" id="ass" style="z-index:${N + 3}"><div class="brilho"></div><div class="bloco"><div class="por">Site criado por</div><div class="marca"><svg viewBox="0 0 100 100" fill="none" style="width:150px;height:150px"><path d="M14 38V14H38M62 86H86V62" stroke="#22C58B" stroke-opacity=".8" stroke-width="6"/><path d="M24 46V24H46M54 76H76V54" stroke="#D94F8A" stroke-width="6"/><rect x="40" y="40" width="20" height="20" rx="4" fill="#F4C9DA"/></svg><span class="word">r<span class="e">e</span>inventar<sup>.dev</sup></span></div><div class="frase">${esc(C.assinatura_frase || "Sites que trabalham por você.")}</div></div></section>` : "")
  + `<div class="topo"><span class="logo"><i>${esc(C.monograma || "")}</i>${esc(C.nome || "")}</span><span>${esc(C.registro || "")}</span></div>`
  + `<div class="pager" id="pager"><span id="pn">01</span><span class="bar"><b id="pb"></b></span><span>${String(N).padStart(2, "0")}</span></div>`
  + `<div class="cred">site por reinventar.dev</div>`;
 const secs = [...document.querySelectorAll(".cena")];
-const el = secs.map(s => ({ s, img: s.querySelector("img"), esc: s.querySelector(".escuro"), copy: s.querySelector(".copy,.tt,.bloco"), ls: [...s.querySelectorAll(".big i")], fades: [...s.querySelectorAll(".kick,.desc,.sub,.url,.bio,.wa,.cel,.rot")] }));
+const el = secs.map(s => ({ s, img: s.querySelector("img"), esc: s.querySelector(".escuro"), copy: s.querySelector(".copy,.tt,.bloco"), ls: [...s.querySelectorAll(".big i")], fades: [...s.querySelectorAll(".kick,.desc,.sub,.url,.bio,.wa,.cel,.rot,.por,.marca,.frase,.card")] }));
 const cl = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x)), ease = x => 1 - Math.pow(1 - cl(x), 3), io = x => { x = cl(x); return x < .5 ? 4 * x * x * x : 1 - Math.pow(-2 * x + 2, 3) / 2; };
-const inicio = i => i < N ? i * DUR : (i === N ? P : CTA);
-const PAR = C.paradas || [];
+const inicio = i => i < N ? i * DUR : (i === N ? P : (i === N + 1 ? CTA : ASI));
 function seek(t) {
+  const tp = document.querySelector(".topo"), cr = document.querySelector(".cred"); const fa = ASS ? 1 - cl((t - ASI) / .6) : 1; tp.style.opacity = fa; cr.style.opacity = fa;
   el.forEach((e, i) => {
     const s0 = inicio(i), s1 = i + 1 < el.length ? inicio(i + 1) : 1e9;
     if (t < s0 || t > s1 + TR) { e.s.style.visibility = "hidden"; return; }
@@ -86,7 +101,7 @@ function seek(t) {
     let sy = i === 0 ? 0 : (1 - io(a / TR)) * 18;
     // saída: a próxima cobre, esta sobe e escurece
     const b = t - s1, qo = b > 0 ? io(b / TR) : 0;
-    if (e.img && !e.s.id) e.img.style.transform = `translateY(${sy - qo * 14}%) scale(${kb + qo * .06})`;
+    if (e.img && !e.s.id && !e.img.classList.contains('fundo-card')) e.img.style.transform = `translateY(${sy - qo * 14}%) scale(${kb + qo * .06})`;
     if (e.esc && (i > 0 || a > .8)) e.esc.style.opacity = qo * .75;
     if (e.copy) { e.copy.style.transform = `translateY(${-qo * 160}px)`; e.copy.style.opacity = 1 - qo * 1.3; }
     e.ls.forEach((l, j) => { const k = ease((a - .25 - j * .12) / .75); l.style.transform = `translateY(${(1 - k) * 110}%)`; });
