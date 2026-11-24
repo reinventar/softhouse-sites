@@ -318,7 +318,9 @@ footer img{width:56px;height:54px;object-fit:contain}
 .reel .bt .mono{color:#E3D8C8;margin-top:8px;display:block}
 
 .mat{padding:150px 0 0}
-.matgrid{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:stretch}
+.matgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:stretch}
+.matgrid .doc{flex-direction:column;align-items:flex-start;padding:34px;gap:30px}
+.matgrid .sheet{width:150px;height:190px}
 .bookcard{position:relative;border-radius:32px;background:linear-gradient(135deg,#EFE6D6 0%,#E3D3BC 100%);overflow:hidden;display:grid;grid-template-columns:.95fr 1.05fr;align-items:center;gap:20px;padding:56px 48px;min-height:560px}
 .bookcard::before{content:"";position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1621295693450-080546d2ec8e?auto=format&fit=crop&w=1400&q=60') center/cover;opacity:.16;mix-blend-mode:multiply}
 .stage3d{position:relative;perspective:1400px;display:flex;justify-content:center;z-index:2}
@@ -352,7 +354,7 @@ footer img{width:56px;height:54px;object-fit:contain}
 .doc h4{margin:10px 0 8px;font-size:22px;font-weight:500;letter-spacing:-.02em}
 .doc p{margin:0;font-size:15px;line-height:1.55;color:var(--mut)}
 .doc .mono{color:var(--teal)}
-@media (max-width:1000px){.reels{grid-template-columns:1fr 1fr}.reels .reel:nth-child(3){display:none}.matgrid,.bookcard{grid-template-columns:1fr}.bookcard{padding:40px 26px}.player{aspect-ratio:4/5}.player .pt{left:24px;top:24px;right:24px}.vsec{padding:100px 0 40px}.mat{padding:100px 0 0}}
+@media (max-width:1000px){.reels{grid-template-columns:1fr 1fr}.reels .reel:nth-child(3){display:none}.matgrid{grid-template-columns:1fr}.player{aspect-ratio:4/5}.player .pt{left:24px;top:24px;right:24px}.vsec{padding:100px 0 40px}.mat{padding:100px 0 0}}
 @media (max-width:1000px){
 .nav{display:none}
 .wrap{padding:0 22px}
@@ -529,19 +531,12 @@ footer img{width:56px;height:54px;object-fit:contain}
 <div class="wrap">
 <div class="vhead">
 <div><span class="tag mono rv"><i></i>Materiais</span><h2 class="rv">Para levar a nutrição <span class="it">para casa</span>.</h2></div>
-<div class="rv d1"><span class="note mono">Ilustração · materiais a produzir</span><p style="margin-top:14px">Livro de receitas, guias e cardápios que complementam o acompanhamento.</p></div>
+<div class="rv d1"><span class="note mono">Ilustração · materiais a produzir</span><p style="margin-top:14px">Guias de receitas, compras e cardápios que complementam o acompanhamento.</p></div>
 </div>
 <div class="matgrid">
-<div class="bookcard rv">
-<div class="stage3d"><div class="book"><div class="back"></div><div class="pages"></div><div class="cover"><img src='https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&h=500&q=70' alt=""><div class="ct"><b>Receitas da <span class="it">vida real</span></b><span class="mono">Karolaine Ribeiro · Nutrição clínica</span></div></div></div></div>
-<div class="bt2"><span class="tag mono"><i></i>Livro de receitas</span><h3>Receitas da <span class="it">vida real</span>.</h3><p>Receitas práticas e gostosas, pensadas para quem quer emagrecer sem abrir mão do prazer de comer.</p>
-<div class="pills"><span>Café da manhã</span><span>Lanches</span><span>Marmitas</span><span>Sobremesas leves</span></div>
-<a class="btn" href='https://wa.me/5532999649605?text=Ol%C3%A1%2C%20Karolaine!%20Quero%20saber%20sobre%20o%20livro%20de%20receitas.'>Quero o livro de receitas <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-</div>
-<div class="side">
+<div class="doc rv"><div class="sheet" style='--img:url(https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=300&h=200&q=60)'><i class="t"></i><div class="ph2"></div><i></i><i class="s"></i><i></i><i class="s"></i></div><div><span class="mono">Guia em PDF</span><h4>Guia de receitas da vida real</h4><p>Receitas práticas para o dia a dia: café da manhã, lanches e marmitas.</p></div></div>
 <div class="doc rv d1"><div class="sheet" style='--img:url(https://images.unsplash.com/photo-1590779033100-9f60a05a013d?auto=format&fit=crop&w=300&h=200&q=60)'><i class="t"></i><div class="ph2"></div><i></i><i class="s"></i><i></i><i class="s"></i></div><div><span class="mono">Guia em PDF</span><h4>Guia de compras inteligente</h4><p>O que priorizar no mercado e como ler rótulos sem complicação.</p></div></div>
 <div class="doc rv d2"><div class="sheet" style='--img:url(https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=300&h=200&q=60)'><i class="t"></i><i></i><i class="s"></i><div class="ph2"></div><i></i><i class="s"></i></div><div><span class="mono">Para pacientes</span><h4>Cardápio da semana</h4><p>Um modelo para organizar as refeições e facilitar a rotina.</p></div></div>
-</div>
 </div>
 </div>
 </section>
