@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Reinventar × Karolaine Ribeiro · Apresentação</title>
+<link rel="icon" href="img/logo.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400;600;700&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<style>
+:root{--gra:#06140E;--flo:#0A3B27;--verde:#3FBF84;--rosa:#A8264F;--vinho:#6E1530;--off:#EEF2EF;--mudo:#8FA89A;--teal:#127468;--gold:#F3C784}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#000;overflow:hidden}
+body{font-family:'Josefin Sans',system-ui,sans-serif;color:#fff}
+.mono{font-family:'JetBrains Mono',monospace;font-size:18px;letter-spacing:.14em;text-transform:uppercase}
+.it{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;letter-spacing:0}
+#vp{position:fixed;inset:0;display:flex;align-items:center;justify-content:center}
+#stage{position:relative;width:1920px;height:1080px;flex:none;transform-origin:center;overflow:hidden;background:var(--gra)}
+.slide{position:absolute;inset:0;visibility:hidden}
+.slide.on{visibility:visible}
+.slide>*{position:absolute}
+.light{background:var(--off);color:var(--gra)}
+.dark{background:var(--gra);color:#fff}
+.forest{background:var(--flo);color:#fff}
+.ph{overflow:hidden;background:#13261C}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.kb img{animation:kb 14s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.12)}}
+.shade{inset:0;background:linear-gradient(90deg,rgba(6,20,14,.86) 0%,rgba(6,20,14,.55) 45%,rgba(6,20,14,.1) 80%)}
+.shade2{inset:0;background:linear-gradient(0deg,rgba(6,20,14,.94) 0%,rgba(6,20,14,.55) 50%,rgba(6,20,14,.2) 100%)}
+.logo svg{display:block;width:100%;height:auto;overflow:visible}
+h1,h2,h3{margin:0;font-weight:300;letter-spacing:-.01em;line-height:.98}
+.tag{display:flex;align-items:center;gap:14px;color:var(--verde)}
+.tag i{width:12px;height:12px;border-radius:50%;background:var(--verde)}
+.rosa{color:var(--rosa)}
+.p{font-size:30px;line-height:1.45;font-weight:300}
+.card{border-radius:28px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:40px}
+.light .card{background:#fff;border:1px solid #DCE3DE}
+.btn{display:inline-flex;align-items:center;gap:14px;background:var(--verde);color:var(--gra);text-decoration:none;font-weight:600;font-size:24px;padding:22px 36px;border-radius:16px;transition:transform .3s ease,box-shadow .3s ease}
+.btn:hover{transform:translateY(-3px);box-shadow:0 20px 50px rgba(63,191,132,.35)}
+.btn.ghost{background:transparent;color:inherit;border:1.5px solid currentColor}
+.frame{border-radius:22px;overflow:hidden;background:#fff;box-shadow:0 50px 120px rgba(0,0,0,.45)}
+.frame .bar{position:absolute;left:0;right:0;top:0;height:40px;background:#E9ECEA;display:flex;align-items:center;gap:9px;padding:0 18px}
+.frame .bar i{width:12px;height:12px;border-radius:50%;background:#C9D0CC}
+.frame .bar span{margin-left:16px;font-family:'JetBrains Mono',monospace;font-size:14px;color:#5B6662;background:#fff;border-radius:8px;padding:5px 14px}
+.frame img{position:absolute;left:0;right:0;top:40px;bottom:0;width:100%;height:calc(100% - 40px);object-fit:cover;object-position:top}
+.thumb{border-radius:16px;overflow:hidden;border:2px solid rgba(255,255,255,.4);box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.phone{border-radius:56px;background:#0B0F0D;padding:16px;box-shadow:0 60px 140px rgba(0,0,0,.5)}
+.phone .scr{position:absolute;inset:16px;border-radius:42px;overflow:hidden;background:#fff}
+.phone .scr img{width:100%;display:block}
+.phone .scr img.scroll{animation:scrollp 18s ease-in-out infinite alternate}
+@keyframes scrollp{0%,15%{transform:translateY(0)}100%{transform:translateY(-38%)}}
+.feat{display:flex;gap:22px;align-items:flex-start}
+.feat b{display:block;font-weight:600;font-size:30px;margin-bottom:8px}
+.feat span{display:block;font-size:24px;line-height:1.4;color:var(--mudo);font-weight:300}
+.ic{flex:none;width:64px;height:64px;border-radius:18px;background:rgba(63,191,132,.14);display:flex;align-items:center;justify-content:center}
+.step{border-top:2px solid rgba(255,255,255,.18);padding-top:28px}
+.step .mono{color:var(--verde)}
+.step b{display:block;font-weight:600;font-size:40px;margin:18px 0 12px}
+.step span{display:block;font-size:24px;line-height:1.45;color:var(--mudo);font-weight:300}
+.plan{border-radius:32px;padding:44px 44px 40px;background:#fff;color:var(--gra);border:1px solid #DCE3DE;display:flex;flex-direction:column}
+.plan.hi{background:var(--flo);color:#fff;border-color:var(--flo)}
+.plan h3{font-weight:600;font-size:44px}
+.plan .old{font-size:22px;color:#7A8680;text-decoration:line-through;margin-top:26px}
+.plan.hi .old{color:#8FA89A}
+.plan .impl{display:flex;align-items:baseline;gap:12px;margin-top:4px}
+.plan .impl b{font-size:62px;font-weight:600;letter-spacing:-.02em}
+.plan .impl span{font-size:22px;color:#5B6662}
+.plan.hi .impl span{color:#B6CFC2}
+.plan .mes{font-size:26px;margin-top:10px;padding-bottom:26px;border-bottom:1px solid #E3E8E5}
+.plan.hi .mes{border-color:rgba(255,255,255,.18)}
+.plan ul{list-style:none;margin:26px 0 0;padding:0;display:flex;flex-direction:column;gap:14px;font-size:23px;line-height:1.35;font-weight:300}
+.plan li{display:flex;gap:12px}
+.plan li::before{content:"";flex:none;width:10px;height:10px;border-radius:50%;background:var(--verde);margin-top:9px}
+.badge{position:absolute;top:-20px;left:44px;background:var(--rosa);color:#fff;font-family:'JetBrains Mono',monospace;font-size:15px;letter-spacing:.12em;text-transform:uppercase;padding:10px 16px;border-radius:999px}
+.off{display:inline-flex;align-items:center;gap:12px;background:var(--rosa);color:#fff;border-radius:999px;padding:12px 22px;font-weight:600;font-size:24px}
+
+/* ui */
+#ui{position:fixed;left:0;right:0;bottom:0;z-index:50;display:flex;align-items:center;gap:18px;padding:16px 22px;opacity:.2;transition:opacity .4s ease}
+#ui:hover,body.ui #ui{opacity:1}
+#ui button{width:44px;height:44px;border-radius:12px;border:1px solid rgba(255,255,255,.25);background:rgba(6,20,14,.6);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(8px)}
+#ui button:hover{background:rgba(63,191,132,.35)}
+#ui .n{font-family:'JetBrains Mono',monospace;font-size:13px;color:#fff;background:rgba(6,20,14,.6);padding:8px 12px;border-radius:10px;letter-spacing:.1em}
+#prog{position:fixed;left:0;top:0;height:3px;background:var(--verde);z-index:60;transition:width .8s cubic-bezier(.65,0,.25,1)}
+#hint{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:55;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;color:#fff;background:rgba(6,20,14,.7);padding:10px 16px;border-radius:999px;transition:opacity .6s ease}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+</style>
+</head>
+<body>
+<div id="prog"></div>
+<div id="vp"><div id="stage">
+
+<!-- 1 · capa -->
+<section class="slide light" data-title="Capa">
+<div class="logo" data-m="logo" style="left:760px;top:500px;width:400px;color:#06140E"><svg viewBox="-6 -6 1010 112" fill="none" role="img" aria-label="Reinventar"><path d="M 0 100 V 0 H 54 A 25 25 0 0 1 54 50 H 18 M 44 62 L 76 100 M 220 0 V 100 M 250 100 V 0 L 312 80 M 330 0 V 100 M 360 0 L 399 94 M 444 0 L 405 94 M 554 0 H 474 V 100 H 554 M 488 50 H 534 M 584 100 V 0 L 646 80 M 664 0 V 100 M 694 0 H 774 M 734 16 V 100 M 804 100 L 846 0 L 864 43 M 870 58 L 888 100 M 918 100 V 0 H 972 A 25 25 0 0 1 972 50 H 936 M 962 62 L 994 100" stroke="currentColor" stroke-width="7"/><path d="M 190 0 V 100 M 190 0 H 110 M 176 50 H 130 M 190 100 H 110" stroke="#A8264F" stroke-width="7"/></svg></div>
+<div class="mono" style="left:0;right:0;top:600px;text-align:center;color:#5B6662">apresenta</div>
+<div class="mono" style="left:0;right:0;bottom:70px;text-align:center;color:#8FA89A;font-size:14px">Pressione → para começar</div>
+</section>
+
+<!-- 2 · card -->
+<section class="slide light">
+<div class="logo" data-m="logo" style="left:90px;top:80px;width:250px;color:#06140E"><svg viewBox="-6 -6 1010 112" fill="none"><path d="M 0 100 V 0 H 54 A 25 25 0 0 1 54 50 H 18 M 44 62 L 76 100 M 220 0 V 100 M 250 100 V 0 L 312 80 M 330 0 V 100 M 360 0 L 399 94 M 444 0 L 405 94 M 554 0 H 474 V 100 H 554 M 488 50 H 534 M 584 100 V 0 L 646 80 M 664 0 V 100 M 694 0 H 774 M 734 16 V 100 M 804 100 L 846 0 L 864 43 M 870 58 L 888 100 M 918 100 V 0 H 972 A 25 25 0 0 1 972 50 H 936 M 962 62 L 994 100" stroke="currentColor" stroke-width="7"/><path d="M 190 0 V 100 M 190 0 H 110 M 176 50 H 130 M 190 100 H 110" stroke="#A8264F" stroke-width="7"/></svg></div>
+<div class="ph" data-m="hero" style="left:700px;top:330px;width:520px;height:380px;border-radius:28px"><img src="img/karolaine-cafe.webp" alt="" style="object-position:50% 34%"></div>
+<div class="mono" style="left:0;right:0;top:750px;text-align:center;color:#5B6662">× Karolaine Ribeiro · Nutrição clínica</div>
+</section>
+
+<!-- 3 · full bleed -->
+<section class="slide dark">
+<div class="ph kb" data-m="hero" style="left:0;top:0;width:1920px;height:1080px;border-radius:0px"><img src="img/karolaine-cafe.webp" alt="Karolaine Ribeiro" style="object-position:50% 34%"></div>
+<div class="shade"></div>
+<div class="logo" data-m="logo" style="left:90px;top:80px;width:250px;color:#FFFFFF"><svg viewBox="-6 -6 1010 112" fill="none"><path d="M 0 100 V 0 H 54 A 25 25 0 0 1 54 50 H 18 M 44 62 L 76 100 M 220 0 V 100 M 250 100 V 0 L 312 80 M 330 0 V 100 M 360 0 L 399 94 M 444 0 L 405 94 M 554 0 H 474 V 100 H 554 M 488 50 H 534 M 584 100 V 0 L 646 80 M 664 0 V 100 M 694 0 H 774 M 734 16 V 100 M 804 100 L 846 0 L 864 43 M 870 58 L 888 100 M 918 100 V 0 H 972 A 25 25 0 0 1 972 50 H 936 M 962 62 L 994 100" stroke="currentColor" stroke-width="7"/><path d="M 190 0 V 100 M 190 0 H 110 M 176 50 H 130 M 190 100 H 110" stroke="#A8264F" stroke-width="7"/></svg></div>
+<div class="tag mono" style="left:90px;top:400px"><i></i>Proposta para Karolaine Ribeiro</div>
+<h1 data-m="t" style="left:90px;top:460px;width:1050px;font-size:104px">Sua presença digital à altura do seu <span class="it" style="color:#3FBF84">consultório</span>.</h1>
+<div class="p" style="left:90px;top:800px;width:780px;color:#D6E2DB">Um site com a sua identidade, pensado para transformar seguidores em pacientes.</div>
+</section>
+
+<!-- 4 · diagnóstico -->
+<section class="slide dark">
+<div class="ph" data-m="hero" style="left:1040px;top:90px;width:790px;height:900px;border-radius:36px"><img src="img/karolaine-consultorio.webp" alt="" style="object-position:50% 34%"></div>
+<div class="logo" data-m="logo" style="left:90px;top:80px;width:200px;color:#FFFFFF"><svg viewBox="-6 -6 1010 112" fill="none"><path d="M 0 100 V 0 H 54 A 25 25 0 0 1 54 50 H 18 M 44 62 L 76 100 M 220 0 V 100 M 250 100 V 0 L 312 80 M 330 0 V 100 M 360 0 L 399 94 M 444 0 L 405 94 M 554 0 H 474 V 100 H 554 M 488 50 H 534 M 584 100 V 0 L 646 80 M 664 0 V 100 M 694 0 H 774 M 734 16 V 100 M 804 100 L 846 0 L 864 43 M 870 58 L 888 100 M 918 100 V 0 H 972 A 25 25 0 0 1 972 50 H 936 M 962 62 L 994 100" stroke="currentColor" stroke-width="7"/><path d="M 190 0 V 100 M 190 0 H 110 M 176 50 H 130 M 190 100 H 110" stroke="#A8264F" stroke-width="7"/></svg></div>
+<div class="tag mono" style="left:90px;top:230px"><i></i>O que encontramos</div>
+<h2 data-m="t" style="left:90px;top:285px;width:880px;font-size:72px">Você já tem uma marca forte. Falta a <span class="it" style="color:#3FBF84">casa</span> dela.</h2>
+<div class="feat" style="left:90px;top:540px;width:860px"><div class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#3FBF84" stroke-width="2"><rect x="3.5" y="3.5" width="17" height="17" rx="5"/><circle cx="12" cy="12" r="4"/></svg></div><div><b>Instagram completo e ativo</b><span>Conteúdo, identidade visual e uma comunidade que confia em você.</span></div></div>
+<div class="feat" style="left:90px;top:690px;width:860px"><div class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#3FBF84" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5.1A8.5 8.5 0 1 1 21 11.5z"/></svg></div><div><b>WhatsApp organizado</b><span>Perfil completo, pronto para receber pacientes.</span></div></div>
+<div class="feat" style="left:90px;top:840px;width:860px"><div class="ic" style="background:rgba(168,38,79,.22)"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#E46A8E" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg></div><div><b>Site em modelo pronto</b><span>Sem a sua identidade, sem a sua história e sem o seu estilo.</span></div></div>
+</section>
+
+<!-- 5 · quem somos -->
+<section class="slide forest">
+<div class="logo" data-m="logo" style="left:90px;top:120px;width:640px;color:#FFFFFF"><svg viewBox="-6 -6 1010 112" fill="none"><path d="M 0 100 V 0 H 54 A 25 25 0 0 1 54 50 H 18 M 44 62 L 76 100 M 220 0 V 100 M 250 100 V 0 L 312 80 M 330 0 V 100 M 360 0 L 399 94 M 444 0 L 405 94 M 554 0 H 474 V 100 H 554 M 488 50 H 534 M 584 100 V 0 L 646 80 M 664 0 V 100 M 694 0 H 774 M 734 16 V 100 M 804 100 L 846 0 L 864 43 M 870 58 L 888 100 M 918 100 V 0 H 972 A 25 25 0 0 1 972 50 H 936 M 962 62 L 994 100" stroke="currentColor" stroke-width="7"/><path d="M 190 0 V 100 M 190 0 H 110 M 176 50 H 130 M 190 100 H 110" stroke="#A8264F" stroke-width="7"/></svg></div>
+<div class="tag mono" style="left:90px;top:290px"><i></i>Quem somos</div>
+<h2 data-m="t" style="left:90px;top:345px;width:900px;font-size:66px">Sites que nascem da <span class="it" style="color:#3FBF84">identidade</span> de cada cliente.</h2>
+<div class="p" style="left:90px;top:560px;width:820px;color:#C8D8CF">Criamos, publicamos e cuidamos do seu site. Você manda as informações pelo WhatsApp, aprova a prévia e nós cuidamos de domínio, hospedagem, segurança e ajustes.</div>
+<div class="mono" style="left:90px;top:800px;color:#8FA89A;font-size:15px">Alguns sites feitos pela Reinventar</div>
+<div class="thumb" style="left:90px;top:850px;width:300px;height:170px"><img src="https://reinventar.dev/img/clientes/igor-desk.webp" alt="Site Igor Augusto"></div>
+<div class="thumb" style="left:410px;top:850px;width:300px;height:170px"><img src="https://reinventar.dev/img/clientes/karoline-desk.webp" alt="Site Karoline Maia"></div>
+<div class="thumb" style="left:730px;top:850px;width:300px;height:170px"><img src="https://reinventar.dev/img/clientes/toninho-desk.webp" alt="Site Toninho Saga"></div>
+<div class="card" style="left:1140px;top:300px;width:690px;height:600px;display:flex;flex-direction:column;gap:34px;justify-content:center">
+<div class="feat"><div class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#3FBF84" stroke-width="2"><path d="M12 3l2.5 5.5L20 11l-5.5 2.5L12 19l-2.5-5.5L4 11l5.5-2.5z"/></svg></div><div><b>Design sob medida</b><span>Cores, fotos e textos do seu jeito.</span></div></div>
+<div class="feat"><div class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#3FBF84" stroke-width="2"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg></div><div><b>No ar e protegido</b><span>Hospedagem, https e manutenção inclusos.</span></div></div>
+<div class="feat"><div class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#3FBF84" stroke-width="2"><rect x="3" y="7" width="18" height="13" rx="3"/><circle cx="12" cy="13.5" r="3.5"/><path d="M8 7l1.5-3h5L16 7"/></svg></div><div><b>Ajustes todo mês</b><span>Troca de foto, texto ou horário pelo WhatsApp.</span></div></div>
+</div>
+</section>
+
+<!-- 6 · o seu site -->
+<section class="slide dark">
+<div class="ph" data-m="bg" style="left:0;top:0;width:1920px;height:1080px;border-radius:0px;opacity:.28"><img src="img/deck/90.webp" alt="" style="filter:blur(18px) saturate(1.2);transform:scale(1.1)"></div>
+<div class="tag mono" style="left:90px;top:150px"><i></i>O seu site</div>
+<h2 data-m="t" style="left:90px;top:205px;width:700px;font-size:120px;font-weight:600;letter-spacing:-.03em;line-height:.9">KAROLAINE<br><span style="color:#3FBF84">RIBEIRO</span></h2>
+<div class="p" style="left:90px;top:470px;width:640px;color:#C8D8CF">Moderno, tecnológico e com a sua identidade: fotos reais, cenas que se abrem na rolagem e tudo levando ao WhatsApp.</div>
+<a class="btn" href="moderna.html" target="_blank" rel="noopener" style="left:90px;top:680px">Abrir o site ao vivo <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+<div class="mono" style="left:90px;top:790px;color:#8FA89A;font-size:15px">karolaine.reinventar.dev · prévia</div>
+<div class="frame" data-m="site" style="left:860px;top:150px;width:970px;height:620px"><div class="bar"><i></i><i></i><i></i><span>karolaine.reinventar.dev</span></div><img src="img/deck/hero.webp" alt="Página inicial do site"></div>
+<div class="thumb" data-m="s90" style="left:860px;top:820px;width:300px;height:190px"><img src="img/deck/90.webp" alt=""></div>
+<div class="thumb" data-m="svid" style="left:1195px;top:820px;width:300px;height:190px"><img src="img/deck/video.webp" alt=""></div>
+<div class="thumb" data-m="sgui" style="left:1530px;top:820px;width:300px;height:190px"><img src="img/deck/guias.webp" alt=""></div>
+</section>
+
+<!-- 7 · cenas -->
+<section class="slide dark">
+<div class="thumb kb" data-m="s90" style="left:0;top:0;width:1920px;height:1080px;border-radius:0px;border-width:0px"><img src="img/karolaine-consultorio.webp" alt="Karolaine Ribeiro no consultório" style="object-position:50% 30%"></div>
+<div class="shade2"></div>
+<div class="tag mono" style="left:90px;top:700px"><i></i>Experiência</div>
+<h2 data-m="t" style="left:90px;top:755px;width:1400px;font-size:86px">Cenas que se <span class="it" style="color:#3FBF84">abrem</span> conforme a rolagem.</h2>
+<div class="p" style="left:90px;top:950px;width:1200px;color:#C8D8CF;font-size:26px">Fotos reais de alimentos, a sua foto em tela cheia e movimento suave, como nos grandes sites de marca.</div>
+</section>
+
+<!-- 8 · conteúdos -->
+<section class="slide light">
+<div class="tag mono" style="left:90px;top:110px;color:#127468"><i style="background:#127468"></i>Conteúdos e materiais</div>
+<h2 data-m="t" style="left:90px;top:165px;width:1300px;font-size:72px">Espaço para vídeos, guias e <span class="it" style="color:#127468">receitas</span>.</h2>
+<div class="thumb" data-m="svid" style="left:90px;top:370px;width:1000px;height:625px;border-color:#fff;border-radius:28px"><img src="img/deck/video.webp" alt="Seção de vídeo do site"></div>
+<div class="thumb" data-m="sgui" style="left:1130px;top:370px;width:700px;height:438px;border-color:#fff;border-radius:28px"><img src="img/deck/guias.webp" alt="Seção de materiais do site"></div>
+<div class="p" style="left:1130px;top:840px;width:700px;color:#3E4A44;font-size:26px">Vídeo de apresentação, vídeos curtos com dicas e guias em PDF. Entram conforme você produzir o material.</div>
+</section>
+
+<!-- 9 · celular + recursos -->
+<section class="slide forest">
+<div class="phone" data-m="site" style="left:1260px;top:70px;width:470px;height:940px;border-radius:56px"><div class="scr"><img class="scroll" src="img/deck/cel.webp" alt="Site no celular"></div></div>
+<div class="tag mono" style="left:90px;top:110px"><i></i>Feito para o celular</div>
+<h2 data-m="t" style="left:90px;top:165px;width:1050px;font-size:72px">Onde suas pacientes estão: <span class="it" style="color:#3FBF84">no celular</span>.</h2>
+<div class="feat" style="left:90px;top:420px;width:500px"><div class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#3FBF84" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-5.1A8.5 8.5 0 1 1 21 11.5z"/></svg></div><div><b>WhatsApp com mensagem pronta</b><span>Cada botão já abre a conversa com o assunto certo.</span></div></div>
+<div class="feat" style="left:640px;top:420px;width:500px"><div class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#3FBF84" stroke-width="2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg></div><div><b>Seletor de objetivo</b><span>A paciente escolhe o que busca e já recebe o caminho.</span></div></div>
+<div class="feat" style="left:90px;top:640px;width:500px"><div class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#3FBF84" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg></div><div><b>Encontrada no Google</b><span>Preparado para buscas como "nutricionista em São João del Rei".</span></div></div>
+<div class="feat" style="left:640px;top:640px;width:500px"><div class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#3FBF84" stroke-width="2"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></div><div><b>Rápido e seguro</b><span>Hospedagem moderna, https e atualizações por nossa conta.</span></div></div>
+<div class="feat" style="left:90px;top:860px;width:1050px"><div class="ic"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#3FBF84" stroke-width="2"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></svg></div><div><b>Dentro das regras do seu conselho</b><span>CRN sempre visível e resultados de pacientes só com autorização.</span></div></div>
+</section>
+
+<!-- 10 · como funciona -->
+<section class="slide dark">
+<div class="tag mono" style="left:90px;top:150px"><i></i>Como funciona</div>
+<h2 data-m="t" style="left:90px;top:205px;width:1400px;font-size:84px">Do primeiro contato ao site no ar em <span class="it" style="color:#3FBF84">7 dias</span>.</h2>
+<div class="step" style="left:90px;top:520px;width:390px"><span class="mono">Dia 1</span><b>Briefing</b><span>Entendemos seu público, serviços e estilo.</span></div>
+<div class="step" style="left:530px;top:520px;width:390px"><span class="mono">Dias 2–3</span><b>Prévia</b><span>Você vê o site num link, no celular, antes de fechar.</span></div>
+<div class="step" style="left:970px;top:520px;width:390px"><span class="mono">Dias 4–6</span><b>Ajustes</b><span>Textos, fotos e cores até ficar do seu jeito.</span></div>
+<div class="step" style="left:1410px;top:520px;width:420px"><span class="mono">Dia 7</span><b>No ar</b><span>Publicado no seu endereço, com segurança e manutenção.</span></div>
+<div class="card" style="left:90px;top:820px;width:1740px;padding:30px 40px;display:flex;align-items:center;gap:24px"><span class="mono" style="color:#3FBF84">Sua prévia</span><span style="font-size:28px;font-weight:300">já está pronta. Ela é o ponto de partida para os seus ajustes.</span></div>
+</section>
+
+<!-- 11 · planos -->
+<section class="slide light">
+<div class="tag mono" style="left:90px;top:90px;color:#127468"><i style="background:#127468"></i>Planos</div>
+<h2 data-m="t" style="left:90px;top:140px;width:1250px;font-size:64px">Implantação única + mensalidade.</h2>
+<div class="off" style="right:90px;top:140px">50% off na implantação</div>
+<div class="p" style="left:90px;top:240px;width:1200px;font-size:24px;color:#4F5B55">Condição especial para a Karolaine. A mensalidade cobre hospedagem, segurança, domínio e ajustes. Contrato de 12 meses.</div>
+<div class="plan" style="left:90px;top:330px;width:550px;height:690px"><h3>Essencial</h3><div class="old">de R$ 497</div><div class="impl"><b>R$ 248,50</b><span>implantação</span></div><div class="mes">+ R$ 79/mês</div><ul><li>Site one-page com a sua identidade</li><li>Endereço karolaine.reinventar.dev</li><li>Botão de WhatsApp e mapa</li><li>1 ajuste por mês</li></ul></div>
+<div class="plan hi" style="left:685px;top:330px;width:550px;height:690px"><span class="badge">Mais escolhido</span><h3>Profissional</h3><div class="old">de R$ 997</div><div class="impl"><b>R$ 498,50</b><span>implantação</span></div><div class="mes">+ R$ 149/mês</div><ul><li>Tudo do Essencial</li><li>Domínio próprio no seu nome</li><li>Galeria, depoimentos e perguntas frequentes</li><li>Perfil da Empresa no Google configurado</li><li>3 ajustes por mês</li></ul></div>
+<div class="plan" style="left:1280px;top:330px;width:550px;height:690px"><h3>Premium</h3><div class="old">de R$ 1.997</div><div class="impl"><b>R$ 998,50</b><span>implantação</span></div><div class="mes">+ R$ 297/mês</div><ul><li>Tudo do Profissional</li><li>Layout exclusivo e seções sob medida</li><li>Relatório mensal de visitas</li><li>Ajustes sem limite e prioridade</li></ul></div>
+</section>
+
+<!-- 13 · encerramento -->
+<section class="slide dark">
+<div class="ph kb" data-m="hero" style="left:0;top:0;width:1920px;height:1080px;border-radius:0px"><img src="img/karolaine-consultorio.webp" alt="" style="object-position:50% 30%"></div>
+<div class="shade"></div>
+<div class="logo" data-m="logo" style="left:90px;top:80px;width:250px;color:#FFFFFF"><svg viewBox="-6 -6 1010 112" fill="none"><path d="M 0 100 V 0 H 54 A 25 25 0 0 1 54 50 H 18 M 44 62 L 76 100 M 220 0 V 100 M 250 100 V 0 L 312 80 M 330 0 V 100 M 360 0 L 399 94 M 444 0 L 405 94 M 554 0 H 474 V 100 H 554 M 488 50 H 534 M 584 100 V 0 L 646 80 M 664 0 V 100 M 694 0 H 774 M 734 16 V 100 M 804 100 L 846 0 L 864 43 M 870 58 L 888 100 M 918 100 V 0 H 972 A 25 25 0 0 1 972 50 H 936 M 962 62 L 994 100" stroke="currentColor" stroke-width="7"/><path d="M 190 0 V 100 M 190 0 H 110 M 176 50 H 130 M 190 100 H 110" stroke="#A8264F" stroke-width="7"/></svg></div>
+<h1 data-m="t" style="left:90px;top:330px;width:1100px;font-size:150px;font-weight:600;letter-spacing:-.03em;line-height:.88">VAMOS<br><span style="color:#3FBF84">REINVENTAR?</span></h1>
+<div class="p" style="left:90px;top:680px;width:820px;color:#D6E2DB">Próximo passo: escolher o plano e começar os ajustes da sua prévia.</div>
+<div class="mono" style="left:90px;top:860px;color:#C8D8CF;font-size:17px;line-height:2">WhatsApp (37) 99918-1248<br>reinventar.dev · @reinventar.dev</div>
+</section>
+
+</div></div>
+
+<div id="ui"><button type="button" id="prev" aria-label="Slide anterior"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 6l-6 6 6 6"/></svg></button><button type="button" id="next" aria-label="Próximo slide"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg></button><span class="n" id="cnt">01 / 12</span><button type="button" id="fs" aria-label="Tela cheia"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button></div>
+<div id="hint">→ / clique para avançar · F para tela cheia</div>
+
+<script>
+(function(){
+var stage=document.getElementById('stage'),slides=[].slice.call(document.querySelectorAll('.slide')),N=slides.length,cur=-1,busy=false;
+var EASE='cubic-bezier(.65,0,.25,1)',DUR=1150;
+function fit(){var s=Math.min(innerWidth/1920,innerHeight/1080);stage.style.transform='scale('+s+')'}
+addEventListener('resize',fit);fit();
+var PROPS=['left','top','width','height','borderRadius','fontSize','color','opacity'];
+function snap(el){var c=getComputedStyle(el),o={};PROPS.forEach(function(p){o[p]=c[p]});return o}
+function go(n,instant){
+if(n<0||n>=N||n===cur||busy)return;
+var A=cur>=0?slides[cur]:null,B=slides[n];busy=true;
+var from={};
+if(A&&!instant)A.querySelectorAll('[data-m]').forEach(function(e){from[e.dataset.m]=snap(e)});
+B.classList.add('on');B.style.zIndex=2;if(A)A.style.zIndex=1;
+var shared=[];
+if(!instant){
+B.querySelectorAll('[data-m]').forEach(function(e){var f=from[e.dataset.m];
+if(f){var t=snap(e);shared.push(e.dataset.m);e.animate([f,t],{duration:DUR,easing:EASE});}
+else e.animate([{opacity:0,transform:'translateY(30px)'},{opacity:getComputedStyle(e).opacity,transform:'none'}],{duration:800,delay:350,easing:'cubic-bezier(.16,.8,.2,1)',fill:'backwards'});});
+var k=0;[].forEach.call(B.children,function(e){if(e.dataset.m)return;
+var st=e.classList.contains('shade')||e.classList.contains('shade2');
+e.animate([{opacity:0,transform:st?'none':'translateY(36px)'},{opacity:1,transform:'none'}],{duration:st?DUR:850,delay:st?0:420+(k++)*70,easing:'cubic-bezier(.16,.8,.2,1)',fill:'backwards'});});
+B.animate([{backgroundColor:A?getComputedStyle(A).backgroundColor:'#000'},{backgroundColor:getComputedStyle(B).backgroundColor}],{duration:DUR,easing:EASE});
+if(A){A.querySelectorAll('[data-m]').forEach(function(e){if(shared.indexOf(e.dataset.m)>-1)e.style.visibility='hidden'});
+A.animate([{opacity:1},{opacity:0}],{duration:380,easing:'ease-out',fill:'forwards'}).onfinish=function(){A.classList.remove('on');A.getAnimations().forEach(function(a){a.cancel()});A.querySelectorAll('[data-m]').forEach(function(e){e.style.visibility=''})};}
+}else if(A){A.classList.remove('on')}
+cur=n;document.getElementById('cnt').textContent=(n<9?'0':'')+(n+1)+' / '+N;
+document.getElementById('prog').style.width=((n+1)/N*100)+'%';
+history.replaceState(null,'','#'+(n+1));
+setTimeout(function(){busy=false},instant?0:Math.min(DUR,700));
+}
+function next(){go(cur+1)}function prev(){go(cur-1)}
+document.getElementById('next').onclick=function(e){e.stopPropagation();next()};
+document.getElementById('prev').onclick=function(e){e.stopPropagation();prev()};
+function full(){if(!document.fullscreenElement)document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();else document.exitFullscreen()}
+document.getElementById('fs').onclick=function(e){e.stopPropagation();full()};
+addEventListener('keydown',function(e){if(['ArrowRight','PageDown',' ','Enter'].indexOf(e.key)>-1){e.preventDefault();next()}else if(['ArrowLeft','PageUp','Backspace'].indexOf(e.key)>-1){e.preventDefault();prev()}else if(e.key==='Home')go(0);else if(e.key==='End')go(N-1);else if(e.key==='f'||e.key==='F')full()});
+document.getElementById('vp').addEventListener('click',function(e){if(e.target.closest('a,button'))return;(e.clientX<innerWidth*.25?prev:next)()});
+var tx=null;addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});addEventListener('touchend',function(e){if(tx===null)return;var d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)(d<0?next:prev)();tx=null});
+var hint=document.getElementById('hint');setTimeout(function(){hint.style.opacity=0},4000);
+var ut;addEventListener('mousemove',function(){document.body.classList.add('ui');clearTimeout(ut);ut=setTimeout(function(){document.body.classList.remove('ui')},1800)});
+var h=parseInt(location.hash.slice(1),10);go(h>0&&h<=N?h-1:0,true);
+})();
+</script>
+</body>
+</html>
