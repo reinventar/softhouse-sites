@@ -86,6 +86,55 @@ h1,h2,h3{margin:0;font-weight:300;letter-spacing:-.01em;line-height:.98}
 #ui .n{font-family:'JetBrains Mono',monospace;font-size:13px;color:#fff;background:rgba(6,20,14,.6);padding:8px 12px;border-radius:10px;letter-spacing:.1em}
 #prog{position:fixed;left:0;top:0;height:3px;background:var(--verde);z-index:60;transition:width .8s cubic-bezier(.65,0,.25,1)}
 #hint{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:55;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.12em;color:#fff;background:rgba(6,20,14,.7);padding:10px 16px;border-radius:999px;transition:opacity .6s ease}
+
+/* ===== celular em pé: slides empilhados ===== */
+body.mob{overflow:auto;height:auto}
+html:has(body.mob){overflow:auto;height:auto}
+body.mob #vp{position:static;display:block}
+body.mob #stage{transform:none!important;width:100%;height:auto;overflow:visible;background:transparent}
+body.mob .slide{position:relative;visibility:visible!important;opacity:1!important;display:flex;flex-direction:column;gap:18px;padding:64px 22px 56px}
+body.mob .slide>*{position:relative!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;width:auto!important;height:auto!important;max-width:100%;transform:none!important}
+body.mob .slide>.shade,body.mob .slide>.shade2,body.mob [data-m="bg"],body.mob .deskonly{display:none!important}
+body.mob .slide>.ph,body.mob .slide>.thumb{width:100%!important;aspect-ratio:4/5;border-radius:24px!important;border-width:0!important}
+body.mob .slide>.thumb{aspect-ratio:16/10}
+body.mob [data-m="svid"],body.mob [data-m="sgui"]{aspect-ratio:16/10!important}
+body.mob .slide>.frame{width:100%!important;aspect-ratio:16/11;border-radius:16px}
+body.mob .frame .bar{height:28px}.body.mob .frame .bar span{font-size:10px}
+body.mob .frame img{top:28px;height:calc(100% - 28px)}
+body.mob .slide>.phone{width:72%!important;aspect-ratio:470/940;align-self:center;border-radius:40px!important;padding:10px}
+body.mob .phone .scr{inset:10px;border-radius:30px}
+body.mob .slide>.logo{width:170px!important}
+body.mob .slide:first-child{min-height:70vh;justify-content:center;align-items:center}
+body.mob .slide:first-child>.logo{width:240px!important}
+body.mob .card{padding:24px!important;border-radius:22px}
+body.mob .card[style*="grid-template-columns"]{display:flex!important;flex-direction:column;gap:20px!important}
+body.mob .plan{padding:28px 24px!important;border-radius:24px}
+body.mob .plan .impl b{font-size:40px}
+body.mob .plan ul{font-size:17px;gap:10px}
+body.mob .plan h3{font-size:30px}
+body.mob .badge{left:24px;top:-14px;font-size:11px}
+body.mob .off{align-self:flex-start;font-size:15px;padding:8px 16px}
+body.mob .p{font-size:18px!important}
+body.mob .mono{font-size:12px}
+body.mob .tag i{width:9px;height:9px}
+body.mob .feat{gap:14px}
+body.mob .feat b{font-size:19px;margin-bottom:4px}
+body.mob .feat span{font-size:15px}
+body.mob .ic{width:46px;height:46px;border-radius:14px}
+body.mob .ic svg{width:22px;height:22px}
+body.mob .step{padding-top:16px}
+body.mob .step b{font-size:24px;margin:8px 0 6px}
+body.mob .step span{font-size:15px}
+body.mob .btn{font-size:16px;padding:16px 22px;align-self:flex-start}
+body.mob .slide>h1,body.mob .slide>h2{line-height:1.02}
+body.mob #ui,body.mob #hint,body.mob #prog{display:none}
+body.mob .skipm{display:none!important}
+body.mob .plan [style*="margin-top:auto"]{margin-top:26px!important}
+body.mob .slide:not(:first-child)>[data-m="logo"]{display:none!important}
+body.mob [data-m="s90"]:not(.kb),body.mob .slide>[data-m="svid"].thumb:not([style*="border-color"]),body.mob .slide>[data-m="sgui"].thumb:not([style*="border-color"]){display:none!important}
+
+body.mob .rv-m{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .9s cubic-bezier(.16,.8,.2,1)}
+body.mob .rv-m.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
 </style>
 </head>
@@ -97,11 +146,12 @@ h1,h2,h3{margin:0;font-weight:300;letter-spacing:-.01em;line-height:.98}
 <section class="slide light" data-title="Capa">
 <div class="logo" data-m="logo" style="left:760px;top:500px;width:400px;color:#06140E"><svg viewBox="-6 -6 1010 112" fill="none" role="img" aria-label="Reinventar"><path d="M 0 100 V 0 H 54 A 25 25 0 0 1 54 50 H 18 M 44 62 L 76 100 M 220 0 V 100 M 250 100 V 0 L 312 80 M 330 0 V 100 M 360 0 L 399 94 M 444 0 L 405 94 M 554 0 H 474 V 100 H 554 M 488 50 H 534 M 584 100 V 0 L 646 80 M 664 0 V 100 M 694 0 H 774 M 734 16 V 100 M 804 100 L 846 0 L 864 43 M 870 58 L 888 100 M 918 100 V 0 H 972 A 25 25 0 0 1 972 50 H 936 M 962 62 L 994 100" stroke="currentColor" stroke-width="7"/><path d="M 190 0 V 100 M 190 0 H 110 M 176 50 H 130 M 190 100 H 110" stroke="#A8264F" stroke-width="7"/></svg></div>
 <div class="mono" style="left:0;right:0;top:600px;text-align:center;color:#5B6662">apresenta</div>
-<div class="mono" style="left:0;right:0;bottom:70px;text-align:center;color:#8FA89A;font-size:14px">Use as setas ou deslize para o lado</div>
+<div class="mono deskonly" style="left:0;right:0;bottom:70px;text-align:center;color:#8FA89A;font-size:14px">Use as setas ou deslize para o lado</div>
+<div class="mono" style="display:none" aria-hidden="true"></div>
 </section>
 
 <!-- 2 · card -->
-<section class="slide light">
+<section class="slide light skipm">
 <div class="logo" data-m="logo" style="left:90px;top:80px;width:250px;color:#06140E"><svg viewBox="-6 -6 1010 112" fill="none"><path d="M 0 100 V 0 H 54 A 25 25 0 0 1 54 50 H 18 M 44 62 L 76 100 M 220 0 V 100 M 250 100 V 0 L 312 80 M 330 0 V 100 M 360 0 L 399 94 M 444 0 L 405 94 M 554 0 H 474 V 100 H 554 M 488 50 H 534 M 584 100 V 0 L 646 80 M 664 0 V 100 M 694 0 H 774 M 734 16 V 100 M 804 100 L 846 0 L 864 43 M 870 58 L 888 100 M 918 100 V 0 H 972 A 25 25 0 0 1 972 50 H 936 M 962 62 L 994 100" stroke="currentColor" stroke-width="7"/><path d="M 190 0 V 100 M 190 0 H 110 M 176 50 H 130 M 190 100 H 110" stroke="#A8264F" stroke-width="7"/></svg></div>
 <div class="ph" data-m="hero" style="left:700px;top:330px;width:520px;height:380px;border-radius:28px"><img src="img/karolaine-cafe.webp" alt="" style="object-position:50% 34%"></div>
 <div class="mono" style="left:0;right:0;top:750px;text-align:center;color:#5B6662">× Karolaine Ribeiro · Nutrição clínica</div>
@@ -258,7 +308,7 @@ h1,h2,h3{margin:0;font-weight:300;letter-spacing:-.01em;line-height:.98}
 <section class="slide dark">
 <div class="ph kb" data-m="hero" style="left:0;top:0;width:1920px;height:1080px;border-radius:0px"><img src="img/karolaine-consultorio.webp" alt="" style="object-position:50% 30%"></div>
 <div class="shade"></div>
-LOGO
+<div class="logo" data-m="logo" style="left:90px;top:80px;width:250px;color:#FFFFFF"><svg viewBox="-6 -6 1010 112" fill="none"><path d="M 0 100 V 0 H 54 A 25 25 0 0 1 54 50 H 18 M 44 62 L 76 100 M 220 0 V 100 M 250 100 V 0 L 312 80 M 330 0 V 100 M 360 0 L 399 94 M 444 0 L 405 94 M 554 0 H 474 V 100 H 554 M 488 50 H 534 M 584 100 V 0 L 646 80 M 664 0 V 100 M 694 0 H 774 M 734 16 V 100 M 804 100 L 846 0 L 864 43 M 870 58 L 888 100 M 918 100 V 0 H 972 A 25 25 0 0 1 972 50 H 936 M 962 62 L 994 100" stroke="currentColor" stroke-width="7"/><path d="M 190 0 V 100 M 190 0 H 110 M 176 50 H 130 M 190 100 H 110" stroke="#A8264F" stroke-width="7"/></svg></div>
 <h1 data-m="t" style="left:90px;top:250px;width:900px;font-size:128px;font-weight:600;letter-spacing:-.03em;line-height:.88">VAMOS<br><span style="color:#3FBF84">RƎINVENTAR?</span></h1>
 <div class="p" style="left:90px;top:540px;width:760px;color:#D6E2DB">Para começar, só precisamos de você nos próximos passos ao lado.</div>
 <div class="mono" style="left:90px;top:860px;color:#C8D8CF;font-size:17px;line-height:2">WhatsApp (37) 99918-1248<br>reinventar.dev · @reinventar.dev</div>
@@ -280,7 +330,7 @@ LOGO
 (function(){
 var stage=document.getElementById('stage'),slides=[].slice.call(document.querySelectorAll('.slide')),N=slides.length,cur=-1,busy=false;
 var EASE='cubic-bezier(.65,0,.25,1)',DUR=1150;
-function fit(){var s=Math.min(innerWidth/1920,innerHeight/1080);stage.style.transform='scale('+s+')'}
+function fit(){if(document.body.classList.contains('mob'))return;var s=Math.min(innerWidth/1920,innerHeight/1080);stage.style.transform='scale('+s+')'}
 addEventListener('resize',fit);fit();
 var PROPS=['left','top','width','height','borderRadius','fontSize','color','opacity'];
 function snap(el){var c=getComputedStyle(el),o={};PROPS.forEach(function(p){o[p]=c[p]});return o}
@@ -312,11 +362,23 @@ document.getElementById('next').onclick=function(e){e.stopPropagation();next()};
 document.getElementById('prev').onclick=function(e){e.stopPropagation();prev()};
 function full(){if(!document.fullscreenElement)document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();else document.exitFullscreen()}
 document.getElementById('fs').onclick=function(e){e.stopPropagation();full()};
-addEventListener('keydown',function(e){if(['ArrowRight','PageDown',' ','Enter'].indexOf(e.key)>-1){e.preventDefault();next()}else if(['ArrowLeft','PageUp','Backspace'].indexOf(e.key)>-1){e.preventDefault();prev()}else if(e.key==='Home')go(0);else if(e.key==='End')go(N-1);else if(e.key==='f'||e.key==='F')full()});
-document.getElementById('vp').addEventListener('click',function(e){if(e.target.closest('a,button'))return;(e.clientX<innerWidth*.25?prev:next)()});
-var tx=null;addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});addEventListener('touchend',function(e){if(tx===null)return;var d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)(d<0?next:prev)();tx=null});
+addEventListener('keydown',function(e){if(MOB)return;if(['ArrowRight','PageDown',' ','Enter'].indexOf(e.key)>-1){e.preventDefault();next()}else if(['ArrowLeft','PageUp','Backspace'].indexOf(e.key)>-1){e.preventDefault();prev()}else if(e.key==='Home')go(0);else if(e.key==='End')go(N-1);else if(e.key==='f'||e.key==='F')full()});
+document.getElementById('vp').addEventListener('click',function(e){if(MOB)return;if(e.target.closest('a,button'))return;(e.clientX<innerWidth*.25?prev:next)()});
+var tx=null;addEventListener('touchstart',function(e){tx=e.touches[0].clientX},{passive:true});addEventListener('touchend',function(e){if(MOB||tx===null)return;var d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>50)(d<0?next:prev)();tx=null});
 var hint=document.getElementById('hint');setTimeout(function(){hint.style.opacity=0},4000);
 var ut;addEventListener('mousemove',function(){document.body.classList.add('ui');clearTimeout(ut);ut=setTimeout(function(){document.body.classList.remove('ui')},1800)});
+
+/* celular em pé */
+function fmap(v){return v>=100?44:v>=60?36:v>=44?28:v>=36?24:v>=30?21:v>=26?18:v>=22?16:Math.max(12,Math.round(v*.8))}
+var fsEls=[].slice.call(stage.querySelectorAll('[style*="font-size"]'));
+function isMob(){return innerWidth<760||(innerWidth<1000&&innerHeight>innerWidth)}
+var MOB=false,io=null;
+function mode(){var m=isMob();if(m===MOB)return;MOB=m;document.body.classList.toggle('mob',m);
+fsEls.forEach(function(e){if(!e.dataset.fs)e.dataset.fs=e.style.fontSize;e.style.fontSize=m?fmap(parseFloat(e.dataset.fs))+'px':e.dataset.fs});
+var kids=[].slice.call(stage.querySelectorAll('.slide>*'));
+if(m){if('IntersectionObserver' in window){io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12});kids.forEach(function(e){e.classList.add('rv-m');io.observe(e)})}}
+else{if(io)io.disconnect();kids.forEach(function(e){e.classList.remove('rv-m','in')});fit()}}
+addEventListener('resize',mode);mode();
 var h=parseInt(location.hash.slice(1),10);go(h>0&&h<=N?h-1:0,true);
 })();
 </script>
