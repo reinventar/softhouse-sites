@@ -355,6 +355,29 @@ footer img{width:56px;height:54px;object-fit:contain}
 .doc p{margin:0;font-size:15px;line-height:1.55;color:var(--mut)}
 .doc .mono{color:var(--teal)}
 @media (max-width:1000px){.reels{grid-template-columns:1fr 1fr}.reels .reel:nth-child(3){display:none}.matgrid{grid-template-columns:1fr}.player{aspect-ratio:4/5}.player .pt{left:24px;top:24px;right:24px}.vsec{padding:100px 0 40px}.mat{padding:100px 0 0}}
+
+/* desktop: fotos dela como banner */
+@media (min-width:1001px){
+.hero{padding:0;min-height:100vh;background:var(--deep)}
+.hero .fr{display:none}
+.hero .grid{display:flex;align-items:center;min-height:100vh}
+.hl{width:min(620px,46%);padding:120px 0 60px;color:#fff}
+.panel{position:absolute;top:0;right:0;bottom:0;width:64%;border-radius:0;transform:none!important;animation:bannerIn 1.6s cubic-bezier(.7,0,.2,1) 1.5s forwards;clip-path:inset(0 0 0 100%)}
+@keyframes bannerIn{to{clip-path:inset(0 0 0 0)}}
+.panel img:nth-child(1){object-position:50% 30%}
+.panel img:nth-child(2){object-position:50% 32%}
+.panel::after{background:linear-gradient(90deg,#0E3B35 0%,rgba(14,59,53,.82) 14%,rgba(14,59,53,.25) 42%,rgba(14,59,53,0) 62%),linear-gradient(0deg,rgba(14,59,53,.55) 0%,rgba(14,59,53,0) 30%)}
+.g1{left:auto;right:40px;bottom:40px;width:440px}
+.g2{right:40px;top:120px}
+.hl .tag{color:#9FE0CF}.hl .tag i{background:#9FE0CF;box-shadow:0 0 0 4px rgba(159,224,207,.2)}
+.sl p{color:#D3E6E0}
+.sl h1 .it,.sl h2 .it{color:#F3C784}
+.hl .btn{background:#fff;color:var(--ink)}.hl .btn:hover{background:var(--mint);color:var(--ink)}
+.hl .lnk{color:#fff}
+.ctl button span{background:rgba(255,255,255,.22)}.ctl button i{background:#F3C784}.ctl .mono{color:#B9D9D1}
+.stat{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16);color:#fff}.stat .mono{color:#9FE0CF}
+.cue{color:#B9D9D1}.cue i{background:rgba(255,255,255,.2)}
+}
 @media (max-width:1000px){
 .nav{display:none}
 .wrap{padding:0 22px}
