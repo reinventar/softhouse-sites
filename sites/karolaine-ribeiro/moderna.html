@@ -115,7 +115,7 @@ h1,h2,h3{font-weight:500;letter-spacing:-.035em;margin:0}
 .stick{position:sticky;top:0;height:100vh;overflow:hidden}
 
 /* scene: reveal circle */
-#prato{height:280vh}
+#prato{height:240vh}
 #prato .stick{background:var(--bg)}
 .circle{position:absolute;inset:0;will-change:clip-path}
 .circle img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 50%;will-change:transform}
@@ -133,12 +133,18 @@ h1,h2,h3{font-weight:500;letter-spacing:-.035em;margin:0}
 .chipsF .glass i{width:8px;height:8px;border-radius:50%;background:#F3C784}
 
 /* scene: 90 dias */
-#zoom{height:260vh}
+#zoom{height:240vh}
 #zoom .stick{background:var(--bg)}
 .zimg{position:absolute;inset:0;overflow:hidden;will-change:clip-path}
 .zimg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 32%;will-change:transform}
 .zimg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,59,53,.86) 0%,rgba(14,59,53,.45) 45%,rgba(14,59,53,0) 72%);opacity:var(--o,0)}
-.zlabel{position:absolute;left:0;right:0;top:12vh;text-align:center;z-index:2}
+.zimg.warm::after{background:linear-gradient(90deg,rgba(30,20,12,.82) 0%,rgba(30,20,12,.45) 48%,rgba(30,20,12,.08) 80%)}
+.zimg{clip-path:inset(30% 17% 7% 17% round 28px);background:var(--sand)}
+.zlabel{transition:none;will-change:transform,opacity}
+#ptext h2 .it{color:#F3C784}
+#ptext .tag{color:#F3C784}#ptext .tag i{background:#F3C784;box-shadow:0 0 0 4px rgba(243,199,132,.2)}
+#ptext p{color:#F1E9DF}
+.zlabel{position:absolute;left:0;right:0;top:10vh;text-align:center;z-index:2;padding:0 22px}
 .zlabel h2{font-size:clamp(34px,4.4vw,64px);line-height:1}
 .zlabel h2 .it{color:var(--teal)}
 .ztext{position:absolute;left:max(40px,calc(50vw - 620px));top:50%;transform:translateY(-50%);color:#fff;max-width:540px;z-index:3;opacity:0}
@@ -304,9 +310,9 @@ footer img{width:56px;height:54px;object-fit:contain}
 
 <main>
 <section class="hero" id="inicio" aria-label="Destaques">
-<div class="fr" data-f="1" style="--img:url('https://images.unsplash.com/photo-1582287086947-1fd0fdac5cc9?auto=format&fit=crop&w=520&h=520&crop=focalpoint&fp-x=.5&fp-y=.38&fp-z=1.6&q=75');width:190px;height:190px;left:41%;top:9%"></div>
+<div class="fr" data-f="1" style="--img:url('https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=520&h=520&q=75');width:190px;height:190px;left:41%;top:9%"></div>
 <div class="fr hide-m" data-f="2" style="--img:url('https://images.unsplash.com/photo-1591495746097-8a92864d5c1f?auto=format&fit=crop&w=400&h=400&crop=focalpoint&fp-x=.5&fp-y=.5&fp-z=1.5&q=75');width:130px;height:130px;left:2%;top:13%"></div>
-<div class="fr hide-m" data-f="3" style="--img:url('https://images.unsplash.com/photo-1708100769120-015acf75bcc1?auto=format&fit=crop&w=520&h=520&q=75');width:220px;height:220px;left:36%;bottom:4%"></div>
+<div class="fr hide-m" data-f="3" style="--img:url('https://images.unsplash.com/photo-1587049203042-e04a3c16f4cc?auto=format&fit=crop&w=520&h=520&q=75');width:220px;height:220px;left:36%;bottom:4%"></div>
 <div class="fr hide-m" data-f="4" style="--img:url('https://images.unsplash.com/photo-1573066778058-03dbee2c5a0c?auto=format&fit=crop&w=420&h=420&crop=focalpoint&fp-x=.42&fp-y=.5&fp-z=1.5&q=75');width:140px;height:140px;left:-1%;bottom:16%"></div>
 <div class="wrap">
 <div class="grid">
@@ -357,13 +363,13 @@ footer img{width:56px;height:54px;object-fit:contain}
 
 <section class="scene" id="prato" aria-label="Filosofia">
 <div class="stick">
-<div class="ptitle" id="ptitle"><h2>Comida de verdade, <span class="it">sem</span> restrições desnecessárias.</h2></div>
-<div class="fr" data-p="1" style="--img:url('https://images.unsplash.com/photo-1588514206464-214a4d63ed18?auto=format&fit=crop&w=420&h=420&q=75');width:180px;height:180px;left:8%;top:12%"></div>
+<div class="zlabel" id="plabel"><span class="tag mono"><i></i>Filosofia</span><h2 style="margin-top:14px">Comida de verdade, <span class="it">sem</span> restrições desnecessárias.</h2></div>
+<div class="fr" data-p="1" style="--img:url('https://images.unsplash.com/photo-1685504445355-0e7bdf90d415?auto=format&fit=crop&w=420&h=420&q=75');width:180px;height:180px;left:8%;top:12%"></div>
 <div class="fr" data-p="2" style="--img:url('https://images.unsplash.com/photo-1615485925807-d11c291f531c?auto=format&fit=crop&w=460&h=460&q=75');width:210px;height:210px;right:7%;top:14%"></div>
-<div class="fr hide-m" data-p="3" style="--img:url('https://images.unsplash.com/photo-1609424572698-04d9d2e04954?auto=format&fit=crop&w=420&h=420&q=75');width:170px;height:170px;left:12%;bottom:10%"></div>
+<div class="fr hide-m" data-p="3" style="--img:url('https://images.unsplash.com/photo-1597362925123-77861d3fbac7?auto=format&fit=crop&w=420&h=420&q=75');width:170px;height:170px;left:12%;bottom:10%"></div>
 <div class="fr hide-m" data-p="4" style="--img:url('https://images.unsplash.com/photo-1705147296208-dffaf3fe5d7c?auto=format&fit=crop&w=380&h=380&crop=focalpoint&fp-x=.5&fp-y=.5&fp-z=1.6&q=75');width:150px;height:150px;right:12%;bottom:12%"></div>
-<div class="circle" id="circle"><img id="cimg" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=2000&q=75" alt="Prato colorido com legumes, grãos e folhas sobre mesa de madeira"></div>
-<div class="ptext" id="ptext">
+<div class="zimg warm" id="pimg"><img id="ppic" src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=2000&q=75" alt="Prato colorido com legumes, grãos e folhas sobre mesa de madeira"></div>
+<div class="ztext" id="ptext">
 <span class="tag mono"><i></i>Filosofia</span>
 <h2>Seu prato, sua rotina, <span class="it">seu</span> ritmo.</h2>
 <p>O emagrecimento sustentável nasce do respeito entre o seu paladar, a sua rotina, a sua vida social e as suas necessidades nutricionais.</p>
@@ -393,7 +399,7 @@ footer img{width:56px;height:54px;object-fit:contain}
 <div class="stick">
 <div class="wrap" style="width:100%"><div class="shead"><div><span class="tag mono"><i></i>Serviços</span><h2>Cuidado clínico para <span class="it">cada fase</span>.</h2></div><div class="count"><b id="sn">01</b> / 05</div></div></div>
 <div class="track" id="track">
-<article class="card" style="--img:url('https://images.unsplash.com/photo-1588514206464-214a4d63ed18?auto=format&fit=crop&w=800&h=640&q=75')"><div class="ph"><span class="mono">01</span></div><div class="tx"><h3>Emagrecimento saudável</h3><p>Perda de peso com prazer em comer, sem fome e sem dietas radicais.</p><a href="https://wa.me/5532999649605?text=Ol%C3%A1%2C%20Karolaine!%20Quero%20saber%20sobre%20emagrecimento%20saud%C3%A1vel.">Agendar →</a></div></article>
+<article class="card" style="--img:url('https://images.unsplash.com/photo-1590779033100-9f60a05a013d?auto=format&fit=crop&w=800&h=640&q=75')"><div class="ph"><span class="mono">01</span></div><div class="tx"><h3>Emagrecimento saudável</h3><p>Perda de peso com prazer em comer, sem fome e sem dietas radicais.</p><a href="https://wa.me/5532999649605?text=Ol%C3%A1%2C%20Karolaine!%20Quero%20saber%20sobre%20emagrecimento%20saud%C3%A1vel.">Agendar →</a></div></article>
 <article class="card" style="--img:url('https://images.unsplash.com/photo-1519162808019-7de1683fa2ad?auto=format&fit=crop&w=800&h=640&q=75')"><div class="ph"><span class="mono">02</span></div><div class="tx"><h3>Tratamento da obesidade</h3><p>Acompanhamento especializado em obesidade e síndrome metabólica, com escuta.</p><a href="https://wa.me/5532999649605?text=Ol%C3%A1%2C%20Karolaine!%20Quero%20saber%20sobre%20tratamento%20da%20obesidade.">Agendar →</a></div></article>
 <article class="card" style="--img:url('https://images.unsplash.com/photo-1466637574441-749b8f19452f?auto=format&fit=crop&w=800&h=640&q=75')"><div class="ph"><span class="mono">03</span></div><div class="tx"><h3>Pré e pós-bariátrica</h3><p>Preparo nutricional para a cirurgia e suporte em cada fase da adaptação.</p><a href="https://wa.me/5532999649605?text=Ol%C3%A1%2C%20Karolaine!%20Quero%20saber%20sobre%20pr%C3%A9%20e%20p%C3%B3s-bari%C3%A1trica.">Agendar →</a></div></article>
 <article class="card" style="--img:url('https://images.unsplash.com/photo-1615485925807-d11c291f531c?auto=format&fit=crop&w=800&h=640&q=75')"><div class="ph"><span class="mono">04</span></div><div class="tx"><h3>Reeducação alimentar</h3><p>Hábitos sustentáveis e autonomia para fazer boas escolhas no dia a dia.</p><a href="https://wa.me/5532999649605?text=Ol%C3%A1%2C%20Karolaine!%20Quero%20saber%20sobre%20reeduca%C3%A7%C3%A3o%20alimentar.">Agendar →</a></div></article>
@@ -504,8 +510,8 @@ hero.addEventListener('mousemove',function(e){mx=e.clientX/innerWidth-.5;my=e.cl
 var hf=[].slice.call(document.querySelectorAll('[data-f]')),pf=[].slice.call(document.querySelectorAll('[data-p]'));
 var dirs={1:[.2,-1],2:[-1,-.4],3:[.3,1],4:[-1,.6]};
 var panel=document.getElementById('panel'),bar=document.getElementById('bar');
-var circle=document.getElementById('circle'),cimg=document.getElementById('cimg'),ptitle=document.getElementById('ptitle'),ptext=document.getElementById('ptext'),chipsF=document.getElementById('chipsF');
-var zimg=document.getElementById('zimg'),zpic=document.getElementById('zpic'),ztext=document.getElementById('ztext'),zlabel=document.getElementById('zlabel');
+function $(x){return document.getElementById(x)}
+var SC=[{el:$('prato'),img:$('pimg'),pic:$('ppic'),text:$('ptext'),label:$('plabel'),chips:$('chipsF'),fr:pf,s:0},{el:$('zoom'),img:$('zimg'),pic:$('zpic'),text:$('ztext'),label:$('zlabel'),s:0}];
 var track=document.getElementById('track'),sn=document.getElementById('sn');
 var tex=document.getElementById('tex'),wimg=document.getElementById('wimg'),apic=document.getElementById('apic');
 var mline=document.querySelector('#mline i'),steps=document.querySelectorAll('.step');
@@ -519,24 +525,19 @@ bar.style.transform='scaleX('+(h>0?y/h:0)+')';
 var hp=cl(y/vh,0,1);
 hf.forEach(function(e,k){var d=dirs[e.dataset.f],bob=Math.sin(now*.8+k*1.7)*10;
 e.style.transform='translate('+(mx*(30+k*12)+d[0]*hp*260)+'px,'+(my*(30+k*12)+d[1]*hp*260+bob)+'px) rotate('+(Math.sin(now*.5+k)*6+hp*(k%2?40:-40))+'deg)'});
-if(vw>1000)panel.style.transform='scale('+(1-hp*.06)+') translateY('+(hp*30)+'px)';
-/* prato */
-var p=prog(document.getElementById('prato')),q=ease(cl(p/.62,0,1));
-var r0=vw<1000?18:13;var rad=r0+(80-r0)*q;
-circle.style.clipPath='circle('+rad+'% at 50% 50%)';
-cimg.style.transform='scale('+(1.3-.3*q)+') rotate('+((1-q)*-8)+'deg)';
-circle.style.setProperty('--o',cl((p-.5)/.15,0,1));
-ptitle.style.opacity=1-cl(p/.22,0,1);ptitle.style.transform='translate(-50%,-50%) scale('+(1+cl(p/.22,0,1)*.08)+')';
-pf.forEach(function(e,k){var s=cl(p/.5,0,1),d=k%2?1:-1;e.style.opacity=1-s;e.style.transform='translate('+(d*s*240)+'px,'+(Math.sin(now*.8+k)*10-s*120)+'px) rotate('+(d*s*90+Math.sin(now*.6+k)*6)+'deg) scale('+(1+s*.4)+')'});
-var tp=cl((p-.6)/.14,0,1);ptext.style.opacity=tp;ptext.style.transform='translateY(calc(-50% + '+((1-tp)*40)+'px))';chipsF.style.opacity=cl((p-.7)/.12,0,1);
-/* zoom */
-var zp=prog(document.getElementById('zoom')),zq=ease(cl(zp/.6,0,1));
-var ix=(1-zq)*(vw<1000?10:28),iy=(1-zq)*(vw<1000?30:28);
-zimg.style.clipPath='inset('+(iy+(1-zq)*6)+'% '+ix+'% '+(iy-(1-zq)*6)+'% '+ix+'% round '+((1-zq)*30)+'px)';
-zpic.style.transform='scale('+(1.2-.2*zq)+')';
-zimg.style.setProperty('--o',cl((zp-.45)/.2,0,1));
-var zt=cl((zp-.55)/.18,0,1);ztext.style.opacity=zt;ztext.style.transform='translateY(calc(-50% + '+((1-zt)*40)+'px))';
-zlabel.style.opacity=1-cl(zp/.28,0,1);
+if(vw>1000)panel.style.transform='translateY('+(hp*40)+'px)';
+/* photo scenes (smoothed) */
+SC.forEach(function(c){var target=prog(c.el);c.s+=(target-c.s)*.085;if(Math.abs(target-c.s)<.0004)c.s=target;var s=c.s;
+var q=ease(cl((s-.04)/.52,0,1)),m=vw<1000;
+var T=(m?36:30)*(1-q),B=(m?10:7)*(1-q),X=(m?6:17)*(1-q),R=28*(1-q);
+c.img.style.clipPath='inset('+T+'% '+X+'% '+B+'% '+X+'% round '+R+'px)';
+c.pic.style.transform='scale('+(1.1-.1*q)+')';
+c.img.style.setProperty('--o',cl((s-.48)/.2,0,1));
+var lt=cl((s-.06)/.26,0,1);c.label.style.opacity=1-lt;c.label.style.transform='translateY('+(-lt*40)+'px)';
+var tp=cl((s-.56)/.16,0,1);c.text.style.opacity=tp;c.text.style.transform='translateY(calc(-50% + '+((1-tp)*30)+'px))';
+if(c.chips)c.chips.style.opacity=cl((s-.66)/.14,0,1);
+if(c.fr)c.fr.forEach(function(e,k){var f=cl(s/.4,0,1),d=k%2?1:-1;e.style.opacity=1-f;e.style.transform='translate('+(d*f*200)+'px,'+(Math.sin(now*.8+k)*8-f*90)+'px) rotate('+(d*f*40+Math.sin(now*.6+k)*5)+'deg)'});
+});
 /* services */
 var sp=prog(document.getElementById('serv'));var max=track.scrollWidth-vw+Math.max(40,vw/2-620);
 track.style.transform='translateX('+(-sp*Math.max(0,max))+'px)';sn.textContent='0'+Math.min(5,1+Math.round(sp*4));
